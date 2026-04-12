@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/price-guide', label: 'Price Guide' },
   { href: '/tools', label: 'Tools' },
   { href: '/guides', label: 'Guides' },
+  { href: '/calendar', label: 'Calendar' },
   { href: '/news', label: 'News' },
   { href: '/about', label: 'About' },
 ];

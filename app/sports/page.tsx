@@ -23,8 +23,19 @@ export default function SportsPage() {
       <div className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">Sports Cards</h1>
         <p className="text-gray-400 text-lg max-w-2xl">
-          100+ iconic cards from every era — vintage tobacco issues to modern patch autos. Each with real card data and estimated value ranges.
+          300+ iconic cards from every era — vintage tobacco issues to modern patch autos. Each with real card data and estimated value ranges.
         </p>
+      </div>
+
+      {/* Browse by Set link */}
+      <div className="mb-8">
+        <Link
+          href="/sports/sets"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800 border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition-colors text-sm font-medium"
+        >
+          Browse by Set
+          <span className="text-gray-500">→</span>
+        </Link>
       </div>
 
       {/* Sport selector */}

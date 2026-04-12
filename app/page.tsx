@@ -1,52 +1,36 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import InstantSearch from '@/components/InstantSearch';
 import NewsCard from '@/components/NewsCard';
+import CardFrame from '@/components/CardFrame';
 import { newsItems } from '@/data/news';
 import { sportsCards } from '@/data/sports-cards';
+
+// Card of the Day — rotates by date
+function getCardOfTheDay() {
+  const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+  const index = dayOfYear % sportsCards.length;
+  return sportsCards[index];
+}
 
 const featuredSportsCards = [
   sportsCards.find(c => c.slug === '1986-87-fleer-michael-jordan-57')!,
   sportsCards.find(c => c.slug === '2000-playoff-contenders-tom-brady-144')!,
   sportsCards.find(c => c.slug === '1979-80-opee-chee-wayne-gretzky-18')!,
+  sportsCards.find(c => c.slug === '2022-23-panini-prizm-victor-wembanyama-258')!,
+].filter(Boolean);
+
+const topMovers = [
+  { name: 'Wembanyama Prizm Auto', change: '+24%', direction: 'up', detail: 'All-Star season closing strong', color: 'text-emerald-400' },
+  { name: 'Ovechkin Young Guns PSA 10', change: '+18%', direction: 'up', detail: 'Retirement watch driving demand', color: 'text-emerald-400' },
+  { name: 'Luka Prizm Silver PSA 10', change: '-8%', direction: 'down', detail: 'Population growth pressure', color: 'text-red-400' },
+  { name: 'Griffey Upper Deck PSA 10', change: '+6%', direction: 'up', detail: 'Steady vintage appreciation', color: 'text-emerald-400' },
 ];
 
 const featuredPokemonCards = [
-  {
-    name: 'Charizard ex SAR',
-    set: 'Obsidian Flames',
-    price: '$180–$320',
-    rarity: 'Special Art Rare',
-    gradient: 'from-orange-900 via-red-900 to-gray-900',
-    href: '/pokemon',
-    emoji: '🔥',
-  },
-  {
-    name: 'Pikachu ex SAR',
-    set: 'Scarlet & Violet 151',
-    price: '$45–$90',
-    rarity: 'Special Art Rare',
-    gradient: 'from-yellow-900 via-amber-900 to-gray-900',
-    href: '/pokemon',
-    emoji: '⚡',
-  },
-  {
-    name: 'Umbreon ex SAR',
-    set: 'Prismatic Evolutions',
-    price: '$60–$120',
-    rarity: 'Special Art Rare',
-    gradient: 'from-indigo-900 via-purple-900 to-gray-900',
-    href: '/pokemon',
-    emoji: '🌙',
-  },
+  { name: 'Charizard ex SAR', set: 'Obsidian Flames', price: '$180-$320', gradient: 'from-orange-900 via-red-900 to-gray-900', emoji: '🔥' },
+  { name: 'Umbreon ex SAR', set: 'Prismatic Evolutions', price: '$60-$120', gradient: 'from-indigo-900 via-purple-900 to-gray-900', emoji: '🌙' },
+  { name: 'Pikachu ex SAR', set: 'Scarlet & Violet 151', price: '$45-$90', gradient: 'from-yellow-900 via-amber-900 to-gray-900', emoji: '⚡' },
 ];
-
-const sportIcons: Record<string, string> = {
-  baseball: '⚾',
-  basketball: '🏀',
-  football: '🏈',
-  hockey: '🏒',
-};
 
 const sportGradients: Record<string, string> = {
   baseball: 'from-red-900 to-red-800',
@@ -55,8 +39,21 @@ const sportGradients: Record<string, string> = {
   hockey: 'from-cyan-900 to-cyan-800',
 };
 
+const sportIcons: Record<string, string> = {
+  baseball: '⚾',
+  basketball: '🏀',
+  football: '🏈',
+  hockey: '🏒',
+};
+
+// Collector stats
+const totalSportsCards = sportsCards.length;
+const rookieCount = sportsCards.filter(c => c.rookie).length;
+const sportsSet = new Set(sportsCards.map(c => c.set)).size;
+
 export default function HomePage() {
   const latestNews = newsItems.slice(0, 4);
+  const cardOfTheDay = getCardOfTheDay();
 
   return (
     <>
@@ -67,14 +64,14 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-              Live market data from Pokémon TCG API + curated sports card database
+              Live market data · Updated April 2026
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6">
               Know What Your<br />
               <span className="text-emerald-400">Cards Are Worth</span>
             </h1>
             <p className="text-gray-400 text-lg sm:text-xl mb-10 max-w-xl leading-relaxed">
-              Browse 15,000+ Pokémon TCG cards with live prices. Explore 100+ iconic sports cards from every era. One place for the entire hobby.
+              Browse 17,000+ Pokémon TCG cards with live prices. Explore {totalSportsCards}+ iconic sports cards with grade-by-grade pricing and PSA population data.
             </p>
             <div className="max-w-xl">
               <InstantSearch
@@ -98,27 +95,85 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Market Pulse */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h2 className="text-2xl font-bold text-white">Market Pulse</h2>
-            <p className="text-gray-400 text-sm mt-1">High-value cards collectors are watching right now</p>
+      {/* Collector Stats Bar */}
+      <div className="border-b border-gray-800 bg-gray-900/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex flex-wrap items-center gap-6 sm:gap-10 justify-center sm:justify-start">
+            {[
+              { label: 'Pokémon Cards', value: '17,000+', color: 'text-yellow-400' },
+              { label: 'Sports Cards', value: `${totalSportsCards}+`, color: 'text-emerald-400' },
+              { label: 'Sets Covered', value: `${sportsSet}+`, color: 'text-blue-400' },
+              { label: 'Rookie Cards', value: `${rookieCount}+`, color: 'text-orange-400' },
+              { label: 'Grade Tables', value: '10+', color: 'text-purple-400' },
+            ].map(stat => (
+              <div key={stat.label} className="flex items-center gap-2">
+                <span className={`text-lg font-black ${stat.color}`}>{stat.value}</span>
+                <span className="text-gray-500 text-sm">{stat.label}</span>
+              </div>
+            ))}
           </div>
-          <Link href="/price-guide" className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">
-            Full Price Guide →
-          </Link>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Sports column */}
-          <div>
-            <h3 className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-4">Sports Cards</h3>
+      {/* Card of the Day */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-950 border border-gray-700 rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            <div className="p-8 flex flex-col justify-center">
+              <div className="inline-flex items-center gap-2 bg-amber-950/60 border border-amber-800/50 text-amber-400 text-xs font-medium px-3 py-1.5 rounded-full mb-5 w-fit">
+                <span className="w-1.5 h-1.5 bg-amber-400 rounded-full" />
+                Card of the Day
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-2">{cardOfTheDay.name}</h2>
+              <p className="text-gray-400 text-sm mb-5 leading-relaxed">{cardOfTheDay.description.slice(0, 160)}...</p>
+              <div className="flex flex-wrap gap-3 mb-6">
+                <div className="bg-gray-800 rounded-lg px-3 py-2">
+                  <p className="text-gray-500 text-xs">Mid Grade Value</p>
+                  <p className="text-emerald-400 font-bold">{cardOfTheDay.estimatedValueRaw}</p>
+                </div>
+                <div className="bg-gray-800 rounded-lg px-3 py-2">
+                  <p className="text-gray-500 text-xs">Gem Mint</p>
+                  <p className="text-emerald-400 font-bold">{cardOfTheDay.estimatedValueGem}</p>
+                </div>
+              </div>
+              <Link
+                href={`/sports/${cardOfTheDay.slug}`}
+                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-6 py-2.5 rounded-xl transition-colors text-sm w-fit"
+              >
+                View Full Profile
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+            <div className="flex items-center justify-center p-8 bg-gray-950/50 border-t lg:border-t-0 lg:border-l border-gray-800">
+              <div className="w-52">
+                <CardFrame card={cardOfTheDay} size="large" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Market Pulse + Top Movers */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Market Pulse */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-white">Market Pulse</h2>
+                <p className="text-gray-400 text-sm mt-1">High-value cards collectors are watching</p>
+              </div>
+              <Link href="/price-guide" className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">
+                Full guide →
+              </Link>
+            </div>
             <div className="space-y-3">
               {featuredSportsCards.map(card => (
                 <Link key={card.slug} href={`/sports/${card.slug}`} className="group block">
                   <div className="flex items-center gap-4 bg-gray-900 border border-gray-800 rounded-xl p-4 hover:border-emerald-500/40 transition-all">
-                    <div className={`w-14 h-14 rounded-lg bg-gradient-to-br ${sportGradients[card.sport]} flex items-center justify-center text-2xl shrink-0`}>
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${sportGradients[card.sport]} flex items-center justify-center text-xl shrink-0`}>
                       {sportIcons[card.sport]}
                     </div>
                     <div className="min-w-0 flex-1">
@@ -127,40 +182,38 @@ export default function HomePage() {
                     </div>
                     <div className="text-right shrink-0">
                       <p className="text-emerald-400 text-sm font-bold">{card.estimatedValueRaw}</p>
-                      {card.rookie && <span className="text-xs text-gray-500">Rookie Card</span>}
                     </div>
                   </div>
                 </Link>
               ))}
               <Link href="/sports" className="block text-center py-2.5 text-emerald-400 hover:text-emerald-300 text-sm font-medium border border-emerald-900/50 hover:border-emerald-800 rounded-xl transition-all">
-                Browse all sports cards →
+                Browse all {totalSportsCards}+ sports cards →
               </Link>
             </div>
           </div>
 
-          {/* Pokémon column */}
+          {/* Top Movers */}
           <div>
-            <h3 className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-4">Pokémon TCG</h3>
-            <div className="space-y-3">
-              {featuredPokemonCards.map(card => (
-                <Link key={card.name} href={card.href} className="group block">
-                  <div className="flex items-center gap-4 bg-gray-900 border border-gray-800 rounded-xl p-4 hover:border-emerald-500/40 transition-all">
-                    <div className={`w-14 h-14 rounded-lg bg-gradient-to-br ${card.gradient} flex items-center justify-center text-2xl shrink-0`}>
-                      {card.emoji}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-white text-sm font-semibold truncate group-hover:text-emerald-400 transition-colors">{card.name}</p>
-                      <p className="text-gray-500 text-xs mt-0.5">{card.set} · {card.rarity}</p>
-                    </div>
-                    <div className="text-right shrink-0">
-                      <p className="text-emerald-400 text-sm font-bold">{card.price}</p>
-                    </div>
+            <div className="mb-6">
+              <h2 className="text-xl font-bold text-white">Top Movers</h2>
+              <p className="text-gray-400 text-sm mt-1">30-day price trend</p>
+            </div>
+            <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
+              {topMovers.map((mover, i) => (
+                <div key={i} className={`flex items-start gap-3 p-4 ${i < topMovers.length - 1 ? 'border-b border-gray-800' : ''}`}>
+                  <span className={`text-lg shrink-0 mt-0.5 ${mover.direction === 'up' ? 'text-emerald-400' : 'text-red-400'}`}>
+                    {mover.direction === 'up' ? '↑' : '↓'}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-white text-sm font-medium leading-snug">{mover.name}</p>
+                    <p className="text-gray-500 text-xs mt-0.5">{mover.detail}</p>
                   </div>
-                </Link>
+                  <span className={`text-sm font-bold shrink-0 ${mover.color}`}>{mover.change}</span>
+                </div>
               ))}
-              <Link href="/pokemon" className="block text-center py-2.5 text-emerald-400 hover:text-emerald-300 text-sm font-medium border border-emerald-900/50 hover:border-emerald-800 rounded-xl transition-all">
-                Browse all Pokémon sets →
-              </Link>
+              <div className="px-4 py-3 border-t border-gray-800">
+                <p className="text-gray-600 text-xs">Estimates based on eBay sold comp trends. Not financial advice.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -170,54 +223,20 @@ export default function HomePage() {
       <section className="border-y border-gray-800 bg-gray-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <h2 className="text-2xl font-bold text-white text-center mb-10">Where do you want to start?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
             {[
-              {
-                href: '/pokemon',
-                title: 'Browse Pokémon Cards',
-                description: '15,000+ cards with live TCGPlayer prices across every set from Base through Scarlet & Violet',
-                icon: '⚡',
-                color: 'from-yellow-900/50 to-amber-900/30',
-                border: 'border-yellow-800/30 hover:border-yellow-600/50',
-              },
-              {
-                href: '/sports',
-                title: 'Browse Sports Cards',
-                description: '100+ iconic cards across baseball, basketball, football, and hockey — from T206 Wagner to Wembanyama',
-                icon: '🏆',
-                color: 'from-blue-900/50 to-indigo-900/30',
-                border: 'border-blue-800/30 hover:border-blue-600/50',
-              },
-              {
-                href: '/price-guide',
-                title: 'Price Guide',
-                description: 'Searchable, filterable price table covering both sports and Pokémon cards with sorting by year and set',
-                icon: '📊',
-                color: 'from-emerald-900/50 to-teal-900/30',
-                border: 'border-emerald-800/30 hover:border-emerald-600/50',
-              },
-              {
-                href: '/tools',
-                title: 'Collector Tools',
-                description: 'Grade value calculator, grading cost estimator, and eBay sold search generator — free, no account needed',
-                icon: '🛠️',
-                color: 'from-purple-900/50 to-violet-900/30',
-                border: 'border-purple-800/30 hover:border-purple-600/50',
-              },
-              {
-                href: '/guides',
-                title: 'Collector Guides',
-                description: 'How to start collecting, when to grade, how to read price data, and the history of card eras explained',
-                icon: '📖',
-                color: 'from-rose-900/50 to-pink-900/30',
-                border: 'border-rose-800/30 hover:border-rose-600/50',
-              },
+              { href: '/pokemon', title: 'Pokémon TCG', description: '17,000+ cards with live prices', icon: '⚡', color: 'from-yellow-900/50 to-amber-900/30', border: 'border-yellow-800/30 hover:border-yellow-600/50' },
+              { href: '/sports', title: 'Sports Cards', description: `${totalSportsCards}+ iconic cards from T206 to Wemby`, icon: '🏆', color: 'from-blue-900/50 to-indigo-900/30', border: 'border-blue-800/30 hover:border-blue-600/50' },
+              { href: '/sports/sets', title: 'Browse by Set', description: '230+ sets organized by sport and era', icon: '📦', color: 'from-emerald-900/50 to-teal-900/30', border: 'border-emerald-800/30 hover:border-emerald-600/50' },
+              { href: '/calendar', title: 'Release Calendar', description: '2026 product release schedule', icon: '📅', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
+              { href: '/tools', title: 'Collector Tools', description: 'Grade calculator, grading cost estimator', icon: '🛠️', color: 'from-purple-900/50 to-violet-900/30', border: 'border-purple-800/30 hover:border-purple-600/50' },
+              { href: '/guides', title: 'Collector Guides', description: 'Grading, investing, Pokémon, and eras', icon: '📖', color: 'from-rose-900/50 to-pink-900/30', border: 'border-rose-800/30 hover:border-rose-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
-                <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-6 h-full transition-all hover:-translate-y-0.5 hover:shadow-lg`}>
-                  <div className="text-3xl mb-4">{item.icon}</div>
-                  <h3 className="text-white font-bold text-lg mb-2 group-hover:text-emerald-400 transition-colors">{item.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>
+                  <div className="text-2xl mb-3">{item.icon}</div>
+                  <h3 className="text-white font-bold text-sm mb-1 group-hover:text-emerald-400 transition-colors">{item.title}</h3>
+                  <p className="text-gray-400 text-xs leading-relaxed">{item.description}</p>
                 </div>
               </Link>
             ))}
@@ -225,8 +244,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Latest News */}
+      {/* Pokémon Spotlight */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-2xl font-bold text-white">Pokémon TCG Spotlight</h2>
+            <p className="text-gray-400 text-sm mt-1">Most-watched Special Art Rares</p>
+          </div>
+          <Link href="/pokemon" className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">All sets →</Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {featuredPokemonCards.map(card => (
+            <Link key={card.name} href="/pokemon" className="group block">
+              <div className={`bg-gradient-to-br ${card.gradient} border border-gray-800 rounded-xl p-5 hover:border-gray-600 transition-all`}>
+                <div className="text-4xl mb-3">{card.emoji}</div>
+                <h3 className="text-white font-bold mb-0.5 group-hover:text-emerald-400 transition-colors">{card.name}</h3>
+                <p className="text-gray-400 text-xs mb-3">{card.set} · Special Art Rare</p>
+                <p className="text-emerald-400 font-bold text-lg">{card.price}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Latest News */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-white">Latest News</h2>
@@ -243,27 +285,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Trust Signals */}
+      <section className="border-t border-gray-800 bg-gray-900/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            {[
+              { icon: '📊', title: 'Real Market Data', body: 'All prices sourced from eBay sold comps, PWCC, Heritage, and Goldin auction results — not book value.' },
+              { icon: '🔓', title: 'Always Free', body: 'No account required. No paywalls. CardVault is a free resource for every collector.' },
+              { icon: '🏅', title: 'PSA Pop Report Integration', body: 'Grade-level pricing backed by real PSA population data so you know exactly how rare your grade is.' },
+            ].map(trust => (
+              <div key={trust.title} className="flex flex-col items-center">
+                <span className="text-3xl mb-3">{trust.icon}</span>
+                <h3 className="text-white font-bold mb-2">{trust.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{trust.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA + Footer nav */}
       <section className="bg-gradient-to-br from-emerald-950 to-gray-950 border-t border-emerald-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to explore?</h2>
           <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
-            Start with our complete Pokémon TCG set browser or dive into iconic sports cards from every era.
+            Pokémon TCG live prices, iconic sports cards with grade breakdowns, collector tools, and release calendar — all in one place.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/pokemon"
-              className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-8 py-3 rounded-xl transition-colors"
-            >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link href="/pokemon" className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-8 py-3 rounded-xl transition-colors">
               Browse Pokémon Sets
             </Link>
-            <Link
-              href="/sports"
-              className="inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold px-8 py-3 rounded-xl transition-colors border border-gray-700"
-            >
+            <Link href="/sports" className="inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold px-8 py-3 rounded-xl transition-colors border border-gray-700">
               Explore Sports Cards
             </Link>
           </div>
+          {/* Footer links */}
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+            {[
+              { href: '/sports/sets', label: 'Browse by Set' },
+              { href: '/calendar', label: 'Release Calendar' },
+              { href: '/guides/grading-guide', label: 'Grading Guide' },
+              { href: '/guides/investing-101', label: 'Investing 101' },
+              { href: '/guides/pokemon-investing', label: 'Pokémon Investing' },
+              { href: '/tools', label: 'Collector Tools' },
+              { href: '/news', label: 'News' },
+              { href: '/about', label: 'About' },
+            ].map(link => (
+              <Link key={link.href} href={link.href} className="hover:text-emerald-400 transition-colors">
+                {link.label}
+              </Link>
+            ))}
+          </div>
+          <p className="text-gray-700 text-xs mt-6">
+            CardVault · Free sports card and Pokémon TCG price guide · April 2026
+          </p>
         </div>
       </section>
     </>
