@@ -567,6 +567,36 @@ export const guides: Guide[] = [
       },
     ],
   },
+  {
+    slug: 'most-valuable-sports-cards',
+    title: 'The 50 Most Valuable Sports Cards of All Time',
+    summary: 'Every record sale, every current range, and why each card commands its premium. Baseball, basketball, football, and hockey — ranked by verified auction record.',
+    category: 'Market Data',
+    readTime: '12 min',
+    icon: '🏆',
+    gradient: 'from-amber-900/40 via-yellow-900/20 to-gray-900/40',
+    content: [],
+  },
+  {
+    slug: 'most-valuable-pokemon-cards',
+    title: 'The 50 Most Valuable Pokémon Cards of All Time',
+    summary: 'From the $5.275M Pikachu Illustrator to the most coveted modern alt arts. Record prices, current ranges, and what makes each card irreplaceable.',
+    category: 'Market Data',
+    readTime: '12 min',
+    icon: '⚡',
+    gradient: 'from-yellow-900/40 via-amber-900/20 to-gray-900/40',
+    content: [],
+  },
+  {
+    slug: 'card-market-2026',
+    title: 'State of the Card Market: 2026 Analysis',
+    summary: 'Fanatics overproduction backlash, PSA grading at 3.75M+ submissions, Pokémon TCG Pocket driving physical demand, vintage stability vs modern volatility. Deep dive.',
+    category: 'Market Analysis',
+    readTime: '15 min',
+    icon: '📊',
+    gradient: 'from-violet-900/40 via-indigo-900/20 to-gray-900/40',
+    content: [],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
