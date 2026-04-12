@@ -14,6 +14,8 @@ const navLinks = [
   { href: '/calendar', label: 'Calendar' },
 ];
 
+const starterLink = { href: '/start', label: 'New to cards?' };
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -49,6 +51,16 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href={starterLink.href}
+              className={`ml-1 px-3 py-1.5 rounded-md text-xs font-medium transition-colors border ${
+                pathname === starterLink.href
+                  ? 'border-emerald-500 text-emerald-400 bg-emerald-950/40'
+                  : 'border-gray-700 text-gray-400 hover:text-emerald-400 hover:border-emerald-800'
+              }`}
+            >
+              {starterLink.label}
+            </Link>
           </nav>
 
           {/* Mobile hamburger */}
@@ -88,6 +100,17 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <Link
+              href={starterLink.href}
+              onClick={() => setMenuOpen(false)}
+              className={`block px-3 py-2 rounded-md text-xs font-medium border transition-colors ${
+                pathname === starterLink.href
+                  ? 'border-emerald-500 text-emerald-400 bg-emerald-950/40'
+                  : 'border-gray-700 text-gray-400 hover:text-emerald-400'
+              }`}
+            >
+              {starterLink.label}
+            </Link>
           </nav>
         </div>
       )}

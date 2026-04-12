@@ -108,6 +108,23 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+          {/* Start here CTA for beginners */}
+          <div className="mt-8 border-t border-gray-800 pt-6">
+            <Link
+              href="/start"
+              className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group"
+            >
+              <span className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-gray-700 transition-colors shrink-0">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+                </svg>
+              </span>
+              New to cards? Start here — 3 questions to the right tool
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="opacity-50">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
