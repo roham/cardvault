@@ -597,6 +597,36 @@ export const guides: Guide[] = [
     gradient: 'from-violet-900/40 via-indigo-900/20 to-gray-900/40',
     content: [],
   },
+  {
+    slug: 'best-cards-under-100',
+    title: '50 Best Sports Cards Under $100',
+    summary: 'Hall of Famers, iconic rookies, and vintage classics you can actually afford. PSA 9 prices, why each card matters, and exactly what to look for when buying. The largest audience in the hobby — not everyone collects $100K cards.',
+    category: 'Buying Guide',
+    readTime: '10 min',
+    icon: '💰',
+    gradient: 'from-emerald-900/40 via-teal-900/20 to-gray-900/40',
+    content: [],
+  },
+  {
+    slug: 'best-pokemon-investments',
+    title: 'Best Pokémon Card Investments for 2026',
+    summary: 'Vintage graded, sealed product, modern alt arts, and raw submission plays — analyzed by risk tier, entry price, and long-term thesis. No hype, no speculation dressed as analysis.',
+    category: 'Investing',
+    readTime: '12 min',
+    icon: '⚡',
+    gradient: 'from-yellow-900/40 via-amber-900/20 to-gray-900/40',
+    content: [],
+  },
+  {
+    slug: 'fake-cards',
+    title: 'How to Spot Fake Sports Cards and Pokémon Cards',
+    summary: 'Trimmed cards, fake PSA slabs, recolored vintage, forged autographs, and counterfeit Pokémon — every major fraud type with specific detection methods, tools, and red flags.',
+    category: 'Authentication',
+    readTime: '9 min',
+    icon: '🔍',
+    gradient: 'from-rose-900/40 via-red-900/20 to-gray-900/40',
+    content: [],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
