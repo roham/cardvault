@@ -72,8 +72,11 @@ export default async function SportsCardPage({ params }: Props) {
   const variationsData = getCardVariations(slug);
 
   const ebaySearchBase = `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(card.name)}&LH_Complete=1&LH_Sold=1`;
-  const psaCertUrl = `https://www.psacard.com/smrpriceguide/`;
   const comcUrl = `https://www.comc.com/Cards/Sport,${card.sport.charAt(0).toUpperCase() + card.sport.slice(1)}/View,list/?q=${encodeURIComponent(card.player)}`;
+
+  const ebayImagesUrl = `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(card.name + ' PSA graded')}&LH_Complete=1&LH_Sold=1&_udlo=100`;
+  const psaPopUrl = `https://www.psacard.com/pop/`;
+  const psaCertLookup = `https://www.psacard.com/cert/`;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -83,6 +86,83 @@ export default async function SportsCardPage({ params }: Props) {
         { label: sportLabel, href: `/sports#${card.sport}` },
         { label: card.player },
       ]} />
+
+      {/* Card Images Section */}
+      <div className="mb-10 bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
+        <div className="flex items-center gap-3 px-5 py-3 border-b border-gray-800">
+          <div className="w-2 h-2 bg-emerald-400 rounded-full" />
+          <h2 className="text-white font-semibold text-sm">Card Images</h2>
+          <span className="text-gray-500 text-xs ml-auto">Real photos from verified sellers</span>
+        </div>
+        <div className="p-5">
+          <p className="text-gray-400 text-sm mb-4">
+            View real photos of this card from authenticated sellers and recent auction results. Images show actual condition — useful for grading research.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              {
+                label: 'eBay — PSA Graded',
+                url: ebayImagesUrl,
+                desc: 'Sold PSA copies with photos',
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                  </svg>
+                ),
+                color: 'bg-emerald-950/40 border-emerald-800/40 text-emerald-400 hover:border-emerald-600/60',
+              },
+              {
+                label: 'eBay — Raw Copies',
+                url: `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(card.name)}&LH_Complete=1&LH_Sold=1`,
+                desc: 'Ungraded sold listings',
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                ),
+                color: 'bg-blue-950/40 border-blue-800/40 text-blue-400 hover:border-blue-600/60',
+              },
+              {
+                label: 'PSA Pop Report',
+                url: psaPopUrl,
+                desc: 'Official population data',
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                    <path d="M18 20V10M12 20V4M6 20v-6"/>
+                  </svg>
+                ),
+                color: 'bg-purple-950/40 border-purple-800/40 text-purple-400 hover:border-purple-600/60',
+              },
+              {
+                label: 'PSA Cert Verify',
+                url: psaCertLookup,
+                desc: 'Verify graded card is real',
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
+                  </svg>
+                ),
+                color: 'bg-amber-950/40 border-amber-800/40 text-amber-400 hover:border-amber-600/60',
+              },
+            ].map(link => (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group flex flex-col items-center border rounded-xl p-4 text-center transition-all hover:-translate-y-0.5 ${link.color}`}
+              >
+                <span className="mb-2">{link.icon}</span>
+                <span className="text-xs font-semibold leading-snug mb-0.5">{link.label}</span>
+                <span className="text-gray-500 text-xs">{link.desc}</span>
+              </a>
+            ))}
+          </div>
+          <p className="text-gray-600 text-xs mt-3">
+            The stylized card illustration below is a representation. Real card images vary by print run, centering, and condition.
+          </p>
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
         {/* Card display */}
@@ -448,7 +528,7 @@ export default async function SportsCardPage({ params }: Props) {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
             { label: 'eBay Sold Listings', url: ebaySearchBase, icon: '🔍', desc: 'Real transaction prices' },
-            { label: 'PSA Cert Lookup', url: psaCertUrl, icon: '🏅', desc: 'Verify grades & fakes' },
+            { label: 'PSA Cert Lookup', url: psaCertLookup, icon: '🏅', desc: 'Verify grades & fakes' },
             { label: 'COMC Marketplace', url: comcUrl, icon: '🃏', desc: 'Buy/sell singles' },
             { label: 'CardLadder', url: `https://www.cardladder.com/search?q=${encodeURIComponent(card.player)}`, icon: '📈', desc: 'Price trend charts' },
           ].map(link => (

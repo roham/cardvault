@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { sportsCards } from '@/data/sports-cards';
+import { notableSales } from '@/data/notable-sales';
 import SportsCardTile from '@/components/SportsCardTile';
 import CardGrid from '@/components/CardGrid';
 
@@ -55,13 +56,41 @@ export default function SportsPage() {
       {/* Per-sport sections */}
       {sports.map(s => {
         const cards = sportsCards.filter(c => c.sport === s.value);
+        const rookieCards = cards.filter(c => c.rookie).length;
+        // Find the most valuable card in this sport by top notable sale
+        const mostValuable = cards.reduce<{ card: typeof cards[0]; record: string } | null>((best, card) => {
+          const sales = notableSales.find(n => n.slug === card.slug);
+          if (!sales) return best;
+          const topSale = sales.sales[0];
+          if (!best || topSale.priceValue > (notableSales.find(n => n.slug === best.card.slug)?.sales[0]?.priceValue ?? 0)) {
+            return { card, record: topSale.price };
+          }
+          return best;
+        }, null);
+
         return (
           <section key={s.value} id={s.value} className="mb-14 scroll-mt-20">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-white flex items-center gap-2">
                 <span>{s.emoji}</span> {s.label}
               </h2>
-              <span className="text-gray-500 text-sm">{cards.length} cards</span>
+              <span className="text-gray-500 text-sm">{cards.length} cards tracked</span>
+            </div>
+            {/* Sport stats strip */}
+            <div className="flex flex-wrap gap-4 mb-6">
+              <div className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-2.5 flex items-center gap-2">
+                <span className="text-gray-500 text-xs">Rookie Cards</span>
+                <span className="text-white font-bold text-sm">{rookieCards}</span>
+              </div>
+              {mostValuable && (
+                <div className="bg-gray-900 border border-gray-800 rounded-xl px-4 py-2.5 flex items-center gap-2">
+                  <span className="text-gray-500 text-xs">Record Sale</span>
+                  <span className="text-amber-400 font-bold text-sm">{mostValuable.record}</span>
+                  <Link href={`/sports/${mostValuable.card.slug}`} className="text-gray-600 hover:text-emerald-400 text-xs transition-colors">
+                    ({mostValuable.card.player}) →
+                  </Link>
+                </div>
+              )}
             </div>
             <CardGrid columns={4}>
               {cards.map(card => (

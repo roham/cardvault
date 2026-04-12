@@ -25,17 +25,21 @@ interface PokemonCard {
   evolvesFrom?: string;
   attacks?: Attack[];
   weaknesses?: { type: string; value: string }[];
+  resistances?: { type: string; value: string }[];
   retreatCost?: string[];
   set: {
     id: string;
     name: string;
     series: string;
     releaseDate: string;
+    printedTotal?: number;
+    total?: number;
     images: { logo: string; symbol: string };
   };
   number: string;
   artist?: string;
   rarity?: string;
+  flavorText?: string;
   images: { small: string; large: string };
   tcgplayer?: {
     url?: string;
@@ -214,13 +218,88 @@ export default async function PokemonCardPage({ params }: Props) {
                 {card.attacks.map(attack => (
                   <div key={attack.name} className="bg-gray-900 border border-gray-800 rounded-xl p-3">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-white text-sm font-medium">{attack.name}</span>
+                      <div className="flex items-center gap-2">
+                        {attack.cost && attack.cost.length > 0 && (
+                          <div className="flex gap-0.5">
+                            {attack.cost.map((c, i) => (
+                              <span key={i} className={`text-xs px-1.5 py-0.5 rounded font-medium ${typeColors[c] ?? 'bg-gray-700 text-gray-300'}`}>{c.slice(0,1)}</span>
+                            ))}
+                          </div>
+                        )}
+                        <span className="text-white text-sm font-medium">{attack.name}</span>
+                      </div>
                       <span className="text-emerald-400 text-sm font-bold">{attack.damage || '—'}</span>
                     </div>
                     {attack.text && <p className="text-gray-400 text-xs leading-relaxed">{attack.text}</p>}
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Weakness / Resistance / Retreat */}
+          {(card.weaknesses || card.resistances || card.retreatCost) && (
+            <div className="grid grid-cols-3 gap-3 mb-6">
+              {card.weaknesses && card.weaknesses.length > 0 && (
+                <div className="bg-gray-900 border border-gray-800 rounded-xl p-3 text-center">
+                  <p className="text-gray-500 text-xs mb-1.5">Weakness</p>
+                  {card.weaknesses.map(w => (
+                    <div key={w.type} className="flex items-center justify-center gap-1">
+                      <span className={`text-xs px-1.5 py-0.5 rounded font-medium ${typeColors[w.type] ?? 'bg-gray-700 text-gray-300'}`}>{w.type}</span>
+                      <span className="text-red-400 text-xs font-bold">{w.value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {card.resistances && card.resistances.length > 0 && (
+                <div className="bg-gray-900 border border-gray-800 rounded-xl p-3 text-center">
+                  <p className="text-gray-500 text-xs mb-1.5">Resistance</p>
+                  {card.resistances.map(r => (
+                    <div key={r.type} className="flex items-center justify-center gap-1">
+                      <span className={`text-xs px-1.5 py-0.5 rounded font-medium ${typeColors[r.type] ?? 'bg-gray-700 text-gray-300'}`}>{r.type}</span>
+                      <span className="text-emerald-400 text-xs font-bold">{r.value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {card.retreatCost && card.retreatCost.length > 0 && (
+                <div className="bg-gray-900 border border-gray-800 rounded-xl p-3 text-center">
+                  <p className="text-gray-500 text-xs mb-1.5">Retreat Cost</p>
+                  <div className="flex items-center justify-center gap-0.5">
+                    {card.retreatCost.map((c, i) => (
+                      <span key={i} className="text-xs bg-gray-700 text-gray-300 px-1.5 py-0.5 rounded font-medium">{c.slice(0,1)}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Set completion */}
+          {card.set.total && (
+            <div className="bg-gray-900 border border-gray-800 rounded-xl p-4 mb-6">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-gray-400 text-sm font-medium">Set Position</p>
+                <p className="text-white text-sm font-bold">
+                  #{card.number} of {card.set.printedTotal ?? card.set.total}
+                </p>
+              </div>
+              <div className="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                <div
+                  className="h-full bg-emerald-500 rounded-full"
+                  style={{ width: `${Math.min(100, (parseInt(card.number) / (card.set.printedTotal ?? card.set.total)) * 100)}%` }}
+                />
+              </div>
+              <p className="text-gray-500 text-xs mt-2">
+                {card.set.name} · {card.set.series} · Released {card.set.releaseDate}
+              </p>
+            </div>
+          )}
+
+          {/* Flavor text */}
+          {card.flavorText && (
+            <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-4 mb-6 italic">
+              <p className="text-gray-400 text-sm leading-relaxed">&ldquo;{card.flavorText}&rdquo;</p>
             </div>
           )}
 

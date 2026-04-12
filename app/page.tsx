@@ -50,6 +50,8 @@ const sportIcons: Record<string, string> = {
 const totalSportsCards = sportsCards.length;
 const rookieCount = sportsCards.filter(c => c.rookie).length;
 const sportsSet = new Set(sportsCards.map(c => c.set)).size;
+const pokemonCardCount = '20,218';
+const buildDate = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
 export default function HomePage() {
   const latestNews = newsItems.slice(0, 4);
@@ -71,7 +73,7 @@ export default function HomePage() {
               <span className="text-emerald-400">Cards Are Worth</span>
             </h1>
             <p className="text-gray-400 text-lg sm:text-xl mb-10 max-w-xl leading-relaxed">
-              Browse 17,000+ Pokémon TCG cards with live prices. Explore {totalSportsCards}+ iconic sports cards with grade-by-grade pricing and PSA population data.
+              Track {pokemonCardCount} Pokémon TCG cards with live prices. Explore {totalSportsCards}+ iconic sports cards with grade-by-grade pricing and PSA population data.
             </p>
             <div className="max-w-xl">
               <InstantSearch
@@ -100,11 +102,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-wrap items-center gap-6 sm:gap-10 justify-center sm:justify-start">
             {[
-              { label: 'Pokémon Cards', value: '17,000+', color: 'text-yellow-400' },
+              { label: 'Pokémon Cards', value: pokemonCardCount, color: 'text-yellow-400' },
               { label: 'Sports Cards', value: `${totalSportsCards}+`, color: 'text-emerald-400' },
               { label: 'Sets Covered', value: `${sportsSet}+`, color: 'text-blue-400' },
               { label: 'Rookie Cards', value: `${rookieCount}+`, color: 'text-orange-400' },
-              { label: 'Grade Tables', value: '10+', color: 'text-purple-400' },
+              { label: 'Grade Tables', value: '50+', color: 'text-purple-400' },
             ].map(stat => (
               <div key={stat.label} className="flex items-center gap-2">
                 <span className={`text-lg font-black ${stat.color}`}>{stat.value}</span>
@@ -229,7 +231,7 @@ export default function HomePage() {
               { href: '/sports', title: 'Sports Cards', description: `${totalSportsCards}+ iconic cards from T206 to Wemby`, icon: '🏆', color: 'from-blue-900/50 to-indigo-900/30', border: 'border-blue-800/30 hover:border-blue-600/50' },
               { href: '/sports/sets', title: 'Browse by Set', description: '230+ sets organized by sport and era', icon: '📦', color: 'from-emerald-900/50 to-teal-900/30', border: 'border-emerald-800/30 hover:border-emerald-600/50' },
               { href: '/calendar', title: 'Release Calendar', description: '2026 product release schedule', icon: '📅', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
-              { href: '/tools', title: 'Collector Tools', description: 'Grade calculator, grading cost estimator', icon: '🛠️', color: 'from-purple-900/50 to-violet-900/30', border: 'border-purple-800/30 hover:border-purple-600/50' },
+              { href: '/tools#lookup', title: 'Card Value Lookup', description: 'Instant estimate for any card, any grade', icon: '🔎', color: 'from-purple-900/50 to-violet-900/30', border: 'border-purple-800/30 hover:border-purple-600/50' },
               { href: '/guides', title: 'Collector Guides', description: 'Grading, investing, Pokémon, and eras', icon: '📖', color: 'from-rose-900/50 to-pink-900/30', border: 'border-rose-800/30 hover:border-rose-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
@@ -337,7 +339,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="text-gray-700 text-xs mt-6">
-            CardVault · Free sports card and Pokémon TCG price guide · April 2026
+            CardVault · Free sports card and Pokémon TCG price guide · Last updated: {buildDate}
           </p>
         </div>
       </section>

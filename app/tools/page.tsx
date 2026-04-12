@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import GradeCalculator from './GradeCalculator';
 import GradingCostTable from './GradingCostTable';
+import CardLookup from './CardLookup';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Collector Tools',
-  description: 'Free tools for sports card and Pokémon TCG collectors. Grade value calculator, grading cost estimator, and eBay sold search generator.',
+  description: 'Free tools for sports card and Pokémon TCG collectors. Instant card value lookup, grade value calculator, grading cost estimator, and eBay sold search generator.',
 };
 
 export default function ToolsPage() {
@@ -26,6 +27,7 @@ export default function ToolsPage() {
       {/* Tool nav */}
       <div className="flex flex-wrap gap-3 mb-12">
         {[
+          { href: '#lookup', label: 'Card Value Lookup', icon: '🔎' },
           { href: '#grade-calc', label: 'Grade Value Calculator', icon: '📊' },
           { href: '#grading-cost', label: 'Grading Cost Estimator', icon: '🏅' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
@@ -40,6 +42,21 @@ export default function ToolsPage() {
           </a>
         ))}
       </div>
+
+      {/* Card Value Lookup — Client Component */}
+      <section id="lookup" className="mb-16 scroll-mt-20">
+        <div className="mb-6">
+          <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-3">
+            <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+            Instant • No signup
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-2">What&apos;s My Card Worth?</h2>
+          <p className="text-gray-400 text-sm max-w-2xl">
+            Search 301+ sports cards by player name, year, or set. Select your grade to get an instant value estimate based on recent sold comps.
+          </p>
+        </div>
+        <CardLookup />
+      </section>
 
       {/* Grade Calculator — Client Component */}
       <section id="grade-calc" className="mb-16 scroll-mt-20">
