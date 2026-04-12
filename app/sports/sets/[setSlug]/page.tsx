@@ -109,7 +109,7 @@ export default async function SetPage({ params }: Props) {
             {eraLabel(year)}
           </span>
         </div>
-        <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+        <div className="flex flex-wrap gap-4 text-sm text-gray-400 mb-3">
           <span>{year}</span>
           <span>{getMfr(setName)}</span>
           <span>{cards.length} card{cards.length > 1 ? 's' : ''} tracked</span>
@@ -120,6 +120,16 @@ export default async function SetPage({ params }: Props) {
             <span key={s} className={sportColor[s]}>{sportLabel[s]}</span>
           ))}
         </div>
+        <Link
+          href={`/sports/sets/${slug}/checklist`}
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 border border-emerald-800/40 px-3 py-1.5 rounded-lg transition-colors"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <polyline points="9 11 12 14 22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Track Your Collection →
+        </Link>
       </div>
 
       {/* Cards by sport */}
