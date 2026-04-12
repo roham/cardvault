@@ -104,11 +104,31 @@ function getRoutes(cardType: CardType, goal: Goal): RouteConfig {
   }
 
   // learn
+  if (cardType === 'pokemon') {
+    return {
+      primary: { label: 'Pokémon Investing Guide', href: '/guides/pokemon-investing', color: 'bg-yellow-500 hover:bg-yellow-400 text-black' },
+      secondary: [
+        { label: 'How to Start Collecting', href: '/guides/how-to-start-collecting-cards' },
+        { label: 'When to Grade', href: '/guides/when-to-grade-your-cards' },
+      ],
+      tip: 'Start with the vintage vs. modern split. Base Set holos and modern Special Illustration Rares operate on completely different market logic — learn both before buying.',
+    };
+  }
+  if (cardType === 'sports') {
+    return {
+      primary: { label: 'Sports Card Investing Guide', href: '/guides/investing-101', color: 'bg-emerald-500 hover:bg-emerald-400 text-black' },
+      secondary: [
+        { label: 'Card Eras Explained', href: '/guides/sports-card-eras-explained' },
+        { label: 'When to Grade', href: '/guides/when-to-grade-your-cards' },
+      ],
+      tip: 'The most important concepts: rookie cards, card eras (vintage vs junk wax vs modern), and condition. A PSA 10 can be 10–100x a raw copy of the same card.',
+    };
+  }
   return {
-    primary: { label: 'Read the Guides', href: '/guides', color: 'bg-blue-500 hover:bg-blue-400 text-white' },
+    primary: { label: 'How to Start Collecting', href: '/guides/how-to-start-collecting-cards', color: 'bg-blue-500 hover:bg-blue-400 text-white' },
     secondary: [
-      { label: 'Price Guide', href: '/price-guide' },
-      { label: cardType === 'pokemon' ? 'Pokémon Sets' : 'Sports Cards', href: cardType === 'pokemon' ? '/pokemon' : '/sports' },
+      { label: 'Grading Guide (PSA vs BGS vs SGC)', href: '/guides/grading-guide' },
+      { label: 'How to Read Price Data', href: '/guides/how-to-read-price-data' },
     ],
     tip: 'The most important concepts: card condition (grading), rookie cards, print runs, and the difference between raw and graded cards.',
   };

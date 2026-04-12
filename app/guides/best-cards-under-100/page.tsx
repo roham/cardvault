@@ -68,7 +68,7 @@ const cards: BudgetCard[] = [
     psa9Price: '$25–$60',
     rawPrice: '$5–$12',
     why: 'Shaq\'s Topps RC from his rookie season. Ultra and SkyBox versions exist too, but the Topps base is the most widely collected. The dominant center of his era and a clear first-ballot HOFer — the card will always have a floor.',
-    slug: '1992-93-topps-shaquille-oneal-362-rc',
+    slug: '1992-93-topps-shaquille-oneal-362',
     buyTip: 'Centering is the main grading challenge on early 90s Topps. Look for raw copies with tight centering — most reject PSA 9 attempts are centering misses.',
   },
   {
@@ -80,7 +80,7 @@ const cards: BudgetCard[] = [
     psa9Price: '$60–$95',
     rawPrice: '$15–$30',
     why: 'Chrome technology applied to Kobe\'s rookie year — shiny, sharp, and genuinely undervalued for a top-5 player all time. The base Chrome RC sits just under $100 in PSA 9 while being one of the most recognizable rookie cards in basketball.',
-    slug: '1996-97-topps-chrome-kobe-bryant-138-rc',
+    slug: '1996-97-topps-chrome-kobe-bryant-138',
     buyTip: 'At $60–95 for PSA 9, this is arguably the best value HOF card in the entire hobby at this price point. Do not overthink it.',
   },
   {
@@ -158,7 +158,7 @@ const cards: BudgetCard[] = [
     psa9Price: '$70–$95',
     rawPrice: '$15–$40',
     why: 'One of the most recognizable baseball RCs of the modern era. 5× World Series champion, 14× All-Star, Hall of Famer. The SP foil design holds up 30+ years later. PSA 9s frequently trade at $70–80 — a legitimate Jeter RC for under $100.',
-    slug: '1993-sp-derek-jeter-279-rc',
+    slug: '1993-sp-derek-jeter-279',
     buyTip: 'The 1993 SP is a genuine key rookie — not a common. Budget for PSA grading if buying raw; centering affects value significantly.',
   },
   {
@@ -237,7 +237,7 @@ const cards: BudgetCard[] = [
     psa9Price: '$55–$90',
     rawPrice: '$20–$40',
     why: 'Trout\'s most accessible true rookie. The Bowman Chrome auto is $1,000+; this Topps base RC is the same player, same season, same rookie designation — at a fraction of the cost. Best player of his generation by WAR and still active.',
-    slug: '2011-topps-update-mike-trout-us175-rc',
+    slug: '2011-topps-update-mike-trout-us175',
     buyTip: 'High-print-run set means PSA 9 supply is steady. Centering and corner wear are the grade killers — inspect carefully before buying raw.',
   },
   {
@@ -271,7 +271,7 @@ const cards: BudgetCard[] = [
     psa9Price: '$80–$95',
     rawPrice: '$20–$45',
     why: 'GOAT. 7× Super Bowl champion. The Bowman RC is the most affordable of Brady\'s recognized rookie cards — the Playoff Contenders auto is $5,000+, the Stadium Club is $1,000+. This base Bowman RC gets you a Brady rookie under $100.',
-    slug: '2000-bowman-tom-brady-236-rc',
+    slug: '2000-bowman-chrome-tom-brady-236-rc',
     buyTip: 'The price ceiling has been tested. At $80–95 for PSA 9, this is not a speculation play — it\'s a genuine collectible with a hard floor set by the greatest QB ever.',
   },
   {
@@ -317,7 +317,7 @@ const cards: BudgetCard[] = [
     psa9Price: '$50–$90',
     rawPrice: '$12–$28',
     why: '2× MVP, unanimous first-ballot MVP in 2023. Jackson redefined the QB position. The base Prizm RC sits at the edge of this guide\'s budget in PSA 9 — a two-time MVP for under $100 is the definition of accessible value.',
-    slug: '2018-panini-prizm-lamar-jackson-209-rc',
+    slug: '2018-panini-prizm-lamar-jackson-212',
     buyTip: 'The Silver Prizm parallel runs $400–600+. The base Prizm RC at $50–90 captures the same player at a fraction. Excellent entry point.',
   },
   {
@@ -329,7 +329,7 @@ const cards: BudgetCard[] = [
     psa9Price: '$55–$90',
     rawPrice: '$15–$30',
     why: 'The most exciting QB in football. Allen\'s arm talent and rushing ability make him a perennial MVP candidate. The base Prizm RC just makes the $100 ceiling in PSA 9 — an affordable entry into the most talked-about young franchise QB.',
-    slug: '2018-panini-prizm-josh-allen-202-rc',
+    slug: '2018-panini-prizm-josh-allen-103-rc',
     buyTip: 'High demand, consistent supply in PSA 9. Don\'t overpay — be patient on the price and wait for the right sold listing to anchor your purchase.',
   },
   {
@@ -352,7 +352,7 @@ const cards: BudgetCard[] = [
     psa9Price: '$40–$75',
     rawPrice: '$10–$22',
     why: 'Super Bowl appearance in year 2. Elite accuracy, franchise QB. The Bengals\' success directly drives Burrow card values — PSA 9 base Prizm under $100 is a legitimate hold for a young QB in his prime.',
-    slug: '2020-panini-prizm-joe-burrow-306-rc',
+    slug: '2020-panini-prizm-joe-burrow-rc-306',
     buyTip: 'Buy before playoff runs, not during. The market spikes 20–30% when Cincinnati is on a run — accumulate in the offseason.',
   },
   {
@@ -386,7 +386,7 @@ const cards: BudgetCard[] = [
     psa9Price: '$65–$95',
     rawPrice: '$15–$35',
     why: 'The greatest pure passer in NFL history by many measures. Single-season TD and yardage records that stood for 20 years. Marino\'s Topps RC is a genuine vintage football piece just inside the $100 ceiling in PSA 9 — rare for a HOF quarterback.',
-    slug: '1984-topps-dan-marino-123-rc',
+    slug: '1984-topps-dan-marino-rc-123',
     buyTip: 'Buy it. At $65–95 for a Marino PSA 9 RC, there is no better value ratio for a Hall of Fame QB. The 1984 Topps set grades harder than you expect — centering is the challenge.',
   },
   {

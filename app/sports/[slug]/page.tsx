@@ -86,6 +86,31 @@ export default async function SportsCardPage({ params }: Props) {
   const psaPopUrl = `https://www.psacard.com/pop/`;
   const psaCertLookup = `https://www.psacard.com/cert/`;
 
+  // Related guides logic based on card attributes
+  type RelatedGuide = { label: string; href: string; note: string };
+  const relatedGuides: RelatedGuide[] = [];
+  const rawLow = parseInt(card.estimatedValueRaw.replace(/[^0-9]/g, '').slice(0, 6)) || 0;
+
+  if (card.rookie) {
+    relatedGuides.push({ label: 'When to Grade (And When Not To)', href: '/guides/when-to-grade-your-cards', note: 'Calculate if grading this RC makes financial sense' });
+    relatedGuides.push({ label: card.sport === 'baseball' ? 'Sports Card Investing 101' : 'Sports Card Investing 101', href: '/guides/investing-101', note: 'How rookie cards appreciate through career milestones' });
+  }
+  if (card.year < 1985) {
+    relatedGuides.push({ label: 'Sports Card Eras Explained', href: '/guides/sports-card-eras-explained', note: 'Vintage era context, condition standards, and market dynamics' });
+    relatedGuides.push({ label: 'How to Spot Fake Cards', href: '/guides/fake-cards', note: 'Vintage authentication — trimming, alterations, and fake slabs' });
+  }
+  if (rawLow >= 10000) {
+    relatedGuides.push({ label: 'Most Valuable Sports Cards', href: '/guides/most-valuable-sports-cards', note: 'Where this card ranks among the all-time most valuable' });
+  }
+  if (rawLow < 200 && rawLow > 0) {
+    relatedGuides.push({ label: '50 Best Cards Under $100', href: '/guides/best-cards-under-100', note: 'More affordable blue-chips worth owning' });
+  }
+  if (relatedGuides.length === 0) {
+    relatedGuides.push({ label: 'How to Read Card Price Data', href: '/guides/how-to-read-price-data', note: 'eBay sold comps vs book value vs market price' });
+    relatedGuides.push({ label: 'PSA vs BGS vs SGC', href: '/guides/grading-guide', note: 'Which grader is right for this card?' });
+  }
+  const displayGuides = relatedGuides.slice(0, 3);
+
   // JSON-LD structured data for this card page (static data, safe for dangerouslySetInnerHTML)
   const jsonLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -646,7 +671,7 @@ export default async function SportsCardPage({ params }: Props) {
 
           {/* Sport-specific guide */}
           <Link
-            href={card.sport === 'baseball' ? '/guides/sports-card-investing' : card.sport === 'basketball' ? '/guides/investing-101' : card.sport === 'football' ? '/guides/investing-101' : '/guides/investing-101'}
+            href="/guides/investing-101"
             className="flex items-center gap-3 bg-gray-900 border border-gray-800 hover:border-emerald-500/40 rounded-xl p-3 transition-all group"
           >
             <span className="text-lg">{sportIcons[card.sport]}</span>
@@ -671,6 +696,26 @@ export default async function SportsCardPage({ params }: Props) {
           </Link>
         </div>
       </section>
+
+      {/* Learn More — Related Guides */}
+      {displayGuides.length > 0 && (
+        <section className="mb-14">
+          <h2 className="text-xl font-bold text-white mb-4">Learn More</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {displayGuides.map(guide => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="group flex flex-col bg-gray-900 border border-gray-800 hover:border-emerald-500/40 rounded-xl p-4 transition-all hover:-translate-y-0.5"
+              >
+                <p className="text-white text-sm font-semibold group-hover:text-emerald-400 transition-colors mb-1 leading-snug">{guide.label}</p>
+                <p className="text-gray-500 text-xs leading-relaxed flex-1">{guide.note}</p>
+                <span className="text-emerald-500 text-xs font-medium mt-3">Read guide →</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* More cards by this player */}
       {samePlayerCards.length > 0 && (

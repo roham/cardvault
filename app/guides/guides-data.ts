@@ -216,9 +216,9 @@ export const guides: Guide[] = [
     icon: '📅',
     gradient: 'from-red-900/40 via-rose-900/20 to-gray-900/40',
     featuredCards: [
-      { slug: '1910-t206-ty-cobb-portrait-red', type: 'sports', label: '1909-11 T206 Ty Cobb', note: 'Pre-War era benchmark' },
+      { slug: '1909-t206-ty-cobb-portrait-red', type: 'sports', label: '1909-11 T206 Ty Cobb', note: 'Pre-War era benchmark' },
       { slug: '1952-topps-mickey-mantle-311', type: 'sports', label: '1952 Topps Mickey Mantle #311', note: 'Golden Age centerpiece' },
-      { slug: '1986-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'Junk Wax era exception' },
+      { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'Junk Wax era exception' },
       { slug: '1989-upper-deck-ken-griffey-jr-1', type: 'sports', label: '1989 Upper Deck Ken Griffey Jr. #1', note: 'Defining rookie of the junk wax era' },
       { slug: '1993-sp-derek-jeter-279', type: 'sports', label: '1993 SP Derek Jeter #279', note: 'Key exception in a worthless era' },
       { slug: '2009-bowman-chrome-mike-trout-bdpp89', type: 'sports', label: '2009 Bowman Chrome Mike Trout', note: 'Modern era defining rookie' },
@@ -279,7 +279,7 @@ export const guides: Guide[] = [
       { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'PSA is the only grading company for this card' },
       { slug: '2003-04-topps-chrome-lebron-james-111', type: 'sports', label: '2003-04 Topps Chrome LeBron James #111', note: 'BGS 9.5 commands significant premium' },
       { slug: '1996-97-topps-chrome-kobe-bryant-138', type: 'sports', label: '1996-97 Topps Chrome Kobe Bryant #138', note: 'Vintage modern where PSA dominates' },
-      { slug: '1910-t206-ty-cobb-portrait-red', type: 'sports', label: '1909-11 T206 Ty Cobb', note: 'SGC a credible option for pre-war tobacco cards' },
+      { slug: '1909-t206-ty-cobb-portrait-red', type: 'sports', label: '1909-11 T206 Ty Cobb', note: 'SGC a credible option for pre-war tobacco cards' },
     ],
     gradient: 'from-blue-900/40 via-indigo-900/20 to-gray-900/40',
     content: [
