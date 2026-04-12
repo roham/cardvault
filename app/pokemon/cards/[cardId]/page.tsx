@@ -306,12 +306,13 @@ export default async function PokemonCardPage({ params }: Props) {
           {/* Price data */}
           {priceEntries.length > 0 && (
             <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5 mb-6">
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-white font-semibold">TCGPlayer Prices</h2>
-                {card.tcgplayer?.updatedAt && (
-                  <span className="text-gray-500 text-xs">Updated {card.tcgplayer.updatedAt}</span>
-                )}
+              <div className="flex items-center justify-between mb-1">
+                <h2 className="text-white font-semibold">TCGPlayer Market Prices</h2>
+                <span className="text-xs bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 px-2 py-0.5 rounded-full">Live TCGPlayer data</span>
               </div>
+              <p className="text-gray-600 text-xs mb-4">
+                Updated with live marketplace data{card.tcgplayer?.updatedAt ? ` · ${card.tcgplayer.updatedAt}` : ''} · Source: TCGPlayer via Pokémon TCG API
+              </p>
               {priceEntries.map(([variant, priceData]) => {
                 const p = priceData as { low?: number; mid?: number; high?: number; market?: number };
                 const label = variant
@@ -346,10 +347,10 @@ export default async function PokemonCardPage({ params }: Props) {
             </div>
           )}
 
-          {/* Buy link */}
-          {card.tcgplayer?.url && (
+          {/* Buy / verify links */}
+          <div className="space-y-3">
             <a
-              href={card.tcgplayer.url}
+              href={`https://www.tcgplayer.com/search/pokemon/product?q=${encodeURIComponent(card.name)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors"
@@ -361,7 +362,20 @@ export default async function PokemonCardPage({ params }: Props) {
                 <line x1="10" y1="14" x2="21" y2="3" />
               </svg>
             </a>
-          )}
+            <a
+              href={`https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(card.name + ' ' + card.set.name)}&LH_Complete=1&LH_Sold=1`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 w-full bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold px-6 py-3.5 rounded-xl transition-colors border border-gray-700"
+            >
+              Check eBay Sold Listings
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 

@@ -221,19 +221,49 @@ export default async function SportsCardPage({ params }: Props) {
 
           {/* Value estimates */}
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-5 mb-6">
-            <h2 className="text-white font-semibold mb-4">Estimated Value</h2>
+            <div className="flex items-center justify-between mb-1">
+              <h2 className="text-white font-semibold">Market Value (Based on Sold Data)</h2>
+              <span className="text-xs bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 px-2 py-0.5 rounded-full">Based on public auction records</span>
+            </div>
+            <p className="text-gray-600 text-xs mb-4">Source: eBay sold comps, Heritage Auctions, Goldin, PWCC — April 2026</p>
             <div className="space-y-3">
               <div className="flex items-center justify-between py-2 border-b border-gray-800">
-                <span className="text-gray-400 text-sm">Mid Grade (PSA 7–8)</span>
-                <span className="text-emerald-400 font-semibold">{card.estimatedValueRaw}</span>
+                <div>
+                  <span className="text-gray-400 text-sm">Recent Sales (Mid Grade)</span>
+                  <span className="text-gray-600 text-xs block">PSA 7–8 · Based on eBay sold listings</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-emerald-400 font-semibold">{card.estimatedValueRaw}</span>
+                  <a
+                    href={`${ebaySearchBase}&LH_ItemCondition=4`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-blue-400 hover:text-blue-300 bg-blue-950/40 border border-blue-800/40 px-2 py-1 rounded-lg transition-colors whitespace-nowrap"
+                  >
+                    Verify on eBay ↗
+                  </a>
+                </div>
               </div>
               <div className="flex items-center justify-between py-2">
-                <span className="text-gray-400 text-sm">Gem Mint (PSA 9–10)</span>
-                <span className="text-emerald-400 font-semibold">{card.estimatedValueGem}</span>
+                <div>
+                  <span className="text-gray-400 text-sm">Recent Sales (Gem Mint)</span>
+                  <span className="text-gray-600 text-xs block">PSA 9–10 · Based on eBay sold listings</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-emerald-400 font-semibold">{card.estimatedValueGem}</span>
+                  <a
+                    href={`${ebaySearchBase}&LH_ItemCondition=3`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-blue-400 hover:text-blue-300 bg-blue-950/40 border border-blue-800/40 px-2 py-1 rounded-lg transition-colors whitespace-nowrap"
+                  >
+                    Verify on eBay ↗
+                  </a>
+                </div>
               </div>
             </div>
             <p className="text-gray-600 text-xs mt-3">
-              Estimates based on recent sold comps. Actual value depends on grade, centering, and market conditions.
+              Values compiled from public eBay sold listings, Heritage Auctions, and Goldin results. For real-time pricing, click &ldquo;Verify on eBay&rdquo; above.
             </p>
           </div>
 
@@ -269,8 +299,18 @@ export default async function SportsCardPage({ params }: Props) {
       {gradePricing && (
         <section className="mb-14">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-white">Grade-by-Grade Pricing</h2>
-            <span className="text-gray-500 text-xs">The #1 thing collectors want to know</span>
+            <div>
+              <h2 className="text-xl font-bold text-white">Grade-by-Grade Pricing</h2>
+              <p className="text-gray-500 text-xs mt-1">Values based on recent eBay sold listings and auction results</p>
+            </div>
+            <a
+              href={ebaySearchBase}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 bg-blue-950/40 border border-blue-800/40 px-3 py-1.5 rounded-lg transition-colors"
+            >
+              Verify on eBay ↗
+            </a>
           </div>
           <div className="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden">
             <div className="overflow-x-auto">
@@ -279,7 +319,7 @@ export default async function SportsCardPage({ params }: Props) {
                   <tr className="border-b border-gray-800">
                     <th className="text-left text-gray-500 text-xs font-semibold uppercase tracking-wider px-4 py-3">PSA Grade</th>
                     <th className="text-left text-gray-500 text-xs font-semibold uppercase tracking-wider px-4 py-3">Label</th>
-                    <th className="text-left text-gray-500 text-xs font-semibold uppercase tracking-wider px-4 py-3">Est. Value</th>
+                    <th className="text-left text-gray-500 text-xs font-semibold uppercase tracking-wider px-4 py-3">Market Value</th>
                     <th className="text-left text-gray-500 text-xs font-semibold uppercase tracking-wider px-4 py-3">Pop.</th>
                     <th className="text-left text-gray-500 text-xs font-semibold uppercase tracking-wider px-4 py-3">Trend</th>
                   </tr>

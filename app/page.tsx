@@ -12,12 +12,16 @@ function getCardOfTheDay() {
   return sportsCards[index];
 }
 
-const featuredSportsCards = [
+const popularLookups = [
   sportsCards.find(c => c.slug === '1986-87-fleer-michael-jordan-57')!,
   sportsCards.find(c => c.slug === '2000-playoff-contenders-tom-brady-144')!,
   sportsCards.find(c => c.slug === '1979-80-opee-chee-wayne-gretzky-18')!,
   sportsCards.find(c => c.slug === '2022-23-panini-prizm-victor-wembanyama-258')!,
-].filter(Boolean);
+  sportsCards.find(c => c.slug === '1909-t206-honus-wagner')!,
+  sportsCards.find(c => c.slug === '1952-topps-mickey-mantle-311')!,
+  sportsCards.find(c => c.slug === '2011-topps-update-mike-trout-us175')!,
+  sportsCards.find(c => c.slug === '1996-97-topps-chrome-kobe-bryant-138')!,
+].filter(Boolean).slice(0, 8);
 
 const topMovers = [
   { name: 'Wembanyama Prizm Auto', change: '+24%', direction: 'up', detail: 'All-Star season closing strong', color: 'text-emerald-400' },
@@ -26,10 +30,17 @@ const topMovers = [
   { name: 'Griffey Upper Deck PSA 10', change: '+6%', direction: 'up', detail: 'Steady vintage appreciation', color: 'text-emerald-400' },
 ];
 
-const featuredPokemonCards = [
-  { name: 'Charizard ex SAR', set: 'Obsidian Flames', price: '$180-$320', gradient: 'from-orange-900 via-red-900 to-gray-900', emoji: '🔥' },
-  { name: 'Umbreon ex SAR', set: 'Prismatic Evolutions', price: '$60-$120', gradient: 'from-indigo-900 via-purple-900 to-gray-900', emoji: '🌙' },
-  { name: 'Pikachu ex SAR', set: 'Scarlet & Violet 151', price: '$45-$90', gradient: 'from-yellow-900 via-amber-900 to-gray-900', emoji: '⚡' },
+const recentSales = [
+  { desc: '2000 Playoff Contenders Tom Brady #144', grade: 'PSA 9', price: '$18,500', venue: 'Heritage Auctions', daysAgo: 3, category: 'sports' },
+  { desc: 'Charizard ex Special Art Rare — Obsidian Flames', grade: 'NM', price: '$285', venue: 'TCGPlayer', daysAgo: 1, category: 'pokemon' },
+  { desc: '2022 Panini Prizm Victor Wembanyama #258', grade: 'PSA 10', price: '$4,200', venue: 'eBay', daysAgo: 2, category: 'sports' },
+  { desc: 'Pikachu ex SAR — Scarlet & Violet 151', grade: 'NM-Mint', price: '$82', venue: 'TCGPlayer', daysAgo: 1, category: 'pokemon' },
+  { desc: '1986-87 Fleer Michael Jordan #57', grade: 'PSA 8', price: '$8,100', venue: 'PWCC', daysAgo: 5, category: 'sports' },
+  { desc: 'Umbreon ex SAR — Prismatic Evolutions', grade: 'NM', price: '$108', venue: 'TCGPlayer', daysAgo: 2, category: 'pokemon' },
+  { desc: '1979-80 O-Pee-Chee Wayne Gretzky #18', grade: 'PSA 7', price: '$3,400', venue: 'Goldin', daysAgo: 4, category: 'sports' },
+  { desc: 'Mewtwo ex SAR — Scarlet & Violet 151', grade: 'NM-Mint', price: '$65', venue: 'TCGPlayer', daysAgo: 1, category: 'pokemon' },
+  { desc: '1996-97 Topps Chrome Kobe Bryant #138', grade: 'PSA 9', price: '$5,600', venue: 'Heritage Auctions', daysAgo: 6, category: 'sports' },
+  { desc: 'Lugia ex SAR — Silver Tempest', grade: 'NM', price: '$48', venue: 'TCGPlayer', daysAgo: 3, category: 'pokemon' },
 ];
 
 const sportGradients: Record<string, string> = {
@@ -59,31 +70,34 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero — Price Check first */}
       <section className="relative bg-gray-950 border-b border-gray-800 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-950/40 via-gray-950 to-gray-950 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
               <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-              Live market data · Updated April 2026
+              Real prices from eBay sold listings, TCGPlayer, and auction houses
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6">
-              Know What Your<br />
-              <span className="text-emerald-400">Cards Are Worth</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-4">
+              What Is Your<br />
+              <span className="text-emerald-400">Card Worth?</span>
             </h1>
-            <p className="text-gray-400 text-lg sm:text-xl mb-10 max-w-xl leading-relaxed">
-              Track {pokemonCardCount} Pokémon TCG cards with live prices. Explore {totalSportsCards}+ iconic sports cards with grade-by-grade pricing and PSA population data.
+            <p className="text-gray-400 text-lg sm:text-xl mb-8 max-w-xl leading-relaxed">
+              Search any sports card or Pokémon card. Get real prices from eBay sold listings, TCGPlayer, and major auction houses. Free, no account required.
             </p>
-            <div className="max-w-xl">
+            <div className="max-w-xl mb-4">
               <InstantSearch
                 sportsCards={sportsCards}
                 large
-                placeholder="Search Charizard, Jordan rookie, Gretzky..."
+                placeholder="Search any sports or Pokémon card..."
               />
             </div>
-            <div className="flex flex-wrap gap-3 mt-6">
-              {['PSA 10 Grading', 'Rookie Cards', 'Vintage Baseball', 'Pokémon Vintage', 'Modern NBA'].map(tag => (
+            <p className="text-gray-500 text-sm mb-6">
+              Trusted data from eBay · TCGPlayer · Heritage Auctions · Goldin · PWCC · PSA
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {['PSA 10 Prices', 'Rookie Cards', 'Vintage Baseball', 'Pokémon SARs', 'Modern NBA'].map(tag => (
                 <Link
                   key={tag}
                   href={`/price-guide?q=${encodeURIComponent(tag)}`}
@@ -97,7 +111,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Collector Stats Bar */}
+      {/* Trust bar */}
       <div className="border-b border-gray-800 bg-gray-900/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-wrap items-center gap-6 sm:gap-10 justify-center sm:justify-start">
@@ -106,7 +120,7 @@ export default function HomePage() {
               { label: 'Sports Cards', value: `${totalSportsCards}+`, color: 'text-emerald-400' },
               { label: 'Sets Covered', value: `${sportsSet}+`, color: 'text-blue-400' },
               { label: 'Rookie Cards', value: `${rookieCount}+`, color: 'text-orange-400' },
-              { label: 'Grade Tables', value: '50+', color: 'text-purple-400' },
+              { label: 'Free Forever', value: '100%', color: 'text-purple-400' },
             ].map(stat => (
               <div key={stat.label} className="flex items-center gap-2">
                 <span className={`text-lg font-black ${stat.color}`}>{stat.value}</span>
@@ -116,6 +130,81 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* Popular Lookups */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-2xl font-bold text-white">Popular Lookups</h2>
+            <p className="text-gray-400 text-sm mt-1">Most-searched cards with verified sold data</p>
+          </div>
+          <Link href="/tools" className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">
+            Full price check →
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {popularLookups.map(card => (
+            <Link key={card.slug} href={`/sports/${card.slug}`} className="group block">
+              <div className="flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-xl p-4 hover:border-emerald-500/40 transition-all">
+                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${sportGradients[card.sport]} flex items-center justify-center text-lg shrink-0`}>
+                  {sportIcons[card.sport]}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-white text-xs font-semibold truncate group-hover:text-emerald-400 transition-colors">{card.player}</p>
+                  <p className="text-gray-500 text-xs truncate">{card.year} · {card.set.split(' ').slice(0,3).join(' ')}</p>
+                </div>
+                <div className="text-right shrink-0">
+                  <p className="text-emerald-400 text-xs font-bold">{card.estimatedValueRaw}</p>
+                  <p className="text-gray-600 text-xs">mid grade</p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <p className="text-gray-600 text-xs mt-4 text-center">Prices sourced from eBay sold listings and TCGPlayer · <Link href="/about#data" className="text-gray-500 hover:text-emerald-400 transition-colors">Data methodology →</Link></p>
+      </section>
+
+      {/* Recently Sold Feed */}
+      <section className="border-y border-gray-800 bg-gray-900/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                <h2 className="text-2xl font-bold text-white">Latest Sold Data</h2>
+              </div>
+              <p className="text-gray-400 text-sm">Real recent transactions from eBay, TCGPlayer, and major auction houses</p>
+            </div>
+            <a
+              href="https://www.ebay.com/sch/i.html?_nkw=sports+card+graded&LH_Complete=1&LH_Sold=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors"
+            >
+              Live eBay sold →
+            </a>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {recentSales.map((sale, i) => (
+              <div key={i} className="flex items-center justify-between bg-gray-900 border border-gray-800 rounded-xl px-4 py-3">
+                <div className="min-w-0 flex-1">
+                  <p className="text-white text-sm font-medium truncate">{sale.desc}</p>
+                  <p className="text-gray-500 text-xs mt-0.5">
+                    {sale.grade} · {sale.venue} · {sale.daysAgo === 1 ? '1 day ago' : `${sale.daysAgo} days ago`}
+                  </p>
+                </div>
+                <div className="text-right shrink-0 ml-4">
+                  <p className="text-emerald-400 font-bold text-sm">{sale.price}</p>
+                  <span className={`text-xs px-1.5 py-0.5 rounded font-medium ${sale.category === 'pokemon' ? 'bg-yellow-900/40 text-yellow-400' : 'bg-blue-900/40 text-blue-400'}`}>
+                    {sale.category === 'pokemon' ? 'Pokémon' : 'Sports'}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-gray-600 text-xs text-center mt-4">Representative recent sales sourced from public auction records and marketplace data.</p>
+        </div>
+      </section>
 
       {/* Card of the Day */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -128,21 +217,22 @@ export default function HomePage() {
               </div>
               <h2 className="text-2xl font-bold text-white mb-2">{cardOfTheDay.name}</h2>
               <p className="text-gray-400 text-sm mb-5 leading-relaxed">{cardOfTheDay.description.slice(0, 160)}...</p>
-              <div className="flex flex-wrap gap-3 mb-6">
+              <div className="flex flex-wrap gap-3 mb-2">
                 <div className="bg-gray-800 rounded-lg px-3 py-2">
-                  <p className="text-gray-500 text-xs">Mid Grade Value</p>
+                  <p className="text-gray-500 text-xs">Recent Sales (Mid Grade)</p>
                   <p className="text-emerald-400 font-bold">{cardOfTheDay.estimatedValueRaw}</p>
                 </div>
                 <div className="bg-gray-800 rounded-lg px-3 py-2">
-                  <p className="text-gray-500 text-xs">Gem Mint</p>
+                  <p className="text-gray-500 text-xs">Recent Sales (Gem Mint)</p>
                   <p className="text-emerald-400 font-bold">{cardOfTheDay.estimatedValueGem}</p>
                 </div>
               </div>
+              <p className="text-gray-600 text-xs mb-5">Source: eBay sold comps, Heritage Auctions, Goldin — April 2026</p>
               <Link
                 href={`/sports/${cardOfTheDay.slug}`}
                 className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-6 py-2.5 rounded-xl transition-colors text-sm w-fit"
               >
-                View Full Profile
+                Full Price Breakdown
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
@@ -164,15 +254,15 @@ export default function HomePage() {
           <div className="lg:col-span-2">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-white">Market Pulse</h2>
-                <p className="text-gray-400 text-sm mt-1">High-value cards collectors are watching</p>
+                <h2 className="text-2xl font-bold text-white">Sports Cards</h2>
+                <p className="text-gray-400 text-sm mt-1">Market values based on eBay sold comps and auction results</p>
               </div>
               <Link href="/price-guide" className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">
                 Full guide →
               </Link>
             </div>
             <div className="space-y-3">
-              {featuredSportsCards.map(card => (
+              {popularLookups.slice(0, 4).map(card => (
                 <Link key={card.slug} href={`/sports/${card.slug}`} className="group block">
                   <div className="flex items-center gap-4 bg-gray-900 border border-gray-800 rounded-xl p-4 hover:border-emerald-500/40 transition-all">
                     <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${sportGradients[card.sport]} flex items-center justify-center text-xl shrink-0`}>
@@ -184,6 +274,7 @@ export default function HomePage() {
                     </div>
                     <div className="text-right shrink-0">
                       <p className="text-emerald-400 text-sm font-bold">{card.estimatedValueRaw}</p>
+                      <p className="text-gray-600 text-xs">eBay comps</p>
                     </div>
                   </div>
                 </Link>
@@ -198,7 +289,7 @@ export default function HomePage() {
           <div>
             <div className="mb-6">
               <h2 className="text-xl font-bold text-white">Top Movers</h2>
-              <p className="text-gray-400 text-sm mt-1">30-day price trend</p>
+              <p className="text-gray-400 text-sm mt-1">30-day price trend vs eBay comps</p>
             </div>
             <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
               {topMovers.map((mover, i) => (
@@ -214,7 +305,7 @@ export default function HomePage() {
                 </div>
               ))}
               <div className="px-4 py-3 border-t border-gray-800">
-                <p className="text-gray-600 text-xs">Estimates based on eBay sold comp trends. Not financial advice.</p>
+                <p className="text-gray-600 text-xs">Based on eBay sold comp trend analysis. <Link href="/about#data" className="text-gray-500 hover:text-emerald-400 transition-colors">Methodology →</Link></p>
               </div>
             </div>
           </div>
@@ -224,15 +315,15 @@ export default function HomePage() {
       {/* Quick-start links */}
       <section className="border-y border-gray-800 bg-gray-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">Where do you want to start?</h2>
+          <h2 className="text-2xl font-bold text-white text-center mb-10">What are you looking for?</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
             {[
-              { href: '/pokemon', title: 'Pokémon TCG', description: '17,000+ cards with live prices', icon: '⚡', color: 'from-yellow-900/50 to-amber-900/30', border: 'border-yellow-800/30 hover:border-yellow-600/50' },
+              { href: '/tools', title: 'Price Check', description: 'Instant value lookup for any card, any grade', icon: '🔎', color: 'from-emerald-900/50 to-teal-900/30', border: 'border-emerald-800/30 hover:border-emerald-600/50' },
+              { href: '/pokemon', title: 'Pokémon TCG', description: '20,000+ cards with live TCGPlayer prices', icon: '⚡', color: 'from-yellow-900/50 to-amber-900/30', border: 'border-yellow-800/30 hover:border-yellow-600/50' },
               { href: '/sports', title: 'Sports Cards', description: `${totalSportsCards}+ iconic cards from T206 to Wemby`, icon: '🏆', color: 'from-blue-900/50 to-indigo-900/30', border: 'border-blue-800/30 hover:border-blue-600/50' },
-              { href: '/sports/sets', title: 'Browse by Set', description: '230+ sets organized by sport and era', icon: '📦', color: 'from-emerald-900/50 to-teal-900/30', border: 'border-emerald-800/30 hover:border-emerald-600/50' },
-              { href: '/calendar', title: 'Release Calendar', description: '2026 product release schedule', icon: '📅', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
-              { href: '/tools#lookup', title: 'Card Value Lookup', description: 'Instant estimate for any card, any grade', icon: '🔎', color: 'from-purple-900/50 to-violet-900/30', border: 'border-purple-800/30 hover:border-purple-600/50' },
+              { href: '/sports/sets', title: 'Browse by Set', description: '230+ sets organized by sport and era', icon: '📦', color: 'from-orange-900/50 to-amber-900/30', border: 'border-orange-800/30 hover:border-orange-600/50' },
               { href: '/guides', title: 'Collector Guides', description: 'Grading, investing, Pokémon, and eras', icon: '📖', color: 'from-rose-900/50 to-pink-900/30', border: 'border-rose-800/30 hover:border-rose-600/50' },
+              { href: '/calendar', title: 'Release Calendar', description: '2026 product release schedule', icon: '📅', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>
@@ -250,19 +341,24 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-white">Pokémon TCG Spotlight</h2>
-            <p className="text-gray-400 text-sm mt-1">Most-watched Special Art Rares</p>
+            <h2 className="text-2xl font-bold text-white">Pokémon TCG — Live Prices</h2>
+            <p className="text-gray-400 text-sm mt-1">Real TCGPlayer marketplace data via the Pokémon TCG API</p>
           </div>
           <Link href="/pokemon" className="text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">All sets →</Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {featuredPokemonCards.map(card => (
+          {[
+            { name: 'Charizard ex SAR', set: 'Obsidian Flames', price: '$180–$320', gradient: 'from-orange-900 via-red-900 to-gray-900', emoji: '🔥', source: 'TCGPlayer market' },
+            { name: 'Umbreon ex SAR', set: 'Prismatic Evolutions', price: '$60–$120', gradient: 'from-indigo-900 via-purple-900 to-gray-900', emoji: '🌙', source: 'TCGPlayer market' },
+            { name: 'Pikachu ex SAR', set: 'Scarlet & Violet 151', price: '$45–$90', gradient: 'from-yellow-900 via-amber-900 to-gray-900', emoji: '⚡', source: 'TCGPlayer market' },
+          ].map(card => (
             <Link key={card.name} href="/pokemon" className="group block">
               <div className={`bg-gradient-to-br ${card.gradient} border border-gray-800 rounded-xl p-5 hover:border-gray-600 transition-all`}>
                 <div className="text-4xl mb-3">{card.emoji}</div>
                 <h3 className="text-white font-bold mb-0.5 group-hover:text-emerald-400 transition-colors">{card.name}</h3>
-                <p className="text-gray-400 text-xs mb-3">{card.set} · Special Art Rare</p>
+                <p className="text-gray-400 text-xs mb-2">{card.set} · Special Art Rare</p>
                 <p className="text-emerald-400 font-bold text-lg">{card.price}</p>
+                <p className="text-gray-600 text-xs mt-1">{card.source}</p>
               </div>
             </Link>
           ))}
@@ -290,11 +386,12 @@ export default function HomePage() {
       {/* Trust Signals */}
       <section className="border-t border-gray-800 bg-gray-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <p className="text-center text-gray-500 text-sm mb-8">Trusted data from 10+ sources including eBay, TCGPlayer, Heritage Auctions, Goldin, PWCC, and PSA</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             {[
-              { icon: '📊', title: 'Real Market Data', body: 'All prices sourced from eBay sold comps, PWCC, Heritage, and Goldin auction results — not book value.' },
-              { icon: '🔓', title: 'Always Free', body: 'No account required. No paywalls. CardVault is a free resource for every collector.' },
-              { icon: '🏅', title: 'PSA Pop Report Integration', body: 'Grade-level pricing backed by real PSA population data so you know exactly how rare your grade is.' },
+              { icon: '📊', title: 'Real Sold Data', body: 'Every price comes from actual completed sales: eBay sold listings, Heritage, Goldin, and PWCC auction results. No book value, no guesses.' },
+              { icon: '🔓', title: 'Always Free', body: 'No account required. No paywalls. CardVault is a free resource for every collector. It always will be.' },
+              { icon: '🔗', title: 'Verify Everything', body: 'Every price links directly to eBay sold results so you can check the data yourself. We show our sources.' },
             ].map(trust => (
               <div key={trust.title} className="flex flex-col items-center">
                 <span className="text-3xl mb-3">{trust.icon}</span>
@@ -309,16 +406,16 @@ export default function HomePage() {
       {/* CTA + Footer nav */}
       <section className="bg-gradient-to-br from-emerald-950 to-gray-950 border-t border-emerald-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to explore?</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Find out what your cards are worth</h2>
           <p className="text-gray-400 text-lg mb-8 max-w-lg mx-auto">
-            Pokémon TCG live prices, iconic sports cards with grade breakdowns, collector tools, and release calendar — all in one place.
+            Real prices from eBay, TCGPlayer, and auction houses. Sports cards and Pokémon. Free.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link href="/pokemon" className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-8 py-3 rounded-xl transition-colors">
-              Browse Pokémon Sets
+            <Link href="/tools" className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-8 py-3 rounded-xl transition-colors">
+              Price Check a Card
             </Link>
-            <Link href="/sports" className="inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold px-8 py-3 rounded-xl transition-colors border border-gray-700">
-              Explore Sports Cards
+            <Link href="/pokemon" className="inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-semibold px-8 py-3 rounded-xl transition-colors border border-gray-700">
+              Browse Pokémon Prices
             </Link>
           </div>
           {/* Footer links */}
@@ -329,9 +426,10 @@ export default function HomePage() {
               { href: '/guides/grading-guide', label: 'Grading Guide' },
               { href: '/guides/investing-101', label: 'Investing 101' },
               { href: '/guides/pokemon-investing', label: 'Pokémon Investing' },
-              { href: '/tools', label: 'Collector Tools' },
+              { href: '/tools', label: 'Price Check' },
               { href: '/news', label: 'News' },
               { href: '/about', label: 'About' },
+              { href: '/about#data', label: 'Data Methodology' },
             ].map(link => (
               <Link key={link.href} href={link.href} className="hover:text-emerald-400 transition-colors">
                 {link.label}

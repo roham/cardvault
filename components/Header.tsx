@@ -5,15 +5,13 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/pokemon', label: 'Pokémon' },
-  { href: '/sports', label: 'Sports' },
+  { href: '/tools', label: 'Price Check' },
+  { href: '/pokemon', label: 'Pokémon Cards' },
+  { href: '/sports', label: 'Sports Cards' },
   { href: '/price-guide', label: 'Price Guide' },
-  { href: '/tools', label: 'Tools' },
+  { href: '/news', label: 'News' },
   { href: '/guides', label: 'Guides' },
   { href: '/calendar', label: 'Calendar' },
-  { href: '/news', label: 'News' },
-  { href: '/about', label: 'About' },
 ];
 
 export default function Header() {

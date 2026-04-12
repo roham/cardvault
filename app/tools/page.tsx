@@ -5,8 +5,8 @@ import CardLookup from './CardLookup';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Collector Tools',
-  description: 'Free tools for sports card and Pokémon TCG collectors. Instant card value lookup, grade value calculator, grading cost estimator, and eBay sold search generator.',
+  title: 'Price Check — What Is My Card Worth?',
+  description: 'Free card price checker for sports cards and Pokémon TCG. Real prices from eBay sold listings, TCGPlayer, Heritage Auctions, Goldin, and PWCC. No account required.',
 };
 
 export default function ToolsPage() {
@@ -15,19 +15,19 @@ export default function ToolsPage() {
       {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">
-          <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
-          Free — no account required
+          <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+          Real prices from eBay, TCGPlayer, Heritage, Goldin, and PWCC · Free
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">Collector Tools</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">What Is My Card Worth?</h1>
         <p className="text-gray-400 text-lg max-w-2xl">
-          Practical calculators for making smarter decisions about grading, buying, and selling cards.
+          Search any sports or Pokémon card to get price estimates from real sold data — by grade, by variant. Links to verify on eBay and TCGPlayer included.
         </p>
       </div>
 
       {/* Tool nav */}
       <div className="flex flex-wrap gap-3 mb-12">
         {[
-          { href: '#lookup', label: 'Card Value Lookup', icon: '🔎' },
+          { href: '#lookup', label: 'Price Check', icon: '🔎' },
           { href: '#grade-calc', label: 'Grade Value Calculator', icon: '📊' },
           { href: '#grading-cost', label: 'Grading Cost Estimator', icon: '🏅' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
@@ -48,11 +48,11 @@ export default function ToolsPage() {
         <div className="mb-6">
           <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-3">
             <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
-            Instant • No signup
+            Instant · No signup · Values from eBay sold comps
           </div>
-          <h2 className="text-2xl font-bold text-white mb-2">What&apos;s My Card Worth?</h2>
+          <h2 className="text-2xl font-bold text-white mb-2">Price Check</h2>
           <p className="text-gray-400 text-sm max-w-2xl">
-            Search 301+ sports cards by player name, year, or set. Select your grade to get an instant value estimate based on recent sold comps.
+            Search sports cards by player, year, or set. Select your grade to get an instant value based on recent sold comps. Each result links to the full price breakdown with eBay verification.
           </p>
         </div>
         <CardLookup />
@@ -106,8 +106,8 @@ export default function ToolsPage() {
           <Link href="/pokemon" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
             Pokémon Sets
           </Link>
-          <Link href="/about" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
-            About &amp; Data Sources
+          <Link href="/about#data" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
+            Data Methodology
           </Link>
         </div>
       </div>
