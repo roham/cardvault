@@ -1,0 +1,345 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Player Card Profiles — Most Collected Athletes',
+  description: 'Browse complete card checklists for the most collected players in sports cards. Michael Jordan, Mickey Mantle, LeBron James, Wayne Gretzky, and more — every card we track, sorted by value.',
+};
+
+interface PlayerProfile {
+  slug: string;
+  name: string;
+  sport: string;
+  sportIcon: string;
+  era: string;
+  topCard: string;
+  recordSale: string;
+  cardCount: number;
+  description: string;
+  color: string;
+}
+
+const players: PlayerProfile[] = [
+  // Baseball
+  {
+    slug: 'mickey-mantle',
+    name: 'Mickey Mantle',
+    sport: 'Baseball',
+    sportIcon: '⚾',
+    era: '1951–1968',
+    topCard: '1952 Topps #311',
+    recordSale: '$12,600,000',
+    cardCount: 8,
+    description: 'The most beloved player of the 1950s golden age. Switch-hitter, Triple Crown winner, 7 World Series titles.',
+    color: 'from-red-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'babe-ruth',
+    name: 'Babe Ruth',
+    sport: 'Baseball',
+    sportIcon: '⚾',
+    era: '1914–1935',
+    topCard: '1914 Cracker Jack #103',
+    recordSale: '$4,222,000',
+    cardCount: 5,
+    description: 'The Sultan of Swat. 714 home runs, .342 average, 7 World Series. Pre-war cards are among the most valuable in existence.',
+    color: 'from-red-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'mike-trout',
+    name: 'Mike Trout',
+    sport: 'Baseball',
+    sportIcon: '⚾',
+    era: '2011–present',
+    topCard: '2009 Bowman Chrome Prospects',
+    recordSale: '$3,936,000',
+    cardCount: 6,
+    description: '3-time MVP and the best player of his generation. His Bowman Chrome prospect card is the most valuable modern baseball card.',
+    color: 'from-red-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'derek-jeter',
+    name: 'Derek Jeter',
+    sport: 'Baseball',
+    sportIcon: '⚾',
+    era: '1992–2014',
+    topCard: '1993 SP #279',
+    recordSale: '$168,000',
+    cardCount: 5,
+    description: "The Captain. 5 World Series championships, 14× All-Star. His 1993 SP rookie is one of the hobby's most notoriously hard-to-grade cards.",
+    color: 'from-red-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'ken-griffey-jr',
+    name: 'Ken Griffey Jr.',
+    sport: 'Baseball',
+    sportIcon: '⚾',
+    era: '1989–2010',
+    topCard: '1989 Upper Deck #1',
+    recordSale: '$22,500',
+    cardCount: 3,
+    description: "The Kid. Card #1 of Upper Deck's inaugural set, Jr. is one of the most beloved players in baseball history.",
+    color: 'from-red-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'shohei-ohtani',
+    name: 'Shohei Ohtani',
+    sport: 'Baseball',
+    sportIcon: '⚾',
+    era: '2018–present',
+    topCard: '2018 Bowman Chrome Prospects',
+    recordSale: '$150,000',
+    cardCount: 4,
+    description: 'The two-way generational talent. Ohtani is the most unique player in baseball history — elite pitcher and elite hitter simultaneously.',
+    color: 'from-red-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'honus-wagner',
+    name: 'Honus Wagner',
+    sport: 'Baseball',
+    sportIcon: '⚾',
+    era: '1897–1917',
+    topCard: '1909-11 T206',
+    recordSale: '$7,250,000',
+    cardCount: 2,
+    description: 'The Flying Dutchman. His T206 tobacco card is the most famous card in existence — Wagner allegedly demanded his be pulled from packs.',
+    color: 'from-red-950/40 to-gray-900/20',
+  },
+  // Basketball
+  {
+    slug: 'michael-jordan',
+    name: 'Michael Jordan',
+    sport: 'Basketball',
+    sportIcon: '🏀',
+    era: '1984–2003',
+    topCard: '1986-87 Fleer #57',
+    recordSale: '$738,000',
+    cardCount: 9,
+    description: '6× champion, 5× MVP. The 1986-87 Fleer rookie is basketball\'s most iconic card. His 1984-85 Star RC predates it.',
+    color: 'from-orange-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'lebron-james',
+    name: 'LeBron James',
+    sport: 'Basketball',
+    sportIcon: '🏀',
+    era: '2003–present',
+    topCard: '2003-04 Exquisite RPA',
+    recordSale: '$5,200,000',
+    cardCount: 7,
+    description: "4× champion, all-time leading scorer. His 2003-04 Exquisite RPA is basketball's most valuable modern card at $5.2M.",
+    color: 'from-orange-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'kobe-bryant',
+    name: 'Kobe Bryant',
+    sport: 'Basketball',
+    sportIcon: '🏀',
+    era: '1996–2016',
+    topCard: '1996-97 Topps Chrome #138',
+    recordSale: '$1,795,000',
+    cardCount: 5,
+    description: "5× champion, Black Mamba. Kobe's passing in 2020 drove explosive demand. PSA 10 rookies now trade at life-changing premiums.",
+    color: 'from-orange-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'luka-doncic',
+    name: 'Luka Doncic',
+    sport: 'Basketball',
+    sportIcon: '🏀',
+    era: '2018–present',
+    topCard: '2018-19 Prizm #280 Gold Logoman',
+    recordSale: '$4,200,000',
+    cardCount: 4,
+    description: "Two-time MVP, generational talent from Slovenia. His 1/1 Gold Logoman auto sold for $4.2M — the most valuable modern basketball card sold.",
+    color: 'from-orange-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'victor-wembanyama',
+    name: 'Victor Wembanyama',
+    sport: 'Basketball',
+    sportIcon: '🏀',
+    era: '2023–present',
+    topCard: '2023-24 Prizm Rookie RC',
+    recordSale: '$192,000',
+    cardCount: 3,
+    description: "The generational big man redefining the center position. At 7'4\" with guard skills, Wembanyama's rookie market is one of the most watched in the hobby.",
+    color: 'from-orange-950/40 to-gray-900/20',
+  },
+  // Football
+  {
+    slug: 'tom-brady',
+    name: 'Tom Brady',
+    sport: 'Football',
+    sportIcon: '🏈',
+    era: '2000–2022',
+    topCard: '2000 Playoff Contenders Auto #144',
+    recordSale: '$3,107,852',
+    cardCount: 6,
+    description: '7× Super Bowl champion, greatest of all time. His autographed Playoff Contenders rookie numbered to 100 sold for $3.1M.',
+    color: 'from-blue-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'patrick-mahomes',
+    name: 'Patrick Mahomes',
+    sport: 'Football',
+    sportIcon: '🏈',
+    era: '2017–present',
+    topCard: '2017 National Treasures RPA',
+    recordSale: '$861,000',
+    cardCount: 4,
+    description: '3× Super Bowl champion. At 29, Mahomes is the most decorated active quarterback and the primary collecting target in modern football.',
+    color: 'from-blue-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'joe-montana',
+    name: 'Joe Montana',
+    sport: 'Football',
+    sportIcon: '🏈',
+    era: '1979–1994',
+    topCard: '1981 Topps Rookie Card',
+    recordSale: '$50,000',
+    cardCount: 3,
+    description: '4× Super Bowl champion, 4× Super Bowl MVP, never threw a pick in the Super Bowl. Montana cards are blue chips in vintage football.',
+    color: 'from-blue-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'peyton-manning',
+    name: 'Peyton Manning',
+    sport: 'Football',
+    sportIcon: '🏈',
+    era: '1998–2015',
+    topCard: '1998 Playoff Contenders Ticket',
+    recordSale: '$40,000',
+    cardCount: 3,
+    description: '2× Super Bowl champion, 5× MVP. The most prolific statistical quarterback of his era and a Hall of Famer.',
+    color: 'from-blue-950/40 to-gray-900/20',
+  },
+  // Hockey
+  {
+    slug: 'wayne-gretzky',
+    name: 'Wayne Gretzky',
+    sport: 'Hockey',
+    sportIcon: '🏒',
+    era: '1979–1999',
+    topCard: '1979-80 O-Pee-Chee #18',
+    recordSale: '$3,750,000',
+    cardCount: 5,
+    description: 'The Great One. 61 NHL records. His O-Pee-Chee rookie is the most valuable hockey card at $3.75M in PSA 10.',
+    color: 'from-cyan-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'bobby-orr',
+    name: 'Bobby Orr',
+    sport: 'Hockey',
+    sportIcon: '🏒',
+    era: '1966–1979',
+    topCard: '1966-67 Topps #35',
+    recordSale: '$204,000',
+    cardCount: 3,
+    description: 'The greatest defenseman in NHL history. Orr changed how the position was played and his rookie is exceptionally difficult in top grade.',
+    color: 'from-cyan-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'connor-mcdavid',
+    name: 'Connor McDavid',
+    sport: 'Hockey',
+    sportIcon: '🏒',
+    era: '2015–present',
+    topCard: '2015-16 Upper Deck Young Guns #201',
+    recordSale: '$75,000',
+    cardCount: 4,
+    description: 'The generational talent. McDavid has won 4 Hart Trophies and is the best player in hockey since Gretzky.',
+    color: 'from-cyan-950/40 to-gray-900/20',
+  },
+  {
+    slug: 'sidney-crosby',
+    name: 'Sidney Crosby',
+    sport: 'Hockey',
+    sportIcon: '🏒',
+    era: '2005–present',
+    topCard: '2005-06 Upper Deck Young Guns #201',
+    recordSale: '$228,300',
+    cardCount: 3,
+    description: '3× Stanley Cup champion, 2× Hart Trophy. The Kid is the most decorated player of his generation.',
+    color: 'from-cyan-950/40 to-gray-900/20',
+  },
+];
+
+const sportGroups = ['Baseball', 'Basketball', 'Football', 'Hockey'];
+
+export default function PlayersPage() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      {/* Header */}
+      <div className="mb-10">
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">Player Card Profiles</h1>
+        <p className="text-gray-400 text-lg max-w-2xl">
+          Complete card checklists for the most collected athletes in the hobby. Every card we track, player biography, and price context — in one place.
+        </p>
+      </div>
+
+      {/* Per-sport sections */}
+      {sportGroups.map(sport => {
+        const sportPlayers = players.filter(p => p.sport === sport);
+        const icon = sportPlayers[0]?.sportIcon ?? '';
+        return (
+          <section key={sport} className="mb-14">
+            <h2 className="text-xl font-bold text-white flex items-center gap-2 mb-5">
+              <span>{icon}</span> {sport}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              {sportPlayers.map(player => (
+                <Link key={player.slug} href={`/players/${player.slug}`} className="group block">
+                  <div className={`h-full bg-gradient-to-br ${player.color} border border-gray-800 hover:border-emerald-500/40 rounded-2xl p-5 transition-all hover:-translate-y-0.5`}>
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <h3 className="text-white font-bold text-base group-hover:text-emerald-400 transition-colors">{player.name}</h3>
+                        <p className="text-gray-500 text-xs mt-0.5">{player.era}</p>
+                      </div>
+                      <span className="text-xl">{player.sportIcon}</span>
+                    </div>
+                    <p className="text-gray-400 text-xs leading-relaxed mb-4">{player.description}</p>
+                    <div className="space-y-1.5">
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-gray-600">Top card</span>
+                        <span className="text-gray-400 text-right">{player.topCard}</span>
+                      </div>
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-gray-600">Record sale</span>
+                        <span className="text-amber-400 font-bold">{player.recordSale}</span>
+                      </div>
+                      <div className="flex items-center justify-between text-xs">
+                        <span className="text-gray-600">Cards tracked</span>
+                        <span className="text-gray-400">{player.cardCount}</span>
+                      </div>
+                    </div>
+                    <div className="mt-4 text-emerald-400 text-xs font-medium">
+                      View all cards →
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+
+      {/* CTA */}
+      <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <div className="flex-1">
+          <h3 className="text-white font-bold mb-1">Looking for a player not listed?</h3>
+          <p className="text-gray-400 text-sm">Browse all 300+ cards in our price guide or search for any player by name.</p>
+        </div>
+        <div className="flex gap-3">
+          <Link href="/price-guide" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors">
+            Price Guide
+          </Link>
+          <Link href="/sports" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
+            All Sports Cards
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
