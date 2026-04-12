@@ -82,34 +82,36 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — full panel */}
       {menuOpen && (
-        <div className="md:hidden bg-gray-900 border-t border-gray-800">
-          <nav className="px-4 py-3 space-y-1">
-            {navLinks.map(link => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  pathname === link.href
-                    ? 'text-emerald-400 bg-gray-800'
-                    : 'text-gray-300 hover:text-white hover:bg-gray-800'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+        <div className="md:hidden bg-gray-900 border-t border-gray-800 shadow-2xl shadow-black/60">
+          <nav className="px-4 py-4">
+            <div className="grid grid-cols-2 gap-1.5 mb-3">
+              {navLinks.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex items-center px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${
+                    pathname === link.href
+                      ? 'text-emerald-400 bg-gray-800 border border-emerald-800/50'
+                      : 'text-gray-300 hover:text-white hover:bg-gray-800 border border-gray-800'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
             <Link
               href={starterLink.href}
               onClick={() => setMenuOpen(false)}
-              className={`block px-3 py-2 rounded-md text-xs font-medium border transition-colors ${
+              className={`flex items-center justify-center w-full px-3 py-2.5 rounded-xl text-sm font-medium border transition-colors ${
                 pathname === starterLink.href
                   ? 'border-emerald-500 text-emerald-400 bg-emerald-950/40'
-                  : 'border-gray-700 text-gray-400 hover:text-emerald-400'
+                  : 'border-emerald-800/50 text-emerald-400 hover:bg-emerald-950/30'
               }`}
             >
-              {starterLink.label}
+              {starterLink.label} →
             </Link>
           </nav>
         </div>

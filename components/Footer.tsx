@@ -1,8 +1,29 @@
 import Link from 'next/link';
+import { sportsCards } from '@/data/sports-cards';
 
 export default function Footer() {
+  const sportsCount = sportsCards.length;
+  const buildDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
   return (
     <footer className="bg-gray-950 border-t border-gray-800 mt-auto">
+      {/* Site stats bar */}
+      <div className="border-b border-gray-800/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-xs text-gray-500">
+            <span><span className="text-emerald-400 font-semibold">{sportsCount.toLocaleString()}+</span> Sports Cards</span>
+            <span className="text-gray-700 hidden sm:inline">·</span>
+            <span><span className="text-yellow-500 font-semibold">20,000+</span> Pokémon Cards</span>
+            <span className="text-gray-700 hidden sm:inline">·</span>
+            <span><span className="text-white font-semibold">218+</span> TCG Sets</span>
+            <span className="text-gray-700 hidden sm:inline">·</span>
+            <span>Live prices from TCGPlayer &amp; eBay</span>
+            <span className="text-gray-700 hidden sm:inline">·</span>
+            <span>Last updated {buildDate}</span>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -29,6 +50,7 @@ export default function Footer() {
                 { href: '/pokemon', label: 'Pokémon Cards' },
                 { href: '/sports', label: 'Sports Cards' },
                 { href: '/price-guide', label: 'Price Guide' },
+                { href: '/calendar', label: 'Release Calendar' },
                 { href: '/news', label: 'Market News' },
               ].map(link => (
                 <li key={link.href}>
@@ -45,10 +67,10 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-sm mb-3">Sports</h3>
             <ul className="space-y-2">
               {[
-                { href: '/sports?sport=baseball', label: 'Baseball' },
-                { href: '/sports?sport=basketball', label: 'Basketball' },
-                { href: '/sports?sport=football', label: 'Football' },
-                { href: '/sports?sport=hockey', label: 'Hockey' },
+                { href: '/sports?sport=baseball', label: '⚾ Baseball' },
+                { href: '/sports?sport=basketball', label: '🏀 Basketball' },
+                { href: '/sports?sport=football', label: '🏈 Football' },
+                { href: '/sports?sport=hockey', label: '🏒 Hockey' },
               ].map(link => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-gray-400 hover:text-emerald-400 text-sm transition-colors">
@@ -66,9 +88,9 @@ export default function Footer() {
               {[
                 { href: '/guides', label: 'Collector Guides' },
                 { href: '/tools', label: 'Collector Tools' },
+                { href: '/sports/sets', label: 'Set Checklists' },
                 { href: '/about', label: 'About CardVault' },
                 { href: '/about#data', label: 'Data Sources' },
-                { href: '/about#contact', label: 'Contact' },
               ].map(link => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-gray-400 hover:text-emerald-400 text-sm transition-colors">

@@ -86,8 +86,27 @@ export default async function SportsCardPage({ params }: Props) {
   const psaPopUrl = `https://www.psacard.com/pop/`;
   const psaCertLookup = `https://www.psacard.com/cert/`;
 
+  // JSON-LD structured data for this card page (static data, safe for dangerouslySetInnerHTML)
+  const jsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: card.name,
+    description: card.description,
+    category: `${sportLabel} Trading Card`,
+    brand: { '@type': 'Brand', name: card.set },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: card.estimatedValueRaw.match(/[\d,]+/)?.[0]?.replace(',', '') ?? '0',
+      offerCount: 1,
+      availability: 'https://schema.org/InStock',
+    },
+  });
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      {/* eslint-disable-next-line @next/next/no-head-element */}
+      <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: jsonLd }} />
       <Breadcrumb items={[
         { label: 'Home', href: '/' },
         { label: 'Sports Cards', href: '/sports' },
