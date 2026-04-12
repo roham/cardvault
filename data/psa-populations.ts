@@ -141,6 +141,93 @@ export const psaPopulations: PsaPopulation[] = [
   { slug: '2000-01-upper-deck-young-guns-martin-brodeur', totalGraded: 4800, psa10Count: 280, psa9Count: 1200, psa8Count: 1800, gemRate: 5.8 },
   // Brett Hull 1986-87 Topps RC
   { slug: '1991-score-brett-hull-1', totalGraded: 3200, psa10Count: 85, psa9Count: 480, psa8Count: 1100, gemRate: 2.7 },
+
+  // ─── NEW JORDAN ADDITIONS ─────────────────────────────────────
+  { slug: '1986-87-fleer-sticker-michael-jordan-8', totalGraded: 4800, psa10Count: 42, psa9Count: 180, psa8Count: 620, gemRate: 0.9 },
+  { slug: '1988-89-fleer-all-star-michael-jordan-120', totalGraded: 3200, psa10Count: 28, psa9Count: 150, psa8Count: 480, gemRate: 0.9 },
+  { slug: '1990-91-fleer-michael-jordan-26', totalGraded: 22000, psa10Count: 320, psa9Count: 2400, psa8Count: 5200, gemRate: 1.5 },
+  { slug: '1995-96-topps-finest-michael-jordan-229', totalGraded: 2800, psa10Count: 28, psa9Count: 120, psa8Count: 580, gemRate: 1.0 },
+  { slug: '1996-97-topps-chrome-refractor-jordan-139', totalGraded: 1800, psa10Count: 18, psa9Count: 95, psa8Count: 420, gemRate: 1.0 },
+  { slug: '1997-98-metal-universe-pmg-jordan-23', totalGraded: 42, psa10Count: 0, psa9Count: 2, psa8Count: 8, gemRate: 0.0 },
+  { slug: '1997-98-upper-deck-game-jersey-jordan-gj13', totalGraded: 1200, psa10Count: 18, psa9Count: 85, psa8Count: 280, gemRate: 1.5 },
+  { slug: '1984-star-olympics-michael-jordan-4', totalGraded: 420, psa10Count: 3, psa9Count: 18, psa8Count: 55, gemRate: 0.7 },
+  { slug: '1989-90-fleer-michael-jordan-21', totalGraded: 18000, psa10Count: 280, psa9Count: 2000, psa8Count: 4200, gemRate: 1.6 },
+  { slug: '1993-94-upper-deck-se-jordan-jh1', totalGraded: 2400, psa10Count: 45, psa9Count: 280, psa8Count: 680, gemRate: 1.9 },
+
+  // ─── NEW LEBRON ADDITIONS ─────────────────────────────────────
+  { slug: '2003-04-upper-deck-lebron-james-301-rc', totalGraded: 16200, psa10Count: 85, psa9Count: 680, psa8Count: 2800, gemRate: 0.5 },
+  { slug: '2003-04-bowman-chrome-lebron-james-123-rc', totalGraded: 9800, psa10Count: 38, psa9Count: 380, psa8Count: 1800, gemRate: 0.4 },
+  { slug: '2003-04-sp-authentic-lebron-james-148-rc-auto', totalGraded: 420, psa10Count: 4, psa9Count: 38, psa8Count: 120, gemRate: 1.0 },
+  { slug: '2003-04-upper-deck-exquisite-lebron-parallel-23', totalGraded: 18, psa10Count: 0, psa9Count: 1, psa8Count: 3, gemRate: 0.0 },
+  { slug: '2019-20-panini-prizm-lebron-james-129-lakers', totalGraded: 42000, psa10Count: 2800, psa9Count: 12000, psa8Count: 18000, gemRate: 6.7 },
+
+  // ─── NEW MANTLE ADDITIONS ─────────────────────────────────────
+  { slug: '1953-topps-mickey-mantle-82', totalGraded: 2200, psa10Count: 1, psa9Count: 8, psa8Count: 28, gemRate: 0.0 },
+  { slug: '1956-topps-mickey-mantle-135', totalGraded: 3800, psa10Count: 1, psa9Count: 15, psa8Count: 55, gemRate: 0.0 },
+  { slug: '1958-topps-mickey-mantle-150', totalGraded: 4200, psa10Count: 0, psa9Count: 8, psa8Count: 42, gemRate: 0.0 },
+  { slug: '1961-topps-mickey-mantle-300', totalGraded: 5800, psa10Count: 0, psa9Count: 12, psa8Count: 65, gemRate: 0.0 },
+  { slug: '1952-bowman-mickey-mantle-101', totalGraded: 1600, psa10Count: 0, psa9Count: 3, psa8Count: 18, gemRate: 0.0 },
+  { slug: '1968-topps-mickey-mantle-280', totalGraded: 6200, psa10Count: 2, psa9Count: 18, psa8Count: 85, gemRate: 0.0 },
+
+  // ─── NEW TROUT ADDITIONS ──────────────────────────────────────
+  { slug: '2012-topps-mike-trout-446', totalGraded: 38000, psa10Count: 1200, psa9Count: 8800, psa8Count: 14000, gemRate: 3.2 },
+  { slug: '2012-bowman-chrome-mike-trout-157', totalGraded: 12000, psa10Count: 280, psa9Count: 2400, psa8Count: 4800, gemRate: 2.3 },
+  { slug: '2009-bowman-sterling-mike-trout-17-auto', totalGraded: 380, psa10Count: 12, psa9Count: 65, psa8Count: 220, gemRate: 3.2 },
+  { slug: '2012-topps-chrome-mike-trout-144', totalGraded: 28000, psa10Count: 1200, psa9Count: 6200, psa8Count: 10000, gemRate: 4.3 },
+
+  // ─── NEW BRADY ADDITIONS ──────────────────────────────────────
+  { slug: '2000-bowman-chrome-tom-brady-236-rc', totalGraded: 2400, psa10Count: 28, psa9Count: 180, psa8Count: 580, gemRate: 1.2 },
+  { slug: '2000-spx-tom-brady-130-rc', totalGraded: 1800, psa10Count: 18, psa9Count: 120, psa8Count: 420, gemRate: 1.0 },
+  { slug: '2000-score-tom-brady-316-rc', totalGraded: 4800, psa10Count: 85, psa9Count: 480, psa8Count: 1200, gemRate: 1.8 },
+
+  // ─── NEW GRETZKY ADDITIONS ────────────────────────────────────
+  { slug: '1981-82-opee-chee-wayne-gretzky-106', totalGraded: 6200, psa10Count: 8, psa9Count: 45, psa8Count: 180, gemRate: 0.1 },
+  { slug: '1985-86-topps-wayne-gretzky-120', totalGraded: 8400, psa10Count: 28, psa9Count: 180, psa8Count: 520, gemRate: 0.3 },
+
+  // ─── NEW MAHOMES ADDITIONS ────────────────────────────────────
+  { slug: '2017-panini-prizm-patrick-mahomes-269-rc', totalGraded: 62000, psa10Count: 2200, psa9Count: 12000, psa8Count: 22000, gemRate: 3.5 },
+  { slug: '2017-panini-prizm-silver-mahomes-269-rc', totalGraded: 4800, psa10Count: 280, psa9Count: 880, psa8Count: 1600, gemRate: 5.8 },
+  { slug: '2017-national-treasures-mahomes-rc-patch-auto-99', totalGraded: 95, psa10Count: 4, psa9Count: 18, psa8Count: 32, gemRate: 4.2 },
+
+  // ─── NEW KOBE ADDITIONS ───────────────────────────────────────
+  { slug: '1996-97-topps-chrome-refractor-kobe-138', totalGraded: 2200, psa10Count: 4, psa9Count: 45, psa8Count: 280, gemRate: 0.2 },
+  { slug: '1996-97-flair-showcase-kobe-31', totalGraded: 3800, psa10Count: 22, psa9Count: 180, psa8Count: 580, gemRate: 0.6 },
+  { slug: '1996-97-ex2000-credentials-kobe-30', totalGraded: 680, psa10Count: 8, psa9Count: 42, psa8Count: 120, gemRate: 1.2 },
+  { slug: '1996-97-bowmans-best-refractor-kobe-r23', totalGraded: 1200, psa10Count: 10, psa9Count: 58, psa8Count: 180, gemRate: 0.8 },
+  { slug: '2012-13-panini-prizm-kobe-bryant-24', totalGraded: 18000, psa10Count: 480, psa9Count: 3200, psa8Count: 5800, gemRate: 2.7 },
+
+  // ─── NEW WEMBANYAMA ADDITIONS ─────────────────────────────────
+  { slug: '2023-24-panini-prizm-wembanyama-275-rc', totalGraded: 48000, psa10Count: 3800, psa9Count: 14000, psa8Count: 18000, gemRate: 7.9 },
+  { slug: '2023-24-panini-prizm-silver-wembanyama-275', totalGraded: 3200, psa10Count: 280, psa9Count: 680, psa8Count: 1000, gemRate: 8.8 },
+  { slug: '2023-24-national-treasures-wembanyama-rc-patch-auto', totalGraded: 92, psa10Count: 2, psa9Count: 15, psa8Count: 28, gemRate: 2.2 },
+  { slug: '2023-24-panini-flawless-wembanyama-rc', totalGraded: 12, psa10Count: 0, psa9Count: 1, psa8Count: 2, gemRate: 0.0 },
+
+  // ─── HOCKEY LEGENDS ADDITIONS ────────────────────────────────
+  { slug: '1984-85-opee-chee-mario-lemieux-9-rc', totalGraded: 4200, psa10Count: 0, psa9Count: 8, psa8Count: 42, gemRate: 0.0 },
+  { slug: '1984-85-topps-mario-lemieux-9-rc', totalGraded: 6800, psa10Count: 8, psa9Count: 42, psa8Count: 180, gemRate: 0.1 },
+  { slug: '1990-91-upper-deck-dominik-hasek-rc', totalGraded: 4800, psa10Count: 85, psa9Count: 480, psa8Count: 1200, gemRate: 1.8 },
+  { slug: '1990-91-opee-chee-joe-sakic-rc', totalGraded: 5200, psa10Count: 45, psa9Count: 320, psa8Count: 880, gemRate: 0.9 },
+  { slug: '1985-86-opee-chee-steve-yzerman-rc', totalGraded: 3800, psa10Count: 18, psa9Count: 120, psa8Count: 380, gemRate: 0.5 },
+  { slug: '1988-89-opee-chee-patrick-roy-rc', totalGraded: 4400, psa10Count: 22, psa9Count: 150, psa8Count: 420, gemRate: 0.5 },
+  { slug: '2022-23-upper-deck-young-guns-bedard-rc', totalGraded: 28000, psa10Count: 480, psa9Count: 3200, psa8Count: 6800, gemRate: 1.7 },
+
+  // ─── PRE-WAR BASEBALL ADDITIONS ──────────────────────────────
+  { slug: '1933-goudey-babe-ruth-181', totalGraded: 820, psa10Count: 0, psa9Count: 0, psa8Count: 3, gemRate: 0.0 },
+  { slug: '1933-goudey-lou-gehrig-92', totalGraded: 680, psa10Count: 0, psa9Count: 0, psa8Count: 2, gemRate: 0.0 },
+  { slug: '1939-play-ball-ted-williams-92-rc', totalGraded: 620, psa10Count: 0, psa9Count: 2, psa8Count: 8, gemRate: 0.0 },
+  { slug: '1909-t206-ty-cobb-portrait', totalGraded: 480, psa10Count: 0, psa9Count: 0, psa8Count: 3, gemRate: 0.0 },
+
+  // ─── MODERN FOOTBALL ADDITIONS ───────────────────────────────
+  { slug: '2020-panini-prizm-joe-burrow-rc-306', totalGraded: 38000, psa10Count: 2200, psa9Count: 9800, psa8Count: 14000, gemRate: 5.8 },
+  { slug: '1989-topps-barry-sanders-rookie-257', totalGraded: 28000, psa10Count: 180, psa9Count: 1800, psa8Count: 4200, gemRate: 0.6 },
+  { slug: '1984-topps-dan-marino-rc-123', totalGraded: 22000, psa10Count: 6, psa9Count: 85, psa8Count: 480, gemRate: 0.0 },
+  { slug: '2000-bowman-chrome-tom-brady-236-rc', totalGraded: 2400, psa10Count: 28, psa9Count: 180, psa8Count: 580, gemRate: 1.2 },
+
+  // ─── POKEMON ADDITIONS ───────────────────────────────────────
+  { slug: '1999-base-set-charizard-4-shadowless', totalGraded: 3800, psa10Count: 28, psa9Count: 180, psa8Count: 420, gemRate: 0.7 },
+  { slug: '1999-pokemon-1st-edition-charizard-4', totalGraded: 1200, psa10Count: 8, psa9Count: 45, psa8Count: 120, gemRate: 0.7 },
+  { slug: '1996-pokemon-japanese-base-set-charizard', totalGraded: 820, psa10Count: 5, psa9Count: 28, psa8Count: 80, gemRate: 0.6 },
+  { slug: '2022-pokemon-lost-origin-giratina-vstar-alt-art', totalGraded: 12000, psa10Count: 1200, psa9Count: 4800, psa8Count: 3600, gemRate: 10.0 },
 ];
 
 export function getPsaPopulation(slug: string): PsaPopulation | undefined {

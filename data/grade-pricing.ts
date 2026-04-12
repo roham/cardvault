@@ -751,6 +751,323 @@ export const gradePricingData: GradePricing[] = [
       { grade: 10, label: 'Gem Mint', estimatedValue: '$4,000–$12,000', population: 380, trend: 'up' },
     ],
   },
+
+  // ─── NEW JORDAN CARDS ─────────────────────────────────────────
+  {
+    slug: '1986-87-fleer-sticker-michael-jordan-8',
+    sweetSpot: 8,
+    sourceName: 'eBay Sold Comps / Heritage Auctions',
+    sourceNote: 'Jordan stickers have adhesive backs — condition-sensitive. PSA 10 population is notably lower than the base card.',
+    grades: [
+      { grade: 2, label: 'Good', estimatedValue: '$150–$300', trend: 'flat' },
+      { grade: 4, label: 'VG-EX', estimatedValue: '$500–$900', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$900–$2,000', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$2,500–$5,000', population: 380, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$5,000–$10,000', population: 620, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$15,000–$35,000', population: 180, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$80,000–$180,000', population: 42, trend: 'up' },
+    ],
+  },
+  {
+    slug: '1996-97-topps-chrome-refractor-jordan-139',
+    sweetSpot: 9,
+    sourceName: 'eBay Sold Comps / Goldin Auctions',
+    sourceNote: 'Seeded 1:12 packs. PSA 10 population is critically small — among the rarest 90s basketball refractors.',
+    grades: [
+      { grade: 5, label: 'Excellent', estimatedValue: '$1,000–$2,000', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$2,000–$4,000', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$4,500–$9,000', population: 280, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$10,000–$22,000', population: 420, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$30,000–$80,000', population: 95, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$250,000+', population: 18, trend: 'up' },
+    ],
+  },
+  {
+    slug: '1997-98-metal-universe-pmg-jordan-23',
+    sweetSpot: 8,
+    sourceName: 'Heritage Auctions / Goldin Auctions',
+    sourceNote: 'Green PMG /100, Red PMG /10. Foil construction makes high grades extraordinarily rare. Among the most valuable 90s inserts.',
+    grades: [
+      { grade: 5, label: 'Excellent', estimatedValue: '$15,000–$30,000', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$30,000–$60,000', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$80,000–$150,000', population: 12, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$200,000–$450,000', population: 8, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$600,000–$1,500,000', population: 2, trend: 'up' },
+    ],
+  },
+  {
+    slug: '1995-96-topps-finest-michael-jordan-229',
+    sweetSpot: 9,
+    sourceName: 'eBay Sold Comps / PWCC Auctions',
+    sourceNote: 'Finest Refractor from Jordan\'s comeback season. Seeded 1:12 packs — PSA 10 population is tiny.',
+    grades: [
+      { grade: 5, label: 'Excellent', estimatedValue: '$300–$700', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$700–$1,500', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$2,000–$5,000', population: 320, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$5,000–$12,000', population: 580, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$20,000–$50,000', population: 120, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$120,000+', population: 28, trend: 'up' },
+    ],
+  },
+
+  // ─── NEW LEBRON CARDS ─────────────────────────────────────────
+  {
+    slug: '2003-04-bowman-chrome-lebron-james-123-rc',
+    sweetSpot: 9,
+    sourceName: 'eBay Sold Comps / PWCC',
+    sourceNote: 'LeBron Bowman Chrome RC — refractor parallel commands 4-6x over base in same grade.',
+    grades: [
+      { grade: 4, label: 'VG-EX', estimatedValue: '$200–$500', trend: 'flat' },
+      { grade: 5, label: 'Excellent', estimatedValue: '$500–$1,200', trend: 'flat' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$1,200–$2,500', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$3,000–$6,000', population: 980, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$8,000–$16,000', population: 1800, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$25,000–$55,000', population: 380, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$80,000–$200,000', population: 38, trend: 'up' },
+    ],
+  },
+  {
+    slug: '2003-04-sp-authentic-lebron-james-148-rc-auto',
+    sweetSpot: 9,
+    sourceName: 'Heritage Auctions / Goldin Auctions',
+    sourceNote: 'Numbered to 500. On-card auto — LeBron\'s signature quality varies across the 500-copy run.',
+    grades: [
+      { grade: 5, label: 'Excellent', estimatedValue: '$2,000–$4,000', trend: 'flat' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$4,000–$8,000', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$10,000–$20,000', population: 85, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$25,000–$55,000', population: 120, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$80,000–$200,000', population: 38, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$500,000+', population: 4, trend: 'up' },
+    ],
+  },
+
+  // ─── NEW MANTLE CARDS ─────────────────────────────────────────
+  {
+    slug: '1953-topps-mickey-mantle-82',
+    sweetSpot: 7,
+    sourceName: 'Heritage Auctions / Goldin Auctions',
+    sourceNote: '1953 Topps hand-painted style. High-grade copies are extremely rare due to paper quality and crease susceptibility.',
+    grades: [
+      { grade: 1, label: 'Poor', estimatedValue: '$2,000–$4,000', trend: 'flat' },
+      { grade: 2, label: 'Good', estimatedValue: '$4,000–$7,000', trend: 'flat' },
+      { grade: 3, label: 'Very Good', estimatedValue: '$7,000–$14,000', trend: 'up' },
+      { grade: 4, label: 'VG-EX', estimatedValue: '$14,000–$25,000', trend: 'up' },
+      { grade: 5, label: 'Excellent', estimatedValue: '$30,000–$60,000', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$70,000–$150,000', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$200,000–$400,000', population: 12, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$600,000–$1,200,000', population: 4, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$3,000,000+', population: 1, trend: 'up' },
+    ],
+  },
+  {
+    slug: '1956-topps-mickey-mantle-135',
+    sweetSpot: 7,
+    sourceName: 'eBay Sold Comps / Heritage Auctions',
+    sourceNote: 'Triple Crown season card. The 1956 Topps dual-photo format is condition-sensitive on both corners.',
+    grades: [
+      { grade: 1, label: 'Poor', estimatedValue: '$500–$900', trend: 'flat' },
+      { grade: 2, label: 'Good', estimatedValue: '$900–$1,800', trend: 'flat' },
+      { grade: 3, label: 'Very Good', estimatedValue: '$2,000–$4,000', trend: 'up' },
+      { grade: 4, label: 'VG-EX', estimatedValue: '$4,000–$7,000', trend: 'up' },
+      { grade: 5, label: 'Excellent', estimatedValue: '$8,000–$15,000', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$20,000–$40,000', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$50,000–$120,000', population: 32, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$200,000–$500,000', population: 8, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$1,000,000+', population: 1, trend: 'up' },
+    ],
+  },
+
+  // ─── NEW TROUT CARDS ──────────────────────────────────────────
+  {
+    slug: '2009-bowman-sterling-mike-trout-17-auto',
+    sweetSpot: 9,
+    sourceName: 'eBay Sold Comps / PWCC',
+    sourceNote: 'Numbered /500. Trout signed early Bowman auto — condition varies across the print run.',
+    grades: [
+      { grade: 5, label: 'Excellent', estimatedValue: '$500–$1,000', trend: 'flat' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$1,000–$2,500', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$3,000–$6,000', population: 120, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$7,000–$15,000', population: 220, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$25,000–$60,000', population: 65, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$150,000+', population: 12, trend: 'up' },
+    ],
+  },
+  {
+    slug: '2012-topps-chrome-mike-trout-144',
+    sweetSpot: 10,
+    sourceName: 'eBay Sold Comps',
+    sourceNote: 'Trout\'s sophomore Topps Chrome — higher gem rate than the 2011 Update. Refractor parallel multiplies value 3-5x.',
+    grades: [
+      { grade: 6, label: 'EX-MT', estimatedValue: '$30–$80', trend: 'flat' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$80–$200', population: 3200, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$200–$500', population: 6200, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$500–$1,500', population: 4800, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$6,000–$18,000', population: 1200, trend: 'up' },
+    ],
+  },
+
+  // ─── NEW BRADY CARDS ──────────────────────────────────────────
+  {
+    slug: '2000-bowman-chrome-tom-brady-236-rc',
+    sweetSpot: 9,
+    sourceName: 'eBay Sold Comps / Heritage Auctions',
+    sourceNote: 'Brady Bowman Chrome RC — one of the most actively traded of his RCs. Refractor parallel commands 8-10x over base.',
+    grades: [
+      { grade: 4, label: 'VG-EX', estimatedValue: '$300–$700', trend: 'flat' },
+      { grade: 5, label: 'Excellent', estimatedValue: '$700–$1,500', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$1,500–$3,500', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$4,000–$8,000', population: 320, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$10,000–$25,000', population: 580, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$35,000–$85,000', population: 180, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$250,000+', population: 28, trend: 'up' },
+    ],
+  },
+
+  // ─── MAHOMES PRIZM ────────────────────────────────────────────
+  {
+    slug: '2017-panini-prizm-patrick-mahomes-269-rc',
+    sweetSpot: 10,
+    sourceName: 'eBay Sold Comps / PWCC',
+    sourceNote: 'Base Prizm RC — modern production. Silver parallel is 8-12x more valuable in same grade.',
+    grades: [
+      { grade: 6, label: 'EX-MT', estimatedValue: '$100–$250', trend: 'flat' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$250–$600', population: 3800, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$600–$1,500', population: 7200, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$1,500–$4,000', population: 5400, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$6,000–$15,000', population: 2200, trend: 'up' },
+    ],
+  },
+  {
+    slug: '2017-panini-prizm-silver-mahomes-269-rc',
+    sweetSpot: 10,
+    sourceName: 'eBay Sold Comps / Goldin Auctions',
+    sourceNote: 'Silver Prizm parallel — the most coveted Mahomes RC. PSA 10 pop is growing but demand keeps pace.',
+    grades: [
+      { grade: 7, label: 'Near Mint', estimatedValue: '$800–$2,000', population: 480, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$2,500–$6,000', population: 880, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$8,000–$20,000', population: 420, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$40,000–$100,000', population: 280, trend: 'up' },
+    ],
+  },
+
+  // ─── KOBE REFRACTOR ───────────────────────────────────────────
+  {
+    slug: '1996-97-topps-chrome-refractor-kobe-138',
+    sweetSpot: 9,
+    sourceName: 'Heritage Auctions / Goldin Auctions',
+    sourceNote: 'Seeded 1:12 packs. Post-2020 demand drove PSA 10 into six-figure territory. Critically low pop.',
+    grades: [
+      { grade: 4, label: 'VG-EX', estimatedValue: '$1,000–$2,500', trend: 'up' },
+      { grade: 5, label: 'Excellent', estimatedValue: '$3,000–$6,000', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$8,000–$18,000', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$25,000–$60,000', population: 180, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$80,000–$180,000', population: 280, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$300,000–$600,000', population: 45, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$1,500,000+', population: 4, trend: 'up' },
+    ],
+  },
+
+  // ─── WEMBANYAMA NT ────────────────────────────────────────────
+  {
+    slug: '2023-24-national-treasures-wembanyama-rc-patch-auto',
+    sweetSpot: 9,
+    sourceName: 'Heritage Auctions / PWCC',
+    sourceNote: 'Numbered /99. On-card auto with prime patch. Early auction results rival LeBron NT from 2003.',
+    grades: [
+      { grade: 7, label: 'Near Mint', estimatedValue: '$8,000–$20,000', population: 18, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$25,000–$60,000', population: 28, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$80,000–$200,000', population: 15, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$500,000+', population: 2, trend: 'up' },
+    ],
+  },
+
+  // ─── MARIO LEMIEUX OPC RC ─────────────────────────────────────
+  {
+    slug: '1984-85-opee-chee-mario-lemieux-9-rc',
+    sweetSpot: 7,
+    sourceName: 'eBay Sold Comps / Heritage Auctions',
+    sourceNote: 'OPC RC — Canadian production, bilingual back. Less print run documentation than US Topps. PSA 10 population unknown/unconfirmed.',
+    grades: [
+      { grade: 1, label: 'Poor', estimatedValue: '$100–$200', trend: 'flat' },
+      { grade: 2, label: 'Good', estimatedValue: '$200–$400', trend: 'flat' },
+      { grade: 3, label: 'Very Good', estimatedValue: '$400–$900', trend: 'up' },
+      { grade: 4, label: 'VG-EX', estimatedValue: '$900–$2,000', trend: 'up' },
+      { grade: 5, label: 'Excellent', estimatedValue: '$2,000–$5,000', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$5,000–$12,000', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$15,000–$40,000', population: 120, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$50,000–$120,000', population: 42, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$200,000–$500,000', population: 8, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$1,000,000+', population: 0, trend: 'up' },
+    ],
+  },
+
+  // ─── GIANNIS PRIZM ────────────────────────────────────────────
+  {
+    slug: '2013-14-panini-prizm-giannis-antetokounmpo-290',
+    sweetSpot: 10,
+    sourceName: 'eBay Sold Comps / PWCC',
+    sourceNote: 'First Prizm basketball set — first-year Giannis RC. PSA 10 is the dominant grade collectors chase.',
+    grades: [
+      { grade: 5, label: 'Excellent', estimatedValue: '$50–$150', trend: 'flat' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$150–$400', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$400–$1,000', population: 1800, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$1,000–$3,000', population: 4200, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$3,500–$8,000', population: 2800, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$12,000–$30,000', population: 680, trend: 'up' },
+    ],
+  },
+
+  // ─── DAN MARINO TOPPS RC ──────────────────────────────────────
+  {
+    slug: '1984-topps-dan-marino-rc-123',
+    sweetSpot: 8,
+    sourceName: 'eBay Sold Comps / Heritage Auctions',
+    sourceNote: 'Dark borders on 1984 Topps football create chipping risk — PSA 10 population is very low.',
+    grades: [
+      { grade: 3, label: 'Very Good', estimatedValue: '$30–$80', trend: 'flat' },
+      { grade: 4, label: 'VG-EX', estimatedValue: '$80–$200', trend: 'flat' },
+      { grade: 5, label: 'Excellent', estimatedValue: '$200–$450', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$450–$900', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$1,000–$2,500', population: 380, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$3,000–$7,000', population: 480, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$10,000–$25,000', population: 85, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$80,000+', population: 6, trend: 'up' },
+    ],
+  },
+
+  // ─── BEDARD YOUNG GUNS ────────────────────────────────────────
+  {
+    slug: '2022-23-upper-deck-young-guns-bedard-rc',
+    sweetSpot: 10,
+    sourceName: 'eBay Sold Comps / PWCC',
+    sourceNote: 'Most anticipated hockey RC since McDavid. Canvas texture is condition-sensitive — PSA 10 gem rate is below average.',
+    grades: [
+      { grade: 6, label: 'EX-MT', estimatedValue: '$30–$80', trend: 'flat' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$80–$250', population: 2400, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$250–$800', population: 4200, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$1,000–$3,500', population: 2200, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$10,000–$30,000', population: 480, trend: 'up' },
+    ],
+  },
+  // ─── CHARIZARD SHADOWLESS ─────────────────────────────────────
+  {
+    slug: '1999-base-set-charizard-4-shadowless',
+    sweetSpot: 9,
+    sourceName: 'eBay Sold Comps / Heritage Auctions',
+    sourceNote: 'Shadowless first-print Charizard — pre-shadow 1st print run. Distinct from 1st Edition (no 1st Ed. stamp). Condition very sensitive.',
+    grades: [
+      { grade: 1, label: 'Poor', estimatedValue: '$150–$300', trend: 'flat' },
+      { grade: 2, label: 'Good', estimatedValue: '$300–$600', trend: 'flat' },
+      { grade: 3, label: 'Very Good', estimatedValue: '$600–$1,200', trend: 'up' },
+      { grade: 4, label: 'VG-EX', estimatedValue: '$1,200–$2,500', trend: 'up' },
+      { grade: 5, label: 'Excellent', estimatedValue: '$2,500–$5,000', trend: 'up' },
+      { grade: 6, label: 'EX-MT', estimatedValue: '$5,000–$10,000', trend: 'up' },
+      { grade: 7, label: 'Near Mint', estimatedValue: '$10,000–$25,000', population: 280, trend: 'up' },
+      { grade: 8, label: 'NM-MT', estimatedValue: '$30,000–$80,000', population: 420, trend: 'up' },
+      { grade: 9, label: 'Mint', estimatedValue: '$100,000–$300,000', population: 180, trend: 'up' },
+      { grade: 10, label: 'Gem Mint', estimatedValue: '$400,000–$700,000', population: 28, trend: 'up' },
+    ],
+  },
 ];
 
 export function getGradePricing(slug: string): GradePricing | undefined {
