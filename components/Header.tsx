@@ -9,6 +9,8 @@ const navLinks = [
   { href: '/pokemon', label: 'Pokémon' },
   { href: '/sports', label: 'Sports' },
   { href: '/price-guide', label: 'Price Guide' },
+  { href: '/tools', label: 'Tools' },
+  { href: '/guides', label: 'Guides' },
   { href: '/news', label: 'News' },
   { href: '/about', label: 'About' },
 ];

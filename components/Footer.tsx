@@ -64,6 +64,8 @@ export default function Footer() {
             <h3 className="text-white font-semibold text-sm mb-3">Info</h3>
             <ul className="space-y-2">
               {[
+                { href: '/guides', label: 'Collector Guides' },
+                { href: '/tools', label: 'Collector Tools' },
                 { href: '/about', label: 'About CardVault' },
                 { href: '/about#data', label: 'Data Sources' },
                 { href: '/about#contact', label: 'Contact' },

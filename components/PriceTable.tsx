@@ -41,6 +41,7 @@ export default function PriceTable({ sportsCards, initialQuery = '' }: PriceTabl
   const [query, setQuery] = useState(initialQuery);
   const [category, setCategory] = useState<'all' | 'sports' | 'pokemon'>('all');
   const [sport, setSport] = useState<'all' | 'baseball' | 'basketball' | 'football' | 'hockey'>('all');
+  const [rookieOnly, setRookieOnly] = useState(false);
   const [sortBy, setSortBy] = useState<'name' | 'year' | 'set'>('name');
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc');
 
@@ -68,6 +69,10 @@ export default function PriceTable({ sportsCards, initialQuery = '' }: PriceTabl
 
     if (sport !== 'all' && category !== 'pokemon') {
       result = result.filter(r => r.sport === sport);
+    }
+
+    if (rookieOnly) {
+      result = result.filter(r => r.rarity === 'Rookie Card');
     }
 
     if (query.trim()) {
@@ -107,50 +112,121 @@ export default function PriceTable({ sportsCards, initialQuery = '' }: PriceTabl
     </span>
   );
 
+  const totalCards = rows.length;
+  const hasActiveFilters = query.trim() || sport !== 'all' || category !== 'all' || rookieOnly;
+
+  const clearAll = () => {
+    setQuery('');
+    setCategory('all');
+    setSport('all');
+    setRookieOnly(false);
+  };
+
   return (
     <div className="space-y-4">
-      {/* Filters */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <div className="relative flex-1">
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
-          </svg>
-          <input
-            type="text"
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-            placeholder="Search by name or set..."
-            className="w-full bg-gray-800 border border-gray-700 text-white placeholder-gray-400 rounded-lg pl-9 pr-4 py-2 text-sm focus:outline-none focus:border-emerald-500"
-          />
-        </div>
-
-        <select
-          value={category}
-          onChange={e => setCategory(e.target.value as typeof category)}
-          className="bg-gray-800 border border-gray-700 text-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500"
-        >
-          <option value="all">All Categories</option>
-          <option value="sports">Sports Cards</option>
-          <option value="pokemon">Pokémon TCG</option>
-        </select>
-
-        {category !== 'pokemon' && (
-          <select
-            value={sport}
-            onChange={e => setSport(e.target.value as typeof sport)}
-            className="bg-gray-800 border border-gray-700 text-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500"
+      {/* Search bar */}
+      <div className="relative flex-1">
+        <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+        </svg>
+        <input
+          type="text"
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          placeholder="Search by player, card name, or set... (results update instantly)"
+          className="w-full bg-gray-800 border border-gray-700 text-white placeholder-gray-400 rounded-xl pl-9 pr-24 py-3 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors"
+        />
+        {query && (
+          <button
+            onClick={() => setQuery('')}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+            aria-label="Clear search"
           >
-            <option value="all">All Sports</option>
-            <option value="baseball">Baseball</option>
-            <option value="basketball">Basketball</option>
-            <option value="football">Football</option>
-            <option value="hockey">Hockey</option>
-          </select>
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        )}
+      </div>
+
+      {/* Quick filter chips */}
+      <div className="flex flex-wrap gap-2">
+        {/* Category chips */}
+        {[
+          { value: 'all', label: 'All' },
+          { value: 'sports', label: 'Sports Cards' },
+        ].map(opt => (
+          <button
+            key={opt.value}
+            onClick={() => setCategory(opt.value as typeof category)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors border ${
+              category === opt.value
+                ? 'bg-emerald-600 text-white border-emerald-600'
+                : 'bg-gray-800 text-gray-400 border-gray-700 hover:text-white hover:border-gray-600'
+            }`}
+          >
+            {opt.label}
+          </button>
+        ))}
+
+        <span className="text-gray-700 self-center">|</span>
+
+        {/* Sport chips */}
+        {[
+          { value: 'all', label: 'All Sports', emoji: '' },
+          { value: 'baseball', label: 'Baseball', emoji: '⚾' },
+          { value: 'basketball', label: 'Basketball', emoji: '🏀' },
+          { value: 'football', label: 'Football', emoji: '🏈' },
+          { value: 'hockey', label: 'Hockey', emoji: '🏒' },
+        ].map(opt => (
+          <button
+            key={opt.value}
+            onClick={() => setSport(opt.value as typeof sport)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors border ${
+              sport === opt.value
+                ? 'bg-emerald-600 text-white border-emerald-600'
+                : 'bg-gray-800 text-gray-400 border-gray-700 hover:text-white hover:border-gray-600'
+            }`}
+          >
+            {opt.emoji && <span className="mr-1">{opt.emoji}</span>}
+            {opt.label}
+          </button>
+        ))}
+
+        <span className="text-gray-700 self-center">|</span>
+
+        {/* Rookie toggle */}
+        <button
+          onClick={() => setRookieOnly(r => !r)}
+          className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors border ${
+            rookieOnly
+              ? 'bg-emerald-600 text-white border-emerald-600'
+              : 'bg-gray-800 text-gray-400 border-gray-700 hover:text-white hover:border-gray-600'
+          }`}
+        >
+          Rookie Cards Only
+        </button>
+
+        {/* Clear all */}
+        {hasActiveFilters && (
+          <button
+            onClick={clearAll}
+            className="px-3 py-1.5 rounded-lg text-xs font-medium text-gray-500 hover:text-white transition-colors border border-gray-700 hover:border-gray-600 bg-gray-800"
+          >
+            Clear all
+          </button>
         )}
       </div>
 
       {/* Results count */}
-      <p className="text-gray-400 text-sm">{filtered.length} cards</p>
+      <div className="flex items-center gap-2">
+        <p className="text-gray-400 text-sm">
+          <span className="text-white font-semibold">{filtered.length}</span> of {totalCards} cards
+        </p>
+        {hasActiveFilters && filtered.length === 0 && (
+          <span className="text-amber-400 text-xs">No matches — try adjusting your filters</span>
+        )}
+      </div>
 
       {/* Table — desktop */}
       <div className="hidden sm:block overflow-x-auto rounded-xl border border-gray-800">

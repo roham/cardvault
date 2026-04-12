@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import SearchBar from '@/components/SearchBar';
+import InstantSearch from '@/components/InstantSearch';
 import NewsCard from '@/components/NewsCard';
 import { newsItems } from '@/data/news';
 import { sportsCards } from '@/data/sports-cards';
@@ -77,7 +77,8 @@ export default function HomePage() {
               Browse 15,000+ Pokémon TCG cards with live prices. Explore 100+ iconic sports cards from every era. One place for the entire hobby.
             </p>
             <div className="max-w-xl">
-              <SearchBar
+              <InstantSearch
+                sportsCards={sportsCards}
                 large
                 placeholder="Search Charizard, Jordan rookie, Gretzky..."
               />
@@ -169,7 +170,7 @@ export default function HomePage() {
       <section className="border-y border-gray-800 bg-gray-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <h2 className="text-2xl font-bold text-white text-center mb-10">Where do you want to start?</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {[
               {
                 href: '/pokemon',
@@ -194,6 +195,22 @@ export default function HomePage() {
                 icon: '📊',
                 color: 'from-emerald-900/50 to-teal-900/30',
                 border: 'border-emerald-800/30 hover:border-emerald-600/50',
+              },
+              {
+                href: '/tools',
+                title: 'Collector Tools',
+                description: 'Grade value calculator, grading cost estimator, and eBay sold search generator — free, no account needed',
+                icon: '🛠️',
+                color: 'from-purple-900/50 to-violet-900/30',
+                border: 'border-purple-800/30 hover:border-purple-600/50',
+              },
+              {
+                href: '/guides',
+                title: 'Collector Guides',
+                description: 'How to start collecting, when to grade, how to read price data, and the history of card eras explained',
+                icon: '📖',
+                color: 'from-rose-900/50 to-pink-900/30',
+                border: 'border-rose-800/30 hover:border-rose-600/50',
               },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">

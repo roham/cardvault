@@ -1,0 +1,170 @@
+import type { Metadata } from 'next';
+import GradeCalculator from './GradeCalculator';
+import GradingCostTable from './GradingCostTable';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Collector Tools',
+  description: 'Free tools for sports card and Pokémon TCG collectors. Grade value calculator, grading cost estimator, and eBay sold search generator.',
+};
+
+export default function ToolsPage() {
+  return (
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      {/* Header */}
+      <div className="mb-10">
+        <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">
+          <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+          Free — no account required
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">Collector Tools</h1>
+        <p className="text-gray-400 text-lg max-w-2xl">
+          Practical calculators for making smarter decisions about grading, buying, and selling cards.
+        </p>
+      </div>
+
+      {/* Tool nav */}
+      <div className="flex flex-wrap gap-3 mb-12">
+        {[
+          { href: '#grade-calc', label: 'Grade Value Calculator', icon: '📊' },
+          { href: '#grading-cost', label: 'Grading Cost Estimator', icon: '🏅' },
+          { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
+        ].map(t => (
+          <a
+            key={t.href}
+            href={t.href}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white border border-gray-700 rounded-xl text-sm font-medium transition-colors"
+          >
+            <span>{t.icon}</span>
+            <span>{t.label}</span>
+          </a>
+        ))}
+      </div>
+
+      {/* Grade Calculator — Client Component */}
+      <section id="grade-calc" className="mb-16 scroll-mt-20">
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-white mb-2">Grade Value Calculator</h2>
+          <p className="text-gray-400 text-sm max-w-2xl">
+            Enter a card&apos;s raw or low-grade value, then see estimated prices across all PSA and BGS grade tiers.
+            Grade multipliers are based on observed market premiums for the general hobby market — individual cards vary.
+          </p>
+        </div>
+        <GradeCalculator />
+      </section>
+
+      {/* Grading Cost Table — Server Component */}
+      <section id="grading-cost" className="mb-16 scroll-mt-20">
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-white mb-2">Grading Cost Estimator</h2>
+          <p className="text-gray-400 text-sm max-w-2xl">
+            Know your break-even before you submit. Grading only makes financial sense if the grade premium
+            exceeds the submission cost plus shipping.
+          </p>
+        </div>
+        <GradingCostTable />
+      </section>
+
+      {/* eBay Sold Search Generator */}
+      <section id="ebay-search" className="mb-16 scroll-mt-20">
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-white mb-2">eBay Sold Search Generator</h2>
+          <p className="text-gray-400 text-sm max-w-2xl">
+            The fastest way to find real comp data. Build a targeted eBay sold-listings search for any card.
+          </p>
+        </div>
+        <EbaySearchBuilder />
+      </section>
+
+      {/* CTA links */}
+      <div className="border-t border-gray-800 pt-10">
+        <h3 className="text-white font-semibold mb-4">Keep exploring</h3>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/price-guide" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors">
+            Price Guide
+          </Link>
+          <Link href="/sports" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
+            Sports Cards
+          </Link>
+          <Link href="/pokemon" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
+            Pokémon Sets
+          </Link>
+          <Link href="/about" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
+            About &amp; Data Sources
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// eBay Sold Search Builder — static (no interactivity needed, links out)
+function EbaySearchBuilder() {
+  const examples = [
+    { label: 'Jordan 1986 Fleer PSA 10', query: '1986 Fleer Michael Jordan 57 PSA 10', desc: 'Gem mint Jordan rookies' },
+    { label: 'Charizard Base Set PSA 9', query: 'Charizard Base Set Shadowless PSA 9', desc: 'Vintage Pokémon top grades' },
+    { label: 'Gretzky OPC Rookie PSA 8', query: '1979 OPC Wayne Gretzky 18 PSA 8', desc: 'Hockey holy grail mid-grade' },
+    { label: 'Wembanyama Prizm Auto', query: 'Wembanyama Prizm Silver Auto Rookie RC', desc: 'Modern NBA hyper-rookie' },
+  ];
+
+  return (
+    <div className="space-y-4">
+      <div className="bg-amber-950/20 border border-amber-800/30 rounded-xl px-4 py-3">
+        <p className="text-amber-300/80 text-sm">
+          <strong className="font-semibold">Pro tip:</strong> eBay sold listings show actual realized prices — not asking prices. Always filter to &ldquo;Sold Items&rdquo; for real comps. Links below open pre-filtered sold searches.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {examples.map(ex => (
+          <a
+            key={ex.label}
+            href={`https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(ex.query)}&LH_Sold=1&LH_Complete=1`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-start gap-3 bg-gray-900 border border-gray-800 hover:border-emerald-500/50 rounded-xl p-4 transition-all"
+          >
+            <div className="w-8 h-8 bg-emerald-950/60 rounded-lg flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+              </svg>
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-white text-sm font-semibold group-hover:text-emerald-400 transition-colors">{ex.label}</p>
+              <p className="text-gray-500 text-xs mt-0.5">{ex.desc}</p>
+              <p className="text-gray-600 text-xs mt-1 truncate">{ex.query}</p>
+            </div>
+            <svg className="w-4 h-4 text-gray-600 group-hover:text-emerald-400 shrink-0 mt-0.5 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+        ))}
+      </div>
+
+      <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
+        <h3 className="text-white font-semibold text-sm mb-3">Build your own eBay sold search</h3>
+        <p className="text-gray-400 text-sm mb-3">Format: <code className="bg-gray-800 text-emerald-400 px-1.5 py-0.5 rounded text-xs">[Year] [Player/Card name] [Card number] [Grade company] [Grade]</code></p>
+        <div className="space-y-2 text-sm text-gray-400">
+          <div className="flex items-start gap-2">
+            <span className="text-emerald-500 shrink-0 mt-0.5">✓</span>
+            <span>Include the exact card number (e.g., &ldquo;#57&rdquo; or &ldquo;BDPP89&rdquo;) — eliminates wrong cards</span>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="text-emerald-500 shrink-0 mt-0.5">✓</span>
+            <span>Add &ldquo;RC&rdquo; or &ldquo;Rookie&rdquo; for rookie cards — significant price difference</span>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="text-emerald-500 shrink-0 mt-0.5">✓</span>
+            <span>Sort by &ldquo;Ending soonest&rdquo; filtered to last 90 days for most accurate comps</span>
+          </div>
+          <div className="flex items-start gap-2">
+            <span className="text-emerald-500 shrink-0 mt-0.5">✓</span>
+            <span>Cross-reference with PWCC and Goldin for ultra-high-value cards (&gt;$10K)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
