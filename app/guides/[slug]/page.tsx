@@ -136,6 +136,34 @@ export default async function GuideDetailPage({ params }: Props) {
         })}
       </div>
 
+      {/* Featured Cards Referenced in This Guide */}
+      {guide.featuredCards && guide.featuredCards.length > 0 && (
+        <div className="mt-12 bg-gray-900 border border-gray-800 rounded-2xl p-6">
+          <p className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-4">Cards Referenced in This Guide</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {guide.featuredCards.map(card => {
+              const href = card.type === 'pokemon' ? `/pokemon/cards/${card.slug}` : `/sports/${card.slug}`;
+              return (
+                <Link
+                  key={card.slug}
+                  href={href}
+                  className="flex items-center gap-3 bg-gray-800/50 hover:bg-gray-800 border border-gray-700 hover:border-emerald-500/50 rounded-xl px-4 py-3 transition-all group"
+                >
+                  <span className="text-lg shrink-0">{card.type === 'pokemon' ? '⚡' : '🃏'}</span>
+                  <div className="min-w-0">
+                    <p className="text-white text-sm font-medium group-hover:text-emerald-400 transition-colors truncate">{card.label}</p>
+                    {card.note && <p className="text-gray-500 text-xs truncate">{card.note}</p>}
+                  </div>
+                  <svg className="w-4 h-4 text-gray-600 group-hover:text-emerald-500 transition-colors shrink-0 ml-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Navigation between guides */}
       <div className="mt-16 border-t border-gray-800 pt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {prevGuide ? (

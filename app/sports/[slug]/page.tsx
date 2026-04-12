@@ -65,6 +65,14 @@ export default async function SportsCardPage({ params }: Props) {
     .filter(c => c.slug !== card.slug)
     .slice(0, 8);
 
+  // Cards by same player (excluding this card)
+  const samePlayerCards = sportsCards
+    .filter(c => c.player === card.player && c.slug !== card.slug)
+    .slice(0, 4);
+
+  // Set slug for checklist link
+  const setSlugForLink = card.set.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
   const sportLabel = card.sport.charAt(0).toUpperCase() + card.sport.slice(1);
   const gradePricing = getGradePricing(slug);
   const psaPop = getPsaPopulation(slug);
@@ -587,24 +595,75 @@ export default async function SportsCardPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Internal guide links */}
+      {/* Cross-links: Set checklist + guides */}
       <section className="mb-14 bg-gray-900/50 border border-gray-800 rounded-2xl p-6">
-        <h3 className="text-white font-semibold mb-3">Useful Guides</h3>
-        <div className="flex flex-wrap gap-3">
-          <Link href="/guides/grading-guide" className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 text-sm transition-colors">
-            PSA vs BGS vs SGC Comparison →
+        <h3 className="text-white font-semibold mb-4">Explore More</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* Set checklist link */}
+          <Link
+            href={`/sports/sets/${setSlugForLink}/checklist`}
+            className="flex items-center gap-3 bg-gray-900 border border-gray-800 hover:border-emerald-500/40 rounded-xl p-3 transition-all group"
+          >
+            <span className="text-lg">📋</span>
+            <div className="min-w-0">
+              <p className="text-white text-sm font-medium group-hover:text-emerald-400 transition-colors truncate">View {card.set} Checklist</p>
+              <p className="text-gray-500 text-xs">All cards in this set</p>
+            </div>
+            <span className="text-gray-600 ml-auto text-sm">→</span>
           </Link>
-          <Link href="/guides/investing-101" className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 text-sm transition-colors">
-            Sports Card Investing 101 →
+
+          {/* Grade calculator */}
+          <Link
+            href="/tools#grade-calc"
+            className="flex items-center gap-3 bg-gray-900 border border-gray-800 hover:border-emerald-500/40 rounded-xl p-3 transition-all group"
+          >
+            <span className="text-lg">🧮</span>
+            <div className="min-w-0">
+              <p className="text-white text-sm font-medium group-hover:text-emerald-400 transition-colors">Grade Value Calculator</p>
+              <p className="text-gray-500 text-xs">Should you grade this card?</p>
+            </div>
+            <span className="text-gray-600 ml-auto text-sm">→</span>
           </Link>
-          <Link href="/guides/when-to-grade-your-cards" className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 text-sm transition-colors">
-            When to Grade Your Cards →
+
+          {/* Sport-specific guide */}
+          <Link
+            href={card.sport === 'baseball' ? '/guides/sports-card-investing' : card.sport === 'basketball' ? '/guides/investing-101' : card.sport === 'football' ? '/guides/investing-101' : '/guides/investing-101'}
+            className="flex items-center gap-3 bg-gray-900 border border-gray-800 hover:border-emerald-500/40 rounded-xl p-3 transition-all group"
+          >
+            <span className="text-lg">{sportIcons[card.sport]}</span>
+            <div className="min-w-0">
+              <p className="text-white text-sm font-medium group-hover:text-emerald-400 transition-colors">New to {sportLabel} cards?</p>
+              <p className="text-gray-500 text-xs">Read our collector guide</p>
+            </div>
+            <span className="text-gray-600 ml-auto text-sm">→</span>
           </Link>
-          <Link href="/guides/how-to-read-price-data" className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 text-sm transition-colors">
-            How to Read Price Data →
+
+          {/* Grading guide */}
+          <Link
+            href="/guides/grading-guide"
+            className="flex items-center gap-3 bg-gray-900 border border-gray-800 hover:border-emerald-500/40 rounded-xl p-3 transition-all group"
+          >
+            <span className="text-lg">🏅</span>
+            <div className="min-w-0">
+              <p className="text-white text-sm font-medium group-hover:text-emerald-400 transition-colors">PSA vs BGS vs SGC</p>
+              <p className="text-gray-500 text-xs">Which grader is right for this card?</p>
+            </div>
+            <span className="text-gray-600 ml-auto text-sm">→</span>
           </Link>
         </div>
       </section>
+
+      {/* More cards by this player */}
+      {samePlayerCards.length > 0 && (
+        <section className="mb-14">
+          <h2 className="text-xl font-bold text-white mb-4">More {card.player} Cards</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {samePlayerCards.map(c => (
+              <SportsCardTile key={c.slug} card={c} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Related cards */}
       {relatedCards.length > 0 && (

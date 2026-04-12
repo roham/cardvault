@@ -13,6 +13,8 @@ interface SearchResult {
   sport?: string;
   price: string;
   rookie?: boolean;
+  imageUrl?: string;
+  pokemonHref?: string;
 }
 
 interface InstantSearchProps {
@@ -46,7 +48,7 @@ export default function InstantSearch({ sportsCards, large = false, placeholder 
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
-  const search = useCallback((q: string) => {
+  const search = useCallback(async (q: string) => {
     if (!q.trim() || q.length < 2) {
       setResults([]);
       setIsOpen(false);
@@ -60,7 +62,7 @@ export default function InstantSearch({ sportsCards, large = false, placeholder 
         c.player.toLowerCase().includes(lower) ||
         c.set.toLowerCase().includes(lower)
       )
-      .slice(0, 8)
+      .slice(0, 5)
       .map(c => ({
         type: 'sports' as const,
         slug: c.slug,
@@ -72,8 +74,48 @@ export default function InstantSearch({ sportsCards, large = false, placeholder 
         rookie: c.rookie,
       }));
 
-    setResults(sportResults);
-    setIsOpen(sportResults.length > 0);
+    // Fetch Pokémon results in parallel
+    let pokemonResults: SearchResult[] = [];
+    try {
+      const res = await fetch(
+        `https://api.pokemontcg.io/v2/cards?q=name:${encodeURIComponent(q)}*&pageSize=5&orderBy=-cardmarket.prices.averageSellPrice`,
+        { signal: AbortSignal.timeout(3000) }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        pokemonResults = (data.data ?? []).slice(0, 5).map((card: {
+          id: string;
+          name: string;
+          set?: { name?: string; releaseDate?: string };
+          cardmarket?: { prices?: { averageSellPrice?: number } };
+          tcgplayer?: { prices?: { holofoil?: { market?: number }; normal?: { market?: number }; reverseHolofoil?: { market?: number } } };
+          images?: { small?: string };
+        }) => {
+          const tcgPrices = card.tcgplayer?.prices;
+          const price =
+            tcgPrices?.holofoil?.market ??
+            tcgPrices?.normal?.market ??
+            tcgPrices?.reverseHolofoil?.market ??
+            card.cardmarket?.prices?.averageSellPrice;
+          return {
+            type: 'pokemon' as const,
+            slug: card.id,
+            name: card.name,
+            set: card.set?.name ?? 'Unknown Set',
+            year: card.set?.releaseDate?.split('/')?.[0] ?? '',
+            price: price ? `$${price.toFixed(2)}` : 'N/A',
+            imageUrl: card.images?.small,
+            pokemonHref: `/pokemon/cards/${card.id}`,
+          };
+        });
+      }
+    } catch {
+      // silently fail — just show sports results
+    }
+
+    const combined = [...sportResults, ...pokemonResults];
+    setResults(combined);
+    setIsOpen(combined.length > 0);
     setHighlightIndex(-1);
   }, [sportsCards]);
 
@@ -106,7 +148,8 @@ export default function InstantSearch({ sportsCards, large = false, placeholder 
       e.preventDefault();
       if (highlightIndex >= 0 && results[highlightIndex]) {
         const result = results[highlightIndex];
-        router.push(`/sports/${result.slug}`);
+        const href = result.type === 'pokemon' ? (result.pokemonHref ?? `/pokemon/cards/${result.slug}`) : `/sports/${result.slug}`;
+        router.push(href);
         setIsOpen(false);
         setQuery('');
       } else if (query.trim()) {
@@ -121,7 +164,9 @@ export default function InstantSearch({ sportsCards, large = false, placeholder 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (highlightIndex >= 0 && results[highlightIndex]) {
-      router.push(`/sports/${results[highlightIndex].slug}`);
+      const result = results[highlightIndex];
+      const href = result.type === 'pokemon' ? (result.pokemonHref ?? `/pokemon/cards/${result.slug}`) : `/sports/${result.slug}`;
+      router.push(href);
     } else if (query.trim()) {
       router.push(`/price-guide?q=${encodeURIComponent(query)}`);
     }
@@ -176,37 +221,48 @@ export default function InstantSearch({ sportsCards, large = false, placeholder 
       {isOpen && results.length > 0 && (
         <div className="absolute z-50 w-full bg-gray-900 border border-emerald-500/30 border-t-0 rounded-b-xl shadow-2xl shadow-black/60 overflow-hidden">
           <div className="py-1">
-            {results.map((result, i) => (
-              <Link
-                key={result.slug}
-                href={`/sports/${result.slug}`}
-                onClick={() => {
-                  setIsOpen(false);
-                  setQuery('');
-                }}
-                className={`flex items-center gap-3 px-4 py-3 transition-colors ${
-                  i === highlightIndex ? 'bg-gray-800' : 'hover:bg-gray-800/60'
-                } ${i < results.length - 1 ? 'border-b border-gray-800/60' : ''}`}
-              >
-                <div className="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-base shrink-0">
-                  {result.sport ? sportIcons[result.sport] ?? '🃏' : '⚡'}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-white text-sm font-medium truncate">{result.name}</p>
-                  <p className="text-gray-500 text-xs truncate">
-                    {result.set}
-                    {result.year && ` · ${result.year}`}
-                    {result.rookie && ' · RC'}
-                  </p>
-                </div>
-                <div className="text-right shrink-0">
-                  <p className="text-emerald-400 text-xs font-semibold">{result.price.split('(')[0].trim()}</p>
-                  {result.sport && (
-                    <p className="text-gray-600 text-xs capitalize">{result.sport}</p>
-                  )}
-                </div>
-              </Link>
-            ))}
+            {results.map((result, i) => {
+              const href = result.type === 'pokemon'
+                ? (result.pokemonHref ?? `/pokemon/cards/${result.slug}`)
+                : `/sports/${result.slug}`;
+              return (
+                <Link
+                  key={`${result.type}-${result.slug}`}
+                  href={href}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setQuery('');
+                  }}
+                  className={`flex items-center gap-3 px-4 py-3 transition-colors ${
+                    i === highlightIndex ? 'bg-gray-800' : 'hover:bg-gray-800/60'
+                  } ${i < results.length - 1 ? 'border-b border-gray-800/60' : ''}`}
+                >
+                  <div className="w-8 h-8 rounded-lg bg-gray-800 flex items-center justify-center text-base shrink-0 overflow-hidden">
+                    {result.type === 'pokemon' && result.imageUrl ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={result.imageUrl} alt={result.name} className="w-full h-full object-contain" />
+                    ) : (
+                      <span>{result.sport ? (sportIcons[result.sport] ?? '🃏') : '⚡'}</span>
+                    )}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-white text-sm font-medium truncate">{result.name}</p>
+                    <p className="text-gray-500 text-xs truncate">
+                      {result.set}
+                      {result.year && ` · ${result.year}`}
+                      {result.rookie && ' · RC'}
+                      {result.type === 'pokemon' && <span className="text-yellow-600"> · Pokémon</span>}
+                    </p>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <p className="text-emerald-400 text-xs font-semibold">{result.price.split('(')[0].trim()}</p>
+                    {result.sport && (
+                      <p className="text-gray-600 text-xs capitalize">{result.sport}</p>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
           {/* View all link */}
           <div className="border-t border-gray-800 px-4 py-2.5">

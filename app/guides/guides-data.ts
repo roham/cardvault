@@ -1,3 +1,10 @@
+export interface GuideCardLink {
+  slug: string;       // sports card slug OR pokemon card id
+  type: 'sports' | 'pokemon';
+  label: string;      // display name e.g. "1952 Topps Mickey Mantle #311"
+  note?: string;      // short context e.g. "PSA 9 ~$30,000"
+}
+
 export interface Guide {
   slug: string;
   title: string;
@@ -7,6 +14,7 @@ export interface Guide {
   icon: string;
   gradient: string;
   content: GuideSection[];
+  featuredCards?: GuideCardLink[];
 }
 
 export interface GuideSection {
@@ -26,6 +34,12 @@ export const guides: Guide[] = [
     readTime: '8 min',
     icon: '🃏',
     gradient: 'from-emerald-900/40 via-teal-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '1952-topps-mickey-mantle-311', type: 'sports', label: '1952 Topps Mickey Mantle #311', note: 'The most iconic postwar sports card' },
+      { slug: '1989-upper-deck-ken-griffey-jr-1', type: 'sports', label: '1989 Upper Deck Ken Griffey Jr. #1', note: 'Iconic junk wax era rookie' },
+      { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'Basketball\'s most valuable rookie' },
+      { slug: 'base1-4', type: 'pokemon', label: 'Base Set Charizard Holo', note: 'Pokémon\'s benchmark card' },
+    ],
     content: [
       {
         heading: 'Pick one lane first',
@@ -85,6 +99,12 @@ export const guides: Guide[] = [
     readTime: '6 min',
     icon: '🏅',
     gradient: 'from-blue-900/40 via-indigo-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '2009-bowman-chrome-mike-trout-bdpp89', type: 'sports', label: '2009 Bowman Chrome Mike Trout', note: 'PSA 10 commands massive premium over PSA 9' },
+      { slug: '2003-04-topps-chrome-lebron-james-111', type: 'sports', label: '2003-04 Topps Chrome LeBron James #111', note: 'High PSA 10 population affects premium' },
+      { slug: '1952-topps-mickey-mantle-311', type: 'sports', label: '1952 Topps Mickey Mantle #311', note: 'Vintage where grading is almost always worth it' },
+      { slug: 'base1-4', type: 'pokemon', label: 'Base Set Charizard Holo', note: 'PSA 10 Shadowless: one of the rarest grades in the hobby' },
+    ],
     content: [
       {
         heading: 'The break-even math',
@@ -195,6 +215,14 @@ export const guides: Guide[] = [
     readTime: '7 min',
     icon: '📅',
     gradient: 'from-red-900/40 via-rose-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '1910-t206-ty-cobb-portrait-red', type: 'sports', label: '1909-11 T206 Ty Cobb', note: 'Pre-War era benchmark' },
+      { slug: '1952-topps-mickey-mantle-311', type: 'sports', label: '1952 Topps Mickey Mantle #311', note: 'Golden Age centerpiece' },
+      { slug: '1986-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'Junk Wax era exception' },
+      { slug: '1989-upper-deck-ken-griffey-jr-1', type: 'sports', label: '1989 Upper Deck Ken Griffey Jr. #1', note: 'Defining rookie of the junk wax era' },
+      { slug: '1993-sp-derek-jeter-279', type: 'sports', label: '1993 SP Derek Jeter #279', note: 'Key exception in a worthless era' },
+      { slug: '2009-bowman-chrome-mike-trout-bdpp89', type: 'sports', label: '2009 Bowman Chrome Mike Trout', note: 'Modern era defining rookie' },
+    ],
     content: [
       {
         heading: 'The Pre-War Era (before 1941)',
@@ -247,6 +275,12 @@ export const guides: Guide[] = [
     category: 'Grading',
     readTime: '10 min',
     icon: '🏅',
+    featuredCards: [
+      { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'PSA is the only grading company for this card' },
+      { slug: '2003-04-topps-chrome-lebron-james-111', type: 'sports', label: '2003-04 Topps Chrome LeBron James #111', note: 'BGS 9.5 commands significant premium' },
+      { slug: '1996-97-topps-chrome-kobe-bryant-138', type: 'sports', label: '1996-97 Topps Chrome Kobe Bryant #138', note: 'Vintage modern where PSA dominates' },
+      { slug: '1910-t206-ty-cobb-portrait-red', type: 'sports', label: '1909-11 T206 Ty Cobb', note: 'SGC a credible option for pre-war tobacco cards' },
+    ],
     gradient: 'from-blue-900/40 via-indigo-900/20 to-gray-900/40',
     content: [
       {
@@ -347,6 +381,13 @@ export const guides: Guide[] = [
     readTime: '12 min',
     icon: '📈',
     gradient: 'from-emerald-900/40 via-teal-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'The canonical investing thesis card — PSA 8 in 2015: ~$5K; 2020 peak: $40K+' },
+      { slug: '1952-topps-mickey-mantle-311', type: 'sports', label: '1952 Topps Mickey Mantle #311', note: 'Iconic vintage — durable scarcity premium' },
+      { slug: '2009-bowman-chrome-mike-trout-bdpp89', type: 'sports', label: '2009 Bowman Chrome Mike Trout', note: 'Best modern buy-and-hold example' },
+      { slug: '1996-97-topps-chrome-kobe-bryant-138', type: 'sports', label: '1996-97 Topps Chrome Kobe Bryant #138', note: 'Retirement + death premium pattern' },
+      { slug: '2000-playoff-contenders-tom-brady-144', type: 'sports', label: '2000 Playoff Contenders Tom Brady Auto #144', note: 'Championship-driven appreciation pattern' },
+    ],
     content: [
       {
         heading: 'Cards are a speculative asset, not an investment account',
@@ -433,6 +474,12 @@ export const guides: Guide[] = [
     readTime: '11 min',
     icon: '⚡',
     gradient: 'from-yellow-900/40 via-amber-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: 'base1-4', type: 'pokemon', label: 'Base Set Charizard Holo', note: 'PSA 10: $511K at PWCC 2026' },
+      { slug: 'base1-2', type: 'pokemon', label: 'Base Set Blastoise Holo', note: '1st Edition copies command top premiums' },
+      { slug: 'base1-15', type: 'pokemon', label: 'Base Set Mewtwo Holo', note: 'Iconic character with strong demand' },
+      { slug: 'sv8-236', type: 'pokemon', label: 'Prismatic Evolutions Umbreon ex SIR', note: 'Modern benchmark card' },
+    ],
     content: [
       {
         heading: 'The Pokémon market is fundamentally different from sports cards',

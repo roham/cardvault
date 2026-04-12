@@ -270,6 +270,19 @@ function isReleased(dateStr: string): boolean {
   return d <= new Date();
 }
 
+function getCountdown(dateStr: string): string | null {
+  const now = new Date();
+  const target = new Date(dateStr + 'T12:00:00Z');
+  const diffMs = target.getTime() - now.getTime();
+  if (diffMs <= 0) return null;
+  const days = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+  if (days === 1) return 'Tomorrow';
+  if (days <= 7) return `In ${days} days`;
+  if (days <= 30) return `In ${Math.ceil(days / 7)} weeks`;
+  const months = Math.floor(days / 30);
+  return `In ~${months} month${months > 1 ? 's' : ''}`;
+}
+
 export default function CalendarPage() {
   const categories = ['baseball', 'basketball', 'football', 'hockey', 'pokemon'] as const;
   const upcoming = releases.filter(r => r.status !== 'released').sort((a, b) => a.releaseDate.localeCompare(b.releaseDate));
@@ -313,6 +326,11 @@ export default function CalendarPage() {
           {upcoming.map(release => {
             const cat = categoryConfig[release.category];
             const status = statusConfig[release.status];
+            const countdown = getCountdown(release.releaseDate);
+            const ebayPreorderUrl = `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(release.name + ' pre-order')}&_sop=12`;
+            const tcgPlayerUrl = release.category === 'pokemon'
+              ? `https://www.tcgplayer.com/search/pokemon/product?q=${encodeURIComponent(release.name)}&view=grid`
+              : null;
             return (
               <div key={release.id} className="bg-gray-900 border border-gray-800 rounded-2xl p-5 hover:border-emerald-500/30 transition-all">
                 <div className="flex flex-wrap items-start justify-between gap-4">
@@ -326,10 +344,35 @@ export default function CalendarPage() {
                         {status.label}
                       </span>
                       <span className="text-gray-600 text-xs">{release.type}</span>
+                      {countdown && (
+                        <span className="inline-flex items-center gap-1 text-xs font-semibold bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 px-2 py-0.5 rounded-full">
+                          ⏱ {countdown}
+                        </span>
+                      )}
                     </div>
                     <h3 className="text-white font-bold text-lg mb-1">{release.name}</h3>
                     <p className="text-gray-500 text-sm mb-2">{release.brand}</p>
-                    <p className="text-gray-400 text-sm leading-relaxed">{release.notes}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-3">{release.notes}</p>
+                    <div className="flex flex-wrap gap-2">
+                      <a
+                        href={ebayPreorderUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs text-blue-400 hover:text-blue-300 bg-blue-950/40 border border-blue-800/40 px-2.5 py-1 rounded-lg transition-colors"
+                      >
+                        Pre-order on eBay ↗
+                      </a>
+                      {tcgPlayerUrl && (
+                        <a
+                          href={tcgPlayerUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-yellow-400 hover:text-yellow-300 bg-yellow-950/40 border border-yellow-800/40 px-2.5 py-1 rounded-lg transition-colors"
+                        >
+                          TCGPlayer ↗
+                        </a>
+                      )}
+                    </div>
                   </div>
                   <div className="shrink-0 text-right">
                     <p className="text-white font-bold text-base">{formatDate(release.releaseDate)}</p>
