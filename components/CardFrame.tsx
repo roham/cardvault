@@ -147,9 +147,45 @@ export default function CardFrame({ card, size = 'small' }: CardFrameProps) {
                 backgroundImage: `repeating-linear-gradient(45deg, ${primary} 0px, ${primary} 1px, transparent 1px, transparent 8px)`,
               }}
             />
-            {/* Sport icon - stylized */}
-            <div className="text-7xl opacity-20 select-none">
-              {card.sport === 'baseball' ? '⚾' : card.sport === 'basketball' ? '🏀' : card.sport === 'football' ? '🏈' : '🏒'}
+            {/* Vintage cardstock grain texture */}
+            <div
+              className="absolute inset-0 opacity-20 mix-blend-overlay"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+              }}
+            />
+            {/* Sport silhouette SVG */}
+            <div className="opacity-15 select-none">
+              {card.sport === 'baseball' && (
+                <svg width="96" height="96" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="3.5" r="1.5"/>
+                  <path d="M10 5.5c-.5.3-.8.8-.8 1.5v3l-1.5 1c-.4.3-.5.8-.3 1.2l.5.8 2.8-1.5v3.5l-2.5 3.5c-.3.4-.2.9.2 1.1.4.2.9.1 1.1-.3L12 16l2.5 3.3c.3.4.8.5 1.2.2.4-.3.5-.8.2-1.2l-2.4-3.3V9.5l2.8 1.5.5-.8c.2-.4.1-.9-.3-1.2l-1.5-1v-3c0-.7-.3-1.2-.8-1.5H10z"/>
+                  <path d="M5 8.5l7 3.5M3.5 7.5l2 1" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
+                </svg>
+              )}
+              {card.sport === 'basketball' && (
+                <svg width="96" height="96" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="2.5" r="1.5"/>
+                  <path d="M10.5 4.5c-.8.3-1.2 1-1.2 1.8v3.5L7 12c-.4.4-.3 1 .1 1.3.4.3 1 .2 1.3-.2L10 11v4l-1.5 4c-.2.5.1 1 .6 1.1.5.2 1-.1 1.1-.6L12 16l1.8 3.5c.2.5.6.7 1.1.6.5-.1.8-.6.6-1.1L14 15v-4l1.6 2.1c.3.4.9.5 1.3.2.4-.3.5-.9.1-1.3l-2.3-2.2V6.3c0-.8-.4-1.5-1.2-1.8h-3z"/>
+                  <circle cx="18" cy="4" r="2"/>
+                </svg>
+              )}
+              {card.sport === 'football' && (
+                <svg width="96" height="96" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="10" cy="2.5" r="1.5"/>
+                  <path d="M8.5 4.5c-.7.3-1 .9-1 1.6v2.5L5 10c-.4.3-.5.8-.2 1.2.3.4.8.5 1.2.2L8.5 10v4l-1.5 4.5c-.2.5.1 1 .6 1.1.5.2 1-.1 1.1-.6L10 16l1.3 3c.2.5.7.7 1.2.5.5-.2.7-.7.5-1.2L11.5 14v-4l2.5 1.5c.4.3.9.2 1.2-.3.3-.4.2-1-.3-1.2l-2.4-1.5V6.1c0-.7-.3-1.3-1-1.6H8.5z"/>
+                  <path d="M11 6.5l5-2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+                  <ellipse cx="17.5" cy="3.2" rx="1.6" ry="1" transform="rotate(-30 17.5 3.2)"/>
+                </svg>
+              )}
+              {card.sport === 'hockey' && (
+                <svg width="96" height="96" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="11" cy="2.5" r="1.5"/>
+                  <path d="M9.5 4.5c-.6.3-1 .9-1 1.6v2l-1.5 2.5c-.3.4-.2.9.2 1.2.4.3.9.2 1.2-.2L9.5 10v2.5l-3 5c-.3.5-.1 1 .4 1.2.5.2 1 0 1.2-.4L11 14l1.9 4.3c.2.5.7.7 1.2.5.5-.2.7-.7.5-1.2L12.5 13V10l1 1.2c.3.4.8.5 1.2.2.4-.3.5-.8.2-1.2l-2.4-3V6.1c0-.7-.4-1.3-1-1.6H9.5z"/>
+                  <path d="M8 12l-3 3.5M5 15.5l2.5 1" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
+                  <ellipse cx="5.5" cy="17" rx="1.2" ry="0.5"/>
+                </svg>
+              )}
             </div>
             {/* Player name in big type over the art area */}
             <div className="absolute bottom-4 left-4 right-4 text-center">
@@ -216,8 +252,37 @@ export default function CardFrame({ card, size = 'small' }: CardFrameProps) {
             backgroundImage: `repeating-linear-gradient(45deg, ${primary} 0px, ${primary} 1px, transparent 1px, transparent 6px)`,
           }}
         />
-        <div className="text-3xl opacity-15">
-          {card.sport === 'baseball' ? '⚾' : card.sport === 'basketball' ? '🏀' : card.sport === 'football' ? '🏈' : '🏒'}
+        <div className="opacity-15 select-none">
+          {card.sport === 'baseball' && (
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+              <circle cx="12" cy="3.5" r="1.5"/>
+              <path d="M10 5.5c-.5.3-.8.8-.8 1.5v3l-1.5 1c-.4.3-.5.8-.3 1.2l.5.8 2.8-1.5v3.5l-2.5 3.5c-.3.4-.2.9.2 1.1.4.2.9.1 1.1-.3L12 16l2.5 3.3c.3.4.8.5 1.2.2.4-.3.5-.8.2-1.2l-2.4-3.3V9.5l2.8 1.5.5-.8c.2-.4.1-.9-.3-1.2l-1.5-1v-3c0-.7-.3-1.2-.8-1.5H10z"/>
+              <path d="M5 8.5l7 3.5M3.5 7.5l2 1" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
+            </svg>
+          )}
+          {card.sport === 'basketball' && (
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+              <circle cx="12" cy="2.5" r="1.5"/>
+              <path d="M10.5 4.5c-.8.3-1.2 1-1.2 1.8v3.5L7 12c-.4.4-.3 1 .1 1.3.4.3 1 .2 1.3-.2L10 11v4l-1.5 4c-.2.5.1 1 .6 1.1.5.2 1-.1 1.1-.6L12 16l1.8 3.5c.2.5.6.7 1.1.6.5-.1.8-.6.6-1.1L14 15v-4l1.6 2.1c.3.4.9.5 1.3.2.4-.3.5-.9.1-1.3l-2.3-2.2V6.3c0-.8-.4-1.5-1.2-1.8h-3z"/>
+              <circle cx="18" cy="4" r="2"/>
+            </svg>
+          )}
+          {card.sport === 'football' && (
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+              <circle cx="10" cy="2.5" r="1.5"/>
+              <path d="M8.5 4.5c-.7.3-1 .9-1 1.6v2.5L5 10c-.4.3-.5.8-.2 1.2.3.4.8.5 1.2.2L8.5 10v4l-1.5 4.5c-.2.5.1 1 .6 1.1.5.2 1-.1 1.1-.6L10 16l1.3 3c.2.5.7.7 1.2.5.5-.2.7-.7.5-1.2L11.5 14v-4l2.5 1.5c.4.3.9.2 1.2-.3.3-.4.2-1-.3-1.2l-2.4-1.5V6.1c0-.7-.3-1.3-1-1.6H8.5z"/>
+              <path d="M11 6.5l5-2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+              <ellipse cx="17.5" cy="3.2" rx="1.6" ry="1" transform="rotate(-30 17.5 3.2)"/>
+            </svg>
+          )}
+          {card.sport === 'hockey' && (
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+              <circle cx="11" cy="2.5" r="1.5"/>
+              <path d="M9.5 4.5c-.6.3-1 .9-1 1.6v2l-1.5 2.5c-.3.4-.2.9.2 1.2.4.3.9.2 1.2-.2L9.5 10v2.5l-3 5c-.3.5-.1 1 .4 1.2.5.2 1 0 1.2-.4L11 14l1.9 4.3c.2.5.7.7 1.2.5.5-.2.7-.7.5-1.2L12.5 13V10l1 1.2c.3.4.8.5 1.2.2.4-.3.5-.8.2-1.2l-2.4-3V6.1c0-.7-.4-1.3-1-1.6H9.5z"/>
+              <path d="M8 12l-3 3.5M5 15.5l2.5 1" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
+              <ellipse cx="5.5" cy="17" rx="1.2" ry="0.5"/>
+            </svg>
+          )}
         </div>
         <div className="absolute bottom-1 left-1 right-1 text-center">
           <p
