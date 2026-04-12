@@ -11,6 +11,30 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: '*.pokemontcg.io',
       },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.tradingcarddb.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'tradingcarddb.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.comc.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'comc.com',
+      },
     ],
   },
 };

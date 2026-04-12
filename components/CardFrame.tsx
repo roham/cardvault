@@ -1,4 +1,5 @@
 import type { SportsCard } from '@/data/sports-cards';
+import { getJerseyNumber } from '@/data/sports-cards';
 
 // Period-appropriate font styles
 const eraStyles: Record<string, { font: string; style: string }> = {
@@ -16,11 +17,11 @@ function getEra(year: number): keyof typeof eraStyles {
 }
 
 // Sport-specific background patterns
-const sportPatterns: Record<string, { bg: string; accent: string; stitching: string }> = {
-  baseball: { bg: '#1a0a0a', accent: '#8B1A1A', stitching: '#CC3333' },
-  basketball: { bg: '#1a0c00', accent: '#B84B00', stitching: '#E56020' },
-  football: { bg: '#0a0d1a', accent: '#1A3A6B', stitching: '#3A5FA0' },
-  hockey: { bg: '#000d1a', accent: '#0A4D6B', stitching: '#1A7FA0' },
+const sportPatterns: Record<string, { bg: string; accent: string }> = {
+  baseball: { bg: '#1a0a0a', accent: '#8B1A1A' },
+  basketball: { bg: '#1a0c00', accent: '#B84B00' },
+  football: { bg: '#0a0d1a', accent: '#1A3A6B' },
+  hockey: { bg: '#000d1a', accent: '#0A4D6B' },
 };
 
 // Team color overrides: player slug fragment → [primary, secondary]
@@ -71,6 +72,16 @@ function getPlayerColors(slug: string, sport: string): [string, string] {
   return [pattern.accent, pattern.bg];
 }
 
+// Get player initials from full name
+function getInitials(name: string): string {
+  return name
+    .split(' ')
+    .filter(p => p.length > 0)
+    .map(p => p[0].toUpperCase())
+    .slice(0, 2)
+    .join('');
+}
+
 interface CardFrameProps {
   card: SportsCard;
   size?: 'small' | 'large';
@@ -80,7 +91,9 @@ export default function CardFrame({ card, size = 'small' }: CardFrameProps) {
   const era = getEra(card.year);
   const eraStyle = eraStyles[era];
   const [primary, secondary] = getPlayerColors(card.slug, card.sport);
-  const pattern = sportPatterns[card.sport] ?? sportPatterns.baseball;
+  const jerseyNum = card.jerseyNumber ?? getJerseyNumber(card.player);
+  const displayNumber = jerseyNum && jerseyNum !== 'N/A' ? jerseyNum : getInitials(card.player);
+  const isNumber = jerseyNum && jerseyNum !== 'N/A';
 
   const isLarge = size === 'large';
 
@@ -133,69 +146,75 @@ export default function CardFrame({ card, size = 'small' }: CardFrameProps) {
           )}
         </div>
 
-        {/* Main image area — stylized card art */}
+        {/* Main image area — typographic card art */}
         <div
           className="absolute top-12 left-3 right-3 bottom-16 rounded-lg overflow-hidden flex flex-col items-center justify-center"
-          style={{ background: `linear-gradient(160deg, ${primary}33 0%, ${secondary}99 60%, ${primary}22 100%)` }}
+          style={{ background: `linear-gradient(160deg, ${primary}44 0%, ${secondary}CC 50%, ${primary}22 100%)` }}
         >
-          {/* Abstract player silhouette / art representation */}
-          <div className="relative w-full h-full flex flex-col items-center justify-center">
-            {/* Background texture */}
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: `repeating-linear-gradient(45deg, ${primary} 0px, ${primary} 1px, transparent 1px, transparent 8px)`,
-              }}
-            />
-            {/* Vintage cardstock grain texture */}
-            <div
-              className="absolute inset-0 opacity-20 mix-blend-overlay"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
-              }}
-            />
-            {/* Sport silhouette SVG */}
-            <div className="opacity-15 select-none">
-              {card.sport === 'baseball' && (
-                <svg width="96" height="96" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="3.5" r="1.5"/>
-                  <path d="M10 5.5c-.5.3-.8.8-.8 1.5v3l-1.5 1c-.4.3-.5.8-.3 1.2l.5.8 2.8-1.5v3.5l-2.5 3.5c-.3.4-.2.9.2 1.1.4.2.9.1 1.1-.3L12 16l2.5 3.3c.3.4.8.5 1.2.2.4-.3.5-.8.2-1.2l-2.4-3.3V9.5l2.8 1.5.5-.8c.2-.4.1-.9-.3-1.2l-1.5-1v-3c0-.7-.3-1.2-.8-1.5H10z"/>
-                  <path d="M5 8.5l7 3.5M3.5 7.5l2 1" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
-                </svg>
-              )}
-              {card.sport === 'basketball' && (
-                <svg width="96" height="96" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="2.5" r="1.5"/>
-                  <path d="M10.5 4.5c-.8.3-1.2 1-1.2 1.8v3.5L7 12c-.4.4-.3 1 .1 1.3.4.3 1 .2 1.3-.2L10 11v4l-1.5 4c-.2.5.1 1 .6 1.1.5.2 1-.1 1.1-.6L12 16l1.8 3.5c.2.5.6.7 1.1.6.5-.1.8-.6.6-1.1L14 15v-4l1.6 2.1c.3.4.9.5 1.3.2.4-.3.5-.9.1-1.3l-2.3-2.2V6.3c0-.8-.4-1.5-1.2-1.8h-3z"/>
-                  <circle cx="18" cy="4" r="2"/>
-                </svg>
-              )}
-              {card.sport === 'football' && (
-                <svg width="96" height="96" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="10" cy="2.5" r="1.5"/>
-                  <path d="M8.5 4.5c-.7.3-1 .9-1 1.6v2.5L5 10c-.4.3-.5.8-.2 1.2.3.4.8.5 1.2.2L8.5 10v4l-1.5 4.5c-.2.5.1 1 .6 1.1.5.2 1-.1 1.1-.6L10 16l1.3 3c.2.5.7.7 1.2.5.5-.2.7-.7.5-1.2L11.5 14v-4l2.5 1.5c.4.3.9.2 1.2-.3.3-.4.2-1-.3-1.2l-2.4-1.5V6.1c0-.7-.3-1.3-1-1.6H8.5z"/>
-                  <path d="M11 6.5l5-2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                  <ellipse cx="17.5" cy="3.2" rx="1.6" ry="1" transform="rotate(-30 17.5 3.2)"/>
-                </svg>
-              )}
-              {card.sport === 'hockey' && (
-                <svg width="96" height="96" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="11" cy="2.5" r="1.5"/>
-                  <path d="M9.5 4.5c-.6.3-1 .9-1 1.6v2l-1.5 2.5c-.3.4-.2.9.2 1.2.4.3.9.2 1.2-.2L9.5 10v2.5l-3 5c-.3.5-.1 1 .4 1.2.5.2 1 0 1.2-.4L11 14l1.9 4.3c.2.5.7.7 1.2.5.5-.2.7-.7.5-1.2L12.5 13V10l1 1.2c.3.4.8.5 1.2.2.4-.3.5-.8.2-1.2l-2.4-3V6.1c0-.7-.4-1.3-1-1.6H9.5z"/>
-                  <path d="M8 12l-3 3.5M5 15.5l2.5 1" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
-                  <ellipse cx="5.5" cy="17" rx="1.2" ry="0.5"/>
-                </svg>
-              )}
+          {/* Diagonal stripe texture — vintage card feel */}
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `repeating-linear-gradient(135deg, ${primary}08 0px, ${primary}08 1px, transparent 1px, transparent 12px)`,
+            }}
+          />
+
+          {/* Era-appropriate horizontal rule accent */}
+          {era === 'prewar' || era === 'vintage' ? (
+            <div className="absolute top-4 left-4 right-4 flex flex-col gap-1 opacity-20">
+              <div className="h-px w-full" style={{ background: primary }} />
+              <div className="h-px w-full" style={{ background: primary }} />
             </div>
-            {/* Player name in big type over the art area */}
-            <div className="absolute bottom-4 left-4 right-4 text-center">
-              <p
-                className={`text-white font-black leading-tight drop-shadow-lg ${eraStyle.font}`}
-                style={{ fontSize: card.player.length > 14 ? '1.1rem' : '1.4rem', textShadow: `0 2px 8px ${secondary}` }}
+          ) : null}
+
+          {/* Big jersey number / initials — the card's centerpiece */}
+          <div className="relative z-10 flex flex-col items-center justify-center">
+            <span
+              className={`font-black leading-none select-none ${eraStyle.font}`}
+              style={{
+                fontSize: isNumber ? (displayNumber.length > 2 ? '5rem' : '7rem') : '4.5rem',
+                color: primary,
+                opacity: 0.85,
+                textShadow: `0 4px 24px ${secondary}CC, 0 0 60px ${primary}40`,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              {displayNumber}
+            </span>
+            {isNumber && (
+              <span
+                className="text-xs font-bold tracking-[0.2em] uppercase mt-1 opacity-50"
+                style={{ color: primary }}
               >
-                {card.player.toUpperCase()}
-              </p>
+                {card.sport === 'baseball' ? 'jersey' : '#'}
+              </span>
+            )}
+          </div>
+
+          {/* Rookie stamp — angled overlay, bottom-right */}
+          {card.rookie && (
+            <div
+              className="absolute bottom-3 right-3 px-2 py-0.5 rounded text-xs font-black tracking-wider"
+              style={{
+                background: '#FFD700',
+                color: '#000',
+                transform: 'rotate(-8deg)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                fontSize: '0.6rem',
+              }}
+            >
+              ROOKIE CARD
             </div>
+          )}
+
+          {/* Player name bottom of art area */}
+          <div className="absolute bottom-4 left-4 right-4 text-center">
+            <p
+              className={`text-white font-black leading-tight drop-shadow-lg ${eraStyle.font}`}
+              style={{ fontSize: card.player.length > 14 ? '1.1rem' : '1.4rem', textShadow: `0 2px 8px ${secondary}` }}
+            >
+              {card.player.toUpperCase()}
+            </p>
           </div>
         </div>
 
@@ -243,47 +262,42 @@ export default function CardFrame({ card, size = 'small' }: CardFrameProps) {
 
       {/* Art area */}
       <div
-        className="absolute top-7 left-1.5 right-1.5 bottom-10 rounded flex items-center justify-center overflow-hidden"
-        style={{ background: `linear-gradient(160deg, ${primary}22 0%, ${secondary}AA 100%)` }}
+        className="absolute top-7 left-1.5 right-1.5 bottom-10 rounded flex flex-col items-center justify-center overflow-hidden"
+        style={{ background: `linear-gradient(160deg, ${primary}33 0%, ${secondary}CC 100%)` }}
       >
         <div
-          className="absolute inset-0 opacity-8"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `repeating-linear-gradient(45deg, ${primary} 0px, ${primary} 1px, transparent 1px, transparent 6px)`,
+            backgroundImage: `repeating-linear-gradient(135deg, ${primary}08 0px, ${primary}08 1px, transparent 1px, transparent 8px)`,
           }}
         />
-        <div className="opacity-15 select-none">
-          {card.sport === 'baseball' && (
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-              <circle cx="12" cy="3.5" r="1.5"/>
-              <path d="M10 5.5c-.5.3-.8.8-.8 1.5v3l-1.5 1c-.4.3-.5.8-.3 1.2l.5.8 2.8-1.5v3.5l-2.5 3.5c-.3.4-.2.9.2 1.1.4.2.9.1 1.1-.3L12 16l2.5 3.3c.3.4.8.5 1.2.2.4-.3.5-.8.2-1.2l-2.4-3.3V9.5l2.8 1.5.5-.8c.2-.4.1-.9-.3-1.2l-1.5-1v-3c0-.7-.3-1.2-.8-1.5H10z"/>
-              <path d="M5 8.5l7 3.5M3.5 7.5l2 1" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
-            </svg>
-          )}
-          {card.sport === 'basketball' && (
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-              <circle cx="12" cy="2.5" r="1.5"/>
-              <path d="M10.5 4.5c-.8.3-1.2 1-1.2 1.8v3.5L7 12c-.4.4-.3 1 .1 1.3.4.3 1 .2 1.3-.2L10 11v4l-1.5 4c-.2.5.1 1 .6 1.1.5.2 1-.1 1.1-.6L12 16l1.8 3.5c.2.5.6.7 1.1.6.5-.1.8-.6.6-1.1L14 15v-4l1.6 2.1c.3.4.9.5 1.3.2.4-.3.5-.9.1-1.3l-2.3-2.2V6.3c0-.8-.4-1.5-1.2-1.8h-3z"/>
-              <circle cx="18" cy="4" r="2"/>
-            </svg>
-          )}
-          {card.sport === 'football' && (
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-              <circle cx="10" cy="2.5" r="1.5"/>
-              <path d="M8.5 4.5c-.7.3-1 .9-1 1.6v2.5L5 10c-.4.3-.5.8-.2 1.2.3.4.8.5 1.2.2L8.5 10v4l-1.5 4.5c-.2.5.1 1 .6 1.1.5.2 1-.1 1.1-.6L10 16l1.3 3c.2.5.7.7 1.2.5.5-.2.7-.7.5-1.2L11.5 14v-4l2.5 1.5c.4.3.9.2 1.2-.3.3-.4.2-1-.3-1.2l-2.4-1.5V6.1c0-.7-.3-1.3-1-1.6H8.5z"/>
-              <path d="M11 6.5l5-2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-              <ellipse cx="17.5" cy="3.2" rx="1.6" ry="1" transform="rotate(-30 17.5 3.2)"/>
-            </svg>
-          )}
-          {card.sport === 'hockey' && (
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-              <circle cx="11" cy="2.5" r="1.5"/>
-              <path d="M9.5 4.5c-.6.3-1 .9-1 1.6v2l-1.5 2.5c-.3.4-.2.9.2 1.2.4.3.9.2 1.2-.2L9.5 10v2.5l-3 5c-.3.5-.1 1 .4 1.2.5.2 1 0 1.2-.4L11 14l1.9 4.3c.2.5.7.7 1.2.5.5-.2.7-.7.5-1.2L12.5 13V10l1 1.2c.3.4.8.5 1.2.2.4-.3.5-.8.2-1.2l-2.4-3V6.1c0-.7-.4-1.3-1-1.6H9.5z"/>
-              <path d="M8 12l-3 3.5M5 15.5l2.5 1" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
-              <ellipse cx="5.5" cy="17" rx="1.2" ry="0.5"/>
-            </svg>
-          )}
-        </div>
+        {/* Jersey number / initials */}
+        <span
+          className={`relative z-10 font-black leading-none ${eraStyle.font}`}
+          style={{
+            fontSize: isNumber ? (displayNumber.length > 2 ? '1.8rem' : '2.6rem') : '1.6rem',
+            color: primary,
+            opacity: 0.80,
+            textShadow: `0 2px 10px ${secondary}CC`,
+            letterSpacing: '-0.02em',
+          }}
+        >
+          {displayNumber}
+        </span>
+        {/* Rookie stamp small */}
+        {card.rookie && (
+          <div
+            className="absolute bottom-1 right-1 px-1 rounded font-black"
+            style={{
+              background: '#FFD700',
+              color: '#000',
+              transform: 'rotate(-8deg)',
+              fontSize: '0.38rem',
+            }}
+          >
+            RC
+          </div>
+        )}
         <div className="absolute bottom-1 left-1 right-1 text-center">
           <p
             className={`text-white font-black leading-tight ${eraStyle.font}`}

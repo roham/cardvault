@@ -9,6 +9,8 @@ export interface SportsCard {
   estimatedValueRaw: string;
   estimatedValueGem: string;
   imageUrl: string;
+  externalImageUrl?: string;
+  jerseyNumber?: string;
   ebaySearchUrl: string;
   description: string;
   rookie: boolean;
@@ -27,6 +29,8 @@ export const sportsCards: SportsCard[] = [
     estimatedValueRaw: '$15,000–$80,000 (PSA 7)',
     estimatedValueGem: '$12,600,000+ (PSA 9)',
     imageUrl: '/images/placeholder-baseball.svg',
+    externalImageUrl: 'https://www.ebay.com/sch/i.html?_nkw=1952+topps+mickey+mantle+311+psa&LH_Complete=1&LH_Sold=1',
+    jerseyNumber: '7',
     ebaySearchUrl: 'https://www.ebay.com/sch/i.html?_nkw=1952+topps+mickey+mantle+311',
     description: 'The holy grail of post-war baseball cards. Mantle\'s iconic 1952 Topps card defines the modern hobby. High-grade copies are among the most valuable cards ever sold.',
     rookie: false,
@@ -3377,4 +3381,103 @@ export function getCardsBySlug(slug: string): SportsCard | undefined {
 
 export function getCardsBySport(sport: SportsCard['sport']): SportsCard[] {
   return sportsCards.filter(c => c.sport === sport);
+}
+
+// Jersey number lookup by player name fragment (lowercase)
+export const jerseyNumbers: Record<string, string> = {
+  'michael jordan': '23',
+  'kobe bryant': '24',
+  'lebron james': '23',
+  'kevin durant': '35',
+  'shaquille o\'neal': '34',
+  'magic johnson': '32',
+  'larry bird': '33',
+  'charles barkley': '34',
+  'zion williamson': '1',
+  'victor wembanyama': '1',
+  'luka doncic': '77',
+  'stephen curry': '30',
+  'steph curry': '30',
+  'damian lillard': '0',
+  'allen iverson': '3',
+  'dirk nowitzki': '41',
+  'dwyane wade': '3',
+  'carmelo anthony': '7',
+  'chris paul': '3',
+  'karl-anthony towns': '32',
+  'tyrese haliburton': '0',
+  'cade cunningham': '2',
+  'anthony davis': '3',
+  'wilt chamberlain': '13',
+  'oscar robertson': '14',
+  'jerry west': '44',
+  'kareem abdul-jabbar': '33',
+  'tom brady': '12',
+  'patrick mahomes': '15',
+  'joe montana': '16',
+  'jerry rice': '80',
+  'jim brown': '32',
+  'peyton manning': '18',
+  'joe namath': '12',
+  'lamar jackson': '8',
+  'aaron rodgers': '12',
+  'emmitt smith': '22',
+  'barry sanders': '20',
+  'walter payton': '34',
+  'reggie white': '92',
+  'joe burrow': '9',
+  'justin herbert': '10',
+  'c.j. stroud': '7',
+  'brock purdy': '13',
+  'mickey mantle': '7',
+  'babe ruth': '3',
+  'willie mays': '24',
+  'derek jeter': '2',
+  'mike trout': '27',
+  'ken griffey': '24',
+  'roberto clemente': '21',
+  'nolan ryan': '34',
+  'rickey henderson': '24',
+  'hank aaron': '44',
+  'albert pujols': '5',
+  'honus wagner': 'N/A',
+  'shohei ohtani': '17',
+  'aaron judge': '99',
+  'ronald acuña': '13',
+  'julio rodriguez': '44',
+  'bryce harper': '3',
+  'kris bryant': '17',
+  'ichiro suzuki': '51',
+  'lou gehrig': '4',
+  'ty cobb': 'N/A',
+  'sandy koufax': '32',
+  'pete rose': '14',
+  'stan musial': '6',
+  'roger clemens': '21',
+  'reggie jackson': '44',
+  'george brett': '5',
+  'wayne gretzky': '99',
+  'bobby orr': '4',
+  'gordie howe': '9',
+  'sidney crosby': '87',
+  'connor mcdavid': '97',
+  'martin brodeur': '30',
+  'alex ovechkin': '8',
+  'auston matthews': '34',
+  'nathan mackinnon': '29',
+  'cale makar': '8',
+  'mario lemieux': '66',
+  'leon draisaitl': '29',
+  'jaromir jagr': '68',
+  'carey price': '31',
+  'elias pettersson': '40',
+  'quinn hughes': '43',
+};
+
+export function getJerseyNumber(player: string): string | undefined {
+  const key = player.toLowerCase();
+  for (const [fragment, num] of Object.entries(jerseyNumbers)) {
+    if (key.includes(fragment)) return num;
+  }
+  return undefined;
 }
