@@ -656,6 +656,33 @@ export const guides: Guide[] = [
     ],
     content: [],
   },
+  {
+    slug: 'psa-vs-bgs-vs-cgc',
+    title: 'PSA vs BGS vs CGC: Which Grading Company Should You Use?',
+    summary: 'Complete comparison of the three major card grading services. Costs, turnaround times, resale premiums, label types, and a decision framework for which grader fits your cards.',
+    category: 'Grading',
+    readTime: '10 min',
+    icon: '🏅',
+    gradient: 'from-red-900/30 via-blue-900/20 to-amber-900/30',
+    featuredCards: [
+      { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'PSA 10 commands highest premium' },
+      { slug: '2022-23-panini-prizm-victor-wembanyama-258', type: 'sports', label: '2022-23 Prizm Wembanyama #258', note: 'Modern card — all 3 graders viable' },
+    ],
+    content: [],
+  },
+  {
+    slug: 'tcgplayer-vs-ebay',
+    title: 'TCGPlayer vs eBay: Where to Buy and Sell Cards',
+    summary: 'Honest comparison of the two biggest card marketplaces. Fees, buyer protection, pricing transparency, and which platform is better for buying vs selling, raw vs graded.',
+    category: 'Buying Guide',
+    readTime: '8 min',
+    icon: '🛒',
+    gradient: 'from-emerald-900/30 via-blue-900/20 to-gray-900/30',
+    featuredCards: [
+      { slug: '2018-topps-chrome-shohei-ohtani-150', type: 'sports', label: '2018 Topps Chrome Ohtani #150', note: 'Active on both platforms' },
+    ],
+    content: [],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
