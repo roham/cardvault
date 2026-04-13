@@ -10,6 +10,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import SportsCardTile from '@/components/SportsCardTile';
 import CardFrame from '@/components/CardFrame';
 import CopyLinkButton from '@/components/CopyLinkButton';
+import JsonLd from '@/components/JsonLd';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -130,8 +131,18 @@ export default async function SportsCardPage({ params }: Props) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      {/* eslint-disable-next-line @next/next/no-head-element */}
+      {/* eslint-disable-next-line @next/next/no-head-element -- server-generated static data, safe */}
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: jsonLd }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cardvault-two.vercel.app/' },
+          { '@type': 'ListItem', position: 2, name: 'Sports Cards', item: 'https://cardvault-two.vercel.app/sports' },
+          { '@type': 'ListItem', position: 3, name: sportLabel, item: `https://cardvault-two.vercel.app/sports#${card.sport}` },
+          { '@type': 'ListItem', position: 4, name: card.player },
+        ],
+      }} />
       <Breadcrumb items={[
         { label: 'Home', href: '/' },
         { label: 'Sports Cards', href: '/sports' },

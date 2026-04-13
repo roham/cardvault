@@ -10,6 +10,10 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://cardvault-two.vercel.app'),
+  alternates: {
+    canonical: './',
+  },
   title: {
     default: "CardVault — Your Card Collection Command Center",
     template: "%s | CardVault",

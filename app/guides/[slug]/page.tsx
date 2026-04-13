@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { guides, getGuideBySlug } from '../guides-data';
 import Breadcrumb from '@/components/Breadcrumb';
+import JsonLd from '@/components/JsonLd';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -65,6 +66,39 @@ export default async function GuideDetailPage({ params }: Props) {
         { label: 'Guides', href: '/guides' },
         { label: guide.title },
       ]} />
+
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: guide.title,
+        description: guide.summary,
+        author: { '@type': 'Organization', name: 'CardVault' },
+        publisher: { '@type': 'Organization', name: 'CardVault', url: 'https://cardvault-two.vercel.app' },
+        mainEntityOfPage: `https://cardvault-two.vercel.app/guides/${slug}`,
+      }} />
+
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: guide.content.map(section => ({
+          '@type': 'Question',
+          name: section.heading,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: section.body + (section.bullets ? ' ' + section.bullets.join('. ') : ''),
+          },
+        })),
+      }} />
+
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cardvault-two.vercel.app/' },
+          { '@type': 'ListItem', position: 2, name: 'Guides', item: 'https://cardvault-two.vercel.app/guides' },
+          { '@type': 'ListItem', position: 3, name: guide.title },
+        ],
+      }} />
 
       {/* Header */}
       <div className={`bg-gradient-to-br ${guide.gradient} border border-gray-800 rounded-2xl p-8 mb-10`}>

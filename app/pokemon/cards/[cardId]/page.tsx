@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
+import JsonLd from '@/components/JsonLd';
 
 interface Props {
   params: Promise<{ cardId: string }>;
@@ -139,6 +140,34 @@ export default async function PokemonCardPage({ params }: Props) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: `${card.name} - ${card.set.name} #${card.number}`,
+        description: card.flavorText ?? `${card.name} from ${card.set.name} - ${card.rarity ?? 'Common'} Pokémon card`,
+        image: card.images?.large,
+        category: 'Pokémon Trading Card',
+        brand: { '@type': 'Brand', name: card.set.name },
+        ...(card.tcgplayer?.prices?.holofoil?.market || card.tcgplayer?.prices?.normal?.market ? {
+          offers: {
+            '@type': 'AggregateOffer',
+            priceCurrency: 'USD',
+            lowPrice: String(card.tcgplayer?.prices?.normal?.low ?? card.tcgplayer?.prices?.holofoil?.low ?? 0),
+            highPrice: String(card.tcgplayer?.prices?.holofoil?.high ?? card.tcgplayer?.prices?.normal?.high ?? 0),
+            offerCount: 1,
+          },
+        } : {}),
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cardvault-two.vercel.app/' },
+          { '@type': 'ListItem', position: 2, name: 'Pokémon', item: 'https://cardvault-two.vercel.app/pokemon' },
+          { '@type': 'ListItem', position: 3, name: card.set.name, item: `https://cardvault-two.vercel.app/pokemon/sets/${card.set.id}` },
+          { '@type': 'ListItem', position: 4, name: card.name },
+        ],
+      }} />
       <Breadcrumb items={[
         { label: 'Home', href: '/' },
         { label: 'Pokémon', href: '/pokemon' },
