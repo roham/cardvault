@@ -20,6 +20,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: guide.title,
     description: guide.summary,
+    openGraph: {
+      title: guide.title,
+      description: guide.summary,
+      type: 'article',
+      url: `https://cardvault-two.vercel.app/guides/${slug}`,
+    },
+    twitter: {
+      card: 'summary',
+      title: guide.title,
+      description: guide.summary.slice(0, 120),
+    },
   };
 }
 

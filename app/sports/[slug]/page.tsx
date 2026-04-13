@@ -24,9 +24,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const card = getCardsBySlug(slug);
   if (!card) return { title: 'Card Not Found' };
+  const sportLabel = card.sport.charAt(0).toUpperCase() + card.sport.slice(1);
   return {
-    title: card.name,
-    description: card.description,
+    title: `${card.name} Value & Price Guide`,
+    description: `${card.name} estimated value: ${card.estimatedValueRaw} raw, ${card.estimatedValueGem} gem mint. ${card.description.slice(0, 120)}`,
+    openGraph: {
+      title: `${card.name} — Price Guide`,
+      description: `Estimated value: ${card.estimatedValueRaw} raw. ${card.description.slice(0, 120)}`,
+      type: 'article',
+      url: `https://cardvault-two.vercel.app/sports/${slug}`,
+    },
+    twitter: {
+      card: 'summary',
+      title: `${card.name} Value`,
+      description: `${card.estimatedValueRaw} raw | ${card.estimatedValueGem} gem mint`,
+    },
   };
 }
 
