@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -10,6 +11,15 @@ export const metadata: Metadata = {
 export default function CardMarket2026Page() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'State of the Card Market: 2026 Analysis',
+        description: 'Deep-dive market analysis of the trading card industry in 2026. Sports cards vs Pokémon trends, PSA grading volume, Fanatics/Topps overproduction impact, modern vs vintage, and what collectors should know.',
+        author: { '@type': 'Organization', name: 'CardVault' },
+        publisher: { '@type': 'Organization', name: 'CardVault', url: 'https://cardvault-two.vercel.app' },
+        mainEntityOfPage: 'https://cardvault-two.vercel.app/guides/card-market-2026',
+      }} />
       {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-violet-950/60 border border-violet-800/50 text-violet-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">

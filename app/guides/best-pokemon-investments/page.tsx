@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -360,6 +361,15 @@ export default function BestPokemonInvestmentsPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'Best Pokémon Card Investments for 2026 — What to Buy Now',
+        description: 'The definitive Pokémon card investment guide for 2026. Vintage holos, sealed product, modern alt-arts, and graded slabs analyzed by risk tier, entry price, and long-term upside. Data-driven, no hype.',
+        author: { '@type': 'Organization', name: 'CardVault' },
+        publisher: { '@type': 'Organization', name: 'CardVault', url: 'https://cardvault-two.vercel.app' },
+        mainEntityOfPage: 'https://cardvault-two.vercel.app/guides/best-pokemon-investments',
+      }} />
       {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-yellow-950/60 border border-yellow-800/50 text-yellow-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">

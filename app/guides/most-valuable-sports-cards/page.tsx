@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -578,6 +579,15 @@ const top50: ValueCard[] = [
 export default function MostValuableSportsCardsPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'The 50 Most Valuable Sports Cards of All Time',
+        description: 'Definitive list of the 50 most valuable sports cards ever sold. Record auction prices, current market ranges, and why each card commands its premium. Baseball, basketball, football, and hockey.',
+        author: { '@type': 'Organization', name: 'CardVault' },
+        publisher: { '@type': 'Organization', name: 'CardVault', url: 'https://cardvault-two.vercel.app' },
+        mainEntityOfPage: 'https://cardvault-two.vercel.app/guides/most-valuable-sports-cards',
+      }} />
       {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-amber-950/60 border border-amber-800/50 text-amber-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">

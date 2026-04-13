@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -648,6 +649,15 @@ export default function MostValuablePokemonCardsPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'The 50 Most Valuable Pokémon Cards of All Time',
+        description: 'Definitive ranking of the 50 most valuable Pokémon cards ever sold. Record prices, current values, and why each card commands a premium — from 1st Edition Charizard to Pikachu Illustrator.',
+        author: { '@type': 'Organization', name: 'CardVault' },
+        publisher: { '@type': 'Organization', name: 'CardVault', url: 'https://cardvault-two.vercel.app' },
+        mainEntityOfPage: 'https://cardvault-two.vercel.app/guides/most-valuable-pokemon-cards',
+      }} />
       {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-yellow-950/60 border border-yellow-800/50 text-yellow-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">

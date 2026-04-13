@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -614,6 +615,15 @@ export default function BestCardsUnder100Page() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: '50 Best Sports Cards Under $100 — Affordable Collecting Guide',
+        description: 'The 50 best sports cards you can actually buy for under $100. Rookie cards, vintage commons, and modern hits that punch above their price. PSA 9 prices, why each card matters, and where to buy.',
+        author: { '@type': 'Organization', name: 'CardVault' },
+        publisher: { '@type': 'Organization', name: 'CardVault', url: 'https://cardvault-two.vercel.app' },
+        mainEntityOfPage: 'https://cardvault-two.vercel.app/guides/best-cards-under-100',
+      }} />
       {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">
