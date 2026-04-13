@@ -160,6 +160,11 @@ export const guides: Guide[] = [
     readTime: '5 min',
     icon: '📊',
     gradient: 'from-amber-900/40 via-orange-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '2000-playoff-contenders-tom-brady-144', type: 'sports', label: '2000 Playoff Contenders Tom Brady #144', note: 'Example: PSA 10 sold $3.1M at auction' },
+      { slug: '2003-04-topps-chrome-lebron-james-111', type: 'sports', label: '2003-04 Topps Chrome LeBron James #111', note: 'Active market with daily sold comps' },
+      { slug: '2018-topps-chrome-shohei-ohtani-150', type: 'sports', label: '2018 Topps Chrome Shohei Ohtani #150', note: 'High volume — easy to find recent comps' },
+    ],
     content: [
       {
         heading: 'The three price sources (and what they actually mean)',
@@ -575,6 +580,13 @@ export const guides: Guide[] = [
     readTime: '12 min',
     icon: '🏆',
     gradient: 'from-amber-900/40 via-yellow-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '1909-t206-honus-wagner', type: 'sports', label: '1909 T206 Honus Wagner', note: 'Record: $7.25M' },
+      { slug: '1952-topps-mickey-mantle-311', type: 'sports', label: '1952 Topps Mickey Mantle #311', note: 'Record: $12.6M' },
+      { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'Record: $738,000 PSA 10' },
+      { slug: '1948-leaf-jackie-robinson-79', type: 'sports', label: '1948 Leaf Jackie Robinson #79', note: 'Historically significant RC' },
+      { slug: '1966-67-topps-bobby-orr-35', type: 'sports', label: '1966-67 Topps Bobby Orr #35', note: 'Most valuable hockey RC' },
+    ],
     content: [],
   },
   {
@@ -595,6 +607,12 @@ export const guides: Guide[] = [
     readTime: '15 min',
     icon: '📊',
     gradient: 'from-violet-900/40 via-indigo-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '2022-23-panini-prizm-victor-wembanyama-258', type: 'sports', label: '2022-23 Prizm Wembanyama #258', note: 'Hottest modern card' },
+      { slug: '2024-panini-prizm-caitlin-clark-rc', type: 'sports', label: '2024 Prizm Caitlin Clark RC', note: 'Most searched card of 2024' },
+      { slug: '2023-topps-chrome-corbin-carroll-rc-150', type: 'sports', label: '2023 Chrome Corbin Carroll RC', note: '2023 NL ROY' },
+      { slug: '2023-panini-prizm-cj-stroud-rc-301', type: 'sports', label: '2023 Prizm C.J. Stroud RC', note: '2023 OROY' },
+    ],
     content: [],
   },
   {
@@ -605,6 +623,12 @@ export const guides: Guide[] = [
     readTime: '10 min',
     icon: '💰',
     gradient: 'from-emerald-900/40 via-teal-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '1990-topps-frank-thomas-414', type: 'sports', label: '1990 Topps Frank Thomas #414', note: 'HOF RC under $20 raw' },
+      { slug: '1985-topps-mark-mcgwire-401', type: 'sports', label: '1985 Topps Mark McGwire #401', note: 'Team USA RC under $30' },
+      { slug: '1990-91-score-martin-brodeur-439', type: 'sports', label: '1990-91 Score Martin Brodeur #439', note: 'Winningest goalie ever — under $30' },
+      { slug: '1989-score-barry-sanders-257', type: 'sports', label: '1989 Score Barry Sanders #257', note: 'HOF RC under $100 PSA 8' },
+    ],
     content: [],
   },
   {
@@ -625,6 +649,11 @@ export const guides: Guide[] = [
     readTime: '9 min',
     icon: '🔍',
     gradient: 'from-rose-900/40 via-red-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '1909-t206-honus-wagner', type: 'sports', label: '1909 T206 Honus Wagner', note: 'Most counterfeited card in history' },
+      { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'Common trimming and counterfeit target' },
+      { slug: '1952-topps-mickey-mantle-311', type: 'sports', label: '1952 Topps Mickey Mantle #311', note: 'Frequent trimming victim' },
+    ],
     content: [],
   },
 ];

@@ -4,10 +4,11 @@ import { sportsCards } from '@/data/sports-cards';
 import { notableSales } from '@/data/notable-sales';
 import SportsCardTile from '@/components/SportsCardTile';
 import CardGrid from '@/components/CardGrid';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Sports Cards',
-  description: 'Browse 100+ iconic sports cards across baseball, basketball, football, and hockey. From the 1952 Topps Mickey Mantle to modern Wembanyama rookies.',
+  description: 'Browse 800+ iconic sports cards across baseball, basketball, football, and hockey. From the 1952 Topps Mickey Mantle to modern Wembanyama rookies — with estimated values.',
 };
 
 const sports = [
@@ -18,13 +19,31 @@ const sports = [
 ];
 
 export default function SportsPage() {
+  const top20 = sportsCards.slice(0, 20);
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: 'Sports Cards Price Guide',
+        description: `Browse ${sportsCards.length}+ iconic sports cards across baseball, basketball, football, and hockey with estimated values.`,
+        url: 'https://cardvault-two.vercel.app/sports',
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: sportsCards.length,
+          itemListElement: top20.map((card, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            url: `https://cardvault-two.vercel.app/sports/${card.slug}`,
+            name: card.name,
+          })),
+        },
+      }} />
       {/* Header */}
       <div className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">Sports Cards</h1>
         <p className="text-gray-400 text-lg max-w-2xl">
-          300+ iconic cards from every era — vintage tobacco issues to modern patch autos. Each with real card data and estimated value ranges.
+          {sportsCards.length}+ iconic cards from every era — vintage tobacco issues to modern patch autos. Each with real card data and estimated value ranges.
         </p>
       </div>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { guides } from './guides-data';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Collector Guides',
@@ -13,6 +14,23 @@ export default function GuidesPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: 'Collector Guides',
+        description: 'Free guides for sports card and Pokémon TCG collectors.',
+        url: 'https://cardvault-two.vercel.app/guides',
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: guides.length,
+          itemListElement: guides.map((guide, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            url: `https://cardvault-two.vercel.app/guides/${guide.slug}`,
+            name: guide.title,
+          })),
+        },
+      }} />
       {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-violet-950/60 border border-violet-800/50 text-violet-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import InstantSearch from '@/components/InstantSearch';
 import NewsCard from '@/components/NewsCard';
 import CardFrame from '@/components/CardFrame';
+import JsonLd from '@/components/JsonLd';
 import { newsItems } from '@/data/news';
 import { sportsCards } from '@/data/sports-cards';
 
@@ -70,6 +71,29 @@ export default function HomePage() {
 
   return (
     <>
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'CardVault',
+        url: 'https://cardvault-two.vercel.app',
+        description: 'Free sports card and Pokémon card price guide. Real prices from eBay sold listings, TCGPlayer, and major auction houses.',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: 'https://cardvault-two.vercel.app/price-guide?q={search_term_string}',
+          },
+          'query-input': 'required name=search_term_string',
+        },
+      }} />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'CardVault',
+        url: 'https://cardvault-two.vercel.app',
+        logo: 'https://cardvault-two.vercel.app/favicon.ico',
+        description: 'The free card price guide for sports cards and Pokémon TCG collectors.',
+      }} />
       {/* Hero — Price Check first */}
       <section className="relative bg-gray-950 border-b border-gray-800 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-950/40 via-gray-950 to-gray-950 pointer-events-none" />

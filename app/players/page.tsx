@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Player Card Profiles — Most Collected Athletes',
@@ -511,6 +512,23 @@ const sportGroups = ['Baseball', 'Basketball', 'Football', 'Hockey'];
 export default function PlayersPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: 'Player Card Profiles',
+        description: 'Complete card checklists for the most collected athletes in sports cards.',
+        url: 'https://cardvault-two.vercel.app/players',
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: players.length,
+          itemListElement: players.map((p, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            url: `https://cardvault-two.vercel.app/players/${p.slug}`,
+            name: p.name,
+          })),
+        },
+      }} />
       {/* Header */}
       <div className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">Player Card Profiles</h1>

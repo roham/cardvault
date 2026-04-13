@@ -3,6 +3,7 @@ import GradeCalculator from './GradeCalculator';
 import GradingCostTable from './GradingCostTable';
 import CardLookup from './CardLookup';
 import Link from 'next/link';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Price Check — What Is My Card Worth?',
@@ -12,6 +13,16 @@ export const metadata: Metadata = {
 export default function ToolsPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'CardVault Price Checker',
+        description: 'Free card price checker for sports cards and Pokémon TCG with real sold data from eBay, TCGPlayer, and major auction houses.',
+        url: 'https://cardvault-two.vercel.app/tools',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Web',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      }} />
       {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">
