@@ -89,6 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/leaderboard`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/my-hub`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/rip-or-skip`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/trivia`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.4 },
     { url: `${BASE_URL}/sports/sets`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/sports/compare`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
