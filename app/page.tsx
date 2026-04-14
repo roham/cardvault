@@ -401,6 +401,7 @@ export default function HomePage() {
               { href: '/premium-packs', title: 'Premium Packs', description: 'Themed packs: Legends, Rookies, Pre-War, more', icon: '💎', color: 'from-fuchsia-900/50 to-pink-900/30', border: 'border-fuchsia-800/30 hover:border-fuchsia-600/50' },
               { href: '/drops', title: 'Drop Calendar', description: 'Themed events: Draft Night, Playoff Heat, Vintage Weekend', icon: '🗓️', color: 'from-emerald-900/50 to-teal-900/30', border: 'border-emerald-800/30 hover:border-emerald-600/50' },
               { href: '/trade-hub', title: 'Trade Hub', description: 'Propose and accept card trades with collectors', icon: '🔄', color: 'from-purple-900/50 to-fuchsia-900/30', border: 'border-purple-800/30 hover:border-purple-600/50' },
+              { href: '/tools/wax-vs-singles', title: 'Wax vs Singles', description: 'Should you buy sealed boxes or just buy singles?', icon: '🃏', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>

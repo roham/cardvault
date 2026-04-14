@@ -56,6 +56,7 @@ export default function ToolsPage() {
           { href: '/tools/box-break', label: 'Box Break Calculator', icon: '📦' },
           { href: '/tools/watchlist', label: 'Price Watchlist', icon: '👀' },
           { href: '/tools/market-dashboard', label: 'Market Dashboard', icon: '📊' },
+          { href: '/tools/wax-vs-singles', label: 'Wax vs Singles', icon: '🃏' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
