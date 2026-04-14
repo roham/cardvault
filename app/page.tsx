@@ -382,6 +382,7 @@ export default function HomePage() {
               { href: '/calendar', title: 'Release Calendar', description: '2026 product release schedule', icon: '📅', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
               { href: '/my-hub', title: 'My Hub', description: 'Your personal dashboard — streaks, packs, achievements', icon: '🎯', color: 'from-amber-900/50 to-red-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
               { href: '/rip-or-skip', title: 'Rip or Skip?', description: 'Daily vote — would you open this product?', icon: '🔥', color: 'from-red-900/50 to-orange-900/30', border: 'border-red-800/30 hover:border-red-600/50' },
+              { href: '/tools/price-history', title: 'Price History', description: '90-day price trends for any card', icon: '📊', color: 'from-cyan-900/50 to-blue-900/30', border: 'border-cyan-800/30 hover:border-cyan-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>
