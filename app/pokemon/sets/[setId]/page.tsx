@@ -4,6 +4,9 @@ import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
 import PokemonCardTile from '@/components/PokemonCardTile';
 
+export const dynamicParams = true;
+export const revalidate = 3600; // ISR: 1 hour
+
 interface Props {
   params: Promise<{ setId: string }>;
   searchParams: Promise<{ page?: string }>;

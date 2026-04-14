@@ -5,6 +5,9 @@ import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/Breadcrumb';
 import JsonLd from '@/components/JsonLd';
 
+export const dynamicParams = true;
+export const revalidate = 3600; // ISR: 1 hour
+
 interface Props {
   params: Promise<{ cardId: string }>;
 }
