@@ -46,6 +46,9 @@ interface HubStats {
   bestEverPull: { label: string; value: number; date: string } | null;
   watchlistCount: number;
   totalVisits: number;
+  level: number;
+  totalXP: number;
+  levelTitle: string;
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────
@@ -80,6 +83,33 @@ function getCountdownToMidnight(): string {
   return `${hours}h ${minutes}m`;
 }
 
+// XP calculation for level display
+const XP_KEYS: Record<string, number> = {
+  'cv-cards-viewed': 5, 'cv-packs-opened': 25, 'cv-guides-read': 15,
+  'cv-tools-used': 10, 'cv-shares': 15, 'cv-trade-used': 20,
+  'cv-grading-used': 20, 'cv-battles-won': 30, 'cv-trivia-played': 20,
+  'cv-portfolio-created': 40, 'cv-collection-size': 8,
+};
+
+function calcTotalXP(): number {
+  let xp = 0;
+  for (const [key, mult] of Object.entries(XP_KEYS)) {
+    xp += safeParseInt(key) * mult;
+  }
+  xp += safeParseInt('cv-visit-streak') * 10;
+  const achs = safeParseJSON<string[]>('cv-achievements', []);
+  xp += achs.length * 100;
+  return xp;
+}
+
+function getLevelFromXP(xp: number): { level: number; title: string } {
+  let level = 1;
+  while (level < 50 && xp >= 100 * ((level + 1) * (level + 2) / 2 - 1)) level++;
+  const titles = ['Rookie Collector', 'Card Enthusiast', 'Seasoned Trader', 'Expert Collector', 'Card Master'];
+  const tierIdx = Math.min(4, Math.floor((level - 1) / 10));
+  return { level, title: titles[tierIdx] };
+}
+
 function loadHubStats(): HubStats {
   const today = getTodayString();
 
@@ -112,6 +142,10 @@ function loadHubStats(): HubStats {
   const watchlistData = safeParseJSON<{ items?: unknown[] } | null>('cardvault-watchlist', null);
   const watchlistCount = watchlistData?.items?.length || 0;
 
+  // Level
+  const totalXP = calcTotalXP();
+  const { level, title: levelTitle } = getLevelFromXP(totalXP);
+
   return {
     currentStreak,
     longestStreak,
@@ -127,6 +161,9 @@ function loadHubStats(): HubStats {
     bestEverPull,
     watchlistCount,
     totalVisits,
+    level,
+    totalXP,
+    levelTitle,
   };
 }
 
@@ -183,11 +220,11 @@ function LoadingSkeleton() {
 
 function QuickStatsBar({ stats }: { stats: HubStats }) {
   const statItems = [
+    { label: 'Level', value: stats.level, suffix: '', accent: 'text-emerald-400' },
     { label: 'Current Streak', value: stats.currentStreak, suffix: 'd', accent: 'text-amber-400' },
-    { label: 'Packs Opened', value: stats.packsOpened, suffix: '', accent: 'text-emerald-400' },
-    { label: 'Cards Viewed', value: stats.cardsViewed, suffix: '', accent: 'text-blue-400' },
+    { label: 'Packs Opened', value: stats.packsOpened, suffix: '', accent: 'text-blue-400' },
     { label: 'Achievements', value: `${stats.achievementsUnlocked}/24`, suffix: '', accent: 'text-purple-400' },
-    { label: 'Collection', value: stats.collectionSize, suffix: '', accent: 'text-pink-400' },
+    { label: 'Total XP', value: stats.totalXP.toLocaleString(), suffix: '', accent: 'text-pink-400' },
   ];
 
   return (
@@ -319,7 +356,17 @@ function YourProgress({ stats }: { stats: HubStats }) {
     ? Math.min(100, Math.round((stats.currentStreak / stats.longestStreak) * 100))
     : 0;
 
+  const levelPct = stats.level >= 50 ? 100 : Math.round((stats.level / 50) * 100);
+
   const progressItems = [
+    {
+      label: 'Level',
+      detail: `Lv. ${stats.level} — ${stats.levelTitle}`,
+      pct: levelPct,
+      color: 'bg-emerald-500',
+      trackColor: 'bg-emerald-950/50',
+      href: '/progression',
+    },
     {
       label: 'Achievements',
       detail: `${stats.achievementsUnlocked} / 24 unlocked`,
@@ -446,6 +493,15 @@ const quickLinks = [
     iconBg: 'bg-purple-500/10',
     iconColor: 'text-purple-400',
     icon: '\uD83C\uDF1F',
+  },
+  {
+    href: '/progression',
+    title: 'Progression',
+    description: 'Level up & earn XP',
+    accent: 'border-t-lime-500',
+    iconBg: 'bg-lime-500/10',
+    iconColor: 'text-lime-400',
+    icon: '\u2B06\uFE0F',
   },
   {
     href: '/streak',
