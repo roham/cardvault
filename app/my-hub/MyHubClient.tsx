@@ -492,6 +492,15 @@ const quickLinks = [
     iconColor: 'text-indigo-400',
     icon: '\uD83D\uDCDA',
   },
+  {
+    href: '/digital-pack',
+    title: 'Digital Pack',
+    description: '5 free cards daily',
+    accent: 'border-t-violet-500',
+    iconBg: 'bg-violet-500/10',
+    iconColor: 'text-violet-400',
+    icon: '\uD83C\uDF81',
+  },
 ];
 
 function QuickLinks() {

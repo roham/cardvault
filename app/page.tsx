@@ -395,6 +395,7 @@ export default function HomePage() {
               { href: '/showcase', title: 'Trophy Case', description: 'Curate your top 9 cards and share your showcase', icon: '🏆', color: 'from-emerald-900/50 to-teal-900/30', border: 'border-emerald-800/30 hover:border-emerald-600/50' },
               { href: '/market-report', title: 'Market Report', description: 'Weekly AI analysis of the card market', icon: '📈', color: 'from-blue-900/50 to-indigo-900/30', border: 'border-blue-800/30 hover:border-blue-600/50' },
               { href: '/binder', title: 'Digital Binder', description: 'Collect, organize, and trade cards digitally', icon: '📚', color: 'from-indigo-900/50 to-violet-900/30', border: 'border-indigo-800/30 hover:border-indigo-600/50' },
+              { href: '/digital-pack', title: 'Digital Pack', description: '5 free cards for your binder every day', icon: '🎁', color: 'from-violet-900/50 to-purple-900/30', border: 'border-violet-800/30 hover:border-violet-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>

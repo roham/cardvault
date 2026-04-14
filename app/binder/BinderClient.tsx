@@ -575,7 +575,8 @@ export default function BinderClient() {
           {[
             { href: '/showcase', label: 'Trophy Case', desc: 'Curate your top 9' },
             { href: '/tools/collection-value', label: 'Collection Value', desc: 'Calculate total worth' },
-            { href: '/tools/daily-pack', label: 'Daily Pack', desc: 'Free pack every day' },
+            { href: '/digital-pack', label: 'Digital Pack', desc: '5 free cards daily' },
+            { href: '/tools/daily-pack', label: 'Daily Pack Sim', desc: 'Simulate sealed products' },
             { href: '/tools/trade', label: 'Trade Evaluator', desc: 'Check trade fairness' },
             { href: '/tools/watchlist', label: 'Price Watchlist', desc: 'Track price changes' },
             { href: '/collection', label: 'Set Tracker', desc: 'Track sets you complete' },
