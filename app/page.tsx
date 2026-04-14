@@ -405,6 +405,7 @@ export default function HomePage() {
               { href: '/packs', title: 'Pack Store', description: 'Buy and open packs with your $250 starter balance', icon: '🛒', color: 'from-emerald-900/50 to-green-900/30', border: 'border-emerald-800/30 hover:border-emerald-600/50' },
               { href: '/tools/wax-vs-singles', title: 'Wax vs Singles', description: 'Should you buy sealed boxes or just buy singles?', icon: '🃏', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
               { href: '/tools/centering-calc', title: 'Centering Calc', description: 'Will your card get a PSA 10? Check centering first', icon: '📐', color: 'from-sky-900/50 to-blue-900/30', border: 'border-sky-800/30 hover:border-sky-600/50' },
+              { href: '/tools/insurance-calc', title: 'Insurance Calc', description: 'How much coverage does your collection need?', icon: '🛡️', color: 'from-violet-900/50 to-purple-900/30', border: 'border-violet-800/30 hover:border-violet-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>
