@@ -3,6 +3,7 @@ import InstantSearch from '@/components/InstantSearch';
 import NewsCard from '@/components/NewsCard';
 import CardFrame from '@/components/CardFrame';
 import JsonLd from '@/components/JsonLd';
+import TodayDashboard from '@/components/TodayDashboard';
 import { newsItems } from '@/data/news';
 import { sportsCards } from '@/data/sports-cards';
 
@@ -152,9 +153,12 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Today on CardVault — daily engagement dashboard */}
+      <TodayDashboard />
+
       {/* Trust bar */}
-      <div className="border-b border-gray-800 bg-gray-900/60">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="border-b border-gray-800 bg-gray-900/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex flex-wrap items-center gap-6 sm:gap-10 justify-center sm:justify-start">
             {[
               { label: 'Pokémon Cards', value: pokemonCardCount, color: 'text-yellow-400' },
@@ -386,6 +390,8 @@ export default function HomePage() {
               { href: '/trivia', title: 'Daily Trivia', description: '5 questions a day — test your card knowledge', icon: '🧠', color: 'from-violet-900/50 to-purple-900/30', border: 'border-violet-800/30 hover:border-violet-600/50' },
               { href: '/tools/head-to-head', title: 'Head-to-Head', description: 'Compare any two cards side-by-side', icon: '⚔️', color: 'from-orange-900/50 to-amber-900/30', border: 'border-orange-800/30 hover:border-orange-600/50' },
               { href: '/flip-or-keep', title: 'Flip or Keep', description: 'Daily game — flip for cash or keep for collection?', icon: '🃏', color: 'from-purple-900/50 to-indigo-900/30', border: 'border-purple-800/30 hover:border-purple-600/50' },
+              { href: '/news', title: 'Hobby News', description: 'Latest news, set drops, and market updates', icon: '📰', color: 'from-sky-900/50 to-blue-900/30', border: 'border-sky-800/30 hover:border-sky-600/50' },
+              { href: '/leaderboard', title: 'Leaderboards', description: 'Top collectors — weekly challenge and portfolio rankings', icon: '🥇', color: 'from-amber-900/50 to-yellow-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>
