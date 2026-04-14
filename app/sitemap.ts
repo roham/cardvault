@@ -51,6 +51,7 @@ const standaloneGuides = [
   'best-cards-under-100', 'best-pokemon-investments', 'card-market-2026',
   'fake-cards', 'most-valuable-pokemon-cards', 'most-valuable-sports-cards',
   'psa-vs-bgs-vs-cgc', 'tcgplayer-vs-ebay', 'how-to-sell-cards', 'best-rookie-cards-2026',
+  'psa-grading-scale', 'card-storage-guide', 'card-collecting-glossary', 'budget-collecting',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
