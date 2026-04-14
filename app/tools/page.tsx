@@ -48,6 +48,7 @@ export default function ToolsPage() {
           { href: '/tools/trade', label: 'Trade Evaluator', icon: '🔄' },
           { href: '/tools/identify', label: 'Card Identifier', icon: '🔎' },
           { href: '/tools/set-cost', label: 'Set Completion Cost', icon: '📋' },
+          { href: '/tools/draft-predictor', label: '2025 Draft Predictor', icon: '🎯' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
