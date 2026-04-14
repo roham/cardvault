@@ -57,6 +57,7 @@ export default function ToolsPage() {
           { href: '/tools/watchlist', label: 'Price Watchlist', icon: '👀' },
           { href: '/tools/market-dashboard', label: 'Market Dashboard', icon: '📊' },
           { href: '/tools/wax-vs-singles', label: 'Wax vs Singles', icon: '🃏' },
+          { href: '/tools/centering-calc', label: 'Centering Calculator', icon: '📐' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
