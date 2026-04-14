@@ -59,6 +59,7 @@ export default function ToolsPage() {
           { href: '/tools/wax-vs-singles', label: 'Wax vs Singles', icon: '🃏' },
           { href: '/tools/centering-calc', label: 'Centering Calculator', icon: '📐' },
           { href: '/tools/insurance-calc', label: 'Insurance Calculator', icon: '🛡️' },
+          { href: '/tools/flip-calc', label: 'Flip Profit Calculator', icon: '💸' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
@@ -137,6 +138,9 @@ export default function ToolsPage() {
           </Link>
           <Link href="/about#data" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
             Data Methodology
+          </Link>
+          <Link href="/mcp" className="inline-flex items-center gap-2 bg-emerald-950/60 hover:bg-emerald-950/80 text-emerald-400 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-emerald-800/50">
+            MCP Server API
           </Link>
         </div>
       </div>

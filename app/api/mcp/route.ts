@@ -5,16 +5,19 @@ import { sealedProducts, calculateEV } from '@/data/sealed-products';
 // CardVault MCP Server — exposes card data as tools for AI agents
 // Spec: https://modelcontextprotocol.io
 
+const SERVER_VERSION = '3.7.0';
+
 const TOOLS = [
   {
     name: 'search_cards',
-    description: 'Search sports cards by player name, set, year, or sport. Returns card details with pricing.',
+    description: 'Search 3,000+ sports cards by player name, set, year, or sport. Returns card details with pricing.',
     inputSchema: {
       type: 'object',
       properties: {
         query: { type: 'string', description: 'Search query (player name, set name, or card description)' },
         sport: { type: 'string', enum: ['baseball', 'basketball', 'football', 'hockey'], description: 'Filter by sport' },
         year: { type: 'number', description: 'Filter by year' },
+        rookie_only: { type: 'boolean', description: 'Only return rookie cards' },
         limit: { type: 'number', description: 'Max results (default 10)', default: 10 },
       },
       required: ['query'],
@@ -70,6 +73,29 @@ const TOOLS = [
       },
     },
   },
+  {
+    name: 'player_lookup',
+    description: 'Get all cards for a specific player, including total portfolio value, rookie cards, and career span.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        player: { type: 'string', description: 'Player name (full or partial)' },
+      },
+      required: ['player'],
+    },
+  },
+  {
+    name: 'compare_players',
+    description: 'Compare two players side-by-side: card counts, total values, rookie cards, and investment analysis.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        player_a: { type: 'string', description: 'First player name' },
+        player_b: { type: 'string', description: 'Second player name' },
+      },
+      required: ['player_a', 'player_b'],
+    },
+  },
 ];
 
 // Grading company data
@@ -87,7 +113,7 @@ function parseMidValue(val: string): number {
   return Math.round((nums[0] + nums[1]) / 2);
 }
 
-function handleSearchCards(params: { query: string; sport?: string; year?: number; limit?: number }) {
+function handleSearchCards(params: { query: string; sport?: string; year?: number; rookie_only?: boolean; limit?: number }) {
   const q = params.query.toLowerCase();
   const limit = params.limit || 10;
 
@@ -98,6 +124,7 @@ function handleSearchCards(params: { query: string; sport?: string; year?: numbe
     if (!match) return false;
     if (params.sport && c.sport !== params.sport) return false;
     if (params.year && c.year !== params.year) return false;
+    if (params.rookie_only && !c.rookie) return false;
     return true;
   });
 
@@ -225,6 +252,88 @@ function handleListSets(params: { sport?: string; year?: number }) {
     }));
 }
 
+function handlePlayerLookup(params: { player: string }) {
+  const q = params.player.toLowerCase();
+  const cards = sportsCards.filter(c => c.player.toLowerCase().includes(q));
+
+  if (cards.length === 0) {
+    return { error: `No cards found for player "${params.player}"`, suggestion: 'Try a partial name (e.g. "Trout" instead of "Mike Trout").' };
+  }
+
+  const playerName = cards[0].player;
+  const sport = cards[0].sport;
+  const rookieCards = cards.filter(c => c.rookie);
+  const years = cards.map(c => c.year).sort();
+  const totalRaw = cards.reduce((sum, c) => sum + parseMidValue(c.estimatedValueRaw), 0);
+  const totalGem = cards.reduce((sum, c) => sum + parseMidValue(c.estimatedValueGem), 0);
+  const playerSlug = playerName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+  return {
+    player: playerName,
+    sport,
+    total_cards: cards.length,
+    career_span: `${years[0]}–${years[years.length - 1]}`,
+    rookie_cards: rookieCards.length,
+    total_raw_value: totalRaw,
+    total_gem_value: totalGem,
+    most_valuable: cards
+      .sort((a, b) => parseMidValue(b.estimatedValueGem) - parseMidValue(a.estimatedValueGem))
+      .slice(0, 3)
+      .map(c => ({ name: c.name, raw: c.estimatedValueRaw, gem: c.estimatedValueGem })),
+    all_cards: cards.map(c => ({
+      name: c.name,
+      year: c.year,
+      set: c.set,
+      rookie: c.rookie,
+      raw_value: c.estimatedValueRaw,
+      gem_mint_value: c.estimatedValueGem,
+      cardvault_url: `https://cardvault-two.vercel.app/sports/${c.slug}`,
+    })),
+    player_page: `https://cardvault-two.vercel.app/players/${playerSlug}`,
+  };
+}
+
+function handleComparePlayers(params: { player_a: string; player_b: string }) {
+  const getPlayerData = (name: string) => {
+    const q = name.toLowerCase();
+    const cards = sportsCards.filter(c => c.player.toLowerCase().includes(q));
+    if (cards.length === 0) return null;
+    const playerName = cards[0].player;
+    const rookies = cards.filter(c => c.rookie);
+    const totalRaw = cards.reduce((sum, c) => sum + parseMidValue(c.estimatedValueRaw), 0);
+    const totalGem = cards.reduce((sum, c) => sum + parseMidValue(c.estimatedValueGem), 0);
+    const years = cards.map(c => c.year).sort();
+    const topCard = cards.sort((a, b) => parseMidValue(b.estimatedValueGem) - parseMidValue(a.estimatedValueGem))[0];
+    return { playerName, sport: cards[0].sport, cards: cards.length, rookies: rookies.length, totalRaw, totalGem, yearRange: `${years[0]}–${years[years.length - 1]}`, topCard };
+  };
+
+  const a = getPlayerData(params.player_a);
+  const b = getPlayerData(params.player_b);
+
+  if (!a) return { error: `No cards found for "${params.player_a}"` };
+  if (!b) return { error: `No cards found for "${params.player_b}"` };
+
+  const slugA = a.playerName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const slugB = b.playerName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+  return {
+    player_a: {
+      name: a.playerName, sport: a.sport, total_cards: a.cards, rookie_cards: a.rookies,
+      portfolio_value_raw: a.totalRaw, portfolio_value_gem: a.totalGem, career_span: a.yearRange,
+      top_card: { name: a.topCard.name, gem_value: a.topCard.estimatedValueGem },
+    },
+    player_b: {
+      name: b.playerName, sport: b.sport, total_cards: b.cards, rookie_cards: b.rookies,
+      portfolio_value_raw: b.totalRaw, portfolio_value_gem: b.totalGem, career_span: b.yearRange,
+      top_card: { name: b.topCard.name, gem_value: b.topCard.estimatedValueGem },
+    },
+    verdict: a.totalGem > b.totalGem
+      ? `${a.playerName} has a higher total portfolio value ($${a.totalGem.toLocaleString()} vs $${b.totalGem.toLocaleString()} in gem mint).`
+      : `${b.playerName} has a higher total portfolio value ($${b.totalGem.toLocaleString()} vs $${a.totalGem.toLocaleString()} in gem mint).`,
+    compare_url: a.sport === b.sport ? `https://cardvault-two.vercel.app/sports/compare/${slugA}-vs-${slugB}` : undefined,
+  };
+}
+
 // Handle MCP JSON-RPC requests
 export async function POST(request: NextRequest) {
   try {
@@ -241,8 +350,8 @@ export async function POST(request: NextRequest) {
           capabilities: { tools: {} },
           serverInfo: {
             name: 'cardvault',
-            version: '2.5.0',
-            description: 'CardVault MCP Server — sports card and Pokemon card data, pricing, grading ROI, and sealed product EV calculations.',
+            version: SERVER_VERSION,
+            description: `CardVault MCP Server — search ${sportsCards.length.toLocaleString()}+ sports cards, compare players, check prices, calculate grading ROI, and evaluate sealed product expected value.`,
           },
         },
       });
@@ -279,6 +388,12 @@ export async function POST(request: NextRequest) {
         case 'list_sets':
           result = handleListSets(toolArgs);
           break;
+        case 'player_lookup':
+          result = handlePlayerLookup(toolArgs);
+          break;
+        case 'compare_players':
+          result = handleComparePlayers(toolArgs);
+          break;
         default:
           return NextResponse.json({
             jsonrpc: '2.0',
@@ -312,16 +427,24 @@ export async function POST(request: NextRequest) {
 
 // GET endpoint for discovery
 export async function GET() {
+  const uniquePlayers = new Set(sportsCards.map(c => c.player));
+  const uniqueSets = new Set(sportsCards.map(c => c.set));
   return NextResponse.json({
     name: 'cardvault',
-    version: '2.5.0',
-    description: 'CardVault MCP Server — search 1,200+ sports cards, check prices, calculate grading ROI, and evaluate sealed product expected value.',
+    version: SERVER_VERSION,
+    description: `CardVault MCP Server — search ${sportsCards.length.toLocaleString()}+ sports cards across ${uniquePlayers.size} players, compare collections, check prices, calculate grading ROI, and evaluate sealed product EV.`,
     tools: TOOLS.map(t => ({ name: t.name, description: t.description })),
     endpoints: {
       mcp: 'https://cardvault-two.vercel.app/api/mcp',
+      discovery: 'https://cardvault-two.vercel.app/.well-known/mcp.json',
+      documentation: 'https://cardvault-two.vercel.app/mcp',
     },
-    documentation: 'https://cardvault-two.vercel.app/tools',
-    total_sports_cards: sportsCards.length,
-    total_sealed_products: sealedProducts.length,
+    stats: {
+      total_cards: sportsCards.length,
+      unique_players: uniquePlayers.size,
+      unique_sets: uniqueSets.size,
+      sealed_products: sealedProducts.length,
+      sports: ['baseball', 'basketball', 'football', 'hockey'],
+    },
   });
 }
