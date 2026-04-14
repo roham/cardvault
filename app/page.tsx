@@ -385,6 +385,7 @@ export default function HomePage() {
               { href: '/tools/price-history', title: 'Price History', description: '90-day price trends for any card', icon: '📊', color: 'from-cyan-900/50 to-blue-900/30', border: 'border-cyan-800/30 hover:border-cyan-600/50' },
               { href: '/trivia', title: 'Daily Trivia', description: '5 questions a day — test your card knowledge', icon: '🧠', color: 'from-violet-900/50 to-purple-900/30', border: 'border-violet-800/30 hover:border-violet-600/50' },
               { href: '/tools/head-to-head', title: 'Head-to-Head', description: 'Compare any two cards side-by-side', icon: '⚔️', color: 'from-orange-900/50 to-amber-900/30', border: 'border-orange-800/30 hover:border-orange-600/50' },
+              { href: '/flip-or-keep', title: 'Flip or Keep', description: 'Daily game — flip for cash or keep for collection?', icon: '🃏', color: 'from-purple-900/50 to-indigo-900/30', border: 'border-purple-800/30 hover:border-purple-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>

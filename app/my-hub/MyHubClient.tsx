@@ -254,6 +254,15 @@ function TodaysActions({ stats }: { stats: HubStats }) {
       accent: 'border-l-yellow-500',
     },
     {
+      key: 'flip-or-keep',
+      href: '/flip-or-keep',
+      icon: <span className="text-xl leading-none">{'\uD83C\uDCCF'}</span>,
+      title: 'Flip or Keep',
+      description: '10 cards — flip or keep?',
+      done: false,
+      accent: 'border-l-purple-500',
+    },
+    {
       key: 'market-movers',
       href: '/market-movers',
       icon: <span className="text-xl leading-none">{'\uD83D\uDCC8'}</span>,
