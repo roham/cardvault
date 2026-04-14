@@ -30,4 +30,7 @@ body {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
   }
+  .perspective-500 {
+    perspective: 600px;
+  }
 }

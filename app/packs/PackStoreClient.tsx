@@ -16,6 +16,7 @@ import {
   type Transaction,
 } from '@/lib/vault';
 import type { SportsCard } from '@/data/sports-cards';
+import CinematicReveal from '@/components/CinematicReveal';
 
 function parseValue(v: string): number {
   const m = v.match(/\$([\d,]+)/);
@@ -185,100 +186,17 @@ export default function PackStoreClient() {
     );
   }
 
-  // ── Reveal Animation ──
-  if (view === 'reveal' && pulledCards.length > 0) {
-    const allRevealed = revealedCount >= pulledCards.length;
+  // ── Cinematic Reveal ──
+  if (view === 'reveal' && pulledCards.length > 0 && selectedPack) {
     return (
       <div className="max-w-2xl mx-auto">
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold text-white mb-1">
-            {allRevealed ? 'Your Pulls!' : 'Revealing...'}
-          </h2>
-          <p className="text-gray-400 text-sm">
-            {selectedPack?.name} — {revealedCount}/{pulledCards.length} cards
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-          {pulledCards.map((card, i) => {
-            const revealed = i < revealedCount;
-            const value = parseValue(card.estimatedValueRaw);
-            const rarity = getRarityLabel(value);
-            return (
-              <div
-                key={card.slug}
-                className={`relative overflow-hidden rounded-xl border transition-all duration-500 ${
-                  revealed
-                    ? `bg-gray-900 ${rarity.bg}`
-                    : 'bg-gray-800/60 border-gray-700/50'
-                }`}
-                style={{
-                  opacity: revealed ? 1 : 0.4,
-                  transform: revealed ? 'scale(1)' : 'scale(0.95)',
-                }}
-              >
-                {revealed ? (
-                  <div className="p-4">
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="min-w-0 flex-1">
-                        <p className="text-white font-bold text-sm truncate">{card.player}</p>
-                        <p className="text-gray-400 text-xs">{card.year} {card.set}</p>
-                      </div>
-                      <span className={`text-xs font-bold px-2 py-0.5 rounded ${rarity.bg} ${rarity.color} shrink-0 ml-2`}>
-                        {rarity.label}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-emerald-400 font-bold">{card.estimatedValueRaw}</span>
-                      {card.rookie && (
-                        <span className="text-xs bg-amber-900/40 text-amber-400 px-1.5 py-0.5 rounded border border-amber-800/50">RC</span>
-                      )}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="p-4 flex items-center justify-center h-24">
-                    <div className="w-8 h-8 border-2 border-gray-600 border-t-gray-400 rounded-full animate-spin" />
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {allRevealed && (
-          <div className="space-y-4">
-            <div className="bg-gray-900/60 border border-gray-800 rounded-xl p-4 text-center">
-              <p className="text-gray-400 text-sm">Total pack value</p>
-              <p className="text-2xl font-bold text-emerald-400">{formatCurrency(totalPullValue)}</p>
-              <p className="text-xs text-gray-500 mt-1">
-                {totalPullValue > (selectedPack?.price ?? 0) ? (
-                  <span className="text-emerald-400">+{formatCurrency(totalPullValue - (selectedPack?.price ?? 0))} profit!</span>
-                ) : (
-                  <span className="text-red-400">{formatCurrency(totalPullValue - (selectedPack?.price ?? 0))} below pack price</span>
-                )}
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <button
-                onClick={() => { setView('store'); setSelectedPack(null); setPulledCards([]); }}
-                className="flex-1 py-3 rounded-xl bg-gray-800 text-gray-300 font-medium text-sm hover:bg-gray-700 transition-colors"
-              >
-                Back to Store
-              </button>
-              {selectedPack && wallet.balance >= selectedPack.price && (
-                <button
-                  onClick={() => {
-                    if (!selectedPack) return;
-                    handleConfirmPurchase();
-                  }}
-                  className="flex-1 py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-500 transition-colors"
-                >
-                  Buy Another — {formatCurrency(selectedPack.price)}
-                </button>
-              )}
-            </div>
-          </div>
-        )}
+        <CinematicReveal
+          cards={pulledCards}
+          packName={selectedPack.name}
+          packPrice={selectedPack.price}
+          onComplete={() => { setView('store'); setSelectedPack(null); setPulledCards([]); }}
+          onBuyAnother={wallet.balance >= selectedPack.price ? () => handleConfirmPurchase() : undefined}
+        />
       </div>
     );
   }
