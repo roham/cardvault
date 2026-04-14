@@ -56,6 +56,13 @@ export default function SportsPage() {
           Browse by Set
           <span className="text-gray-500">→</span>
         </Link>
+        <Link
+          href="/sports/compare"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800 border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition-colors text-sm font-medium"
+        >
+          Compare Players
+          <span className="text-gray-500">→</span>
+        </Link>
       </div>
 
       {/* Sport selector */}

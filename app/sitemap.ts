@@ -16,6 +16,36 @@ const playerSlugs = [...new Set(sportsCards.map(c => slugifyPlayer(c.player)))];
 
 const pokemonGenerations = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
+// Generate comparison page slugs (players with 3+ cards, within same sport)
+function generateComparisonSlugs(): string[] {
+  type Sport = 'baseball' | 'basketball' | 'football' | 'hockey';
+  const playerCounts = new Map<string, { slug: string; sport: Sport; count: number }>();
+  for (const card of sportsCards) {
+    const slug = slugifyPlayer(card.player);
+    const existing = playerCounts.get(slug);
+    if (existing) {
+      existing.count++;
+    } else {
+      playerCounts.set(slug, { slug, sport: card.sport, count: 1 });
+    }
+  }
+  const bySport: Record<Sport, string[]> = { baseball: [], basketball: [], football: [], hockey: [] };
+  for (const p of playerCounts.values()) {
+    if (p.count >= 3) bySport[p.sport].push(p.slug);
+  }
+  const slugs: string[] = [];
+  for (const sport of Object.keys(bySport) as Sport[]) {
+    const players = bySport[sport].sort();
+    for (let i = 0; i < players.length; i++) {
+      for (let j = i + 1; j < players.length; j++) {
+        slugs.push(`${players[i]}-vs-${players[j]}`);
+      }
+    }
+  }
+  return slugs;
+}
+const comparisonSlugs = generateComparisonSlugs();
+
 const standaloneGuides = [
   'best-cards-under-10', 'best-cards-under-25', 'best-cards-under-50',
   'best-cards-under-100', 'best-pokemon-investments', 'card-market-2026',
@@ -47,6 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/portfolio`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.4 },
     { url: `${BASE_URL}/sports/sets`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE_URL}/sports/compare`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/start`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/calendar`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.5 },
     { url: `${BASE_URL}/collection`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
@@ -101,6 +132,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Comparison pages
+  const comparisonPages: MetadataRoute.Sitemap = comparisonSlugs.map(slug => ({
+    url: `${BASE_URL}/sports/compare/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
   return [
     ...staticPages,
     ...guidePages,
@@ -109,5 +148,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...sportsSetPages,
     ...playerPages,
     ...generationPages,
+    ...comparisonPages,
   ];
 }
