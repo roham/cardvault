@@ -60,6 +60,7 @@ export default function ToolsPage() {
           { href: '/tools/centering-calc', label: 'Centering Calculator', icon: '📐' },
           { href: '/tools/insurance-calc', label: 'Insurance Calculator', icon: '🛡️' },
           { href: '/tools/flip-calc', label: 'Flip Profit Calculator', icon: '💸' },
+          { href: '/tools/grading-tracker', label: 'Grading Tracker', icon: '📋' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
