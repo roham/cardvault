@@ -45,6 +45,7 @@ export default function ToolsPage() {
           { href: '/tools/grading-roi', label: 'Grading ROI Calculator', icon: '💰' },
           { href: '/tools/sealed-ev', label: 'Sealed Product EV', icon: '📦' },
           { href: '/tools/quiz', label: 'What Should I Collect?', icon: '🎯' },
+          { href: '/tools/trade', label: 'Trade Evaluator', icon: '🔄' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
