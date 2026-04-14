@@ -52,6 +52,7 @@ export default function ToolsPage() {
           { href: '/tools/pack-sim', label: 'Pack Simulator', icon: '🎰' },
           { href: '/tools/portfolio', label: 'Fantasy Portfolio', icon: '📈' },
           { href: '/tools/collection-value', label: 'Collection Value', icon: '💎' },
+          { href: '/tools/box-break', label: 'Box Break Calculator', icon: '📦' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
