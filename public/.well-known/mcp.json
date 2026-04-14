@@ -1,0 +1,10 @@
+{
+  "name": "cardvault",
+  "description": "CardVault MCP Server — search 1,000+ sports cards, check prices, calculate grading ROI, and evaluate sealed product expected value.",
+  "version": "2.5.0",
+  "url": "https://cardvault-two.vercel.app/api/mcp",
+  "transport": {
+    "type": "http",
+    "url": "https://cardvault-two.vercel.app/api/mcp"
+  }
+}
