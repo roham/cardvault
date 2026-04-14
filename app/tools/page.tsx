@@ -42,6 +42,7 @@ export default function ToolsPage() {
           { href: '#grade-calc', label: 'Grade Value Calculator', icon: '📊' },
           { href: '#grading-cost', label: 'Grading Cost Estimator', icon: '🏅' },
           { href: '/tools/compare', label: 'Compare Cards', icon: '⚖️' },
+          { href: '/tools/grading-roi', label: 'Grading ROI Calculator', icon: '💰' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
