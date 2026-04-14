@@ -1,7 +1,15 @@
+import type { Metadata } from 'next';
 import { sportsCards } from '@/data/sports-cards';
 import Link from 'next/link';
+import JsonLd from '@/components/JsonLd';
 
 export const dynamic = 'force-static';
+
+export const metadata: Metadata = {
+  title: 'Browse Sports Cards by Set — All Sets & Checklists',
+  description: `Browse ${new Set(sportsCards.map(c => c.set)).size}+ sports card sets across baseball, basketball, football, and hockey. Checklists, card counts, and estimated values for every set.`,
+  alternates: { canonical: './' },
+};
 
 type Sport = 'baseball' | 'basketball' | 'football' | 'hockey';
 
@@ -68,8 +76,19 @@ export default function SetsPage() {
   const totalSets = Object.values(setsBySport).reduce((sum, arr) => sum + arr.length, 0);
   const totalCards = sportsCards.length;
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Sports Cards', item: 'https://cardvault-two.vercel.app/sports' },
+      { '@type': 'ListItem', position: 2, name: 'Browse by Set' },
+    ],
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={breadcrumbLd} />
+
       <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
         <Link href="/sports" className="hover:text-gray-300 transition-colors">Sports Cards</Link>
         <span>/</span>

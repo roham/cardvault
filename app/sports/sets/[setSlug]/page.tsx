@@ -1,5 +1,7 @@
+import type { Metadata } from 'next';
 import { sportsCards, SportsCard } from '@/data/sports-cards';
 import SportsCardTile from '@/components/SportsCardTile';
+import JsonLd from '@/components/JsonLd';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -18,6 +20,21 @@ export function generateStaticParams(): Array<{ setSlug: string }> {
       return true;
     })
     .map(slug => ({ setSlug: slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { setSlug: slug } = await params;
+  const cards = sportsCards.filter(c => setSlug(c.set) === slug);
+  if (cards.length === 0) return { title: 'Set Not Found' };
+  const setName = cards[0].set;
+  const year = cards[0].year;
+  const rookieCount = cards.filter(c => c.rookie).length;
+  const sports = [...new Set(cards.map(c => c.sport))];
+  return {
+    title: `${setName} Checklist — ${cards.length} Cards, Prices & Values`,
+    description: `Complete ${setName} (${year}) checklist with ${cards.length} cards tracked. ${rookieCount > 0 ? `${rookieCount} rookie cards. ` : ''}${sports.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(', ')}. Estimated values and eBay links.`,
+    alternates: { canonical: './' },
+  };
 }
 
 type Sport = 'baseball' | 'basketball' | 'football' | 'hockey';
@@ -90,8 +107,29 @@ export default async function SetPage({ params }: Props) {
     return 'Unknown Manufacturer';
   }
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Sports Cards', item: 'https://cardvault-two.vercel.app/sports' },
+      { '@type': 'ListItem', position: 2, name: 'Browse by Set', item: 'https://cardvault-two.vercel.app/sports/sets' },
+      { '@type': 'ListItem', position: 3, name: setName },
+    ],
+  };
+
+  const collectionLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${setName} Checklist`,
+    description: `${cards.length} tracked cards from the ${setName} set (${year}).`,
+    numberOfItems: cards.length,
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={breadcrumbLd} />
+      <JsonLd data={collectionLd} />
+
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
         <Link href="/sports" className="hover:text-gray-300 transition-colors">Sports Cards</Link>
