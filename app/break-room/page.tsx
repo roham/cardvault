@@ -5,17 +5,17 @@ import Breadcrumb from '@/components/Breadcrumb';
 import BreakRoomClient from './BreakRoomClient';
 
 export const metadata: Metadata = {
-  title: 'Community Break Room — Watch Live Card Breaks | CardVault',
-  description: 'Join live simulated card breaks with other collectors. Watch pulls in real time, react to hits, and chat during breaks. Multiple break formats — hobby boxes, team breaks, pick-your-pack. Free to join.',
+  title: 'Community Break Room — Live Card Breaks with AI Commentary | CardVault',
+  description: 'Join live simulated card breaks with AI-powered commentary. Watch pulls in real time with play-by-play analysis, market insights, and hype calls from unique AI hosts. Multiple break formats — hobby boxes, team breaks, pick-your-pack. Free to join.',
   openGraph: {
-    title: 'Community Break Room — CardVault',
-    description: 'Watch live card breaks, react to pulls, and chat with collectors. Multiple break formats. Free to join.',
+    title: 'Community Break Room with AI Commentary — CardVault',
+    description: 'Watch live card breaks with AI-powered hosts. Play-by-play, market analysis, and hype commentary. Free to join.',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'Community Break Room — CardVault',
-    description: 'Live card breaks with real-time pulls, reactions, and collector chat.',
+    title: 'Community Break Room with AI Commentary — CardVault',
+    description: 'Live card breaks with AI hosts, real-time pulls, reactions, and collector chat.',
   },
   alternates: { canonical: './' },
 };
@@ -28,11 +28,11 @@ const breadcrumbs = [
 const faqItems = [
   {
     question: 'What is a card break?',
-    answer: 'A card break (or group break) is where a breaker opens sealed product live while participants watch. In a team break, you buy a team slot and receive all cards pulled for that team. In a hobby break, everyone watches as boxes are opened. CardVault simulates this experience with real card data and AI-generated commentary.',
+    answer: 'A card break (or group break) is where a breaker opens sealed product live while participants watch. In a team break, you buy a team slot and receive all cards pulled for that team. In a hobby break, everyone watches as boxes are opened. CardVault simulates this experience with real card data and AI-powered commentary from unique host personalities.',
   },
   {
-    question: 'How do Community Break Rooms work?',
-    answer: 'Join any active break room to watch cards being pulled in real time. Each break features a simulated host opening packs with cards drawn from our database. You can react to pulls, chat with other viewers, and see running statistics. Cards are pulled at realistic intervals to simulate the excitement of a real break.',
+    question: 'How does the AI Commentary work?',
+    answer: 'Each break room features an AI host with a unique personality — from the hype-heavy CardKingMike to the analytical JaxWax. The AI provides five types of commentary: play-by-play calls for every pull, market analysis with grading ROI insights, hype reactions for big hits, trivia about players and sets, and context-aware observations that track streaks, rookie counts, and running break value.',
   },
   {
     question: 'What are the different break formats?',
@@ -40,11 +40,11 @@ const faqItems = [
   },
   {
     question: 'Is it free to watch breaks?',
-    answer: 'Yes, watching breaks is completely free. You can join any active break room, see every card pulled, react, and chat. In the future, team break slots and pick-your-pack selections may use your wallet balance, but spectating is always free.',
+    answer: 'Yes, watching breaks is completely free. You can join any active break room, see every card pulled, react, and chat with the AI host commentary. In the future, team break slots and pick-your-pack selections may use your wallet balance, but spectating is always free.',
   },
   {
-    question: 'How often do new breaks start?',
-    answer: 'New breaks start throughout the day on a rotating schedule. Each break lasts 3-5 minutes with cards pulled every few seconds. When one break ends, the next one on the schedule begins shortly after. Check the break schedule for upcoming sessions.',
+    question: 'What types of AI commentary are available?',
+    answer: 'The AI hosts provide five commentary types displayed in the dedicated ticker: LIVE play-by-play for card-by-card calls, ANALYSIS for grading and valuation insights, HYPE for big hit celebrations and streak alerts, TRIVIA for fun facts about players and sets, and MARKET for flip potential and investment observations. Commentary adapts based on what is pulled — hitting a streak or pulling a high-value rookie triggers different responses.',
   },
 ];
 
@@ -57,7 +57,7 @@ export default function BreakRoomPage() {
         '@context': 'https://schema.org',
         '@type': 'WebApplication',
         name: 'Community Break Room',
-        description: 'Live simulated card breaks with real-time pulls, reactions, and collector chat.',
+        description: 'Live simulated card breaks with AI-powered commentary, real-time pulls, market analysis, and collector chat.',
         url: 'https://cardvault-two.vercel.app/break-room',
         applicationCategory: 'EntertainmentApplication',
         operatingSystem: 'Web',
@@ -76,11 +76,11 @@ export default function BreakRoomPage() {
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 bg-red-950/60 border border-red-800/50 text-red-400 text-xs font-medium px-3 py-1.5 rounded-full mb-4">
           <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-          Live Breaks - Real-Time Pulls - Reactions - Chat - Free
+          Live Breaks - AI Commentary - Real-Time Pulls - Chat - Free
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">Community Break Room</h1>
         <p className="text-gray-400 text-lg max-w-2xl">
-          Watch live card breaks with other collectors. See every pull in real time, react to big hits, and chat during breaks. Pick a room and join the action.
+          Watch live card breaks with AI-powered commentary. Each room features a unique AI host calling play-by-play, market analysis, and hype reactions. See every pull, react to hits, and chat during breaks.
         </p>
       </div>
 
