@@ -66,6 +66,7 @@ export default function ToolsPage() {
           { href: '/tools/dealer-scanner', label: 'Dealer Scanner', icon: '📱' },
           { href: '/tools/condition-grader', label: 'Condition Self-Grader', icon: '🔬' },
           { href: '/tools/pop-report', label: 'Population Report', icon: '📈' },
+          { href: '/tools/investment-calc', label: 'Investment Calculator', icon: '📊' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
