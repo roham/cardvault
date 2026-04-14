@@ -97,6 +97,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/digital-pack`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/premium-packs`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/market-report`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${BASE_URL}/trade-hub`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.4 },
     { url: `${BASE_URL}/sports/sport/baseball`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/sports/sport/basketball`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },

@@ -573,6 +573,7 @@ export default function BinderClient() {
         <h3 className="text-sm font-bold text-gray-400 mb-3">Related</h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
+            { href: '/trade-hub', label: 'Trade Hub', desc: 'Propose & accept trades' },
             { href: '/showcase', label: 'Trophy Case', desc: 'Curate your top 9' },
             { href: '/tools/collection-value', label: 'Collection Value', desc: 'Calculate total worth' },
             { href: '/digital-pack', label: 'Digital Pack', desc: '5 free cards daily' },
