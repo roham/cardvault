@@ -61,9 +61,9 @@ export default function WeeklyChallengePage() {
             <h3 className="font-semibold text-white">Daily Free Pack</h3>
             <p className="text-sm text-gray-400 mt-1">One free pack every day.</p>
           </Link>
-          <Link href="/market-movers" className="block p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors">
-            <h3 className="font-semibold text-white">Market Movers</h3>
-            <p className="text-sm text-gray-400 mt-1">Today&apos;s trending cards.</p>
+          <Link href="/leaderboard" className="block p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors">
+            <h3 className="font-semibold text-white">Leaderboards</h3>
+            <p className="text-sm text-gray-400 mt-1">See where you rank globally.</p>
           </Link>
         </div>
       </section>
