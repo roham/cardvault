@@ -63,9 +63,9 @@ export default function MarketMoversPage() {
             <h3 className="font-semibold text-white">Fantasy Portfolio</h3>
             <p className="text-sm text-gray-400 mt-1">Draft 5 cards and track their performance.</p>
           </Link>
-          <Link href="/news" className="block p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors">
-            <h3 className="font-semibold text-white">Market News</h3>
-            <p className="text-sm text-gray-400 mt-1">Latest headlines from the card hobby.</p>
+          <Link href="/tools/watchlist" className="block p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors">
+            <h3 className="font-semibold text-white">Price Watchlist</h3>
+            <p className="text-sm text-gray-400 mt-1">Track cards and get price alerts.</p>
           </Link>
         </div>
       </section>
