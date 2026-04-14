@@ -67,6 +67,7 @@ export default function ToolsPage() {
           { href: '/tools/condition-grader', label: 'Condition Self-Grader', icon: '🔬' },
           { href: '/tools/pop-report', label: 'Population Report', icon: '📈' },
           { href: '/tools/investment-calc', label: 'Investment Calculator', icon: '📊' },
+          { href: '/tools/submission-planner', label: 'Submission Planner', icon: '📋' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
