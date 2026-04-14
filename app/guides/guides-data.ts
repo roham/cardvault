@@ -683,6 +683,35 @@ export const guides: Guide[] = [
     ],
     content: [],
   },
+  {
+    slug: 'how-to-sell-cards',
+    title: 'How to Sell Sports Cards: The Complete Guide',
+    summary: 'Step-by-step guide to selling sports cards and Pokemon cards. Where to sell, how to price, shipping tips, platform fees, and how to maximize your return.',
+    category: 'Selling',
+    readTime: '12 min',
+    icon: '💵',
+    gradient: 'from-emerald-900/30 via-green-900/20 to-gray-900/30',
+    featuredCards: [
+      { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'High-value card — auction house territory' },
+      { slug: '2000-playoff-contenders-tom-brady-144', type: 'sports', label: '2000 Playoff Contenders Tom Brady #144', note: 'eBay auction for max exposure' },
+    ],
+    content: [],
+  },
+  {
+    slug: 'best-rookie-cards-2026',
+    title: 'Best Rookie Cards to Invest In: 2026 Picks',
+    summary: 'Expert picks for the best rookie cards to buy across baseball, basketball, football, and hockey. Risk tiers, entry prices, and investment thesis for each player.',
+    category: 'Investing',
+    readTime: '10 min',
+    icon: '📈',
+    gradient: 'from-amber-900/30 via-yellow-900/20 to-gray-900/30',
+    featuredCards: [
+      { slug: '2022-23-panini-prizm-victor-wembanyama-258', type: 'sports', label: '2023-24 Prizm Wembanyama #258', note: '#1 pick — Low Risk' },
+      { slug: '2023-topps-chrome-corbin-carroll-rc-150', type: 'sports', label: '2023 Chrome Corbin Carroll RC', note: 'NL ROY — Low Risk' },
+      { slug: '2024-panini-prizm-caitlin-clark-rc', type: 'sports', label: '2024 Prizm Caitlin Clark RC', note: 'Most searched card — High Risk' },
+    ],
+    content: [],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {
