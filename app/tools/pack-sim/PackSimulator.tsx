@@ -200,6 +200,130 @@ function CardReveal({ card, index, revealed }: { card: PulledCard; index: number
   );
 }
 
+function ShareModal({ result, onClose }: { result: BoxResult; onClose: () => void }) {
+  const [linkCopied, setLinkCopied] = useState(false);
+  const [textCopied, setTextCopied] = useState(false);
+
+  const roi = ((result.totalValue - result.product.retailPrice) / result.product.retailPrice * 100).toFixed(0);
+  const isProfit = result.totalValue >= result.product.retailPrice;
+
+  const shareData = {
+    p: result.product.slug,
+    v: result.totalValue.toFixed(0),
+    h: result.hitCount,
+    b: result.bestPull ? `${result.bestPull.label}|${result.bestPull.value.toFixed(0)}` : '',
+  };
+  const encoded = btoa(JSON.stringify(shareData));
+  const shareUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/tools/pack-sim?r=${encoded}`;
+
+  const bestPullText = result.bestPull ? `Best pull: ${result.bestPull.label} ($${result.bestPull.value.toFixed(0)})` : '';
+  const shareText = `I just ripped a ${result.product.name} on CardVault!\n\n${result.hitCount} hit${result.hitCount !== 1 ? 's' : ''} | $${result.totalValue.toFixed(0)} total value | ${isProfit ? '+' : ''}${roi}% ROI\n${bestPullText}\n\nTry it free:`;
+  const twitterText = encodeURIComponent(`I just ripped a ${result.product.name} on @CardVault!\n\n${result.hitCount} hit${result.hitCount !== 1 ? 's' : ''} | $${result.totalValue.toFixed(0)} value | ${isProfit ? '+' : ''}${roi}% ROI${bestPullText ? `\n${bestPullText}` : ''}\n\nTry it free:`);
+
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    });
+  };
+
+  const handleCopyText = () => {
+    navigator.clipboard.writeText(`${shareText}\n${shareUrl}`).then(() => {
+      setTextCopied(true);
+      setTimeout(() => setTextCopied(false), 2000);
+    });
+  };
+
+  // All hits sorted by value
+  const topHits = result.packs
+    .flatMap(p => p.cards.filter(c => c.type === 'hit'))
+    .sort((a, b) => b.value - a.value)
+    .slice(0, 5);
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80" onClick={onClose}>
+      <div className="bg-gray-900 border border-gray-700 rounded-2xl max-w-md w-full overflow-hidden" onClick={e => e.stopPropagation()}>
+        {/* Share Card Header */}
+        <div className={`p-6 bg-gradient-to-br ${isProfit ? 'from-emerald-950 via-green-950 to-gray-900' : 'from-red-950 via-rose-950 to-gray-900'} border-b border-gray-800`}>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-2xl">{sportEmoji[result.product.sport] || '🃏'}</span>
+            <div>
+              <p className="text-white font-bold text-lg leading-tight">{result.product.name}</p>
+              <p className="text-gray-400 text-xs">CardVault Pack Simulator</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-3 mt-4">
+            <div className="text-center bg-black/30 rounded-lg p-2">
+              <p className={`text-xl font-black ${isProfit ? 'text-emerald-400' : 'text-red-400'}`}>${result.totalValue.toFixed(0)}</p>
+              <p className="text-gray-500 text-[10px] uppercase">Value</p>
+            </div>
+            <div className="text-center bg-black/30 rounded-lg p-2">
+              <p className={`text-xl font-black ${isProfit ? 'text-emerald-400' : 'text-red-400'}`}>{isProfit ? '+' : ''}{roi}%</p>
+              <p className="text-gray-500 text-[10px] uppercase">ROI</p>
+            </div>
+            <div className="text-center bg-black/30 rounded-lg p-2">
+              <p className="text-xl font-black text-purple-400">{result.hitCount}</p>
+              <p className="text-gray-500 text-[10px] uppercase">Hits</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Top Pulls */}
+        {topHits.length > 0 && (
+          <div className="p-4 border-b border-gray-800">
+            <p className="text-xs text-yellow-500 uppercase tracking-wider font-bold mb-2">Top Pulls</p>
+            <div className="space-y-2">
+              {topHits.map((hit, i) => (
+                <div key={i} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className={`w-5 h-5 rounded text-[10px] font-bold flex items-center justify-center ${hit.rarity === 'ultra-rare' ? 'bg-yellow-500 text-black' : 'bg-purple-600 text-white'}`}>
+                      {i + 1}
+                    </span>
+                    <span className="text-white text-sm truncate max-w-[220px]">{hit.label}</span>
+                  </div>
+                  <span className="text-emerald-400 text-sm font-bold">${hit.value.toFixed(0)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Share Actions */}
+        <div className="p-4 space-y-3">
+          <button
+            onClick={handleCopyLink}
+            className="w-full py-3 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-colors flex items-center justify-center gap-2"
+          >
+            {linkCopied ? 'Copied!' : 'Copy Share Link'}
+          </button>
+          <div className="grid grid-cols-2 gap-2">
+            <a
+              href={`https://twitter.com/intent/tweet?text=${twitterText}&url=${encodeURIComponent(shareUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-2.5 px-4 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-medium transition-colors text-center text-sm"
+            >
+              Share on X
+            </a>
+            <button
+              onClick={handleCopyText}
+              className="py-2.5 px-4 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-medium transition-colors text-sm"
+            >
+              {textCopied ? 'Copied!' : 'Copy Text'}
+            </button>
+          </div>
+          <button
+            onClick={onClose}
+            className="w-full py-2 text-gray-500 hover:text-gray-300 text-sm transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ResultsSummary({ result, onShare, onReset }: { result: BoxResult; onShare: () => void; onReset: () => void }) {
   const roi = ((result.totalValue - result.product.retailPrice) / result.product.retailPrice * 100).toFixed(0);
   const isProfit = result.totalValue >= result.product.retailPrice;
@@ -247,7 +371,7 @@ function ResultsSummary({ result, onShare, onReset }: { result: BoxResult; onSha
         </button>
         <button
           onClick={onShare}
-          className="py-3 px-4 rounded-lg border border-gray-700 text-gray-300 hover:border-gray-500 hover:text-white transition-colors font-medium"
+          className="py-3 px-6 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold hover:from-emerald-500 hover:to-teal-500 transition-all"
         >
           Share Results
         </button>
@@ -265,7 +389,7 @@ export default function PackSimulator() {
   const [currentPack, setCurrentPack] = useState(0);
   const [revealedPacks, setRevealedPacks] = useState<Set<number>>(new Set());
   const [isOpening, setIsOpening] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   const sports = useMemo(() => [...new Set(sealedProducts.map(p => p.sport))], []);
 
@@ -305,18 +429,7 @@ export default function PackSimulator() {
 
   const handleShare = useCallback(() => {
     if (!boxResult) return;
-    const data = {
-      p: boxResult.product.slug,
-      v: boxResult.totalValue.toFixed(0),
-      h: boxResult.hitCount,
-      b: boxResult.bestPull ? `${boxResult.bestPull.label}|${boxResult.bestPull.value.toFixed(0)}` : '',
-    };
-    const encoded = btoa(JSON.stringify(data));
-    const url = `${window.location.origin}/tools/pack-sim?r=${encoded}`;
-    navigator.clipboard.writeText(url).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+    setShowShareModal(true);
   }, [boxResult]);
 
   const handleReset = useCallback(() => {
@@ -398,10 +511,8 @@ export default function PackSimulator() {
     <div>
       <ResultsSummary result={boxResult} onShare={handleShare} onReset={handleReset} />
 
-      {copied && (
-        <div className="fixed bottom-4 right-4 bg-green-900/90 border border-green-700 text-green-300 px-4 py-2 rounded-lg text-sm z-50">
-          Link copied to clipboard!
-        </div>
+      {showShareModal && boxResult && (
+        <ShareModal result={boxResult} onClose={() => setShowShareModal(false)} />
       )}
 
       {/* Pack Navigation */}
