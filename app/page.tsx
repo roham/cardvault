@@ -418,6 +418,7 @@ export default function HomePage() {
               { href: '/tools/condition-grader', title: 'Condition Grader', description: 'Assess corners, edges, surface & centering for estimated grade', icon: '🔬', color: 'from-violet-900/50 to-fuchsia-900/30', border: 'border-violet-800/30 hover:border-violet-600/50' },
               { href: '/tools/pop-report', title: 'Pop Report', description: 'How many PSA 10s exist? Check population data', icon: '📈', color: 'from-amber-900/50 to-yellow-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
               { href: '/tools/investment-calc', title: 'Investment Calc', description: 'Are your cards beating the S&P 500? Find out', icon: '📊', color: 'from-teal-900/50 to-cyan-900/30', border: 'border-teal-800/30 hover:border-teal-600/50' },
+              { href: '/tools/shipping-calc', title: 'Shipping Calc', description: 'Compare USPS, UPS, FedEx rates for cards and slabs', icon: '📬', color: 'from-blue-900/50 to-indigo-900/30', border: 'border-blue-800/30 hover:border-blue-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>
