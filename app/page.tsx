@@ -269,6 +269,7 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="text-gray-600 text-xs mb-5">Source: eBay sold comps, Heritage Auctions, Goldin — April 2026</p>
+              <div className="flex flex-wrap gap-2">
               <Link
                 href={`/sports/${cardOfTheDay.slug}`}
                 className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-6 py-2.5 rounded-xl transition-colors text-sm w-fit"
@@ -278,6 +279,13 @@ export default function HomePage() {
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
+              <Link
+                href="/card-of-the-day"
+                className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium px-4 py-2.5 rounded-xl transition-colors text-sm border border-gray-700"
+              >
+                See All Daily Cards
+              </Link>
+              </div>
             </div>
             <div className="flex items-center justify-center p-8 bg-gray-950/50 border-t lg:border-t-0 lg:border-l border-gray-800">
               <div className="w-52">
