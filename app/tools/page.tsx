@@ -51,6 +51,7 @@ export default function ToolsPage() {
           { href: '/tools/draft-predictor', label: '2025 Draft Predictor', icon: '🎯' },
           { href: '/tools/pack-sim', label: 'Pack Simulator', icon: '🎰' },
           { href: '/tools/portfolio', label: 'Fantasy Portfolio', icon: '📈' },
+          { href: '/tools/collection-value', label: 'Collection Value', icon: '💎' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
