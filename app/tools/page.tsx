@@ -64,6 +64,7 @@ export default function ToolsPage() {
           { href: '/tools/set-checklist', label: 'Set Checklist', icon: '✅' },
           { href: '/tools/mystery-pack', label: 'Mystery Repack Sim', icon: '🎲' },
           { href: '/tools/dealer-scanner', label: 'Dealer Scanner', icon: '📱' },
+          { href: '/tools/condition-grader', label: 'Condition Self-Grader', icon: '🔬' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a

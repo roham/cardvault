@@ -414,6 +414,7 @@ export default function HomePage() {
               { href: '/tools/centering-calc', title: 'Centering Calc', description: 'Will your card get a PSA 10? Check centering first', icon: '📐', color: 'from-sky-900/50 to-blue-900/30', border: 'border-sky-800/30 hover:border-sky-600/50' },
               { href: '/tools/insurance-calc', title: 'Insurance Calc', description: 'How much coverage does your collection need?', icon: '🛡️', color: 'from-violet-900/50 to-purple-900/30', border: 'border-violet-800/30 hover:border-violet-600/50' },
               { href: '/tools/flip-calc', title: 'Flip Profit Calc', description: 'Know your margins after eBay fees, shipping, and grading', icon: '💸', color: 'from-green-900/50 to-emerald-900/30', border: 'border-green-800/30 hover:border-green-600/50' },
+              { href: '/tools/condition-grader', title: 'Condition Grader', description: 'Assess corners, edges, surface & centering for estimated grade', icon: '🔬', color: 'from-violet-900/50 to-fuchsia-900/30', border: 'border-violet-800/30 hover:border-violet-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>
