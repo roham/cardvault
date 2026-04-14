@@ -263,6 +263,15 @@ function TodaysActions({ stats }: { stats: HubStats }) {
       accent: 'border-l-purple-500',
     },
     {
+      key: 'bingo',
+      href: '/bingo',
+      icon: <span className="text-xl leading-none">{'\uD83C\uDFAF'}</span>,
+      title: 'Card Bingo',
+      description: 'Daily 5x5 challenge',
+      done: false,
+      accent: 'border-l-yellow-500',
+    },
+    {
       key: 'market-movers',
       href: '/market-movers',
       icon: <span className="text-xl leading-none">{'\uD83D\uDCC8'}</span>,
