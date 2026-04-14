@@ -78,6 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.4 },
     { url: `${BASE_URL}/sports/sets`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/sports/compare`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/sports/year`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/start`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/calendar`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.5 },
     { url: `${BASE_URL}/collection`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
@@ -132,6 +133,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Year pages
+  const uniqueYears = [...new Set(sportsCards.map(c => c.year))];
+  const yearPages: MetadataRoute.Sitemap = uniqueYears.map(year => ({
+    url: `${BASE_URL}/sports/year/${year}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
   // Comparison pages
   const comparisonPages: MetadataRoute.Sitemap = comparisonSlugs.map(slug => ({
     url: `${BASE_URL}/sports/compare/${slug}`,
@@ -148,6 +158,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...sportsSetPages,
     ...playerPages,
     ...generationPages,
+    ...yearPages,
     ...comparisonPages,
   ];
 }
