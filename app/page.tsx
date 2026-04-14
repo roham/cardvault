@@ -375,6 +375,7 @@ export default function HomePage() {
               { href: '/tools/sealed-ev', title: 'Box EV Calc', description: 'Expected value for hobby boxes & blasters', icon: '📦', color: 'from-cyan-900/50 to-blue-900/30', border: 'border-cyan-800/30 hover:border-cyan-600/50' },
               { href: '/tools/pack-sim', title: 'Pack Simulator', description: 'Open virtual packs free — see your pulls!', icon: '🎰', color: 'from-red-900/50 to-orange-900/30', border: 'border-red-800/30 hover:border-red-600/50' },
               { href: '/tools/daily-pack', title: 'Daily Free Pack', description: 'One free pack every day — track your streak!', icon: '🎁', color: 'from-orange-900/50 to-yellow-900/30', border: 'border-orange-800/30 hover:border-orange-600/50' },
+              { href: '/market-movers', title: 'Market Movers', description: 'Today\'s trending cards — gainers & losers', icon: '📈', color: 'from-green-900/50 to-emerald-900/30', border: 'border-green-800/30 hover:border-green-600/50' },
               { href: '/guides', title: 'Collector Guides', description: 'Grading, investing, Pokémon, and eras', icon: '📖', color: 'from-rose-900/50 to-pink-900/30', border: 'border-rose-800/30 hover:border-rose-600/50' },
               { href: '/calendar', title: 'Release Calendar', description: '2026 product release schedule', icon: '📅', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
             ].map(item => (
