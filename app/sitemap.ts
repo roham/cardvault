@@ -19,6 +19,7 @@ const playerSlugs = [
 const pokemonGenerations = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 const standaloneGuides = [
+  'best-cards-under-10', 'best-cards-under-25', 'best-cards-under-50',
   'best-cards-under-100', 'best-pokemon-investments', 'card-market-2026',
   'fake-cards', 'most-valuable-pokemon-cards', 'most-valuable-sports-cards',
   'psa-vs-bgs-vs-cgc', 'tcgplayer-vs-ebay', 'how-to-sell-cards', 'best-rookie-cards-2026',
