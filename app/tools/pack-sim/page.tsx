@@ -116,9 +116,9 @@ export default function PackSimPage() {
             <h3 className="font-semibold text-white">Grading ROI Calculator</h3>
             <p className="text-sm text-gray-400 mt-1">Should you grade that pull? Calculate your ROI.</p>
           </Link>
-          <Link href="/tools/trade" className="block p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors">
-            <h3 className="font-semibold text-white">Trade Evaluator</h3>
-            <p className="text-sm text-gray-400 mt-1">Compare both sides of a card trade.</p>
+          <Link href="/tools/daily-pack" className="block p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors">
+            <h3 className="font-semibold text-white">Daily Free Pack</h3>
+            <p className="text-sm text-gray-400 mt-1">One free pack every day. Track your streak!</p>
           </Link>
         </div>
       </section>

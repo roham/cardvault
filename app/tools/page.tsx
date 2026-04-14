@@ -50,6 +50,7 @@ export default function ToolsPage() {
           { href: '/tools/set-cost', label: 'Set Completion Cost', icon: '📋' },
           { href: '/tools/draft-predictor', label: '2025 Draft Predictor', icon: '🎯' },
           { href: '/tools/pack-sim', label: 'Pack Simulator', icon: '🎰' },
+          { href: '/tools/daily-pack', label: 'Daily Free Pack', icon: '🎁' },
           { href: '/tools/portfolio', label: 'Fantasy Portfolio', icon: '📈' },
           { href: '/tools/collection-value', label: 'Collection Value', icon: '💎' },
           { href: '/tools/box-break', label: 'Box Break Calculator', icon: '📦' },
