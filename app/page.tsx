@@ -380,6 +380,7 @@ export default function HomePage() {
               { href: '/tools/watchlist', title: 'Price Watchlist', description: 'Track cards and get price movement alerts', icon: '👀', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
               { href: '/guides', title: 'Collector Guides', description: 'Grading, investing, Pokémon, and eras', icon: '📖', color: 'from-rose-900/50 to-pink-900/30', border: 'border-rose-800/30 hover:border-rose-600/50' },
               { href: '/calendar', title: 'Release Calendar', description: '2026 product release schedule', icon: '📅', color: 'from-amber-900/50 to-orange-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
+              { href: '/my-hub', title: 'My Hub', description: 'Your personal dashboard — streaks, packs, achievements', icon: '🎯', color: 'from-amber-900/50 to-red-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>

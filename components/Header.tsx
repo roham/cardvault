@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/news', label: 'News' },
   { href: '/guides', label: 'Guides' },
   { href: '/calendar', label: 'Calendar' },
+  { href: '/my-hub', label: 'My Hub' },
 ];
 
 const starterLink = { href: '/start', label: 'New to cards?' };
