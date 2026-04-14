@@ -416,6 +416,7 @@ export default function HomePage() {
               { href: '/tools/insurance-calc', title: 'Insurance Calc', description: 'How much coverage does your collection need?', icon: '🛡️', color: 'from-violet-900/50 to-purple-900/30', border: 'border-violet-800/30 hover:border-violet-600/50' },
               { href: '/tools/flip-calc', title: 'Flip Profit Calc', description: 'Know your margins after eBay fees, shipping, and grading', icon: '💸', color: 'from-green-900/50 to-emerald-900/30', border: 'border-green-800/30 hover:border-green-600/50' },
               { href: '/tools/condition-grader', title: 'Condition Grader', description: 'Assess corners, edges, surface & centering for estimated grade', icon: '🔬', color: 'from-violet-900/50 to-fuchsia-900/30', border: 'border-violet-800/30 hover:border-violet-600/50' },
+              { href: '/tools/pop-report', title: 'Pop Report', description: 'How many PSA 10s exist? Check population data', icon: '📈', color: 'from-amber-900/50 to-yellow-900/30', border: 'border-amber-800/30 hover:border-amber-600/50' },
             ].map(item => (
               <Link key={item.href} href={item.href} className="group block">
                 <div className={`bg-gradient-to-br ${item.color} border ${item.border} rounded-2xl p-5 h-full transition-all hover:-translate-y-0.5`}>
