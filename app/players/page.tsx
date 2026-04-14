@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
+import { sportsCards } from '@/data/sports-cards';
 
 export const metadata: Metadata = {
   title: 'Player Card Profiles — Most Collected Athletes',
@@ -583,11 +584,14 @@ export default function PlayersPage() {
         );
       })}
 
+      {/* All Players from Database */}
+      <AllPlayersSection profileSlugs={new Set(players.map(p => p.slug))} />
+
       {/* CTA */}
       <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <div className="flex-1">
-          <h3 className="text-white font-bold mb-1">Looking for a player not listed?</h3>
-          <p className="text-gray-400 text-sm">Browse all 300+ cards in our price guide or search for any player by name.</p>
+          <h3 className="text-white font-bold mb-1">Every player in our database is listed above.</h3>
+          <p className="text-gray-400 text-sm">Browse all {sportsCards.length}+ cards in our price guide or search for any card.</p>
         </div>
         <div className="flex gap-3">
           <Link href="/price-guide" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors">
@@ -599,5 +603,81 @@ export default function PlayersPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Auto-generated player list from the database
+function slugifyPlayer(name: string): string {
+  return name.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/['']/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const sportColorMap: Record<string, string> = {
+  baseball: 'bg-red-950/30 border-red-800/30 hover:border-red-600/50',
+  basketball: 'bg-orange-950/30 border-orange-800/30 hover:border-orange-600/50',
+  football: 'bg-blue-950/30 border-blue-800/30 hover:border-blue-600/50',
+  hockey: 'bg-cyan-950/30 border-cyan-800/30 hover:border-cyan-600/50',
+};
+
+const sportIconMap: Record<string, string> = {
+  baseball: '⚾', basketball: '🏀', football: '🏈', hockey: '🏒',
+};
+
+function AllPlayersSection({ profileSlugs }: { profileSlugs: Set<string> }) {
+  // Build player map from all cards
+  const playerMap = new Map<string, { name: string; sport: string; count: number; rookie: boolean }>();
+  for (const card of sportsCards) {
+    const slug = slugifyPlayer(card.player);
+    const existing = playerMap.get(slug);
+    if (existing) {
+      existing.count++;
+      if (card.rookie) existing.rookie = true;
+    } else {
+      playerMap.set(slug, { name: card.player, sport: card.sport, count: 1, rookie: card.rookie });
+    }
+  }
+
+  // Get players NOT in featured profiles
+  const otherPlayers = [...playerMap.entries()]
+    .filter(([slug]) => !profileSlugs.has(slug))
+    .sort((a, b) => b[1].count - a[1].count || a[1].name.localeCompare(b[1].name));
+
+  const sportOrder = ['baseball', 'basketball', 'football', 'hockey'] as const;
+
+  return (
+    <section className="mb-14">
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold text-white mb-2">All Players ({playerMap.size} total)</h2>
+        <p className="text-gray-400 text-sm">Every player in the CardVault database. Click any name to see all their tracked cards and values.</p>
+      </div>
+      {sportOrder.map(sport => {
+        const sportPlayers = otherPlayers.filter(([, p]) => p.sport === sport);
+        if (sportPlayers.length === 0) return null;
+        return (
+          <div key={sport} className="mb-8">
+            <h3 className="text-lg font-bold text-white flex items-center gap-2 mb-4">
+              <span>{sportIconMap[sport]}</span> {sport.charAt(0).toUpperCase() + sport.slice(1)}
+              <span className="text-gray-500 text-sm font-normal">({sportPlayers.length})</span>
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+              {sportPlayers.map(([slug, player]) => (
+                <Link key={slug} href={`/players/${slug}`} className="group block">
+                  <div className={`${sportColorMap[sport]} border rounded-xl px-3 py-2.5 transition-all hover:-translate-y-0.5`}>
+                    <div className="text-white text-sm font-medium group-hover:text-emerald-400 transition-colors truncate">{player.name}</div>
+                    <div className="text-gray-500 text-xs mt-0.5">
+                      {player.count} card{player.count !== 1 ? 's' : ''}
+                      {player.rookie && <span className="text-emerald-500 ml-1">RC</span>}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </section>
   );
 }

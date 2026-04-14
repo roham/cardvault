@@ -4,17 +4,15 @@ import { guides } from '@/app/guides/guides-data';
 
 const BASE_URL = 'https://cardvault-two.vercel.app';
 
-const playerSlugs = [
-  'mickey-mantle', 'babe-ruth', 'mike-trout', 'derek-jeter', 'ken-griffey-jr',
-  'shohei-ohtani', 'honus-wagner', 'michael-jordan', 'lebron-james', 'kobe-bryant',
-  'luka-doncic', 'victor-wembanyama', 'tom-brady', 'patrick-mahomes', 'joe-montana',
-  'peyton-manning', 'wayne-gretzky', 'bobby-orr', 'connor-mcdavid', 'sidney-crosby',
-  'mario-lemieux', 'larry-bird', 'stephen-curry', 'julio-rodriguez', 'juan-soto',
-  'vladimir-guerrero-jr', 'ichiro-suzuki', 'trevor-lawrence', 'joe-burrow',
-  'jayson-tatum', 'ja-morant', 'josh-allen', 'lamar-jackson', 'albert-pujols',
-  'aaron-judge', 'ronald-acuna-jr', 'jaromir-jagr', 'brett-hull', 'saquon-barkley',
-  'eric-lindros',
-];
+// Auto-generate player slugs from all unique players in database
+function slugifyPlayer(name: string): string {
+  return name.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/['']/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+const playerSlugs = [...new Set(sportsCards.map(c => slugifyPlayer(c.player)))];
 
 const pokemonGenerations = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 

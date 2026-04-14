@@ -302,49 +302,62 @@ const playerProfiles: PlayerInfo[] = [
   },
 ];
 
-// Map player slugs to card player name in sportsCards data
-const playerNameMap: Record<string, string> = {
-  'mickey-mantle': 'Mickey Mantle',
-  'babe-ruth': 'Babe Ruth',
-  'mike-trout': 'Mike Trout',
-  'derek-jeter': 'Derek Jeter',
-  'ken-griffey-jr': 'Ken Griffey Jr.',
-  'shohei-ohtani': 'Shohei Ohtani',
-  'honus-wagner': 'Honus Wagner',
-  'michael-jordan': 'Michael Jordan',
-  'lebron-james': 'LeBron James',
-  'kobe-bryant': 'Kobe Bryant',
-  'luka-doncic': 'Luka Doncic',
-  'victor-wembanyama': 'Victor Wembanyama',
-  'tom-brady': 'Tom Brady',
-  'patrick-mahomes': 'Patrick Mahomes',
-  'joe-montana': 'Joe Montana',
-  'peyton-manning': 'Peyton Manning',
-  'wayne-gretzky': 'Wayne Gretzky',
-  'bobby-orr': 'Bobby Orr',
-  'connor-mcdavid': 'Connor McDavid',
-  'sidney-crosby': 'Sidney Crosby',
-  'mario-lemieux': 'Mario Lemieux',
-  'larry-bird': 'Larry Bird',
-  'stephen-curry': 'Stephen Curry',
-  'julio-rodriguez': 'Julio Rodríguez',
-  'juan-soto': 'Juan Soto',
-  'vladimir-guerrero-jr': 'Vladimir Guerrero Jr.',
-  'ichiro-suzuki': 'Ichiro Suzuki',
-  'trevor-lawrence': 'Trevor Lawrence',
-  'joe-burrow': 'Joe Burrow',
-  'jayson-tatum': 'Jayson Tatum',
-  'ja-morant': 'Ja Morant',
-  'josh-allen': 'Josh Allen',
-  'lamar-jackson': 'Lamar Jackson',
-  'albert-pujols': 'Albert Pujols',
-  'aaron-judge': 'Aaron Judge',
-  'ronald-acuna-jr': 'Ronald Acuña Jr.',
-  'jaromir-jagr': 'Jaromír Jágr',
-  'brett-hull': 'Brett Hull',
-  'saquon-barkley': 'Saquon Barkley',
-  'eric-lindros': 'Eric Lindros',
-};
+// Build a complete player map from all cards in the database
+function slugifyPlayer(name: string): string {
+  return name.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/['']/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+interface AutoPlayer {
+  slug: string;
+  name: string;
+  sport: 'baseball' | 'basketball' | 'football' | 'hockey';
+  cardCount: number;
+  cards: SportsCard[];
+  hasRookie: boolean;
+  yearRange: [number, number];
+}
+
+function buildPlayerMap(): Map<string, AutoPlayer> {
+  const map = new Map<string, AutoPlayer>();
+  for (const card of sportsCards) {
+    const slug = slugifyPlayer(card.player);
+    const existing = map.get(slug);
+    if (existing) {
+      existing.cardCount++;
+      existing.cards.push(card);
+      if (card.rookie) existing.hasRookie = true;
+      if (card.year < existing.yearRange[0]) existing.yearRange[0] = card.year;
+      if (card.year > existing.yearRange[1]) existing.yearRange[1] = card.year;
+    } else {
+      map.set(slug, {
+        slug,
+        name: card.player,
+        sport: card.sport,
+        cardCount: 1,
+        cards: [card],
+        hasRookie: card.rookie,
+        yearRange: [card.year, card.year],
+      });
+    }
+  }
+  return map;
+}
+
+const allPlayers = buildPlayerMap();
+
+// Legacy map for backward compat with manually profiled player slugs
+const playerNameMap: Record<string, string> = {};
+for (const [slug, player] of allPlayers) {
+  playerNameMap[slug] = player.name;
+}
+// Manual overrides for special characters in profiled players
+playerNameMap['julio-rodriguez'] = 'Julio Rodríguez';
+playerNameMap['ronald-acuna-jr'] = 'Ronald Acuña Jr.';
+playerNameMap['jaromir-jagr'] = 'Jaromír Jágr';
 
 const sportColors: Record<string, string> = {
   baseball: 'from-red-950 via-gray-900 to-gray-950',
@@ -368,28 +381,43 @@ const sportIcons: Record<string, string> = {
 };
 
 export async function generateStaticParams() {
-  return playerProfiles.map(p => ({ slug: p.slug }));
+  // Include all players from database + all manually profiled players
+  const slugs = new Set<string>();
+  for (const [slug] of allPlayers) {
+    slugs.add(slug);
+  }
+  for (const p of playerProfiles) {
+    slugs.add(p.slug);
+  }
+  return [...slugs].map(slug => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const player = playerProfiles.find(p => p.slug === slug);
-  if (!player) return { title: 'Player Not Found' };
+  const profile = playerProfiles.find(p => p.slug === slug);
+  const autoPlayer = allPlayers.get(slug);
+  const name = profile?.name || autoPlayer?.name;
+  if (!name) return { title: 'Player Not Found' };
+  const sport = profile?.sport || autoPlayer?.sport || 'sports';
+  const cardCount = autoPlayer?.cardCount || 0;
   return {
-    title: `${player.name} Cards — Complete Checklist & Values`,
-    description: `Every ${player.name} card we track, sorted by value. Career highlights, record sale prices, and current market ranges for all grades.`,
+    title: `${name} Cards — Complete Checklist & Values`,
+    description: `Every ${name} ${sport} card we track (${cardCount} cards). Card values from eBay sold listings, price ranges for all grades, and direct links to buy.`,
   };
 }
 
 export default async function PlayerPage({ params }: Props) {
   const { slug } = await params;
-  const player = playerProfiles.find(p => p.slug === slug);
-  if (!player) notFound();
+  const profile = playerProfiles.find(p => p.slug === slug);
+  const autoPlayer = allPlayers.get(slug);
 
-  const playerName = playerNameMap[slug];
-  const playerCards: SportsCard[] = playerName
-    ? sportsCards.filter(c => c.player === playerName)
-    : [];
+  // Must have either a profile or auto-player data
+  if (!profile && !autoPlayer) notFound();
+
+  const name = profile?.name || autoPlayer!.name;
+  const sport = profile?.sport || autoPlayer!.sport;
+  const playerCards = autoPlayer?.cards || [];
+  const ebayUrl = profile?.ebaySearchUrl || `https://www.ebay.com/sch/i.html?_nkw=${encodeURIComponent(name + ' card psa')}&LH_Complete=1&LH_Sold=1`;
 
   // Get the record sale for the most valuable card
   const topSale = playerCards.reduce<{ card: SportsCard; price: string; priceValue: number } | null>((best, card) => {
@@ -402,25 +430,29 @@ export default async function PlayerPage({ params }: Props) {
     return best;
   }, null);
 
+  // Auto-generated stats for players without profiles
+  const rookieCards = playerCards.filter(c => c.rookie);
+  const sets = [...new Set(playerCards.map(c => c.set))];
+
   return (
     <div className="min-h-screen bg-gray-950">
       {/* Hero */}
-      <div className={`bg-gradient-to-b ${sportColors[player.sport]} py-12`}>
+      <div className={`bg-gradient-to-b ${sportColors[sport]} py-12`}>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
             <Link href="/players" className="hover:text-gray-300 transition-colors">Players</Link>
             <span>/</span>
-            <span className="text-gray-300">{player.name}</span>
+            <span className="text-gray-300">{name}</span>
           </nav>
 
           <div className="flex items-start gap-4 mb-6">
-            <span className="text-5xl">{sportIcons[player.sport]}</span>
+            <span className="text-5xl">{sportIcons[sport]}</span>
             <div>
-              <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${sportBadge[player.sport]} mb-2 inline-block`}>
-                {player.sport.charAt(0).toUpperCase() + player.sport.slice(1)}
+              <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${sportBadge[sport]} mb-2 inline-block`}>
+                {sport.charAt(0).toUpperCase() + sport.slice(1)}
               </span>
-              <h1 className="text-3xl sm:text-4xl font-bold text-white">{player.name}</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold text-white">{name}</h1>
               {topSale && (
                 <p className="text-gray-400 text-sm mt-1">
                   Record sale: <span className="text-amber-400 font-bold">{topSale.price}</span>
@@ -430,17 +462,45 @@ export default async function PlayerPage({ params }: Props) {
             </div>
           </div>
 
-          {/* Bio */}
-          <p className="text-gray-400 leading-relaxed max-w-3xl mb-6">{player.bio}</p>
-
-          {/* Career highlights */}
-          <div className="flex flex-wrap gap-2">
-            {player.careerHighlights.map(h => (
-              <span key={h} className="bg-gray-800/60 border border-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">
-                {h}
-              </span>
-            ))}
-          </div>
+          {profile ? (
+            <>
+              {/* Bio for profiled players */}
+              <p className="text-gray-400 leading-relaxed max-w-3xl mb-6">{profile.bio}</p>
+              <div className="flex flex-wrap gap-2">
+                {profile.careerHighlights.map(h => (
+                  <span key={h} className="bg-gray-800/60 border border-gray-700/50 text-gray-300 text-xs px-3 py-1.5 rounded-full">
+                    {h}
+                  </span>
+                ))}
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Auto-generated stats for non-profiled players */}
+              <div className="flex flex-wrap gap-3 mb-4">
+                <div className="bg-gray-800/60 border border-gray-700/50 rounded-xl px-4 py-2">
+                  <div className="text-gray-500 text-xs">Cards Tracked</div>
+                  <div className="text-white font-bold">{playerCards.length}</div>
+                </div>
+                {rookieCards.length > 0 && (
+                  <div className="bg-gray-800/60 border border-gray-700/50 rounded-xl px-4 py-2">
+                    <div className="text-gray-500 text-xs">Rookie Cards</div>
+                    <div className="text-emerald-400 font-bold">{rookieCards.length}</div>
+                  </div>
+                )}
+                <div className="bg-gray-800/60 border border-gray-700/50 rounded-xl px-4 py-2">
+                  <div className="text-gray-500 text-xs">Sets</div>
+                  <div className="text-white font-bold">{sets.length}</div>
+                </div>
+                {autoPlayer && autoPlayer.yearRange[0] !== autoPlayer.yearRange[1] && (
+                  <div className="bg-gray-800/60 border border-gray-700/50 rounded-xl px-4 py-2">
+                    <div className="text-gray-500 text-xs">Year Range</div>
+                    <div className="text-white font-bold">{autoPlayer.yearRange[0]}–{autoPlayer.yearRange[1]}</div>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -454,7 +514,7 @@ export default async function PlayerPage({ params }: Props) {
                 <span className="text-gray-500 text-sm font-normal ml-2">({playerCards.length} cards tracked)</span>
               </h2>
               <a
-                href={player.ebaySearchUrl}
+                href={ebayUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-yellow-600/20 hover:bg-yellow-600/30 border border-yellow-600/40 text-yellow-400 text-xs font-medium px-3 py-1.5 rounded-xl transition-colors"
@@ -471,9 +531,9 @@ export default async function PlayerPage({ params }: Props) {
           </>
         ) : (
           <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 text-center">
-            <p className="text-gray-400 mb-4">Detailed card checklist for {player.name} is being compiled.</p>
+            <p className="text-gray-400 mb-4">Detailed card checklist for {name} is being compiled.</p>
             <a
-              href={player.ebaySearchUrl}
+              href={ebayUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-yellow-600/20 hover:bg-yellow-600/30 border border-yellow-600/40 text-yellow-400 text-sm font-medium px-4 py-2 rounded-xl transition-colors"
@@ -488,8 +548,8 @@ export default async function PlayerPage({ params }: Props) {
           <Link href="/players" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
             ← All Players
           </Link>
-          <Link href={`/sports#${player.sport}`} className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
-            Browse {player.sport.charAt(0).toUpperCase() + player.sport.slice(1)} Cards
+          <Link href={`/sports#${sport}`} className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
+            Browse {sport.charAt(0).toUpperCase() + sport.slice(1)} Cards
           </Link>
           <Link href="/guides/investing-101" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-xl transition-colors border border-gray-700">
             Investing Guide
