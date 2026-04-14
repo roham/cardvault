@@ -380,17 +380,9 @@ const sportIcons: Record<string, string> = {
   hockey: '🏒',
 };
 
-export async function generateStaticParams() {
-  // Include all players from database + all manually profiled players
-  const slugs = new Set<string>();
-  for (const [slug] of allPlayers) {
-    slugs.add(slug);
-  }
-  for (const p of playerProfiles) {
-    slugs.add(p.slug);
-  }
-  return [...slugs].map(slug => ({ slug }));
-}
+// Removed generateStaticParams — 600+ players rendered on-demand with ISR.
+export const dynamicParams = true;
+export const revalidate = 86400;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

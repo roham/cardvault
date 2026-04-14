@@ -16,9 +16,10 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
-  return sportsCards.map(card => ({ slug: card.slug }));
-}
+// Removed generateStaticParams — 2,100+ cards overflow Vercel deploy at scale.
+// Pages render on-demand with ISR caching.
+export const dynamicParams = true;
+export const revalidate = 86400;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;

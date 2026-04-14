@@ -465,6 +465,24 @@ const quickLinks = [
     iconColor: 'text-green-400',
     icon: '\uD83D\uDCC8',
   },
+  {
+    href: '/showcase',
+    title: 'Trophy Case',
+    description: 'Show off your best cards',
+    accent: 'border-t-teal-500',
+    iconBg: 'bg-teal-500/10',
+    iconColor: 'text-teal-400',
+    icon: '\uD83C\uDFC6',
+  },
+  {
+    href: '/market-report',
+    title: 'Market Report',
+    description: 'Weekly market analysis',
+    accent: 'border-t-blue-500',
+    iconBg: 'bg-blue-500/10',
+    iconColor: 'text-blue-400',
+    icon: '\uD83D\uDCCA',
+  },
 ];
 
 function QuickLinks() {

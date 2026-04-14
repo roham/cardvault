@@ -9,18 +9,9 @@ function setSlug(setName: string): string {
   return setName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
-// Pre-build list of all unique set slugs for SSG
-export function generateStaticParams(): Array<{ setSlug: string }> {
-  const seen = new Set<string>();
-  return sportsCards
-    .map(card => setSlug(card.set))
-    .filter(slug => {
-      if (seen.has(slug)) return false;
-      seen.add(slug);
-      return true;
-    })
-    .map(slug => ({ setSlug: slug }));
-}
+// Render on-demand with ISR — set count grows with each expansion cycle.
+export const dynamicParams = true;
+export const revalidate = 86400;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { setSlug: slug } = await params;

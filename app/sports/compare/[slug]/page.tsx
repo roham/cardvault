@@ -98,9 +98,10 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams(): Array<{ slug: string }> {
-  return allPairs.map(p => ({ slug: p.slug }));
-}
+// Removed generateStaticParams — too many comparison pairs (~47K) overflow Vercel's deploy stack.
+// Pages render on-demand with ISR caching instead.
+export const dynamicParams = true;
+export const revalidate = 86400; // Cache for 24 hours
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
