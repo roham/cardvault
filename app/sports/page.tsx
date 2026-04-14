@@ -8,7 +8,7 @@ import JsonLd from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Sports Cards',
-  description: 'Browse 800+ iconic sports cards across baseball, basketball, football, and hockey. From the 1952 Topps Mickey Mantle to modern Wembanyama rookies — with estimated values.',
+  description: 'Browse 1,200+ iconic sports cards across baseball, basketball, football, and hockey. From the 1952 Topps Mickey Mantle to modern Wembanyama rookies — with estimated values.',
 };
 
 const sports = [

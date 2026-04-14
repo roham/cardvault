@@ -315,7 +315,7 @@ export async function GET() {
   return NextResponse.json({
     name: 'cardvault',
     version: '2.5.0',
-    description: 'CardVault MCP Server — search 1,000+ sports cards, check prices, calculate grading ROI, and evaluate sealed product expected value.',
+    description: 'CardVault MCP Server — search 1,200+ sports cards, check prices, calculate grading ROI, and evaluate sealed product expected value.',
     tools: TOOLS.map(t => ({ name: t.name, description: t.description })),
     endpoints: {
       mcp: 'https://cardvault-two.vercel.app/api/mcp',
