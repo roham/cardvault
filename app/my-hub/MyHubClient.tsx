@@ -483,6 +483,15 @@ const quickLinks = [
     iconColor: 'text-blue-400',
     icon: '\uD83D\uDCCA',
   },
+  {
+    href: '/binder',
+    title: 'Digital Binder',
+    description: 'Collect & organize cards',
+    accent: 'border-t-indigo-500',
+    iconBg: 'bg-indigo-500/10',
+    iconColor: 'text-indigo-400',
+    icon: '\uD83D\uDCDA',
+  },
 ];
 
 function QuickLinks() {
