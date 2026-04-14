@@ -47,28 +47,44 @@ export default function SportsPage() {
         </p>
       </div>
 
+      {/* Browse by Sport */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+        {sports.map(s => {
+          const count = sportsCards.filter(c => c.sport === s.value).length;
+          return (
+            <Link key={s.value} href={`/sports/sport/${s.value}`} className={`flex items-center gap-3 px-4 py-3 rounded-xl border ${s.color} transition-all hover:-translate-y-0.5`}>
+              <span className="text-2xl">{s.emoji}</span>
+              <div>
+                <p className="text-white text-sm font-semibold">{s.label}</p>
+                <p className="text-gray-500 text-xs">{count} cards</p>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+
       {/* Browse by Set link */}
-      <div className="mb-8">
+      <div className="mb-8 flex flex-wrap gap-2">
         <Link
           href="/sports/sets"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800 border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition-colors text-sm font-medium"
         >
           Browse by Set
-          <span className="text-gray-500">→</span>
+          <span className="text-gray-500">&rarr;</span>
         </Link>
         <Link
           href="/sports/compare"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800 border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition-colors text-sm font-medium"
         >
           Compare Players
-          <span className="text-gray-500">→</span>
+          <span className="text-gray-500">&rarr;</span>
         </Link>
         <Link
           href="/sports/year"
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800 border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition-colors text-sm font-medium"
         >
           Browse by Year
-          <span className="text-gray-500">→</span>
+          <span className="text-gray-500">&rarr;</span>
         </Link>
       </div>
 
