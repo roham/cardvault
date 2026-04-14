@@ -24,8 +24,11 @@ function seededRng(seed: number) {
 }
 
 function parseValue(v: string): number {
-  const m = v.match(/\$([\d,]+)/);
-  return m ? parseInt(m[1].replace(/,/g, ''), 10) : 0;
+  // Handle "$40-$120" ranges or "$120+ (PSA 10)"
+  const matches = v.match(/\$([\d,]+)/g);
+  if (!matches) return 0;
+  const nums = matches.map(m => parseInt(m.replace(/[$,]/g, ''), 10));
+  return nums.length > 1 ? Math.round((nums[0] + nums[1]) / 2) : nums[0];
 }
 
 function formatMoney(n: number): string {

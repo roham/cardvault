@@ -111,6 +111,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vault`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/market-analysis`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/card-battle`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/auction`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.4 },
     { url: `${BASE_URL}/mcp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/sports/sport/baseball`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
