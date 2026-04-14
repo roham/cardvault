@@ -3,12 +3,6 @@
 import { useState, useMemo } from 'react';
 import { sportsCards, SportsCard } from '@/data/sports-cards';
 
-function parseValue(val: string): number {
-  const m = val.match(/\$([\d,]+)/);
-  if (!m) return 0;
-  return parseInt(m[1].replace(/,/g, ''), 10) || 0;
-}
-
 function parseMidValue(val: string): number {
   const matches = val.match(/\$([\d,]+)/g);
   if (!matches || matches.length === 0) return 0;
