@@ -132,6 +132,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/grade-or-fade`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/tools/subscription-boxes`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/seasonality`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/card-ladder`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/grade-predictor`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/collection-heatmap`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/matchmaker`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
