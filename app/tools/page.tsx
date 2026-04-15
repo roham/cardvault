@@ -90,6 +90,7 @@ export default function ToolsPage() {
           { href: '/tools/bgs-subgrade', label: 'BGS Subgrade Calculator', icon: '🎯' },
           { href: '/tools/flip-tracker', label: 'Flip Tracker P&L', icon: '📒' },
           { href: '/tools/roi-heatmap', label: 'ROI Heatmap', icon: '🗺️' },
+          { href: '/tools/value-dna', label: 'Card Value DNA', icon: '🧬' },
           { href: '/tools/photo-guide', label: 'Card Photo Guide', icon: '📸' },
           { href: '/tools/selling-platforms', label: 'Selling Platform Comparison', icon: '🏪' },
           { href: '/tools/photo-grade-estimator', label: 'Photo Grade Estimator', icon: '📷' },
