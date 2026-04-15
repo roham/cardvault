@@ -141,6 +141,7 @@ export default function ToolsPage() {
           { href: '/trade-in', label: 'Trade-In Estimator', icon: '🔄' },
           { href: '/tools/combo-analyzer', label: 'Combo Analyzer', icon: '🃏' },
           { href: '/tools/smart-buy-list', label: 'Smart Buy List', icon: '🛒' },
+          { href: '/tools/card-matchmaker', label: 'Card Matchmaker', icon: '💕' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
