@@ -121,6 +121,7 @@ export default function ToolsPage() {
           { href: '/tools/portfolio-rebalancer', label: 'Portfolio Rebalancer', icon: '⚖️' },
           { href: '/tools/parallel-value', label: 'Parallel Value Calculator', icon: '🌈' },
           { href: '/tools/print-run', label: 'Print Run Estimator', icon: '🏭' },
+          { href: '/tools/show-budget', label: 'Show Budget Tracker', icon: '💵' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
