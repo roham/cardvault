@@ -99,6 +99,7 @@ export default function ToolsPage() {
           { href: '/tools/era-guide', label: 'Card Collecting Era Guide', icon: '📜' },
           { href: '/tools/subscription-boxes', label: 'Subscription Box Comparison', icon: '📬' },
           { href: '/tools/seasonality', label: 'Market Seasonality Guide', icon: '📅' },
+          { href: '/tools/pack-odds', label: 'Pack Odds Calculator', icon: '🎲' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
