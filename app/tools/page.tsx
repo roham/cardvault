@@ -97,6 +97,7 @@ export default function ToolsPage() {
           { href: '/tools/card-scout', label: 'Card Scout', icon: '🔭' },
           { href: '/tools/error-cards', label: 'Error Card Value Guide', icon: '🃏' },
           { href: '/tools/era-guide', label: 'Card Collecting Era Guide', icon: '📜' },
+          { href: '/tools/subscription-boxes', label: 'Subscription Box Comparison', icon: '📬' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
