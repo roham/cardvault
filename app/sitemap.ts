@@ -280,6 +280,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/rookie-finder`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/daily-flip`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/market-outlook`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/hobby-buzz`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/tools/flip-window`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/record-book`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/market-replay`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
