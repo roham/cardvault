@@ -152,6 +152,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/auction-estimator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/ebay-fee-calc`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/negotiation-calc`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/tools/bulk-grading-roi`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-detective`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/pack-battle`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/card-ladder`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
@@ -245,6 +246,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/card-auction`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/market-report-card`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/market-data`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/investment-thesis`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/live-hub`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
   ];
 

@@ -116,6 +116,7 @@ export default function ToolsPage() {
           { href: '/tools/ebay-fee-calc', label: 'eBay Fee Calculator', icon: '💲' },
           { href: '/tools/rip-or-hold', label: 'Rip or Hold Calculator', icon: '📦' },
           { href: '/tools/negotiation-calc', label: 'Negotiation Calculator', icon: '🤝' },
+          { href: '/tools/bulk-grading-roi', label: 'Bulk Grading ROI', icon: '📦' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
