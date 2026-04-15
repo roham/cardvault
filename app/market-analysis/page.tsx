@@ -108,7 +108,7 @@ export default function MarketAnalysisPage() {
       {/* Related */}
       <section className="mt-10">
         <h2 className="text-lg font-bold text-white mb-4">Related</h2>
-        <div className="grid sm:grid-cols-3 gap-3">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <Link href="/market-movers" className="p-4 bg-gray-900/40 border border-gray-800 rounded-xl hover:border-gray-600 transition-colors">
             <h3 className="text-sm font-semibold text-white">Market Movers</h3>
             <p className="text-xs text-gray-400 mt-1">Today&#39;s top gainers and losers.</p>
@@ -120,6 +120,10 @@ export default function MarketAnalysisPage() {
           <Link href="/tools/market-dashboard" className="p-4 bg-gray-900/40 border border-gray-800 rounded-xl hover:border-gray-600 transition-colors">
             <h3 className="text-sm font-semibold text-white">Market Dashboard</h3>
             <p className="text-xs text-gray-400 mt-1">Real-time indices, alerts, and data.</p>
+          </Link>
+          <Link href="/card-catalysts" className="p-4 bg-gray-900/40 border border-gray-800 rounded-xl hover:border-gray-600 transition-colors">
+            <h3 className="text-sm font-semibold text-white">Price Catalysts</h3>
+            <p className="text-xs text-gray-400 mt-1">Events that move card prices.</p>
           </Link>
         </div>
       </section>

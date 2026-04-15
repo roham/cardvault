@@ -54,7 +54,11 @@ export default function MarketMoversPage() {
       {/* Related */}
       <section className="mt-12 border-t border-gray-800 pt-8">
         <h2 className="text-xl font-bold text-white mb-4">Related</h2>
-        <div className="grid sm:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link href="/card-catalysts" className="block p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors">
+            <h3 className="font-semibold text-white">Price Catalysts</h3>
+            <p className="text-sm text-gray-400 mt-1">Upcoming events that move card prices.</p>
+          </Link>
           <Link href="/tools/collection-value" className="block p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-gray-600 transition-colors">
             <h3 className="font-semibold text-white">Collection Value</h3>
             <p className="text-sm text-gray-400 mt-1">Calculate your collection&apos;s total value.</p>
