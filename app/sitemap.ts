@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { sportsCards } from '@/data/sports-cards';
 import { guides } from '@/app/guides/guides-data';
+import { STORE_PACKS } from '@/lib/vault';
 
 const BASE_URL = 'https://cardvault-two.vercel.app';
 
@@ -103,6 +104,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/auth-check`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/shipping-calc`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/storage-calc`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/tools/listing-generator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/league-chat`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/break-room`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/creators`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
@@ -216,6 +218,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
+  // Pack detail pages
+  const packPages: MetadataRoute.Sitemap = STORE_PACKS.map(pack => ({
+    url: `${BASE_URL}/packs/${pack.id}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   return [
     ...staticPages,
     ...guidePages,
@@ -226,5 +236,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...generationPages,
     ...yearPages,
     ...comparisonPages,
+    ...packPages,
   ];
 }

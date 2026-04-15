@@ -71,6 +71,7 @@ export default function ToolsPage() {
           { href: '/tools/auth-check', label: 'Authentication Checker', icon: '🔐' },
           { href: '/tools/shipping-calc', label: 'Shipping Calculator', icon: '📬' },
           { href: '/tools/storage-calc', label: 'Storage & Supplies', icon: '📦' },
+          { href: '/tools/listing-generator', label: 'eBay Listing Generator', icon: '📝' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a

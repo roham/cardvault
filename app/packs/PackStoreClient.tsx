@@ -358,17 +358,22 @@ export default function PackStoreClient() {
                 {/* Price + Buy */}
                 <div className="flex items-center justify-between pt-3 border-t border-white/10">
                   <span className="text-white font-bold text-lg">{formatCurrency(pack.price)}</span>
-                  <button
-                    onClick={() => handleBuy(pack)}
-                    disabled={!canAfford}
-                    className={`px-5 py-2 rounded-xl text-sm font-bold transition-colors ${
-                      canAfford
-                        ? 'bg-emerald-600 text-white hover:bg-emerald-500'
-                        : 'bg-gray-700/50 text-gray-500 cursor-not-allowed'
-                    }`}
-                  >
-                    {canAfford ? 'Buy' : 'Low funds'}
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <Link href={`/packs/${pack.id}`} className="text-xs text-gray-400 hover:text-white transition-colors px-2 py-2">
+                      Details
+                    </Link>
+                    <button
+                      onClick={() => handleBuy(pack)}
+                      disabled={!canAfford}
+                      className={`px-5 py-2 rounded-xl text-sm font-bold transition-colors ${
+                        canAfford
+                          ? 'bg-emerald-600 text-white hover:bg-emerald-500'
+                          : 'bg-gray-700/50 text-gray-500 cursor-not-allowed'
+                      }`}
+                    >
+                      {canAfford ? 'Buy' : 'Low funds'}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
