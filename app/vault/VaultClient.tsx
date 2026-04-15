@@ -373,6 +373,9 @@ export default function VaultClient() {
         <Link href="/vault/analytics" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 px-5 py-2.5 rounded-xl text-sm font-medium border border-gray-700 transition-colors">
           Vault Analytics
         </Link>
+        <Link href="/vault/goals" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 px-5 py-2.5 rounded-xl text-sm font-medium border border-gray-700 transition-colors">
+          Goal Tracker
+        </Link>
       </div>
     </div>
   );
