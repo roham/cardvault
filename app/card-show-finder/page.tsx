@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import JsonLd from '@/components/JsonLd';
 import Breadcrumb from '@/components/Breadcrumb';
 import CardShowFinder from './CardShowFinder';
@@ -85,6 +86,17 @@ export default function CardShowFinderPage() {
       </div>
 
       <CardShowFinder />
+
+      {/* Show Prep CTA */}
+      <div className="mt-8 bg-blue-950/40 border border-blue-800/40 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <h3 className="text-white font-bold text-sm">Found a show? Get prepared.</h3>
+          <p className="text-gray-400 text-xs mt-0.5">Budget planner, want list, trade binder, and show-day checklist.</p>
+        </div>
+        <Link href="/card-show-prep" className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap">
+          Card Show Prep Kit &rarr;
+        </Link>
+      </div>
 
       {/* FAQ Section */}
       <div className="mt-12 border-t border-gray-700/50 pt-8">

@@ -86,6 +86,17 @@ export default function CardShowPage() {
 
       <CardShowToolkit />
 
+      {/* Prep Kit CTA */}
+      <div className="mt-8 bg-blue-950/40 border border-blue-800/40 rounded-xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <h3 className="text-white font-bold text-sm">Plan before the show</h3>
+          <p className="text-gray-400 text-xs mt-0.5">Budget planner, want list, trade binder, and packing checklist.</p>
+        </div>
+        <Link href="/card-show-prep" className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition-colors whitespace-nowrap">
+          Card Show Prep Kit &rarr;
+        </Link>
+      </div>
+
       {/* FAQ Section */}
       <section className="mt-16 max-w-3xl mx-auto">
         <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
