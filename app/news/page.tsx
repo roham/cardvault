@@ -183,6 +183,7 @@ export default async function NewsPage() {
           <Link href="/guides" className="text-emerald-400 hover:text-emerald-300 transition-colors">Collector Guides &rarr;</Link>
           <Link href="/tools/watchlist" className="text-emerald-400 hover:text-emerald-300 transition-colors">Price Watchlist &rarr;</Link>
           <Link href="/market-sentiment" className="text-emerald-400 hover:text-emerald-300 transition-colors">Market Sentiment &rarr;</Link>
+          <Link href="/market-data" className="text-emerald-400 hover:text-emerald-300 transition-colors">Market Data Room &rarr;</Link>
         </div>
       </div>
     </div>
