@@ -620,6 +620,21 @@ const _wave5: Record<string, string[]> = {
   'new-york-rangers': ['Vincent Trocheck'],
   'pittsburgh-penguins': ['Rickard Rakell'],
 };
+// Wave 6 — v4.5 additions
+const _wave6: Record<string, string[]> = {
+  'baltimore-orioles': ['Chris Davis', 'Adam Jones'],
+  'colorado-rockies': ['Carlos Gonzalez'],
+  'golden-state-warriors': ['James Wiseman'],
+  'los-angeles-lakers': ['Rui Hachimura'],
+  'sacramento-kings': ['Marvin Bagley III'],
+  'houston-texans': ['Dameon Pierce'],
+  'new-orleans-saints': ['Bryan Bresee'],
+  'carolina-hurricanes': ['Jordan Staal', 'Teuvo Teravainen'],
+};
+for (const [teamSlug, players] of Object.entries(_wave6)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
 for (const [teamSlug, players] of Object.entries(_wave5)) {
   if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
   _teamRosters[teamSlug].push(...players);
