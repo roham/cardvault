@@ -607,6 +607,23 @@ const _wave4: Record<string, string[]> = {
   'winnipeg-jets': ['Cole Perfetti', 'Dale Hawerchuk'],
   'nashville-predators': ['Shea Weber'],
 };
+// Wave 5 — v4.3 additions
+const _wave5: Record<string, string[]> = {
+  'houston-astros': ['Lance McCullers Jr.'],
+  'san-diego-padres': ['Jake Cronenworth'],
+  'chicago-white-sox': ['Andrew Vaughn'],
+  'orlando-magic': ['Markelle Fultz'],
+  'milwaukee-bucks': ['Jabari Parker'],
+  'sacramento-kings': ['Davion Mitchell'],
+  'miami-dolphins': ['Chop Robinson'],
+  'chicago-bears': ['Tyson Bagent'],
+  'new-york-rangers': ['Vincent Trocheck'],
+  'pittsburgh-penguins': ['Rickard Rakell'],
+};
+for (const [teamSlug, players] of Object.entries(_wave5)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
 for (const [teamSlug, players] of Object.entries(_wave4)) {
   if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
   _teamRosters[teamSlug].push(...players);
