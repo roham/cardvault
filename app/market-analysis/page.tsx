@@ -125,6 +125,10 @@ export default function MarketAnalysisPage() {
             <h3 className="text-sm font-semibold text-white">Price Catalysts</h3>
             <p className="text-xs text-gray-400 mt-1">Events that move card prices.</p>
           </Link>
+          <Link href="/market-sentiment" className="p-4 bg-gray-900/40 border border-gray-800 rounded-xl hover:border-gray-600 transition-colors">
+            <h3 className="text-sm font-semibold text-white">Sentiment Index</h3>
+            <p className="text-xs text-gray-400 mt-1">Fear &amp; Greed gauge for collectors.</p>
+          </Link>
         </div>
       </section>
     </div>
