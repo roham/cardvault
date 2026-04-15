@@ -5,6 +5,7 @@ import { sealedProducts } from '@/data/sealed-products';
 import { cardBrands } from '@/data/brands';
 import { STORE_PACKS } from '@/lib/vault';
 import { teams, playerTeamMap } from '@/data/teams-data';
+import { gradingCompanies } from '@/data/grading-companies';
 
 const BASE_URL = 'https://cardvault-two.vercel.app';
 
@@ -300,6 +301,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/market-intel`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/event-countdowns`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/hobby-awards`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/grading`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
   ];
 
   // Dynamic guide pages from guides-data.ts
@@ -426,6 +428,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    })),
+    // Grading company pages
+    ...gradingCompanies.map(c => ({
+      url: `${BASE_URL}/grading/${c.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
     })),
   ];
 }
