@@ -175,6 +175,7 @@ export default async function NewsPage() {
       <div className="mt-12 p-5 bg-gray-900/40 border border-gray-800 rounded-2xl">
         <h3 className="text-white font-semibold text-sm mb-3">Explore More</h3>
         <div className="flex flex-wrap gap-3 text-sm">
+          <Link href="/breaking-news" className="text-emerald-400 hover:text-emerald-300 transition-colors">Breaking News Alerts &rarr;</Link>
           <Link href="/market-movers" className="text-emerald-400 hover:text-emerald-300 transition-colors">Market Movers &rarr;</Link>
           <Link href="/calendar" className="text-emerald-400 hover:text-emerald-300 transition-colors">Release Calendar &rarr;</Link>
           <Link href="/tools/price-history" className="text-emerald-400 hover:text-emerald-300 transition-colors">Price History &rarr;</Link>
