@@ -74,6 +74,7 @@ export default function ToolsPage() {
           { href: '/tools/listing-generator', label: 'eBay Listing Generator', icon: '📝' },
           { href: '/tools/visual-binder', label: 'Visual Binder', icon: '📖' },
           { href: '/tools/show-finder', label: 'Card Show Finder', icon: '📍' },
+          { href: '/tools/tax-calc', label: 'Card Tax Calculator', icon: '🧾' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
