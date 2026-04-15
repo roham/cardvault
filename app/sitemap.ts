@@ -223,6 +223,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vault/bulk-sale`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/collector-quiz`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/market-heatmap`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/draft-war-room`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE_URL}/card-memory`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/content-calendar`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/hobby-debates`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
