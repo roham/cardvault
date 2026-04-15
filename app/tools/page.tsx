@@ -105,6 +105,7 @@ export default function ToolsPage() {
           { href: '/tools/compare-matrix', label: 'Card Compare Matrix', icon: '⚖️' },
           { href: '/tools/grading-probability', label: 'Grading Probability', icon: '🎲' },
           { href: '/tools/show-planner', label: 'Show Profit Planner', icon: '💼' },
+          { href: '/tools/heat-score', label: 'Collection Heat Score', icon: '🔥' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
