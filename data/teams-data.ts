@@ -1,0 +1,316 @@
+import type { Sport } from './sports-cards';
+
+export interface Team {
+  slug: string;
+  name: string;
+  city: string;
+  fullName: string;
+  sport: Sport;
+  abbreviation: string;
+  conference: string;
+  division: string;
+  primaryColor: string;
+  secondaryColor: string;
+}
+
+// All 124 major North American pro sports teams
+export const teams: Team[] = [
+  // ── MLB (30) ──────────────────────────────────────────────
+  { slug: 'new-york-yankees', name: 'Yankees', city: 'New York', fullName: 'New York Yankees', sport: 'baseball', abbreviation: 'NYY', conference: 'AL', division: 'East', primaryColor: '#003087', secondaryColor: '#E4002B' },
+  { slug: 'boston-red-sox', name: 'Red Sox', city: 'Boston', fullName: 'Boston Red Sox', sport: 'baseball', abbreviation: 'BOS', conference: 'AL', division: 'East', primaryColor: '#BD3039', secondaryColor: '#0C2340' },
+  { slug: 'los-angeles-dodgers', name: 'Dodgers', city: 'Los Angeles', fullName: 'Los Angeles Dodgers', sport: 'baseball', abbreviation: 'LAD', conference: 'NL', division: 'West', primaryColor: '#005A9C', secondaryColor: '#EF3E42' },
+  { slug: 'chicago-cubs', name: 'Cubs', city: 'Chicago', fullName: 'Chicago Cubs', sport: 'baseball', abbreviation: 'CHC', conference: 'NL', division: 'Central', primaryColor: '#0E3386', secondaryColor: '#CC3433' },
+  { slug: 'st-louis-cardinals', name: 'Cardinals', city: 'St. Louis', fullName: 'St. Louis Cardinals', sport: 'baseball', abbreviation: 'STL', conference: 'NL', division: 'Central', primaryColor: '#C41E3A', secondaryColor: '#0C2340' },
+  { slug: 'san-francisco-giants', name: 'Giants', city: 'San Francisco', fullName: 'San Francisco Giants', sport: 'baseball', abbreviation: 'SF', conference: 'NL', division: 'West', primaryColor: '#FD5A1E', secondaryColor: '#27251F' },
+  { slug: 'atlanta-braves', name: 'Braves', city: 'Atlanta', fullName: 'Atlanta Braves', sport: 'baseball', abbreviation: 'ATL', conference: 'NL', division: 'East', primaryColor: '#CE1141', secondaryColor: '#13274F' },
+  { slug: 'new-york-mets', name: 'Mets', city: 'New York', fullName: 'New York Mets', sport: 'baseball', abbreviation: 'NYM', conference: 'NL', division: 'East', primaryColor: '#002D72', secondaryColor: '#FF5910' },
+  { slug: 'philadelphia-phillies', name: 'Phillies', city: 'Philadelphia', fullName: 'Philadelphia Phillies', sport: 'baseball', abbreviation: 'PHI', conference: 'NL', division: 'East', primaryColor: '#E81828', secondaryColor: '#002D72' },
+  { slug: 'houston-astros', name: 'Astros', city: 'Houston', fullName: 'Houston Astros', sport: 'baseball', abbreviation: 'HOU', conference: 'AL', division: 'West', primaryColor: '#002D62', secondaryColor: '#EB6E1F' },
+  { slug: 'detroit-tigers', name: 'Tigers', city: 'Detroit', fullName: 'Detroit Tigers', sport: 'baseball', abbreviation: 'DET', conference: 'AL', division: 'Central', primaryColor: '#0C2340', secondaryColor: '#FA4616' },
+  { slug: 'pittsburgh-pirates', name: 'Pirates', city: 'Pittsburgh', fullName: 'Pittsburgh Pirates', sport: 'baseball', abbreviation: 'PIT', conference: 'NL', division: 'Central', primaryColor: '#27251F', secondaryColor: '#FDB827' },
+  { slug: 'cincinnati-reds', name: 'Reds', city: 'Cincinnati', fullName: 'Cincinnati Reds', sport: 'baseball', abbreviation: 'CIN', conference: 'NL', division: 'Central', primaryColor: '#C6011F', secondaryColor: '#000000' },
+  { slug: 'cleveland-guardians', name: 'Guardians', city: 'Cleveland', fullName: 'Cleveland Guardians', sport: 'baseball', abbreviation: 'CLE', conference: 'AL', division: 'Central', primaryColor: '#00385D', secondaryColor: '#E50022' },
+  { slug: 'milwaukee-brewers', name: 'Brewers', city: 'Milwaukee', fullName: 'Milwaukee Brewers', sport: 'baseball', abbreviation: 'MIL', conference: 'NL', division: 'Central', primaryColor: '#12284B', secondaryColor: '#FFC52F' },
+  { slug: 'minnesota-twins', name: 'Twins', city: 'Minnesota', fullName: 'Minnesota Twins', sport: 'baseball', abbreviation: 'MIN', conference: 'AL', division: 'Central', primaryColor: '#002B5C', secondaryColor: '#D31145' },
+  { slug: 'texas-rangers', name: 'Rangers', city: 'Texas', fullName: 'Texas Rangers', sport: 'baseball', abbreviation: 'TEX', conference: 'AL', division: 'West', primaryColor: '#003278', secondaryColor: '#C0111F' },
+  { slug: 'seattle-mariners', name: 'Mariners', city: 'Seattle', fullName: 'Seattle Mariners', sport: 'baseball', abbreviation: 'SEA', conference: 'AL', division: 'West', primaryColor: '#0C2C56', secondaryColor: '#005C5C' },
+  { slug: 'baltimore-orioles', name: 'Orioles', city: 'Baltimore', fullName: 'Baltimore Orioles', sport: 'baseball', abbreviation: 'BAL', conference: 'AL', division: 'East', primaryColor: '#DF4601', secondaryColor: '#27251F' },
+  { slug: 'tampa-bay-rays', name: 'Rays', city: 'Tampa Bay', fullName: 'Tampa Bay Rays', sport: 'baseball', abbreviation: 'TB', conference: 'AL', division: 'East', primaryColor: '#092C5C', secondaryColor: '#8FBCE6' },
+  { slug: 'san-diego-padres', name: 'Padres', city: 'San Diego', fullName: 'San Diego Padres', sport: 'baseball', abbreviation: 'SD', conference: 'NL', division: 'West', primaryColor: '#2F241D', secondaryColor: '#FFC425' },
+  { slug: 'los-angeles-angels', name: 'Angels', city: 'Los Angeles', fullName: 'Los Angeles Angels', sport: 'baseball', abbreviation: 'LAA', conference: 'AL', division: 'West', primaryColor: '#BA0021', secondaryColor: '#003263' },
+  { slug: 'chicago-white-sox', name: 'White Sox', city: 'Chicago', fullName: 'Chicago White Sox', sport: 'baseball', abbreviation: 'CWS', conference: 'AL', division: 'Central', primaryColor: '#27251F', secondaryColor: '#C4CED4' },
+  { slug: 'kansas-city-royals', name: 'Royals', city: 'Kansas City', fullName: 'Kansas City Royals', sport: 'baseball', abbreviation: 'KC', conference: 'AL', division: 'Central', primaryColor: '#004687', secondaryColor: '#BD9B60' },
+  { slug: 'toronto-blue-jays', name: 'Blue Jays', city: 'Toronto', fullName: 'Toronto Blue Jays', sport: 'baseball', abbreviation: 'TOR', conference: 'AL', division: 'East', primaryColor: '#134A8E', secondaryColor: '#1D2D5C' },
+  { slug: 'arizona-diamondbacks', name: 'Diamondbacks', city: 'Arizona', fullName: 'Arizona Diamondbacks', sport: 'baseball', abbreviation: 'ARI', conference: 'NL', division: 'West', primaryColor: '#A71930', secondaryColor: '#E3D4AD' },
+  { slug: 'colorado-rockies', name: 'Rockies', city: 'Colorado', fullName: 'Colorado Rockies', sport: 'baseball', abbreviation: 'COL', conference: 'NL', division: 'West', primaryColor: '#33006F', secondaryColor: '#C4CED4' },
+  { slug: 'washington-nationals', name: 'Nationals', city: 'Washington', fullName: 'Washington Nationals', sport: 'baseball', abbreviation: 'WSH', conference: 'NL', division: 'East', primaryColor: '#AB0003', secondaryColor: '#14225A' },
+  { slug: 'miami-marlins', name: 'Marlins', city: 'Miami', fullName: 'Miami Marlins', sport: 'baseball', abbreviation: 'MIA', conference: 'NL', division: 'East', primaryColor: '#00A3E0', secondaryColor: '#EF3340' },
+  { slug: 'oakland-athletics', name: 'Athletics', city: 'Oakland', fullName: 'Oakland Athletics', sport: 'baseball', abbreviation: 'OAK', conference: 'AL', division: 'West', primaryColor: '#003831', secondaryColor: '#EFB21E' },
+  // ── NBA (30) ──────────────────────────────────────────────
+  { slug: 'los-angeles-lakers', name: 'Lakers', city: 'Los Angeles', fullName: 'Los Angeles Lakers', sport: 'basketball', abbreviation: 'LAL', conference: 'Western', division: 'Pacific', primaryColor: '#552583', secondaryColor: '#FDB927' },
+  { slug: 'boston-celtics', name: 'Celtics', city: 'Boston', fullName: 'Boston Celtics', sport: 'basketball', abbreviation: 'BOS', conference: 'Eastern', division: 'Atlantic', primaryColor: '#007A33', secondaryColor: '#BA9653' },
+  { slug: 'chicago-bulls', name: 'Bulls', city: 'Chicago', fullName: 'Chicago Bulls', sport: 'basketball', abbreviation: 'CHI', conference: 'Eastern', division: 'Central', primaryColor: '#CE1141', secondaryColor: '#000000' },
+  { slug: 'golden-state-warriors', name: 'Warriors', city: 'Golden State', fullName: 'Golden State Warriors', sport: 'basketball', abbreviation: 'GSW', conference: 'Western', division: 'Pacific', primaryColor: '#1D428A', secondaryColor: '#FFC72C' },
+  { slug: 'miami-heat', name: 'Heat', city: 'Miami', fullName: 'Miami Heat', sport: 'basketball', abbreviation: 'MIA', conference: 'Eastern', division: 'Southeast', primaryColor: '#98002E', secondaryColor: '#F9A01B' },
+  { slug: 'philadelphia-76ers', name: '76ers', city: 'Philadelphia', fullName: 'Philadelphia 76ers', sport: 'basketball', abbreviation: 'PHI', conference: 'Eastern', division: 'Atlantic', primaryColor: '#006BB6', secondaryColor: '#ED174C' },
+  { slug: 'brooklyn-nets', name: 'Nets', city: 'Brooklyn', fullName: 'Brooklyn Nets', sport: 'basketball', abbreviation: 'BKN', conference: 'Eastern', division: 'Atlantic', primaryColor: '#000000', secondaryColor: '#FFFFFF' },
+  { slug: 'new-york-knicks', name: 'Knicks', city: 'New York', fullName: 'New York Knicks', sport: 'basketball', abbreviation: 'NYK', conference: 'Eastern', division: 'Atlantic', primaryColor: '#006BB6', secondaryColor: '#F58426' },
+  { slug: 'dallas-mavericks', name: 'Mavericks', city: 'Dallas', fullName: 'Dallas Mavericks', sport: 'basketball', abbreviation: 'DAL', conference: 'Western', division: 'Southwest', primaryColor: '#00538C', secondaryColor: '#002B5E' },
+  { slug: 'san-antonio-spurs', name: 'Spurs', city: 'San Antonio', fullName: 'San Antonio Spurs', sport: 'basketball', abbreviation: 'SAS', conference: 'Western', division: 'Southwest', primaryColor: '#C4CED4', secondaryColor: '#000000' },
+  { slug: 'phoenix-suns', name: 'Suns', city: 'Phoenix', fullName: 'Phoenix Suns', sport: 'basketball', abbreviation: 'PHX', conference: 'Western', division: 'Pacific', primaryColor: '#1D1160', secondaryColor: '#E56020' },
+  { slug: 'denver-nuggets', name: 'Nuggets', city: 'Denver', fullName: 'Denver Nuggets', sport: 'basketball', abbreviation: 'DEN', conference: 'Western', division: 'Northwest', primaryColor: '#0E2240', secondaryColor: '#FEC524' },
+  { slug: 'milwaukee-bucks', name: 'Bucks', city: 'Milwaukee', fullName: 'Milwaukee Bucks', sport: 'basketball', abbreviation: 'MIL', conference: 'Eastern', division: 'Central', primaryColor: '#00471B', secondaryColor: '#EEE1C6' },
+  { slug: 'toronto-raptors', name: 'Raptors', city: 'Toronto', fullName: 'Toronto Raptors', sport: 'basketball', abbreviation: 'TOR', conference: 'Eastern', division: 'Atlantic', primaryColor: '#CE1141', secondaryColor: '#000000' },
+  { slug: 'houston-rockets', name: 'Rockets', city: 'Houston', fullName: 'Houston Rockets', sport: 'basketball', abbreviation: 'HOU', conference: 'Western', division: 'Southwest', primaryColor: '#CE1141', secondaryColor: '#000000' },
+  { slug: 'indiana-pacers', name: 'Pacers', city: 'Indiana', fullName: 'Indiana Pacers', sport: 'basketball', abbreviation: 'IND', conference: 'Eastern', division: 'Central', primaryColor: '#002D62', secondaryColor: '#FDBB30' },
+  { slug: 'oklahoma-city-thunder', name: 'Thunder', city: 'Oklahoma City', fullName: 'Oklahoma City Thunder', sport: 'basketball', abbreviation: 'OKC', conference: 'Western', division: 'Northwest', primaryColor: '#007AC1', secondaryColor: '#EF6100' },
+  { slug: 'memphis-grizzlies', name: 'Grizzlies', city: 'Memphis', fullName: 'Memphis Grizzlies', sport: 'basketball', abbreviation: 'MEM', conference: 'Western', division: 'Southwest', primaryColor: '#5D76A9', secondaryColor: '#12173F' },
+  { slug: 'minnesota-timberwolves', name: 'Timberwolves', city: 'Minnesota', fullName: 'Minnesota Timberwolves', sport: 'basketball', abbreviation: 'MIN', conference: 'Western', division: 'Northwest', primaryColor: '#0C2340', secondaryColor: '#236192' },
+  { slug: 'sacramento-kings', name: 'Kings', city: 'Sacramento', fullName: 'Sacramento Kings', sport: 'basketball', abbreviation: 'SAC', conference: 'Western', division: 'Pacific', primaryColor: '#5A2D81', secondaryColor: '#63727A' },
+  { slug: 'portland-trail-blazers', name: 'Trail Blazers', city: 'Portland', fullName: 'Portland Trail Blazers', sport: 'basketball', abbreviation: 'POR', conference: 'Western', division: 'Northwest', primaryColor: '#E03A3E', secondaryColor: '#000000' },
+  { slug: 'cleveland-cavaliers', name: 'Cavaliers', city: 'Cleveland', fullName: 'Cleveland Cavaliers', sport: 'basketball', abbreviation: 'CLE', conference: 'Eastern', division: 'Central', primaryColor: '#860038', secondaryColor: '#041E42' },
+  { slug: 'atlanta-hawks', name: 'Hawks', city: 'Atlanta', fullName: 'Atlanta Hawks', sport: 'basketball', abbreviation: 'ATL', conference: 'Eastern', division: 'Southeast', primaryColor: '#E03A3E', secondaryColor: '#C1D32F' },
+  { slug: 'charlotte-hornets', name: 'Hornets', city: 'Charlotte', fullName: 'Charlotte Hornets', sport: 'basketball', abbreviation: 'CHA', conference: 'Eastern', division: 'Southeast', primaryColor: '#1D1160', secondaryColor: '#00788C' },
+  { slug: 'detroit-pistons', name: 'Pistons', city: 'Detroit', fullName: 'Detroit Pistons', sport: 'basketball', abbreviation: 'DET', conference: 'Eastern', division: 'Central', primaryColor: '#C8102E', secondaryColor: '#1D42BA' },
+  { slug: 'washington-wizards', name: 'Wizards', city: 'Washington', fullName: 'Washington Wizards', sport: 'basketball', abbreviation: 'WAS', conference: 'Eastern', division: 'Southeast', primaryColor: '#002B5C', secondaryColor: '#E31837' },
+  { slug: 'new-orleans-pelicans', name: 'Pelicans', city: 'New Orleans', fullName: 'New Orleans Pelicans', sport: 'basketball', abbreviation: 'NOP', conference: 'Western', division: 'Southwest', primaryColor: '#0C2340', secondaryColor: '#C8102E' },
+  { slug: 'orlando-magic', name: 'Magic', city: 'Orlando', fullName: 'Orlando Magic', sport: 'basketball', abbreviation: 'ORL', conference: 'Eastern', division: 'Southeast', primaryColor: '#0077C0', secondaryColor: '#C4CED4' },
+  { slug: 'utah-jazz', name: 'Jazz', city: 'Utah', fullName: 'Utah Jazz', sport: 'basketball', abbreviation: 'UTA', conference: 'Western', division: 'Northwest', primaryColor: '#002B5C', secondaryColor: '#00471B' },
+  { slug: 'los-angeles-clippers', name: 'Clippers', city: 'Los Angeles', fullName: 'Los Angeles Clippers', sport: 'basketball', abbreviation: 'LAC', conference: 'Western', division: 'Pacific', primaryColor: '#C8102E', secondaryColor: '#1D428A' },
+  // ── NFL (32) ──────────────────────────────────────────────
+  { slug: 'dallas-cowboys', name: 'Cowboys', city: 'Dallas', fullName: 'Dallas Cowboys', sport: 'football', abbreviation: 'DAL', conference: 'NFC', division: 'East', primaryColor: '#003594', secondaryColor: '#869397' },
+  { slug: 'new-england-patriots', name: 'Patriots', city: 'New England', fullName: 'New England Patriots', sport: 'football', abbreviation: 'NE', conference: 'AFC', division: 'East', primaryColor: '#002244', secondaryColor: '#C60C30' },
+  { slug: 'green-bay-packers', name: 'Packers', city: 'Green Bay', fullName: 'Green Bay Packers', sport: 'football', abbreviation: 'GB', conference: 'NFC', division: 'North', primaryColor: '#203731', secondaryColor: '#FFB612' },
+  { slug: 'san-francisco-49ers', name: '49ers', city: 'San Francisco', fullName: 'San Francisco 49ers', sport: 'football', abbreviation: 'SF', conference: 'NFC', division: 'West', primaryColor: '#AA0000', secondaryColor: '#B3995D' },
+  { slug: 'pittsburgh-steelers', name: 'Steelers', city: 'Pittsburgh', fullName: 'Pittsburgh Steelers', sport: 'football', abbreviation: 'PIT', conference: 'AFC', division: 'North', primaryColor: '#FFB612', secondaryColor: '#101820' },
+  { slug: 'kansas-city-chiefs', name: 'Chiefs', city: 'Kansas City', fullName: 'Kansas City Chiefs', sport: 'football', abbreviation: 'KC', conference: 'AFC', division: 'West', primaryColor: '#E31837', secondaryColor: '#FFB81C' },
+  { slug: 'philadelphia-eagles', name: 'Eagles', city: 'Philadelphia', fullName: 'Philadelphia Eagles', sport: 'football', abbreviation: 'PHI', conference: 'NFC', division: 'East', primaryColor: '#004C54', secondaryColor: '#A5ACAF' },
+  { slug: 'chicago-bears', name: 'Bears', city: 'Chicago', fullName: 'Chicago Bears', sport: 'football', abbreviation: 'CHI', conference: 'NFC', division: 'North', primaryColor: '#0B162A', secondaryColor: '#C83803' },
+  { slug: 'denver-broncos', name: 'Broncos', city: 'Denver', fullName: 'Denver Broncos', sport: 'football', abbreviation: 'DEN', conference: 'AFC', division: 'West', primaryColor: '#FB4F14', secondaryColor: '#002244' },
+  { slug: 'baltimore-ravens', name: 'Ravens', city: 'Baltimore', fullName: 'Baltimore Ravens', sport: 'football', abbreviation: 'BAL', conference: 'AFC', division: 'North', primaryColor: '#241773', secondaryColor: '#9E7C0C' },
+  { slug: 'miami-dolphins', name: 'Dolphins', city: 'Miami', fullName: 'Miami Dolphins', sport: 'football', abbreviation: 'MIA', conference: 'AFC', division: 'East', primaryColor: '#008E97', secondaryColor: '#FC4C02' },
+  { slug: 'new-york-giants', name: 'Giants', city: 'New York', fullName: 'New York Giants', sport: 'football', abbreviation: 'NYG', conference: 'NFC', division: 'East', primaryColor: '#0B2265', secondaryColor: '#A71930' },
+  { slug: 'seattle-seahawks', name: 'Seahawks', city: 'Seattle', fullName: 'Seattle Seahawks', sport: 'football', abbreviation: 'SEA', conference: 'NFC', division: 'West', primaryColor: '#002244', secondaryColor: '#69BE28' },
+  { slug: 'los-angeles-rams', name: 'Rams', city: 'Los Angeles', fullName: 'Los Angeles Rams', sport: 'football', abbreviation: 'LAR', conference: 'NFC', division: 'West', primaryColor: '#003594', secondaryColor: '#FFA300' },
+  { slug: 'new-york-jets', name: 'Jets', city: 'New York', fullName: 'New York Jets', sport: 'football', abbreviation: 'NYJ', conference: 'AFC', division: 'East', primaryColor: '#125740', secondaryColor: '#000000' },
+  { slug: 'buffalo-bills', name: 'Bills', city: 'Buffalo', fullName: 'Buffalo Bills', sport: 'football', abbreviation: 'BUF', conference: 'AFC', division: 'East', primaryColor: '#00338D', secondaryColor: '#C60C30' },
+  { slug: 'minnesota-vikings', name: 'Vikings', city: 'Minnesota', fullName: 'Minnesota Vikings', sport: 'football', abbreviation: 'MIN', conference: 'NFC', division: 'North', primaryColor: '#4F2683', secondaryColor: '#FFC62F' },
+  { slug: 'detroit-lions', name: 'Lions', city: 'Detroit', fullName: 'Detroit Lions', sport: 'football', abbreviation: 'DET', conference: 'NFC', division: 'North', primaryColor: '#0076B6', secondaryColor: '#B0B7BC' },
+  { slug: 'indianapolis-colts', name: 'Colts', city: 'Indianapolis', fullName: 'Indianapolis Colts', sport: 'football', abbreviation: 'IND', conference: 'AFC', division: 'South', primaryColor: '#002C5F', secondaryColor: '#A2AAAD' },
+  { slug: 'las-vegas-raiders', name: 'Raiders', city: 'Las Vegas', fullName: 'Las Vegas Raiders', sport: 'football', abbreviation: 'LV', conference: 'AFC', division: 'West', primaryColor: '#000000', secondaryColor: '#A5ACAF' },
+  { slug: 'houston-texans', name: 'Texans', city: 'Houston', fullName: 'Houston Texans', sport: 'football', abbreviation: 'HOU', conference: 'AFC', division: 'South', primaryColor: '#03202F', secondaryColor: '#A71930' },
+  { slug: 'cleveland-browns', name: 'Browns', city: 'Cleveland', fullName: 'Cleveland Browns', sport: 'football', abbreviation: 'CLE', conference: 'AFC', division: 'North', primaryColor: '#311D00', secondaryColor: '#FF3C00' },
+  { slug: 'arizona-cardinals', name: 'Cardinals', city: 'Arizona', fullName: 'Arizona Cardinals', sport: 'football', abbreviation: 'ARI', conference: 'NFC', division: 'West', primaryColor: '#97233F', secondaryColor: '#000000' },
+  { slug: 'tennessee-titans', name: 'Titans', city: 'Tennessee', fullName: 'Tennessee Titans', sport: 'football', abbreviation: 'TEN', conference: 'AFC', division: 'South', primaryColor: '#0C2340', secondaryColor: '#4B92DB' },
+  { slug: 'jacksonville-jaguars', name: 'Jaguars', city: 'Jacksonville', fullName: 'Jacksonville Jaguars', sport: 'football', abbreviation: 'JAX', conference: 'AFC', division: 'South', primaryColor: '#006778', secondaryColor: '#9F792C' },
+  { slug: 'atlanta-falcons', name: 'Falcons', city: 'Atlanta', fullName: 'Atlanta Falcons', sport: 'football', abbreviation: 'ATL', conference: 'NFC', division: 'South', primaryColor: '#A71930', secondaryColor: '#000000' },
+  { slug: 'carolina-panthers', name: 'Panthers', city: 'Carolina', fullName: 'Carolina Panthers', sport: 'football', abbreviation: 'CAR', conference: 'NFC', division: 'South', primaryColor: '#0085CA', secondaryColor: '#101820' },
+  { slug: 'cincinnati-bengals', name: 'Bengals', city: 'Cincinnati', fullName: 'Cincinnati Bengals', sport: 'football', abbreviation: 'CIN', conference: 'AFC', division: 'North', primaryColor: '#FB4F14', secondaryColor: '#000000' },
+  { slug: 'new-orleans-saints', name: 'Saints', city: 'New Orleans', fullName: 'New Orleans Saints', sport: 'football', abbreviation: 'NO', conference: 'NFC', division: 'South', primaryColor: '#D3BC8D', secondaryColor: '#101820' },
+  { slug: 'tampa-bay-buccaneers', name: 'Buccaneers', city: 'Tampa Bay', fullName: 'Tampa Bay Buccaneers', sport: 'football', abbreviation: 'TB', conference: 'NFC', division: 'South', primaryColor: '#D50A0A', secondaryColor: '#FF7900' },
+  { slug: 'los-angeles-chargers', name: 'Chargers', city: 'Los Angeles', fullName: 'Los Angeles Chargers', sport: 'football', abbreviation: 'LAC', conference: 'AFC', division: 'West', primaryColor: '#0080C6', secondaryColor: '#FFC20E' },
+  { slug: 'washington-commanders', name: 'Commanders', city: 'Washington', fullName: 'Washington Commanders', sport: 'football', abbreviation: 'WAS', conference: 'NFC', division: 'East', primaryColor: '#5A1414', secondaryColor: '#FFB612' },
+  // ── NHL (32) ──────────────────────────────────────────────
+  { slug: 'montreal-canadiens', name: 'Canadiens', city: 'Montreal', fullName: 'Montreal Canadiens', sport: 'hockey', abbreviation: 'MTL', conference: 'Eastern', division: 'Atlantic', primaryColor: '#AF1E2D', secondaryColor: '#192168' },
+  { slug: 'toronto-maple-leafs', name: 'Maple Leafs', city: 'Toronto', fullName: 'Toronto Maple Leafs', sport: 'hockey', abbreviation: 'TOR', conference: 'Eastern', division: 'Atlantic', primaryColor: '#00205B', secondaryColor: '#FFFFFF' },
+  { slug: 'boston-bruins', name: 'Bruins', city: 'Boston', fullName: 'Boston Bruins', sport: 'hockey', abbreviation: 'BOS', conference: 'Eastern', division: 'Atlantic', primaryColor: '#FFB81C', secondaryColor: '#000000' },
+  { slug: 'new-york-rangers', name: 'Rangers', city: 'New York', fullName: 'New York Rangers', sport: 'hockey', abbreviation: 'NYR', conference: 'Eastern', division: 'Metropolitan', primaryColor: '#0038A8', secondaryColor: '#CE1126' },
+  { slug: 'detroit-red-wings', name: 'Red Wings', city: 'Detroit', fullName: 'Detroit Red Wings', sport: 'hockey', abbreviation: 'DET', conference: 'Eastern', division: 'Atlantic', primaryColor: '#CE1126', secondaryColor: '#FFFFFF' },
+  { slug: 'chicago-blackhawks', name: 'Blackhawks', city: 'Chicago', fullName: 'Chicago Blackhawks', sport: 'hockey', abbreviation: 'CHI', conference: 'Western', division: 'Central', primaryColor: '#CF0A2C', secondaryColor: '#000000' },
+  { slug: 'pittsburgh-penguins', name: 'Penguins', city: 'Pittsburgh', fullName: 'Pittsburgh Penguins', sport: 'hockey', abbreviation: 'PIT', conference: 'Eastern', division: 'Metropolitan', primaryColor: '#FCB514', secondaryColor: '#000000' },
+  { slug: 'edmonton-oilers', name: 'Oilers', city: 'Edmonton', fullName: 'Edmonton Oilers', sport: 'hockey', abbreviation: 'EDM', conference: 'Western', division: 'Pacific', primaryColor: '#041E42', secondaryColor: '#FF4C00' },
+  { slug: 'colorado-avalanche', name: 'Avalanche', city: 'Colorado', fullName: 'Colorado Avalanche', sport: 'hockey', abbreviation: 'COL', conference: 'Western', division: 'Central', primaryColor: '#6F263D', secondaryColor: '#236192' },
+  { slug: 'tampa-bay-lightning', name: 'Lightning', city: 'Tampa Bay', fullName: 'Tampa Bay Lightning', sport: 'hockey', abbreviation: 'TB', conference: 'Eastern', division: 'Atlantic', primaryColor: '#002868', secondaryColor: '#FFFFFF' },
+  { slug: 'philadelphia-flyers', name: 'Flyers', city: 'Philadelphia', fullName: 'Philadelphia Flyers', sport: 'hockey', abbreviation: 'PHI', conference: 'Eastern', division: 'Metropolitan', primaryColor: '#F74902', secondaryColor: '#000000' },
+  { slug: 'washington-capitals', name: 'Capitals', city: 'Washington', fullName: 'Washington Capitals', sport: 'hockey', abbreviation: 'WSH', conference: 'Eastern', division: 'Metropolitan', primaryColor: '#C8102E', secondaryColor: '#041E42' },
+  { slug: 'vancouver-canucks', name: 'Canucks', city: 'Vancouver', fullName: 'Vancouver Canucks', sport: 'hockey', abbreviation: 'VAN', conference: 'Western', division: 'Pacific', primaryColor: '#00205B', secondaryColor: '#00843D' },
+  { slug: 'carolina-hurricanes', name: 'Hurricanes', city: 'Carolina', fullName: 'Carolina Hurricanes', sport: 'hockey', abbreviation: 'CAR', conference: 'Eastern', division: 'Metropolitan', primaryColor: '#CC0000', secondaryColor: '#000000' },
+  { slug: 'new-jersey-devils', name: 'Devils', city: 'New Jersey', fullName: 'New Jersey Devils', sport: 'hockey', abbreviation: 'NJD', conference: 'Eastern', division: 'Metropolitan', primaryColor: '#CE1126', secondaryColor: '#000000' },
+  { slug: 'dallas-stars', name: 'Stars', city: 'Dallas', fullName: 'Dallas Stars', sport: 'hockey', abbreviation: 'DAL', conference: 'Western', division: 'Central', primaryColor: '#006847', secondaryColor: '#8F8F8C' },
+  { slug: 'florida-panthers', name: 'Panthers', city: 'Florida', fullName: 'Florida Panthers', sport: 'hockey', abbreviation: 'FLA', conference: 'Eastern', division: 'Atlantic', primaryColor: '#041E42', secondaryColor: '#C8102E' },
+  { slug: 'st-louis-blues', name: 'Blues', city: 'St. Louis', fullName: 'St. Louis Blues', sport: 'hockey', abbreviation: 'STL', conference: 'Western', division: 'Central', primaryColor: '#002F87', secondaryColor: '#FCB514' },
+  { slug: 'winnipeg-jets', name: 'Jets', city: 'Winnipeg', fullName: 'Winnipeg Jets', sport: 'hockey', abbreviation: 'WPG', conference: 'Western', division: 'Central', primaryColor: '#041E42', secondaryColor: '#004C97' },
+  { slug: 'minnesota-wild', name: 'Wild', city: 'Minnesota', fullName: 'Minnesota Wild', sport: 'hockey', abbreviation: 'MIN', conference: 'Western', division: 'Central', primaryColor: '#154734', secondaryColor: '#A6192E' },
+  { slug: 'nashville-predators', name: 'Predators', city: 'Nashville', fullName: 'Nashville Predators', sport: 'hockey', abbreviation: 'NSH', conference: 'Western', division: 'Central', primaryColor: '#FFB81C', secondaryColor: '#041E42' },
+  { slug: 'calgary-flames', name: 'Flames', city: 'Calgary', fullName: 'Calgary Flames', sport: 'hockey', abbreviation: 'CGY', conference: 'Western', division: 'Pacific', primaryColor: '#C8102E', secondaryColor: '#F1BE48' },
+  { slug: 'ottawa-senators', name: 'Senators', city: 'Ottawa', fullName: 'Ottawa Senators', sport: 'hockey', abbreviation: 'OTT', conference: 'Eastern', division: 'Atlantic', primaryColor: '#C52032', secondaryColor: '#C2912C' },
+  { slug: 'new-york-islanders', name: 'Islanders', city: 'New York', fullName: 'New York Islanders', sport: 'hockey', abbreviation: 'NYI', conference: 'Eastern', division: 'Metropolitan', primaryColor: '#00539B', secondaryColor: '#F47D30' },
+  { slug: 'columbus-blue-jackets', name: 'Blue Jackets', city: 'Columbus', fullName: 'Columbus Blue Jackets', sport: 'hockey', abbreviation: 'CBJ', conference: 'Eastern', division: 'Metropolitan', primaryColor: '#002654', secondaryColor: '#CE1126' },
+  { slug: 'los-angeles-kings', name: 'Kings', city: 'Los Angeles', fullName: 'Los Angeles Kings', sport: 'hockey', abbreviation: 'LAK', conference: 'Western', division: 'Pacific', primaryColor: '#111111', secondaryColor: '#A2AAAD' },
+  { slug: 'san-jose-sharks', name: 'Sharks', city: 'San Jose', fullName: 'San Jose Sharks', sport: 'hockey', abbreviation: 'SJS', conference: 'Western', division: 'Pacific', primaryColor: '#006D75', secondaryColor: '#EA7200' },
+  { slug: 'anaheim-ducks', name: 'Ducks', city: 'Anaheim', fullName: 'Anaheim Ducks', sport: 'hockey', abbreviation: 'ANA', conference: 'Western', division: 'Pacific', primaryColor: '#F47A38', secondaryColor: '#B9975B' },
+  { slug: 'buffalo-sabres', name: 'Sabres', city: 'Buffalo', fullName: 'Buffalo Sabres', sport: 'hockey', abbreviation: 'BUF', conference: 'Eastern', division: 'Atlantic', primaryColor: '#002654', secondaryColor: '#FCB514' },
+  { slug: 'arizona-coyotes', name: 'Coyotes', city: 'Arizona', fullName: 'Arizona Coyotes', sport: 'hockey', abbreviation: 'ARI', conference: 'Western', division: 'Central', primaryColor: '#8C2633', secondaryColor: '#E2D6B5' },
+  { slug: 'seattle-kraken', name: 'Kraken', city: 'Seattle', fullName: 'Seattle Kraken', sport: 'hockey', abbreviation: 'SEA', conference: 'Western', division: 'Pacific', primaryColor: '#001628', secondaryColor: '#99D9D9' },
+  { slug: 'utah-hockey-club', name: 'Hockey Club', city: 'Utah', fullName: 'Utah Hockey Club', sport: 'hockey', abbreviation: 'UTA', conference: 'Western', division: 'Central', primaryColor: '#000000', secondaryColor: '#69B3E7' },
+];
+
+// Player → team slug mapping. Maps each player to their most iconic team.
+// Used to populate team pages with cards from the sports card database.
+const _teamRosters: Record<string, string[]> = {
+  // ── MLB ───────────────────────────────────────────────────
+  'new-york-yankees': ['Mickey Mantle', 'Babe Ruth', 'Derek Jeter', 'Aaron Judge', 'Mariano Rivera', 'Joe DiMaggio', 'Lou Gehrig', 'Andy Pettitte', 'Gerrit Cole', 'Gleyber Torres', 'Anthony Volpe', 'Jasson Dominguez', 'Juan Soto', 'Giancarlo Stanton', 'Don Mattingly', 'Yogi Berra', 'Bill Dickey', 'Thurman Munson', 'Whitey Ford', 'Roger Maris', 'Bernie Williams', 'Hideki Matsui', 'CC Sabathia', 'Nestor Cortes', 'Alex Rodriguez', 'Tino Martinez', 'Scott Brosius', 'Johnny Damon', 'Reggie Jackson', 'Earle Combs', 'Red Ruffing', 'Lefty Gomez', 'DJ LeMahieu', 'Austin Wells'],
+  'boston-red-sox': ['Ted Williams', 'Pedro Martinez', 'David Ortiz', 'Mookie Betts', 'Rafael Devers', 'Brayan Bello', 'Carlton Fisk', 'Wade Boggs', 'Carl Yastrzemski', 'Dustin Pedroia', 'Masataka Yoshida', 'Tanner Houck', 'Wilyer Abreu', 'Roger Clemens', 'Jim Rice', 'Bobby Doerr', 'Fred Lynn', 'Tyler O\'Neill', 'Ceddanne Rafaela', 'Triston Casas', 'Nick Pivetta', 'Cy Young'],
+  'los-angeles-dodgers': ['Sandy Koufax', 'Jackie Robinson', 'Shohei Ohtani', 'Freddie Freeman', 'Walker Buehler', 'Clayton Kershaw', 'Don Drysdale', 'Teoscar Hernandez', 'Tyler Glasnow', 'Bobby Miller', 'Andy Pages', 'Gavin Lux', 'Yoshinobu Yamamoto', 'Pee Wee Reese', 'Gil Hodges', 'Duke Snider', 'Roki Sasaki'],
+  'chicago-cubs': ['Ernie Banks', 'Ryne Sandberg', 'Kris Bryant', 'Sammy Sosa', 'Pete Crow-Armstrong', 'Hack Wilson', 'Billy Williams', 'Ron Santo', 'Fergie Jenkins'],
+  'st-louis-cardinals': ['Stan Musial', 'Albert Pujols', 'Bob Gibson', 'Ozzie Smith', 'Paul Goldschmidt', 'Nolan Gorman', 'Jordan Walker', 'Masyn Winn', 'Red Schoendienst', 'Enos Slaughter', 'Lou Brock', 'Dizzy Dean', 'Adam Wainwright', 'Yadier Molina'],
+  'san-francisco-giants': ['Willie Mays', 'Willie McCovey', 'Buster Posey', 'Logan Webb', 'Juan Marichal', 'Orlando Cepeda', 'Christy Mathewson', 'Mel Ott', 'Carl Hubbell', 'Tyler Fitzgerald', 'Madison Bumgarner'],
+  'atlanta-braves': ['Hank Aaron', 'Ronald Acuna Jr.', 'Chipper Jones', 'Tom Glavine', 'John Smoltz', 'Greg Maddux', 'Andruw Jones', 'Ozzie Albies', 'AJ Minter', 'Spencer Strider', 'Michael Harris II'],
+  'new-york-mets': ['Tom Seaver', 'Pete Alonso', 'Francisco Lindor', 'Jacob deGrom', 'Mike Piazza', 'Doc Gooden', 'Darryl Strawberry', 'Jeff McNeil', 'Kodai Senga', 'Brandon Nimmo', 'Mark Vientos'],
+  'philadelphia-phillies': ['Mike Schmidt', 'Bryce Harper', 'Trea Turner', 'Richie Ashburn', 'Steve Carlton', 'Alec Bohm', 'Bryson Stott', 'Kyle Schwarber', 'Ranger Suarez', 'J.T. Realmuto', 'Aaron Nola', 'Robin Roberts', 'Jimmy Rollins', 'Rhys Hoskins', 'Nick Castellanos'],
+  'houston-astros': ['Alex Bregman', 'Jose Altuve', 'Yordan Alvarez', 'Framber Valdez', 'Jeff Bagwell', 'Craig Biggio', 'Nolan Ryan', 'Roger Clemens', 'Hunter Brown', 'Spencer Arrighetti'],
+  'detroit-tigers': ['Al Kaline', 'Alan Trammell', 'Miguel Cabrera', 'Hank Greenberg', 'Ty Cobb', 'Charlie Gehringer', 'Colt Keith', 'Tarik Skubal', 'Riley Greene'],
+  'pittsburgh-pirates': ['Honus Wagner', 'Roberto Clemente', 'Willie Stargell', 'Ralph Kiner', 'Bill Mazeroski', 'Paul Skenes', 'Oneil Cruz', 'Bryan Reynolds', 'Pie Traynor'],
+  'cincinnati-reds': ['Pete Rose', 'Johnny Bench', 'Barry Larkin', 'Elly De La Cruz', 'Frank Robinson', 'Joe Morgan', 'Noelvi Marte', 'Hunter Greene', 'Matt McLain'],
+  'cleveland-guardians': ['Bob Feller', 'Jose Ramirez', 'Larry Doby', 'Andres Gimenez', 'Emmanuel Clase', 'Lane Thomas', 'Albert Belle'],
+  'milwaukee-brewers': ['Robin Yount', 'Christian Yelich', 'Paul Molitor', 'Willy Adames', 'Jackson Chourio', 'Sal Frazier'],
+  'minnesota-twins': ['Harmon Killebrew', 'Kirby Puckett', 'Rod Carew', 'Joe Mauer', 'Carlos Correa', 'Byron Buxton', 'Royce Lewis', 'Edouard Julien'],
+  'texas-rangers': ['Adrian Beltre', 'Ivan Rodriguez', 'Corey Seager', 'Marcus Semien', 'Evan Carter', 'Wyatt Langford'],
+  'seattle-mariners': ['Ken Griffey Jr.', 'Ichiro Suzuki', 'Edgar Martinez', 'Felix Hernandez', 'Julio Rodriguez', 'George Kirby', 'Logan Gilbert', 'Bryce Miller', 'Randy Johnson'],
+  'baltimore-orioles': ['Cal Ripken Jr.', 'Brooks Robinson', 'Frank Robinson', 'Gunnar Henderson', 'Adley Rutschman', 'Jackson Holliday', 'Grayson Rodriguez', 'Colton Cowser', 'Cedric Mullins'],
+  'tampa-bay-rays': ['Taj Bradley', 'Randy Arozarena', 'Shane McClanahan'],
+  'san-diego-padres': ['Fernando Tatis Jr.', 'Fernando Tatis Jr', 'Manny Machado', 'Jackson Merrill', 'Dylan Cease'],
+  'los-angeles-angels': ['Mike Trout', 'Nolan Ryan'],
+  'chicago-white-sox': ['Frank Thomas', 'Nellie Fox', 'Luke Appling', 'Shoeless Joe Jackson', 'Luis Robert', 'Luis Robert Jr.', 'Garrett Crochet'],
+  'kansas-city-royals': ['George Brett', 'Bo Jackson', 'Salvador Perez', 'Bobby Witt Jr', 'Bobby Witt Jr.', 'Nelson Velazquez', 'Vinnie Pasquantino'],
+  'toronto-blue-jays': ['Vladimir Guerrero Jr', 'Vladimir Guerrero Jr.', 'Bo Bichette', 'Roy Halladay', 'Joe Carter'],
+  'arizona-diamondbacks': ['Corbin Carroll', 'Randy Johnson', 'Christian Walker', 'Brandon Pfaadt'],
+  'colorado-rockies': ['Todd Helton', 'Nolan Arenado', 'Larry Walker', 'Ezequiel Tovar'],
+  'washington-nationals': ['Juan Soto', 'Stephen Strasburg', 'Ryan Zimmerman', 'James Wood', 'CJ Abrams', 'Dylan Crews'],
+  'miami-marlins': ['Eury Perez', 'Jazz Chisholm', 'Jazz Chisholm Jr.', 'Junior Caminero'],
+  'oakland-athletics': ['Rickey Henderson', 'Dennis Eckersley', 'Reggie Jackson', 'Jose Canseco', 'Lawrence Butler', 'Catfish Hunter', 'Rollie Fingers', 'Mason Miller'],
+  // ── NBA ───────────────────────────────────────────────────
+  'los-angeles-lakers': ['LeBron James', 'Kobe Bryant', 'Magic Johnson', 'Kareem Abdul-Jabbar', 'Shaquille O\'Neal', 'Anthony Davis', 'Jerry West', 'Wilt Chamberlain', 'Elgin Baylor', 'James Worthy', 'Pau Gasol', 'Austin Reaves', 'Bronny James', 'George Mikan'],
+  'boston-celtics': ['Larry Bird', 'Bill Russell', 'Bob Cousy', 'Jayson Tatum', 'Jaylen Brown', 'Kristaps Porzingis', 'Payton Pritchard', 'John Havlicek', 'Bill Walton', 'Kevin McHale', 'Paul Pierce', 'Derrick White', 'Bill Sharman', 'Sam Jones', 'Tom Heinsohn', 'Jrue Holiday', 'Al Horford'],
+  'chicago-bulls': ['Michael Jordan', 'Scottie Pippen', 'Dennis Rodman', 'Derrick Rose', 'Toni Kukoc', 'Coby White', 'Zach LaVine', 'Artis Gilmore', 'Horace Grant', 'Joakim Noah'],
+  'golden-state-warriors': ['Stephen Curry', 'Klay Thompson', 'Draymond Green', 'Chris Mullin', 'Andre Iguodala', 'Andrew Wiggins', 'Jonathan Kuminga', 'Rick Barry'],
+  'miami-heat': ['Dwyane Wade', 'Alonzo Mourning', 'Tyler Herro', 'Bam Adebayo', 'Jimmy Butler', 'Tim Hardaway'],
+  'philadelphia-76ers': ['Allen Iverson', 'Joel Embiid', 'Julius Erving', 'Charles Barkley', 'Tyrese Maxey', 'Wilt Chamberlain', 'Moses Malone', 'Hal Greer', 'Bobby Jones', 'Dolph Schayes'],
+  'brooklyn-nets': ['Kevin Durant', 'Kyrie Irving', 'Ben Simmons', 'Jason Kidd', 'Cam Thomas', 'Julius Erving'],
+  'new-york-knicks': ['Patrick Ewing', 'Walt Frazier', 'Willis Reed', 'Carmelo Anthony', 'Julius Randle', 'Jalen Brunson', 'Karl-Anthony Towns', 'OG Anunoby', 'Allan Houston', 'Bernard King'],
+  'dallas-mavericks': ['Luka Doncic', 'Dirk Nowitzki', 'Mark Aguirre', 'Jason Kidd', 'Kyrie Irving'],
+  'san-antonio-spurs': ['Tim Duncan', 'David Robinson', 'Victor Wembanyama', 'George Gervin', 'Manu Ginobili', 'Tony Parker', 'Stephon Castle'],
+  'phoenix-suns': ['Devin Booker', 'Kevin Durant', 'Steve Nash', 'Charles Barkley', 'Amare Stoudemire', 'Bradley Beal'],
+  'denver-nuggets': ['Nikola Jokic', 'Alex English', 'Carmelo Anthony', 'Jamal Murray', 'Michael Porter Jr.', 'Christian Braun'],
+  'milwaukee-bucks': ['Giannis Antetokounmpo', 'Oscar Robertson', 'Kareem Abdul-Jabbar', 'Khris Middleton', 'Brook Lopez', 'Bobby Portis'],
+  'toronto-raptors': ['Vince Carter', 'Pascal Siakam', 'Scottie Barnes', 'Tracy McGrady', 'RJ Barrett', 'Gradey Dick', 'Immanuel Quickley'],
+  'houston-rockets': ['Hakeem Olajuwon', 'James Harden', 'Yao Ming', 'Clyde Drexler', 'Alperen Sengun', 'Amen Thompson', 'Reed Sheppard', 'Jalen Green'],
+  'indiana-pacers': ['Reggie Miller', 'Tyrese Haliburton', 'Bennedict Mathurin', 'Andrew Nembhard', 'Dan Issel', 'Rik Smits'],
+  'oklahoma-city-thunder': ['Shai Gilgeous-Alexander', 'Kevin Durant', 'Russell Westbrook', 'Chet Holmgren', 'Jalen Williams', 'Cason Wallace'],
+  'memphis-grizzlies': ['Ja Morant', 'Zach Edey', 'Desmond Bane', 'Marc Gasol', 'GG Jackson'],
+  'minnesota-timberwolves': ['Anthony Edwards', 'Karl-Anthony Towns', 'Kevin Garnett', 'Rudy Gobert', 'Jaden McDaniels', 'Naz Reid'],
+  'sacramento-kings': ['De\'Aaron Fox', 'Domantas Sabonis', 'Oscar Robertson', 'Chris Webber', 'Keegan Murray'],
+  'portland-trail-blazers': ['Damian Lillard', 'Clyde Drexler', 'Bill Walton', 'Brandon Roy', 'Anfernee Simons', 'Shaedon Sharpe'],
+  'cleveland-cavaliers': ['LeBron James', 'Donovan Mitchell', 'Evan Mobley', 'Darius Garland', 'Mark Price'],
+  'atlanta-hawks': ['Trae Young', 'Dominique Wilkins', 'Bob Pettit', 'Pete Maravich', 'Zaccharie Risacher', 'Dyson Daniels'],
+  'charlotte-hornets': ['LaMelo Ball', 'Alonzo Mourning', 'Brandon Miller', 'Tidjane Salaun', 'Muggsy Bogues'],
+  'detroit-pistons': ['Isiah Thomas', 'Ben Wallace', 'Cade Cunningham', 'Grant Hill', 'Bill Laimbeer', 'Bob Lanier', 'Dave Bing', 'Ron Holland'],
+  'washington-wizards': ['John Wall', 'Gilbert Arenas', 'Wes Unseld', 'Bilal Coulibaly', 'Alex Sarr', 'Elvin Hayes'],
+  'new-orleans-pelicans': ['Zion Williamson', 'Brandon Ingram', 'Trey Murphy III', 'Herb Jones'],
+  'orlando-magic': ['Shaquille O\'Neal', 'Penny Hardaway', 'Tracy McGrady', 'Paolo Banchero', 'Franz Wagner', 'Jalen Suggs'],
+  'utah-jazz': ['John Stockton', 'Karl Malone', 'Lauri Markkanen', 'Keyonte George', 'Walker Kessler', 'Kyle Filipowski'],
+  'los-angeles-clippers': ['Kawhi Leonard', 'Chris Paul', 'Blake Griffin', 'James Harden', 'Norman Powell'],
+  // ── NFL ───────────────────────────────────────────────────
+  'dallas-cowboys': ['Troy Aikman', 'Emmitt Smith', 'Roger Staubach', 'Tony Romo', 'Dak Prescott', 'CeeDee Lamb', 'Micah Parsons', 'Jason Witten', 'Deion Sanders', 'Michael Irvin', 'Bob Lilly', 'Tony Dorsett', 'Drew Pearson', 'Ezekiel Elliott', 'Jason Kelce'],
+  'new-england-patriots': ['Tom Brady', 'Rob Gronkowski', 'Andre Tippett', 'Drake Maye', 'Mac Jones', 'Ty Law', 'Richard Seymour', 'Adam Vinatieri'],
+  'green-bay-packers': ['Aaron Rodgers', 'Brett Favre', 'Bart Starr', 'Jordan Love', 'Christian Watson', 'Jayden Reed', 'Don Hutson', 'Paul Hornung', 'Forrest Gregg', 'Ray Nitschke'],
+  'san-francisco-49ers': ['Joe Montana', 'Jerry Rice', 'Steve Young', 'Brock Purdy', 'Deebo Samuel', 'Nick Bosa', 'Christian McCaffrey', 'George Kittle', 'Fred Warner', 'Ronnie Lott', 'Patrick Willis'],
+  'pittsburgh-steelers': ['Terry Bradshaw', 'Mean Joe Greene', 'Troy Polamalu', 'Ben Roethlisberger', 'T.J. Watt', 'Franco Harris', 'Jack Lambert', 'Jack Ham', 'John Stallworth', 'Mel Blount', 'George Pickens', 'Najee Harris'],
+  'kansas-city-chiefs': ['Patrick Mahomes', 'Travis Kelce', 'Len Dawson', 'Tyreek Hill', 'Derrick Thomas', 'Isiah Pacheco', 'Hollywood Brown', 'Chris Jones'],
+  'philadelphia-eagles': ['Jalen Hurts', 'Saquon Barkley', 'A.J. Brown', 'AJ Brown', 'DeVonta Smith', 'Chuck Bednarik', 'Reggie White', 'Brian Dawkins', 'Randall Cunningham', 'Donovan McNabb', 'Jason Kelce', 'Cooper DeJean'],
+  'chicago-bears': ['Walter Payton', 'Dick Butkus', 'Mike Singletary', 'Caleb Williams', 'Rome Odunze', 'Mike Ditka', 'Gale Sayers', 'Red Grange', 'Sid Luckman', 'Dan Hampton', 'Brian Urlacher'],
+  'denver-broncos': ['John Elway', 'Terrell Davis', 'Peyton Manning', 'Von Miller', 'Bo Nix', 'Floyd Little', 'Shannon Sharpe'],
+  'baltimore-ravens': ['Lamar Jackson', 'Ray Lewis', 'Ed Reed', 'Derrick Henry', 'Mark Andrews', 'Patrick Queen', 'Roquan Smith', 'Zay Flowers', 'Rashod Bateman'],
+  'miami-dolphins': ['Dan Marino', 'Tua Tagovailoa', 'Tyreek Hill', 'Jaylen Waddle', 'Larry Csonka', 'Devon Achane', 'Jason Taylor'],
+  'new-york-giants': ['Lawrence Taylor', 'Eli Manning', 'Y.A. Tittle', 'Michael Strahan', 'Saquon Barkley', 'Frank Gifford', 'Malik Nabers', 'Daniel Jones', 'Dexter Lawrence'],
+  'seattle-seahawks': ['Russell Wilson', 'Steve Largent', 'Cortez Kennedy', 'DK Metcalf', 'Devon Witherspoon', 'Jaxon Smith-Njigba', 'Tyler Lockett', 'Kenneth Walker III'],
+  'los-angeles-rams': ['Kurt Warner', 'Aaron Donald', 'Marshall Faulk', 'Eric Dickerson', 'Cooper Kupp', 'Puka Nacua', 'Deacon Jones', 'Night Train Lane', 'Jack Youngblood', 'Elroy Hirsch', 'Kyren Williams', 'Matt Stafford'],
+  'new-york-jets': ['Joe Namath', 'Aaron Rodgers', 'Garrett Wilson', 'Breece Hall', 'Sauce Gardner'],
+  'buffalo-bills': ['Josh Allen', 'Jim Kelly', 'Andre Reed', 'Bruce Smith', 'Thurman Thomas', 'Keon Coleman', 'Dalton Kincaid', 'James Cook'],
+  'minnesota-vikings': ['Adrian Peterson', 'Fran Tarkenton', 'Alan Page', 'Justin Jefferson', 'John Randle', 'Cris Carter', 'Randall Cunningham', 'Anthony Carter', 'Sam Darnold', 'J.J. McCarthy'],
+  'detroit-lions': ['Barry Sanders', 'Calvin Johnson', 'Aidan Hutchinson', 'Amon-Ra St. Brown', 'Jahmyr Gibbs', 'Sam LaPorta', 'Brian Branch'],
+  'indianapolis-colts': ['Peyton Manning', 'Johnny Unitas', 'Andrew Luck', 'Anthony Richardson', 'Jonathan Taylor', 'Gino Marchetti', 'Art Donovan', 'Edgerrin James'],
+  'las-vegas-raiders': ['Jim Otto', 'Bo Jackson', 'Howie Long', 'Art Shell', 'Gene Upshaw', 'Dave Casper', 'Marcus Allen', 'Tim Brown', 'Maxx Crosby', 'Brock Bowers'],
+  'houston-texans': ['C.J. Stroud', 'CJ Stroud', 'Andre Johnson', 'Stefon Diggs', 'Tank Dell', 'Will Anderson Jr', 'Will Anderson Jr.', 'Nico Collins'],
+  'cleveland-browns': ['Jim Brown', 'Otto Graham', 'Myles Garrett', 'Nick Chubb', 'Amari Cooper', 'Leroy Kelly'],
+  'arizona-cardinals': ['Larry Fitzgerald', 'Kyler Murray', 'Anquan Boldin', 'Charley Taylor', 'Marvin Harrison Jr', 'Marvin Harrison Jr.'],
+  'tennessee-titans': ['Derrick Henry', 'Steve McNair', 'Eddie George', 'Earl Campbell', 'DeAndre Hopkins', 'Ryan Tannehill'],
+  'jacksonville-jaguars': ['Trevor Lawrence', 'Brian Thomas Jr', 'Brian Thomas Jr.', 'Travis Etienne', 'Evan Engram'],
+  'atlanta-falcons': ['Michael Vick', 'Deion Sanders', 'Julio Jones', 'Calvin Ridley', 'Drake London', 'Kyle Pitts'],
+  'carolina-panthers': ['Cam Newton', 'Bryce Young', 'Steve Smith Sr.', 'Luke Kuechly', 'Julius Peppers'],
+  'cincinnati-bengals': ['Joe Burrow', 'Ja\'Marr Chase', 'Anthony Munoz', 'Tee Higgins', 'Chad Johnson', 'Ken Anderson'],
+  'new-orleans-saints': ['Drew Brees', 'Marques Colston', 'Marshon Lattimore', 'Demario Davis', 'Alvin Kamara'],
+  'tampa-bay-buccaneers': ['Tom Brady', 'Mike Evans', 'Derrick Brooks', 'Warren Sapp', 'Lee Roy Selmon', 'Baker Mayfield'],
+  'los-angeles-chargers': ['Justin Herbert', 'LaDainian Tomlinson', 'Kellen Winslow', 'Dan Fouts', 'Junior Seau', 'Ladd McConkey', 'Rashawn Slater'],
+  'washington-commanders': ['Art Monk', 'Sonny Jurgensen', 'Charley Taylor', 'Jayden Daniels', 'Terry McLaurin', 'Sam Howell', 'Jahan Dotson'],
+  // ── NHL ───────────────────────────────────────────────────
+  'montreal-canadiens': ['Maurice Richard', 'Jean Beliveau', 'Guy Lafleur', 'Patrick Roy', 'Henri Richard', 'Yvan Cournoyer', 'Guy Lapointe', 'Larry Robinson', 'Howie Morenz', 'Ken Dryden', 'Newsy Lalonde', 'Aurele Joliat', 'Saku Koivu', 'Nick Suzuki', 'Cole Caufield', 'Juraj Slafkovsky', 'Lane Hutson'],
+  'toronto-maple-leafs': ['Auston Matthews', 'Mitch Marner', 'Darryl Sittler', 'Borje Salming', 'Syl Apps', 'Ted Kennedy', 'Turk Broda', 'Hap Day', 'King Clancy', 'Max Bentley', 'Johnny Bower', 'Dave Keon', 'William Nylander', 'Matthew Knies'],
+  'boston-bruins': ['Bobby Orr', 'Ray Bourque', 'Patrice Bergeron', 'David Pastrnak', 'Cam Neely', 'Phil Esposito', 'Dit Clapper', 'Eddie Shore', 'Johnny Bucyk', 'Milt Schmidt', 'Brad Marchand', 'Charlie McAvoy', 'Jeremy Swayman', 'Jake DeBrusk'],
+  'new-york-rangers': ['Mark Messier', 'Rod Gilbert', 'Brian Leetch', 'Henrik Lundqvist', 'Artemi Panarin', 'Adam Fox', 'Chris Kreider', 'Alexis Lafreniere', 'Mika Zibanejad', 'Igor Shesterkin', 'Matt Rempe'],
+  'detroit-red-wings': ['Gordie Howe', 'Steve Yzerman', 'Nicklas Lidstrom', 'Pavel Datsyuk', 'Sergei Fedorov', 'Ted Lindsay', 'Alex Delvecchio', 'Terry Sawchuk', 'Lucas Raymond', 'Moritz Seider', 'Patrick Kane', 'Dylan Larkin'],
+  'chicago-blackhawks': ['Bobby Hull', 'Stan Mikita', 'Patrick Kane', 'Jonathan Toews', 'Denis Savard', 'Glenn Hall', 'Tony Esposito', 'Eddie Olczyk', 'Artem Levshunov', 'Connor Bedard'],
+  'pittsburgh-penguins': ['Sidney Crosby', 'Mario Lemieux', 'Evgeni Malkin', 'Jaromir Jagr', 'Kris Letang', 'Marc-Andre Fleury'],
+  'edmonton-oilers': ['Wayne Gretzky', 'Connor McDavid', 'Leon Draisaitl', 'Mark Messier', 'Grant Fuhr', 'Jari Kurri', 'Glenn Anderson', 'Paul Coffey', 'Ryan Nugent-Hopkins', 'Evan Bouchard', 'Ryan Smyth'],
+  'colorado-avalanche': ['Joe Sakic', 'Peter Forsberg', 'Patrick Roy', 'Nathan MacKinnon', 'Cale Makar', 'Artturi Lehkonen', 'Mikko Rantanen', 'Gabriel Landeskog', 'Jonathan Drouin'],
+  'tampa-bay-lightning': ['Nikita Kucherov', 'Steven Stamkos', 'Andrei Vasilevskiy', 'Victor Hedman', 'Brayden Point', 'Martin St. Louis', 'Anton Lundell'],
+  'philadelphia-flyers': ['Bobby Clarke', 'Bernie Parent', 'Eric Lindros', 'Claude Giroux', 'Bill Barber', 'Mark Howe', 'Matvei Michkov', 'Travis Konecny', 'Morgan Frost'],
+  'washington-capitals': ['Alex Ovechkin', 'Alexander Ovechkin', 'Nicklas Backstrom', 'Rod Langway', 'Mike Gartner', 'Tom Wilson'],
+  'vancouver-canucks': ['Elias Pettersson', 'Quinn Hughes', 'Thatcher Demko', 'Brock Boeser', 'Pavel Bure', 'Markus Naslund', 'JT Miller', 'Bo Horvat'],
+  'carolina-hurricanes': ['Andrei Svechnikov', 'Sebastian Aho', 'Martin Necas', 'Seth Jarvis'],
+  'new-jersey-devils': ['Martin Brodeur', 'Scott Stevens', 'Scott Niedermayer', 'Jack Hughes', 'Nico Hischier', 'Patrik Elias', 'Simon Nemec'],
+  'dallas-stars': ['Mike Modano', 'Jason Robertson', 'Roope Hintz', 'Miro Heiskanen', 'Jake Oettinger', 'Tyler Seguin'],
+  'florida-panthers': ['Aleksander Barkov', 'Sam Reinhart', 'Sam Bennett', 'Carter Verhaeghe', 'Gustav Forsling', 'Anton Lundell', 'Matthew Tkachuk'],
+  'st-louis-blues': ['Brett Hull', 'Chris Pronger', 'Bernie Federko', 'Al MacInnis', 'Pavel Buchnevich', 'Jordan Kyrou', 'Robert Thomas'],
+  'winnipeg-jets': ['Kyle Connor', 'Mark Scheifele', 'Connor Hellebuyck', 'Nikolaj Ehlers', 'Josh Morrissey', 'Dale Hawerchuk'],
+  'minnesota-wild': ['Kirill Kaprizov', 'Mats Zuccarello', 'Brock Faber', 'Matt Boldy', 'Joel Eriksson Ek'],
+  'nashville-predators': ['Roman Josi', 'Filip Forsberg', 'Pekka Rinne', 'Juuse Saros', 'Shea Weber'],
+  'calgary-flames': ['Jarome Iginla', 'Lanny McDonald', 'Theo Fleury', 'Nazem Kadri', 'Rasmus Andersson', 'Connor Zary'],
+  'ottawa-senators': ['Daniel Alfredsson', 'Dany Heatley', 'Brady Tkachuk', 'Tim Stutzle', 'Drake Batherson', 'Shane Pinto', 'Thomas Chabot'],
+  'new-york-islanders': ['Mike Bossy', 'Denis Potvin', 'Bryan Trottier', 'Clark Gillies', 'Billy Smith', 'Mathew Barzal', 'Brent Sutter', 'Bob Nystrom'],
+  'columbus-blue-jackets': ['Rick Nash', 'Johnny Gaudreau', 'Kirill Marchenko', 'Yegor Chinakhov', 'Adam Fantilli', 'Kent Johnson', 'Dmitri Voronkov'],
+  'los-angeles-kings': ['Anze Kopitar', 'Drew Doughty', 'Marcel Dionne', 'Luc Robitaille', 'Jonathan Quick', 'Wayne Gretzky', 'Alex Laferriere', 'Brandt Clarke'],
+  'san-jose-sharks': ['Macklin Celebrini', 'Joe Thornton', 'Patrick Marleau', 'Joe Pavelski', 'Will Smith', 'Logan Couture'],
+  'anaheim-ducks': ['Teemu Selanne', 'Paul Kariya', 'Ryan Getzlaf', 'Scott Niedermayer', 'Cutter Gauthier', 'Mason McTavish', 'Leo Carlsson', 'Trevor Zegras'],
+  'buffalo-sabres': ['Gilbert Perreault', 'Dominik Hasek', 'Pat LaFontaine', 'Rasmus Dahlin', 'Tage Thompson', 'Jack Eichel', 'Dylan Cozens'],
+  'arizona-coyotes': ['Shane Doan', 'Keith Tkachuk', 'Nikolai Khabibulin', 'Logan Cooley'],
+  'seattle-kraken': ['Matty Beniers', 'Shane Wright', 'Brandon Montour', 'Jared McCann'],
+  'utah-hockey-club': ['Clayton Keller', 'Dylan Guenther', 'Logan Cooley', 'Connor Ingram'],
+};
+
+// Build reverse lookup: player name → team slug
+export const playerTeamMap: Record<string, string> = {};
+for (const [teamSlug, players] of Object.entries(_teamRosters)) {
+  for (const player of players) {
+    // First team association wins (for players like LeBron who appear on multiple teams)
+    if (!playerTeamMap[player]) {
+      playerTeamMap[player] = teamSlug;
+    }
+  }
+}
+
+// Lookup helpers
+export function getTeamBySlug(slug: string): Team | undefined {
+  return teams.find(t => t.slug === slug);
+}
+
+export function getTeamsBySport(sport: Sport): Team[] {
+  return teams.filter(t => t.sport === sport);
+}
+
+export function getTeamsWithCards(cardPlayerNames: string[]): string[] {
+  const teamSlugs = new Set<string>();
+  for (const name of cardPlayerNames) {
+    const ts = playerTeamMap[name];
+    if (ts) teamSlugs.add(ts);
+  }
+  return [...teamSlugs];
+}
+
+export function getTeamCardCount(teamSlug: string, cardPlayerNames: string[]): number {
+  let count = 0;
+  for (const name of cardPlayerNames) {
+    if (playerTeamMap[name] === teamSlug) count++;
+  }
+  return count;
+}
