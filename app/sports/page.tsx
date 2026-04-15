@@ -1,3 +1,6 @@
+// Force dynamic to avoid 24MB ISR fallback from 3,500+ card data file
+export const dynamic = 'force-dynamic';
+
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { sportsCards } from '@/data/sports-cards';
