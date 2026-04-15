@@ -12417,6 +12417,17 @@ export const jerseyNumbers: Record<string, string> = {
   'nic scourton': '11',
   'tyler booker': '52',
   'trey amos': '1',
+  // v3.94 additions
+  'cal ripken': '8',
+  'masahiro tanaka': '19',
+  'evan longoria': '3',
+  'willson contreras': '40',
+  'jaime jaquez': '11',
+  'arvydas sabonis': '11',
+  'andrei kirilenko': '47',
+  'daniel jones': '8',
+  'ryan tannehill': '17',
+  'max pacioretty': '67',
 };
 
 export function getJerseyNumber(player: string): string | undefined {
