@@ -107,7 +107,11 @@ export default function AuctionPage() {
       </div>
 
       {/* Related */}
-      <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="mt-8 grid grid-cols-2 sm:grid-cols-5 gap-3">
+        <Link href="/auction-live" className="bg-red-900/20 border border-red-800/40 rounded-lg p-3 text-center hover:border-red-700/50 transition-colors">
+          <p className="text-lg mb-1">&#x1F525;</p>
+          <p className="text-xs font-medium text-red-300">Live Auction</p>
+        </Link>
         <Link href="/packs" className="bg-gray-900/40 border border-gray-800/40 rounded-lg p-3 text-center hover:border-gray-700/50 transition-colors">
           <p className="text-lg mb-1">&#x1F4E6;</p>
           <p className="text-xs font-medium text-gray-300">Pack Store</p>
