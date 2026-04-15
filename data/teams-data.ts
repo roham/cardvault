@@ -742,6 +742,22 @@ for (const [teamSlug, players] of Object.entries(_wave11)) {
   if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
   _teamRosters[teamSlug].push(...players);
 }
+const _wave13: Record<string, string[]> = {
+  'seattle-mariners': ['Cal Raleigh'],
+  'baltimore-orioles': ['Ryan Mountcastle'],
+  'pittsburgh-pirates': ['Jack Suwinski'],
+  'indiana-pacers': ['Johnny Furphy'],
+  'cleveland-cavaliers': ['Craig Porter Jr.'],
+  'detroit-lions': ['David Montgomery'],
+  'tennessee-titans': ['JC Latham'],
+  'new-jersey-devils': ['Dawson Mercer'],
+  'seattle-kraken': ['Matthew Beniers'],
+  'utah-hockey-club': ['Matias Maccelli'],
+};
+for (const [teamSlug, players] of Object.entries(_wave13)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
 
 // Unmappable players (Pokemon, pre-team-era, draft prospects without teams)
 // Charizard, Pikachu, Mewtwo, Rayquaza etc. — Pokemon cards in the sports DB
