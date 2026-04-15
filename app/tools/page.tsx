@@ -91,6 +91,7 @@ export default function ToolsPage() {
           { href: '/tools/flip-tracker', label: 'Flip Tracker P&L', icon: '📒' },
           { href: '/tools/roi-heatmap', label: 'ROI Heatmap', icon: '🗺️' },
           { href: '/tools/value-dna', label: 'Card Value DNA', icon: '🧬' },
+          { href: '/tools/lot-evaluator', label: 'Lot Evaluator', icon: '📦' },
           { href: '/tools/photo-guide', label: 'Card Photo Guide', icon: '📸' },
           { href: '/tools/selling-platforms', label: 'Selling Platform Comparison', icon: '🏪' },
           { href: '/tools/photo-grade-estimator', label: 'Photo Grade Estimator', icon: '📷' },
@@ -136,6 +137,7 @@ export default function ToolsPage() {
           { href: '/tools/stress-test', label: 'Portfolio Stress Test', icon: '🧪' },
           { href: '/tools/draft-trade-value', label: 'Draft Trade Value Calculator', icon: '🏈' },
           { href: '/tools/estate-planner', label: 'Estate Planner', icon: '📜' },
+          { href: '/tools/flip-window', label: 'Flip Window Calculator', icon: '📅' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
