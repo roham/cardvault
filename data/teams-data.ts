@@ -647,6 +647,23 @@ for (const [teamSlug, players] of Object.entries(_wave7)) {
   if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
   _teamRosters[teamSlug].push(...players);
 }
+// Wave 8: v4.9 additions
+const _wave8: Record<string, string[]> = {
+  'houston-rockets': ['Eric Gordon'],
+  'brooklyn-nets': ['Spencer Dinwiddie'],
+  'atlanta-hawks': ['Kevin Huerter'],
+  'jacksonville-jaguars': ['DJ Chark'],
+  'new-orleans-saints': ['Taysom Hill'],
+  'st-louis-cardinals': ['Paul DeJong'],
+  'atlanta-braves': ['Eddie Rosario'],
+  'baltimore-orioles': ['Austin Hays'],
+  'minnesota-wild': ['Jordan Greenway'],
+  'vegas-golden-knights': ['Erik Haula'],
+};
+for (const [teamSlug, players] of Object.entries(_wave8)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
 for (const [teamSlug, players] of Object.entries(_wave6)) {
   if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
   _teamRosters[teamSlug].push(...players);
