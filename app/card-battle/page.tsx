@@ -119,6 +119,10 @@ export default function CardBattlePage() {
             <h3 className="text-sm font-semibold text-white">Trading Simulator</h3>
             <p className="text-xs text-gray-400 mt-1">Buy &amp; sell cards over 7 days.</p>
           </Link>
+          <Link href="/tournament" className="p-4 bg-gray-900/40 border border-gray-800 rounded-xl hover:border-gray-600 transition-colors">
+            <h3 className="text-sm font-semibold text-white">Tournament Bracket</h3>
+            <p className="text-xs text-gray-400 mt-1">March Madness-style elimination bracket.</p>
+          </Link>
         </div>
       </section>
     </div>

@@ -111,7 +111,7 @@ export default function CollectionDraftPage() {
             { href: '/card-battle', label: 'Card Battles', icon: '⚔️' },
             { href: '/price-is-right', label: 'The Price is Right', icon: '💰' },
             { href: '/trading-sim', label: 'Trading Simulator', icon: '🔄' },
-            { href: '/trivia', label: 'Card Trivia', icon: '🧠' },
+            { href: '/tournament', label: 'Tournament Bracket', icon: '🏆' },
           ].map(g => (
             <Link key={g.href} href={g.href}
               className="bg-gray-900 border border-gray-800 rounded-xl p-3 text-center hover:border-gray-700 transition-colors">
