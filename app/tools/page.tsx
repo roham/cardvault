@@ -70,6 +70,7 @@ export default function ToolsPage() {
           { href: '/tools/submission-planner', label: 'Submission Planner', icon: '📋' },
           { href: '/tools/auth-check', label: 'Authentication Checker', icon: '🔐' },
           { href: '/tools/shipping-calc', label: 'Shipping Calculator', icon: '📬' },
+          { href: '/tools/storage-calc', label: 'Storage & Supplies', icon: '📦' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
