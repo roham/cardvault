@@ -94,6 +94,7 @@ export default function ToolsPage() {
           { href: '/tools/photo-grade-estimator', label: 'Photo Grade Estimator', icon: '📷' },
           { href: '/tools/show-checklist', label: 'Card Show Checklist', icon: '✅' },
           { href: '/tools/break-even', label: 'Break-Even Calculator', icon: '📉' },
+          { href: '/tools/card-scout', label: 'Card Scout', icon: '🔭' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
