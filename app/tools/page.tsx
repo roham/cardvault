@@ -62,6 +62,7 @@ export default function ToolsPage() {
           { href: '/tools/flip-calc', label: 'Flip Profit Calculator', icon: '💸' },
           { href: '/tools/grading-tracker', label: 'Grading Tracker', icon: '📋' },
           { href: '/tools/set-checklist', label: 'Set Checklist', icon: '✅' },
+          { href: '/tools/set-completion', label: 'Set Completion v2', icon: '🏆' },
           { href: '/tools/mystery-pack', label: 'Mystery Repack Sim', icon: '🎲' },
           { href: '/tools/dealer-scanner', label: 'Dealer Scanner', icon: '📱' },
           { href: '/tools/condition-grader', label: 'Condition Self-Grader', icon: '🔬' },
