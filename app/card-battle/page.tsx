@@ -115,6 +115,10 @@ export default function CardBattlePage() {
             <h3 className="text-sm font-semibold text-white">Flip or Keep</h3>
             <p className="text-xs text-gray-400 mt-1">Daily card collecting game.</p>
           </Link>
+          <Link href="/trading-sim" className="p-4 bg-gray-900/40 border border-gray-800 rounded-xl hover:border-gray-600 transition-colors">
+            <h3 className="text-sm font-semibold text-white">Trading Simulator</h3>
+            <p className="text-xs text-gray-400 mt-1">Buy &amp; sell cards over 7 days.</p>
+          </Link>
         </div>
       </section>
     </div>

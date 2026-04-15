@@ -81,6 +81,7 @@ export default function ToolsPage() {
           { href: '/tools/cross-grade', label: 'Cross-Grade Converter', icon: '🔄' },
           { href: '/tools/rarity-score', label: 'Rarity Score Calculator', icon: '💎' },
           { href: '/tools/prospect-tracker', label: 'Prospect Pipeline', icon: '🔮' },
+          { href: '/tools/export-collection', label: 'Export Collection', icon: '📥' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
