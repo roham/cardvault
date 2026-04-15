@@ -72,6 +72,8 @@ export default function ToolsPage() {
           { href: '/tools/shipping-calc', label: 'Shipping Calculator', icon: '📬' },
           { href: '/tools/storage-calc', label: 'Storage & Supplies', icon: '📦' },
           { href: '/tools/listing-generator', label: 'eBay Listing Generator', icon: '📝' },
+          { href: '/tools/visual-binder', label: 'Visual Binder', icon: '📖' },
+          { href: '/tools/show-finder', label: 'Card Show Finder', icon: '📍' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
