@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { sportsCards } from '@/data/sports-cards';
 import { guides } from '@/app/guides/guides-data';
 import { sealedProducts } from '@/data/sealed-products';
+import { cardBrands } from '@/data/brands';
 import { STORE_PACKS } from '@/lib/vault';
 
 const BASE_URL = 'https://cardvault-two.vercel.app';
@@ -258,6 +259,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/community-polls`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/tools/portfolio-rebalancer`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/open-guide`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/brands`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
@@ -357,5 +359,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...comparisonPages,
     ...packPages,
     ...productPages,
+    ...cardBrands.map(b => ({
+      url: `${BASE_URL}/brands/${b.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
   ];
 }
