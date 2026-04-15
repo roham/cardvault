@@ -109,6 +109,7 @@ export default function ToolsPage() {
           { href: '/tools/sealed-yield', label: 'Sealed Product Yield', icon: '📈' },
           { href: '/tools/collection-timeline', label: 'Collection Timeline', icon: '📅' },
           { href: '/tools/price-alert', label: 'Price Alert Generator', icon: '🔔' },
+          { href: '/tools/set-break', label: 'Set Break Calculator', icon: '📦' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
