@@ -370,6 +370,9 @@ export default function VaultClient() {
         <Link href="/tools/collection-value" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 px-5 py-2.5 rounded-xl text-sm font-medium border border-gray-700 transition-colors">
           Collection Value
         </Link>
+        <Link href="/vault/analytics" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 px-5 py-2.5 rounded-xl text-sm font-medium border border-gray-700 transition-colors">
+          Vault Analytics
+        </Link>
       </div>
     </div>
   );
