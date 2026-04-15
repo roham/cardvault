@@ -260,6 +260,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/portfolio-rebalancer`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/open-guide`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/brands`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/rookies`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
@@ -364,6 +365,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    })),
+    // Rookie year pages
+    ...[...new Set(sportsCards.filter(c => c.rookie).map(c => c.year))].sort((a, b) => b - a).map(year => ({
+      url: `${BASE_URL}/rookies/${year}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     })),
   ];
 }
