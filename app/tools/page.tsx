@@ -95,6 +95,7 @@ export default function ToolsPage() {
           { href: '/tools/show-checklist', label: 'Card Show Checklist', icon: '✅' },
           { href: '/tools/break-even', label: 'Break-Even Calculator', icon: '📉' },
           { href: '/tools/card-scout', label: 'Card Scout', icon: '🔭' },
+          { href: '/tools/error-cards', label: 'Error Card Value Guide', icon: '🃏' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
