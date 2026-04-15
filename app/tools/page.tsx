@@ -84,6 +84,7 @@ export default function ToolsPage() {
           { href: '/tools/export-collection', label: 'Export Collection', icon: '📥' },
           { href: '/tools/holder-guide', label: 'Holder Size Guide', icon: '📏' },
           { href: '/tools/cert-check', label: 'PSA Cert Verifier', icon: '🔍' },
+          { href: '/tools/slab-weight', label: 'Slab Weight Verifier', icon: '⚖️' },
           { href: '/tools/turnaround-estimator', label: 'Turnaround Estimator', icon: '⏱️' },
           { href: '/tools/diversification', label: 'Diversification Analyzer', icon: '📊' },
           { href: '/tools/bgs-subgrade', label: 'BGS Subgrade Calculator', icon: '🎯' },
