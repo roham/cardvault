@@ -131,7 +131,9 @@ export default function ToolsPage() {
           { href: '/tools/grade-spread', label: 'Grade Price Spread', icon: '📊' },
           { href: '/tools/starter-kit', label: 'Starter Kit Builder', icon: '🎒' },
           { href: '/tools/gift-guide', label: 'Card Gift Guide', icon: '🎁' },
+          { href: '/tools/market-cap', label: 'Card Market Cap', icon: '💰' },
           { href: '/tools/stress-test', label: 'Portfolio Stress Test', icon: '🧪' },
+          { href: '/tools/draft-trade-value', label: 'Draft Trade Value Calculator', icon: '🏈' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
