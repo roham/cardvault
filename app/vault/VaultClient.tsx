@@ -358,6 +358,9 @@ export default function VaultClient() {
         <Link href="/packs" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-colors">
           Open Packs
         </Link>
+        <Link href="/vault/buyback" className="inline-flex items-center gap-2 bg-emerald-950/60 hover:bg-emerald-900/60 text-emerald-400 px-5 py-2.5 rounded-xl text-sm font-medium border border-emerald-800/50 transition-colors">
+          Batch Sell Cards
+        </Link>
         <Link href="/binder" className="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-300 px-5 py-2.5 rounded-xl text-sm font-medium border border-gray-700 transition-colors">
           Digital Binder
         </Link>

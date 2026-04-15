@@ -353,3 +353,43 @@ export function buybackCard(slug: string): { success: boolean; credit: number; e
 
   return { success: true, credit };
 }
+
+// ── Batch Buyback ─────────────────────────────────────────────────────
+
+export function buybackCards(slugs: string[]): { success: boolean; totalCredit: number; results: { slug: string; credit: number; name: string }[]; error?: string } {
+  if (slugs.length === 0) return { success: false, totalCredit: 0, results: [], error: 'No cards selected' };
+
+  const results: { slug: string; credit: number; name: string }[] = [];
+  let totalCredit = 0;
+
+  for (const slug of slugs) {
+    const card = sportsCards.find(c => c.slug === slug);
+    if (!card) continue;
+
+    const removed = removeFromVault(slug);
+    if (!removed) continue;
+
+    const rawValue = parseValue(card.estimatedValueRaw);
+    const credit = Math.round(rawValue * 0.9 * 100) / 100;
+    totalCredit += credit;
+    results.push({ slug, credit, name: card.name });
+  }
+
+  if (results.length === 0) return { success: false, totalCredit: 0, results: [], error: 'No valid cards to sell' };
+
+  totalCredit = Math.round(totalCredit * 100) / 100;
+
+  const wallet = getWallet();
+  wallet.balance = Math.round((wallet.balance + totalCredit) * 100) / 100;
+  wallet.totalEarned = Math.round((wallet.totalEarned + totalCredit) * 100) / 100;
+  saveWallet(wallet);
+
+  addTransaction({
+    type: 'buyback',
+    amount: totalCredit,
+    description: `Sold back ${results.length} card${results.length > 1 ? 's' : ''} (90% FMV)`,
+    cardSlugs: results.map(r => r.slug),
+  });
+
+  return { success: true, totalCredit, results };
+}
