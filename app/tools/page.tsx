@@ -101,6 +101,7 @@ export default function ToolsPage() {
           { href: '/tools/seasonality', label: 'Market Seasonality Guide', icon: '📅' },
           { href: '/tools/pack-odds', label: 'Pack Odds Calculator', icon: '🎲' },
           { href: '/tools/milestone-tracker', label: 'Milestone Tracker', icon: '🏆' },
+          { href: '/tools/grade-value-chart', label: 'Grade Value Chart', icon: '📊' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
