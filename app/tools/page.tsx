@@ -134,6 +134,7 @@ export default function ToolsPage() {
           { href: '/tools/market-cap', label: 'Card Market Cap', icon: '💰' },
           { href: '/tools/stress-test', label: 'Portfolio Stress Test', icon: '🧪' },
           { href: '/tools/draft-trade-value', label: 'Draft Trade Value Calculator', icon: '🏈' },
+          { href: '/tools/estate-planner', label: 'Estate Planner', icon: '📜' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
