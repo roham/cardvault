@@ -80,6 +80,31 @@ export default function VaultPage() {
 
       <VaultClient />
 
+      {/* Vault Features */}
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <Link href="/vault/analytics" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 border border-gray-800 hover:border-gray-600 rounded-xl transition-colors">
+          <span className="text-xl">📊</span>
+          <div>
+            <div className="text-white text-sm font-medium">Analytics</div>
+            <div className="text-gray-500 text-xs">Portfolio breakdown and ROI</div>
+          </div>
+        </Link>
+        <Link href="/vault/wishlist" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 border border-gray-800 hover:border-gray-600 rounded-xl transition-colors">
+          <span className="text-xl">🎯</span>
+          <div>
+            <div className="text-white text-sm font-medium">Wishlist</div>
+            <div className="text-gray-500 text-xs">Cards you want to buy</div>
+          </div>
+        </Link>
+        <Link href="/vault/buyback" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 border border-gray-800 hover:border-gray-600 rounded-xl transition-colors">
+          <span className="text-xl">💰</span>
+          <div>
+            <div className="text-white text-sm font-medium">Buyback</div>
+            <div className="text-gray-500 text-xs">Sell cards back at 90% FMV</div>
+          </div>
+        </Link>
+      </div>
+
       {/* FAQ section */}
       <section className="mt-16 border-t border-gray-800 pt-12">
         <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
