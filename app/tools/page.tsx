@@ -82,6 +82,7 @@ export default function ToolsPage() {
           { href: '/tools/rarity-score', label: 'Rarity Score Calculator', icon: '💎' },
           { href: '/tools/prospect-tracker', label: 'Prospect Pipeline', icon: '🔮' },
           { href: '/tools/export-collection', label: 'Export Collection', icon: '📥' },
+          { href: '/tools/holder-guide', label: 'Holder Size Guide', icon: '📏' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
