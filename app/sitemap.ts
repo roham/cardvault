@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { sportsCards } from '@/data/sports-cards';
 import { guides } from '@/app/guides/guides-data';
+import { sealedProducts } from '@/data/sealed-products';
 import { STORE_PACKS } from '@/lib/vault';
 
 const BASE_URL = 'https://cardvault-two.vercel.app';
@@ -332,6 +333,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Sealed product pages
+  const productPages: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/products`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
+    ...sealedProducts.map(p => ({
+      url: `${BASE_URL}/products/${p.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ];
+
   return [
     ...staticPages,
     ...guidePages,
@@ -343,5 +355,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...yearPages,
     ...comparisonPages,
     ...packPages,
+    ...productPages,
   ];
 }
