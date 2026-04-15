@@ -723,6 +723,21 @@ const _wave11: Record<string, string[]> = {
   'atlanta-braves': ['Jorge Soler'],
   'cincinnati-bengals': ['Chidobe Awuzie'],
 };
+const _wave12: Record<string, string[]> = {
+  'atlanta-braves': ['Michael Harris II'],
+  'houston-texans': ['Will Anderson Jr.'],
+  'atlanta-falcons': ['Michael Penix Jr.'],
+  'jacksonville-jaguars': ['Brian Thomas Jr.'],
+  'miami-dolphins': ["De'Von Achane"],
+  'dallas-mavericks': ['Dereck Lively II'],
+  'miami-heat': ['Jaime Jaquez Jr.'],
+  'vegas-golden-knights': ['Pavel Dorofeyev'],
+  'philadelphia-flyers': ['Bobby Brink'],
+};
+for (const [teamSlug, players] of Object.entries(_wave12)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
 for (const [teamSlug, players] of Object.entries(_wave11)) {
   if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
   _teamRosters[teamSlug].push(...players);
