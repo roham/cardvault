@@ -773,6 +773,16 @@ export const guides: Guide[] = [
     content: [],
   },
   {
+    slug: 'best-boxes-2025',
+    title: 'Best Sports Card Boxes to Buy in 2025',
+    summary: 'The 12 best sports card boxes to buy in 2025 across hobby, retail, and value tiers. Prices, hit rates, key cards to chase, and honest verdicts for baseball, basketball, football, and hockey.',
+    category: 'Buying',
+    readTime: '9 min',
+    icon: '\ud83d\udce6',
+    gradient: 'from-amber-900/40 via-orange-900/20 to-gray-900/40',
+    content: [],
+  },
+  {
     slug: 'budget-collecting',
     title: 'How to Build a Card Collection on a Budget',
     summary: 'Smart strategies at every price point: $25, $50-$100, and $200+/month. Where to find deals, what to buy, and the #1 rule that saves budget collectors money.',
