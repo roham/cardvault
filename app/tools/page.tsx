@@ -90,6 +90,7 @@ export default function ToolsPage() {
           { href: '/tools/flip-tracker', label: 'Flip Tracker P&L', icon: '📒' },
           { href: '/tools/roi-heatmap', label: 'ROI Heatmap', icon: '🗺️' },
           { href: '/tools/photo-guide', label: 'Card Photo Guide', icon: '📸' },
+          { href: '/tools/selling-platforms', label: 'Selling Platform Comparison', icon: '🏪' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
