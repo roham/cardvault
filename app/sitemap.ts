@@ -285,6 +285,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/card-speed-quiz`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/card-value-snap`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/trade-up`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/prospect-pipeline`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
