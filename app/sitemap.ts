@@ -203,6 +203,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/collection`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/collection-challenge`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/media-hub`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${BASE_URL}/daily-challenges`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
