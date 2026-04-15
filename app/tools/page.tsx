@@ -85,6 +85,7 @@ export default function ToolsPage() {
           { href: '/tools/holder-guide', label: 'Holder Size Guide', icon: '📏' },
           { href: '/tools/cert-check', label: 'PSA Cert Verifier', icon: '🔍' },
           { href: '/tools/turnaround-estimator', label: 'Turnaround Estimator', icon: '⏱️' },
+          { href: '/tools/diversification', label: 'Diversification Analyzer', icon: '📊' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
