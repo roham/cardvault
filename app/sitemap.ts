@@ -251,6 +251,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/myth-busters`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/live-hub`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/community-polls`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/tools/portfolio-rebalancer`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
   ];
 
   // Dynamic guide pages from guides-data.ts

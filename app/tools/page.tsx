@@ -118,7 +118,9 @@ export default function ToolsPage() {
           { href: '/tools/negotiation-calc', label: 'Negotiation Calculator', icon: '🤝' },
           { href: '/tools/bulk-grading-roi', label: 'Bulk Grading ROI', icon: '📦' },
           { href: '/tools/card-care', label: 'Card Care Guide', icon: '🧼' },
+          { href: '/tools/portfolio-rebalancer', label: 'Portfolio Rebalancer', icon: '⚖️' },
           { href: '/tools/parallel-value', label: 'Parallel Value Calculator', icon: '🌈' },
+          { href: '/tools/print-run', label: 'Print Run Estimator', icon: '🏭' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
