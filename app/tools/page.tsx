@@ -129,6 +129,7 @@ export default function ToolsPage() {
           { href: '/tools/auction-bid', label: 'Auction Bid Calculator', icon: '🔨' },
           { href: '/tools/grade-spread', label: 'Grade Price Spread', icon: '📊' },
           { href: '/tools/starter-kit', label: 'Starter Kit Builder', icon: '🎒' },
+          { href: '/tools/stress-test', label: 'Portfolio Stress Test', icon: '🧪' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
