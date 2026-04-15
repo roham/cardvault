@@ -115,6 +115,7 @@ export default function ToolsPage() {
           { href: '/tools/damage-assessment', label: 'Damage Assessment', icon: '🔍' },
           { href: '/tools/ebay-fee-calc', label: 'eBay Fee Calculator', icon: '💲' },
           { href: '/tools/rip-or-hold', label: 'Rip or Hold Calculator', icon: '📦' },
+          { href: '/tools/negotiation-calc', label: 'Negotiation Calculator', icon: '🤝' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
