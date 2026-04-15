@@ -664,6 +664,39 @@ for (const [teamSlug, players] of Object.entries(_wave8)) {
   if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
   _teamRosters[teamSlug].push(...players);
 }
+// Wave 9: v4.12 additions
+const _wave9: Record<string, string[]> = {
+  'minnesota-twins': ['Kenta Maeda'],
+  'san-francisco-giants': ['Wilmer Flores'],
+  'cleveland-cavaliers': ['Colin Sexton'],
+  'dallas-stars': ['Jamie Benn'],
+  'new-york-islanders': ['Noah Dobson'],
+  'philadelphia-flyers': ['Carter Hart'],
+  'jacksonville-jaguars': ['Christian Kirk', 'Gabe Davis'],
+  'buffalo-bills': ['Gabe Davis'],
+  'cincinnati-bengals': ['Jonah Williams'],
+  'new-england-patriots': ['Brandin Cooks'],
+};
+for (const [teamSlug, players] of Object.entries(_wave9)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
+// Wave 10: v4.14 additions
+const _wave10: Record<string, string[]> = {
+  'washington-nationals': ['Patrick Corbin'],
+  'cleveland-guardians': ['Triston McKenzie', 'Jose Quintana'],
+  'milwaukee-bucks': ['Malcolm Brogdon'],
+  'san-antonio-spurs': ['Danny Green'],
+  'carolina-panthers': ['Greg Olsen'],
+  'denver-broncos': ['Emmanuel Sanders'],
+  'pittsburgh-penguins': ['Patric Hornqvist', 'Michael Bunting'],
+  'washington-capitals': ['Tom Wilson'],
+  'toronto-maple-leafs': ['Michael Bunting'],
+};
+for (const [teamSlug, players] of Object.entries(_wave10)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
 for (const [teamSlug, players] of Object.entries(_wave6)) {
   if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
   _teamRosters[teamSlug].push(...players);
