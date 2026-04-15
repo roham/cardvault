@@ -78,6 +78,7 @@ export default function ToolsPage() {
           { href: '/tools/tax-calc', label: 'Card Tax Calculator', icon: '🧾' },
           { href: '/tools/budget-planner', label: 'Hobby Budget Planner', icon: '💰' },
           { href: '/tools/lot-analyzer', label: 'Bulk Lot Analyzer', icon: '📦' },
+          { href: '/tools/cross-grade', label: 'Cross-Grade Converter', icon: '🔄' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
