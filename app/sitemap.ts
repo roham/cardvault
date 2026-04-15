@@ -228,6 +228,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vault/consignment`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/vault/goals`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/hot-potato`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/power-rankings`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/market-tycoon`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/collector-quiz`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/market-heatmap`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
