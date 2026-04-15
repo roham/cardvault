@@ -125,6 +125,7 @@ export default function ToolsPage() {
           { href: '/tools/buyback-calc', label: 'Dealer Buyback Calculator', icon: '🤝' },
           { href: '/tools/collection-report', label: 'Collection Report Card', icon: '📋' },
           { href: '/tools/show-prep', label: 'Card Show Prep Tool', icon: '🎯' },
+          { href: '/tools/card-ladder', label: 'Card Ladder Builder', icon: '🪜' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
