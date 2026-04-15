@@ -117,6 +117,7 @@ export default function ToolsPage() {
           { href: '/tools/rip-or-hold', label: 'Rip or Hold Calculator', icon: '📦' },
           { href: '/tools/negotiation-calc', label: 'Negotiation Calculator', icon: '🤝' },
           { href: '/tools/bulk-grading-roi', label: 'Bulk Grading ROI', icon: '📦' },
+          { href: '/tools/card-care', label: 'Card Care Guide', icon: '🧼' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
