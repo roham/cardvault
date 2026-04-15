@@ -56,6 +56,7 @@ const standaloneGuides = [
   'fake-cards', 'most-valuable-pokemon-cards', 'most-valuable-sports-cards',
   'psa-vs-bgs-vs-cgc', 'tcgplayer-vs-ebay', 'how-to-sell-cards', 'best-rookie-cards-2026',
   'psa-grading-scale', 'card-storage-guide', 'card-collecting-glossary', 'budget-collecting',
+  'start-collecting-baseball', 'start-collecting-basketball', 'start-collecting-football', 'start-collecting-hockey',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
