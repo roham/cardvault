@@ -91,7 +91,9 @@ export default function ToolsPage() {
           { href: '/tools/roi-heatmap', label: 'ROI Heatmap', icon: '🗺️' },
           { href: '/tools/photo-guide', label: 'Card Photo Guide', icon: '📸' },
           { href: '/tools/selling-platforms', label: 'Selling Platform Comparison', icon: '🏪' },
+          { href: '/tools/photo-grade-estimator', label: 'Photo Grade Estimator', icon: '📷' },
           { href: '/tools/show-checklist', label: 'Card Show Checklist', icon: '✅' },
+          { href: '/tools/break-even', label: 'Break-Even Calculator', icon: '📉' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
