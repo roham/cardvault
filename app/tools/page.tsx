@@ -103,6 +103,7 @@ export default function ToolsPage() {
           { href: '/tools/milestone-tracker', label: 'Milestone Tracker', icon: '🏆' },
           { href: '/tools/grade-value-chart', label: 'Grade Value Chart', icon: '📊' },
           { href: '/tools/compare-matrix', label: 'Card Compare Matrix', icon: '⚖️' },
+          { href: '/tools/grading-probability', label: 'Grading Probability', icon: '🎲' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
