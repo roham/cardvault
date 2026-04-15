@@ -37,6 +37,33 @@ function getRarityLabel(value: number): { label: string; color: string; bg: stri
 
 type ViewState = 'store' | 'confirm' | 'reveal' | 'results';
 
+const STEP_LABELS = ['Browse', 'Confirm', 'Reveal'];
+function StepIndicator({ current }: { current: number }) {
+  return (
+    <div className="flex items-center justify-center gap-1 mb-6">
+      {STEP_LABELS.map((label, i) => (
+        <div key={label} className="flex items-center gap-1">
+          <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+            i < current ? 'bg-emerald-500/20 text-emerald-400' :
+            i === current ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' :
+            'bg-gray-800/60 text-gray-500'
+          }`}>
+            <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold ${
+              i < current ? 'bg-emerald-500 text-white' :
+              i === current ? 'bg-blue-500 text-white' :
+              'bg-gray-700 text-gray-400'
+            }`}>{i < current ? '\u2713' : i + 1}</span>
+            {label}
+          </div>
+          {i < STEP_LABELS.length - 1 && (
+            <div className={`w-6 h-0.5 rounded ${i < current ? 'bg-emerald-500/50' : 'bg-gray-700'}`} />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function PackStoreClient() {
   const [mounted, setMounted] = useState(false);
   const [wallet, setWallet] = useState<MockWallet | null>(null);
@@ -45,6 +72,7 @@ export default function PackStoreClient() {
   const [view, setView] = useState<ViewState>('store');
   const [selectedPack, setSelectedPack] = useState<StorePack | null>(null);
   const [pulledCards, setPulledCards] = useState<SportsCard[]>([]);
+  const [qty, setQty] = useState(1);
   const [revealedCount, setRevealedCount] = useState(0);
   const [showHistory, setShowHistory] = useState(false);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -68,24 +96,29 @@ export default function PackStoreClient() {
 
   const handleBuy = useCallback((pack: StorePack) => {
     setSelectedPack(pack);
+    setQty(1);
     setView('confirm');
   }, []);
 
   const handleConfirmPurchase = useCallback(() => {
     if (!selectedPack) return;
-    const result = purchasePack(selectedPack);
-    if (result.success) {
-      setPulledCards(result.cards);
+    const allCards: SportsCard[] = [];
+    for (let i = 0; i < qty; i++) {
+      const result = purchasePack(selectedPack);
+      if (result.success) {
+        allCards.push(...result.cards);
+      } else break;
+    }
+    if (allCards.length > 0) {
+      setPulledCards(allCards);
       setRevealedCount(0);
       setView('reveal');
-      // Update wallet
       setWallet(getWallet());
       setVaultCount(getVaultCards().length);
       setTransactions(getTransactions().slice(0, 20));
-      // Start reveal animation
       const interval = setInterval(() => {
         setRevealedCount(prev => {
-          if (prev >= result.cards.length) {
+          if (prev >= allCards.length) {
             clearInterval(interval);
             return prev;
           }
@@ -93,7 +126,7 @@ export default function PackStoreClient() {
         });
       }, 600);
     }
-  }, [selectedPack]);
+  }, [selectedPack, qty]);
 
   const totalPullValue = useMemo(() => {
     return pulledCards.reduce((sum, c) => sum + parseValue(c.estimatedValueRaw), 0);
@@ -115,9 +148,12 @@ export default function PackStoreClient() {
   // ── Confirm Purchase Modal ──
   if (view === 'confirm' && selectedPack) {
     const tier = TIER_INFO[selectedPack.tier];
-    const canAfford = wallet.balance >= selectedPack.price;
+    const totalCost = selectedPack.price * qty;
+    const maxQty = Math.min(3, Math.floor(wallet.balance / selectedPack.price));
+    const canAfford = wallet.balance >= totalCost;
     return (
       <div className="max-w-lg mx-auto">
+        <StepIndicator current={1} />
         <div className={`bg-gradient-to-br ${selectedPack.gradient} border ${selectedPack.borderColor} rounded-2xl p-6`}>
           <div className="text-center mb-6">
             <div className="text-5xl mb-3">{selectedPack.icon}</div>
@@ -144,10 +180,44 @@ export default function PackStoreClient() {
             ))}
           </div>
 
+          {/* Quantity Selector */}
+          {maxQty > 1 && (
+            <div className="bg-gray-950/60 rounded-xl p-4 mb-4">
+              <p className="text-xs text-gray-400 mb-2">Quantity</p>
+              <div className="flex gap-2">
+                {[1, 2, 3].filter(n => n <= maxQty).map(n => (
+                  <button
+                    key={n}
+                    onClick={() => setQty(n)}
+                    className={`flex-1 py-2 rounded-lg text-sm font-bold transition-colors ${
+                      qty === n
+                        ? 'bg-emerald-600 text-white'
+                        : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+                    }`}
+                  >
+                    {n} Pack{n > 1 ? 's' : ''}
+                  </button>
+                ))}
+              </div>
+              {qty > 1 && (
+                <p className="text-xs text-emerald-400 mt-2 text-center">
+                  {selectedPack.cardsPerPack * qty} total cards to reveal
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* Order Summary */}
           <div className="bg-gray-950/60 rounded-xl p-4 mb-6">
+            {qty > 1 && (
+              <div className="flex justify-between text-sm mb-1">
+                <span className="text-gray-400">{qty}x {selectedPack.name}</span>
+                <span className="text-gray-300">{qty} &times; {formatCurrency(selectedPack.price)}</span>
+              </div>
+            )}
             <div className="flex justify-between text-sm mb-1">
-              <span className="text-gray-400">Pack price</span>
-              <span className="text-white font-bold">{formatCurrency(selectedPack.price)}</span>
+              <span className="text-gray-400">{qty > 1 ? 'Total' : 'Pack price'}</span>
+              <span className="text-white font-bold">{formatCurrency(totalCost)}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-gray-400">Your balance</span>
@@ -156,14 +226,14 @@ export default function PackStoreClient() {
             {canAfford && (
               <div className="flex justify-between text-sm mt-1 pt-1 border-t border-gray-800">
                 <span className="text-gray-500">After purchase</span>
-                <span className="text-gray-400">{formatCurrency(wallet.balance - selectedPack.price)}</span>
+                <span className="text-gray-400">{formatCurrency(wallet.balance - totalCost)}</span>
               </div>
             )}
           </div>
 
           <div className="flex gap-3">
             <button
-              onClick={() => { setView('store'); setSelectedPack(null); }}
+              onClick={() => { setView('store'); setSelectedPack(null); setQty(1); }}
               className="flex-1 py-3 rounded-xl bg-gray-800 text-gray-300 font-medium text-sm hover:bg-gray-700 transition-colors"
             >
               Cancel
@@ -173,7 +243,7 @@ export default function PackStoreClient() {
                 onClick={handleConfirmPurchase}
                 className="flex-1 py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-500 transition-colors"
               >
-                Buy &amp; Open — {formatCurrency(selectedPack.price)}
+                Buy &amp; Open — {formatCurrency(totalCost)}
               </button>
             ) : (
               <div className="flex-1 py-3 rounded-xl bg-red-900/40 text-red-400 font-medium text-sm text-center border border-red-800/50">
@@ -190,12 +260,13 @@ export default function PackStoreClient() {
   if (view === 'reveal' && pulledCards.length > 0 && selectedPack) {
     return (
       <div className="max-w-2xl mx-auto">
+        <StepIndicator current={2} />
         <CinematicReveal
           cards={pulledCards}
           packName={selectedPack.name}
           packPrice={selectedPack.price}
-          onComplete={() => { setView('store'); setSelectedPack(null); setPulledCards([]); }}
-          onBuyAnother={wallet.balance >= selectedPack.price ? () => handleConfirmPurchase() : undefined}
+          onComplete={() => { setView('store'); setSelectedPack(null); setPulledCards([]); setQty(1); }}
+          onBuyAnother={wallet.balance >= selectedPack.price ? () => { setQty(1); handleConfirmPurchase(); } : undefined}
         />
       </div>
     );
