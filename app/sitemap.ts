@@ -302,6 +302,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/event-countdowns`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/hobby-awards`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/auction-ticker`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/tools/centering-check`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/grading`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
   ];
 
