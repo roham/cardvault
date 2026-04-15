@@ -1,5 +1,6 @@
 import type { SportsCard } from '@/data/sports-cards';
 import { getJerseyNumber } from '@/data/sports-cards';
+import cardImages from '@/data/card-images.json';
 
 // Period-appropriate font styles
 const eraStyles: Record<string, { font: string; style: string }> = {
@@ -87,7 +88,10 @@ interface CardFrameProps {
   size?: 'small' | 'large';
 }
 
+const imageMapTyped = cardImages as Record<string, string>;
+
 export default function CardFrame({ card, size = 'small' }: CardFrameProps) {
+  const realImage = imageMapTyped[card.slug];
   const era = getEra(card.year);
   const eraStyle = eraStyles[era];
   const [primary, secondary] = getPlayerColors(card.slug, card.sport);
@@ -146,50 +150,62 @@ export default function CardFrame({ card, size = 'small' }: CardFrameProps) {
           )}
         </div>
 
-        {/* Main image area — typographic card art */}
+        {/* Main image area */}
         <div
           className="absolute top-12 left-3 right-3 bottom-16 rounded-lg overflow-hidden flex flex-col items-center justify-center"
-          style={{ background: `linear-gradient(160deg, ${primary}44 0%, ${secondary}CC 50%, ${primary}22 100%)` }}
+          style={{ background: realImage ? '#000' : `linear-gradient(160deg, ${primary}44 0%, ${secondary}CC 50%, ${primary}22 100%)` }}
         >
-          {/* Diagonal stripe texture — vintage card feel */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `repeating-linear-gradient(135deg, ${primary}08 0px, ${primary}08 1px, transparent 1px, transparent 12px)`,
-            }}
-          />
+          {realImage ? (
+            /* Real card image from eBay */
+            <img
+              src={realImage}
+              alt={card.name}
+              className="absolute inset-0 w-full h-full object-contain"
+              loading="lazy"
+            />
+          ) : (
+            <>
+              {/* Diagonal stripe texture — vintage card feel */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: `repeating-linear-gradient(135deg, ${primary}08 0px, ${primary}08 1px, transparent 1px, transparent 12px)`,
+                }}
+              />
 
-          {/* Era-appropriate horizontal rule accent */}
-          {era === 'prewar' || era === 'vintage' ? (
-            <div className="absolute top-4 left-4 right-4 flex flex-col gap-1 opacity-20">
-              <div className="h-px w-full" style={{ background: primary }} />
-              <div className="h-px w-full" style={{ background: primary }} />
-            </div>
-          ) : null}
+              {/* Era-appropriate horizontal rule accent */}
+              {era === 'prewar' || era === 'vintage' ? (
+                <div className="absolute top-4 left-4 right-4 flex flex-col gap-1 opacity-20">
+                  <div className="h-px w-full" style={{ background: primary }} />
+                  <div className="h-px w-full" style={{ background: primary }} />
+                </div>
+              ) : null}
 
-          {/* Big jersey number / initials — the card's centerpiece */}
-          <div className="relative z-10 flex flex-col items-center justify-center">
-            <span
-              className={`font-black leading-none select-none ${eraStyle.font}`}
-              style={{
-                fontSize: isNumber ? (displayNumber.length > 2 ? '5rem' : '7rem') : '4.5rem',
-                color: primary,
-                opacity: 0.85,
-                textShadow: `0 4px 24px ${secondary}CC, 0 0 60px ${primary}40`,
-                letterSpacing: '-0.02em',
-              }}
-            >
-              {displayNumber}
-            </span>
-            {isNumber && (
-              <span
-                className="text-xs font-bold tracking-[0.2em] uppercase mt-1 opacity-50"
-                style={{ color: primary }}
-              >
-                {card.sport === 'baseball' ? 'jersey' : '#'}
-              </span>
-            )}
-          </div>
+              {/* Big jersey number / initials — the card's centerpiece */}
+              <div className="relative z-10 flex flex-col items-center justify-center">
+                <span
+                  className={`font-black leading-none select-none ${eraStyle.font}`}
+                  style={{
+                    fontSize: isNumber ? (displayNumber.length > 2 ? '5rem' : '7rem') : '4.5rem',
+                    color: primary,
+                    opacity: 0.85,
+                    textShadow: `0 4px 24px ${secondary}CC, 0 0 60px ${primary}40`,
+                    letterSpacing: '-0.02em',
+                  }}
+                >
+                  {displayNumber}
+                </span>
+                {isNumber && (
+                  <span
+                    className="text-xs font-bold tracking-[0.2em] uppercase mt-1 opacity-50"
+                    style={{ color: primary }}
+                  >
+                    {card.sport === 'baseball' ? 'jersey' : '#'}
+                  </span>
+                )}
+              </div>
+            </>
+          )}
 
           {/* Rookie stamp — angled overlay, bottom-right */}
           {card.rookie && (
@@ -263,8 +279,17 @@ export default function CardFrame({ card, size = 'small' }: CardFrameProps) {
       {/* Art area */}
       <div
         className="absolute top-7 left-1.5 right-1.5 bottom-10 rounded flex flex-col items-center justify-center overflow-hidden"
-        style={{ background: `linear-gradient(160deg, ${primary}33 0%, ${secondary}CC 100%)` }}
+        style={{ background: realImage ? '#000' : `linear-gradient(160deg, ${primary}33 0%, ${secondary}CC 100%)` }}
       >
+        {realImage ? (
+          <img
+            src={realImage}
+            alt={card.name}
+            className="absolute inset-0 w-full h-full object-contain"
+            loading="lazy"
+          />
+        ) : (
+          <>
         <div
           className="absolute inset-0"
           style={{
@@ -284,6 +309,8 @@ export default function CardFrame({ card, size = 'small' }: CardFrameProps) {
         >
           {displayNumber}
         </span>
+          </>
+        )}
         {/* Rookie stamp small */}
         {card.rookie && (
           <div
