@@ -120,6 +120,7 @@ export default function GroupBreakPage() {
             { href: '/tools/pack-sim', label: 'Pack Simulator' },
             { href: '/tools/box-break', label: 'Box Break Calculator' },
             { href: '/tools/sealed-ev', label: 'Sealed Product EV' },
+            { href: '/break-tracker', label: 'Break Tracker' },
             { href: '/draft-live', label: 'Draft Night Live' },
           ].map(link => (
             <Link

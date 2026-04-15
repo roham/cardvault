@@ -124,6 +124,13 @@ export default function BreakRoomPage() {
               <div className="text-gray-500 text-xs">Open your own packs</div>
             </div>
           </Link>
+          <Link href="/break-tracker" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 hover:bg-gray-700/60 rounded-xl transition-colors">
+            <span className="text-xl">📊</span>
+            <div>
+              <div className="text-white text-sm font-medium">Break Tracker</div>
+              <div className="text-gray-500 text-xs">Log pulls and track ROI live</div>
+            </div>
+          </Link>
           <Link href="/drops" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 hover:bg-gray-700/60 rounded-xl transition-colors">
             <span className="text-xl">📅</span>
             <div>
