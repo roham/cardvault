@@ -87,6 +87,8 @@ export default function ToolsPage() {
           { href: '/tools/turnaround-estimator', label: 'Turnaround Estimator', icon: '⏱️' },
           { href: '/tools/diversification', label: 'Diversification Analyzer', icon: '📊' },
           { href: '/tools/bgs-subgrade', label: 'BGS Subgrade Calculator', icon: '🎯' },
+          { href: '/tools/flip-tracker', label: 'Flip Tracker P&L', icon: '📒' },
+          { href: '/tools/roi-heatmap', label: 'ROI Heatmap', icon: '🗺️' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
