@@ -237,6 +237,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vault/bulk-sale`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/vault/consignment`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/vault/goals`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${BASE_URL}/vault/sealed-wax`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/card-clash`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/hot-potato`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/power-rankings`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
@@ -304,6 +305,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/auction-ticker`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/tools/centering-check`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/grading`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${BASE_URL}/card-connections`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
   ];
 
   // Dynamic guide pages from guides-data.ts
