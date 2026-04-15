@@ -4,6 +4,7 @@ import { guides } from '@/app/guides/guides-data';
 import { sealedProducts } from '@/data/sealed-products';
 import { cardBrands } from '@/data/brands';
 import { STORE_PACKS } from '@/lib/vault';
+import { teams, playerTeamMap } from '@/data/teams-data';
 
 const BASE_URL = 'https://cardvault-two.vercel.app';
 
@@ -269,6 +270,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/card-market-simulator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/seasonal-calendar`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/market-weather`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/tools/investment-return`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/brands`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/rookies`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
@@ -382,6 +384,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    // Team pages
+    { url: `${BASE_URL}/teams`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.8 },
+    ...teams.filter(t => {
+      let count = 0;
+      for (const card of sportsCards) {
+        if (playerTeamMap[card.player] === t.slug) count++;
+        if (count >= 3) return true;
+      }
+      return false;
+    }).map(t => ({
+      url: `${BASE_URL}/teams/${t.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
   ];
 }
