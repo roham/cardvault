@@ -126,6 +126,7 @@ export default function ToolsPage() {
           { href: '/tools/collection-report', label: 'Collection Report Card', icon: '📋' },
           { href: '/tools/show-prep', label: 'Card Show Prep Tool', icon: '🎯' },
           { href: '/tools/card-ladder', label: 'Card Ladder Builder', icon: '🪜' },
+          { href: '/tools/auction-bid', label: 'Auction Bid Calculator', icon: '🔨' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
