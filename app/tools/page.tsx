@@ -112,6 +112,7 @@ export default function ToolsPage() {
           { href: '/tools/set-break', label: 'Set Break Calculator', icon: '📦' },
           { href: '/tools/appraisal-report', label: 'Appraisal Report', icon: '📋' },
           { href: '/tools/trend-predictor', label: 'Trend Predictor', icon: '🔮' },
+          { href: '/tools/damage-assessment', label: 'Damage Assessment', icon: '🔍' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
