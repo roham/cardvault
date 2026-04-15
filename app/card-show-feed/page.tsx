@@ -127,6 +127,10 @@ export default function CardShowFeedPage() {
             <div className="text-sm font-medium text-white">Sentiment Index</div>
             <div className="text-xs text-gray-500">Market Fear &amp; Greed</div>
           </Link>
+          <Link href="/watch-party" className="bg-gray-900 border border-gray-800 rounded-lg p-3 hover:border-gray-600 transition-colors">
+            <div className="text-sm font-medium text-white">Watch Party</div>
+            <div className="text-xs text-gray-500">Live game card tracker</div>
+          </Link>
         </div>
       </div>
     </div>

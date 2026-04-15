@@ -135,6 +135,10 @@ export default function AuctionLivePage() {
             <h3 className="text-sm font-semibold text-white">Pack Store</h3>
             <p className="text-xs text-gray-400 mt-1">Open digital card packs.</p>
           </Link>
+          <Link href="/watch-party" className="p-4 bg-gray-900/40 border border-gray-800 rounded-xl hover:border-gray-600 transition-colors">
+            <h3 className="text-sm font-semibold text-white">Watch Party</h3>
+            <p className="text-xs text-gray-400 mt-1">Live game card impact tracker.</p>
+          </Link>
         </div>
       </section>
     </div>

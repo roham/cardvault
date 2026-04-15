@@ -102,7 +102,14 @@ export default function BreakRoomPage() {
       {/* Related Features */}
       <div className="mt-8 bg-gray-800/60 border border-gray-700 rounded-2xl p-6">
         <h2 className="text-lg font-bold text-white mb-4">More Live Features</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <Link href="/watch-party" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 hover:bg-gray-700/60 rounded-xl transition-colors">
+            <span className="text-xl">🏟️</span>
+            <div>
+              <div className="text-white text-sm font-medium">Watch Party</div>
+              <div className="text-gray-500 text-xs">Live game card impact tracker</div>
+            </div>
+          </Link>
           <Link href="/auction" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 hover:bg-gray-700/60 rounded-xl transition-colors">
             <span className="text-xl">🔨</span>
             <div>
