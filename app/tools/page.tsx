@@ -140,6 +140,7 @@ export default function ToolsPage() {
           { href: '/tools/flip-window', label: 'Flip Window Calculator', icon: '📅' },
           { href: '/trade-in', label: 'Trade-In Estimator', icon: '🔄' },
           { href: '/tools/combo-analyzer', label: 'Combo Analyzer', icon: '🃏' },
+          { href: '/tools/smart-buy-list', label: 'Smart Buy List', icon: '🛒' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
