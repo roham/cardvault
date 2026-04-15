@@ -250,6 +250,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/investment-thesis`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/myth-busters`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/live-hub`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/community-polls`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
   ];
 
   // Dynamic guide pages from guides-data.ts
