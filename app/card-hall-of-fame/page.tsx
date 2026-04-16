@@ -117,6 +117,7 @@ export default function CardHallOfFamePage() {
         <p>
           Part of the <Link href="/guides" className="text-amber-400 hover:underline">CardVault Guides</Link> collection.
           See also:{' '}
+          <Link href="/set-archives" className="text-amber-400 hover:underline">Set Archives</Link>,{' '}
           <Link href="/bucket-list" className="text-amber-400 hover:underline">Bucket List</Link>,{' '}
           <Link href="/collecting-roadmap" className="text-amber-400 hover:underline">Collecting Roadmap</Link>,{' '}
           <Link href="/card-encyclopedia" className="text-amber-400 hover:underline">Card Encyclopedia</Link>,{' '}
