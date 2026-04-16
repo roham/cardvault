@@ -146,6 +146,7 @@ export default function ToolsPage() {
           { href: '/tools/nostalgia', label: 'Nostalgia Machine', icon: '⏰' },
           { href: '/tools/card-matchmaker', label: 'Card Matchmaker', icon: '💕' },
           { href: '/tools/dca-calculator', label: 'DCA Calculator', icon: '📈' },
+          { href: '/tools/regrade-calc', label: 'Regrade Calculator', icon: '🔄' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
