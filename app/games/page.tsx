@@ -107,6 +107,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
     games: [
       { href: '/card-draft', name: 'Card Draft', desc: 'Snake draft vs 3 AI opponents' },
       { href: '/card-clash', name: 'Card Clash', desc: 'Head-to-head draft battle' },
+      { href: '/card-triad', name: 'Card Triad', desc: '3×3 grid battle — capture with higher edges' },
       { href: '/card-bracket', name: 'Card Bracket', desc: '16-card single elimination tournament' },
       { href: '/card-battle', name: 'Card Battles', desc: 'Stat-based card combat' },
       { href: '/mock-draft', name: 'Mock Draft', desc: 'Be the GM — build your rookie card portfolio' },
