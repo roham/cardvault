@@ -458,6 +458,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/market-roundtable`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/vault/market-maker`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/card-gauntlet`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/tools/player-portfolio`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
