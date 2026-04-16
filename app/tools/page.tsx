@@ -81,6 +81,7 @@ export default function ToolsPage() {
           { href: '/show-companion', label: 'Show Companion', icon: '🎪' },
           { href: '/tools/vintage-evaluator', label: 'Vintage Card Evaluator', icon: '🏛️' },
           { href: '/tools/inheritance-guide', label: 'Inheritance Guide', icon: '📜' },
+          { href: '/tools/numbered-premium', label: 'Numbered Card Premium', icon: '🔢' },
           { href: '/tools/tax-calc', label: 'Card Tax Calculator', icon: '🧾' },
           { href: '/tools/budget-planner', label: 'Hobby Budget Planner', icon: '💰' },
           { href: '/tools/budget-optimizer', label: 'Budget Optimizer', icon: '🎯' },
