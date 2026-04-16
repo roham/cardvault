@@ -155,6 +155,7 @@ export default function ToolsPage() {
           { href: '/tools/break-roi', label: 'Break ROI Tracker', icon: '📊' },
           { href: '/tools/split-calc', label: 'Card Split Calculator', icon: '✂️' },
           { href: '/tools/payment-plan', label: 'Payment Plan Calculator', icon: '💳' },
+          { href: '/games', label: 'All 50+ Games', icon: '🎮' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a

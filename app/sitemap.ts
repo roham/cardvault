@@ -395,6 +395,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/grading`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/card-connections`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/order-book`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/games`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
   ];
 
   // Dynamic guide pages from guides-data.ts
