@@ -127,6 +127,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-poker', name: 'Card Poker', desc: 'Deal 7, keep 5, form the best poker hand — chase the Royal Flush' },
       { href: '/card-snake', name: 'Card Snake', desc: 'Collect cards to grow your snake' },
       { href: '/break-bingo', name: 'Break Bingo', desc: 'Bingo meets card breaks — watch pulls, call BINGO!' },
+      { href: '/rank-or-tank', name: 'Rank or Tank', desc: 'Order 5 real cards by value. One miss knocks a grade; two misses, you tank.' },
     ],
   },
   {
