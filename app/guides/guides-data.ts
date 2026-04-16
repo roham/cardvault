@@ -792,6 +792,123 @@ export const guides: Guide[] = [
     gradient: 'from-green-900/40 via-emerald-900/20 to-gray-900/40',
     content: [],
   },
+  {
+    slug: 'rookie-card-explained',
+    title: 'Rookie Card Definition: What Actually Counts as an RC',
+    summary: 'The most confusing topic in card collecting. What counts as a rookie card varies by sport, manufacturer, and era. This guide decodes every rule — the official RC logo, the pre-MLB rookies, the Bowman Chrome 1st, and why your 1989 Griffey is not technically his only rookie.',
+    category: 'Beginner',
+    readTime: '9 min',
+    icon: '🌟',
+    gradient: 'from-purple-900/40 via-fuchsia-900/20 to-gray-900/40',
+    featuredCards: [
+      { slug: '1989-upper-deck-ken-griffey-jr-1', type: 'sports', label: '1989 Upper Deck Ken Griffey Jr. #1', note: 'Iconic rookie; NOT his only 1989 RC (four exist).' },
+      { slug: '1986-87-fleer-michael-jordan-57', type: 'sports', label: '1986-87 Fleer Michael Jordan #57', note: 'Pre-RC-logo era; consensus rookie by market.' },
+      { slug: '2009-bowman-chrome-mike-trout-bdpp89', type: 'sports', label: '2009 Bowman Chrome Mike Trout', note: '1st Bowman Chrome (prospect card), NOT his official RC.' },
+      { slug: '2011-topps-update-mike-trout-us175', type: 'sports', label: '2011 Topps Update Mike Trout #US175', note: 'Official PSA-recognized RC with the RC logo.' },
+      { slug: '2000-playoff-contenders-tom-brady-144', type: 'sports', label: '2000 Playoff Contenders Tom Brady #144 Auto', note: 'Rookie autograph, RC year, premium format.' },
+    ],
+    content: [
+      {
+        heading: 'The short definition (and why it gets complicated)',
+        body: 'Rookie Card (RC) is a card of a player issued in the year they first appeared at the sport\'s top professional level (MLB, NBA, NFL, NHL). Sounds simple. But every sport, every manufacturer, and every decade has exceptions — pre-MLB Bowman Chrome cards, XRC cards, Update sets, the 2006 introduction of the RC logo, and different rookie-class rules by sport. Understanding these rules is the difference between paying $3,000 for "Mike Trout\'s rookie" and actually buying his rookie.',
+        callout: 'If you remember one thing: a pre-rookie prospect card (like a 1st Bowman Chrome) is NOT the official rookie card. It is an earlier card of the player, but PSA, market, and grading pops treat it as a separate thing.',
+        calloutType: 'info',
+      },
+      {
+        heading: 'The RC logo era: 2006–present',
+        body: 'Starting in 2006, the major manufacturers (Topps, Panini, Upper Deck) agreed that only cards printed in a player\'s rookie season — and ONLY in licensed, approved sets — would carry the official "RC" logo. This was a direct response to manufacturers flooding the market with so many "rookie" cards that the term had become meaningless.',
+        bullets: [
+          'The RC logo is a small stamp, usually in the lower-left or lower-right corner',
+          'If the logo is there, the card is an officially recognized rookie card',
+          'If the logo is NOT there on a modern (2006+) card, the card is not an official RC — regardless of what sellers claim',
+          'Panini adopted its own "RC" marking after its NBA/NFL licensing expansions',
+          'Pre-2006 cards have no such standardization — pre-RC era rules are entirely based on what the market and PSA treat as the consensus rookie',
+        ],
+      },
+      {
+        heading: 'Baseball: the prospect trap',
+        body: 'Baseball is the hardest sport to understand because of the Bowman Chrome system. Topps\' Bowman product issues prospect cards of minor-leaguers 2–4 years before they reach MLB. These are NOT official rookie cards, but they are often more valuable than the actual RC because they are printed in smaller quantities and chased earlier.',
+        bullets: [
+          'Bowman Chrome 1st: a prospect card, issued when the player is in the minors. This is NOT the player\'s rookie card.',
+          'The MLB-year Topps flagship card with the RC logo (e.g., 2011 Topps Update #US175 Mike Trout) IS the official rookie card',
+          'A "first Bowman Chrome" auto is often the most valuable card of the player; but it is a prospect, not an RC',
+          'PSA grades both, but the pop reports are separate — a Topps Update RC and a Bowman Chrome 1st are different cards in the population',
+          'Rookie definition shortcut for baseball: the card in the year they debuted at MLB, in a licensed flagship set',
+        ],
+        callout: 'A 2009 Bowman Chrome Mike Trout sold for $900,000 as a SuperFractor 1/1. It is labeled "1st Bowman Chrome" — NOT a rookie card. His RC is the 2011 Topps Update.',
+        calloutType: 'warning',
+      },
+      {
+        heading: 'Basketball and football: cleaner rules',
+        body: 'NBA and NFL rookie definitions are simpler because both leagues have drafts that deliver rookies straight from college to pro in the same calendar year. The 2020–21 Panini Prizm Basketball LaMelo Ball is his rookie. The 2022 Panini Prizm Football Brock Purdy is his rookie.',
+        bullets: [
+          'NBA: the Panini flagship products (Prizm, Select, National Treasures) of the player\'s first NBA season are the primary rookie cards',
+          'NFL: same model — Prizm, Select, National Treasures, Contenders, Donruss Optic of the first NFL season',
+          'Panini Contenders autographs: Contenders is often considered the flagship rookie autograph in football (Tom Brady 2000 Contenders is the iconic example)',
+          'Some players have multiple rookie cards across brands (Prizm, Optic, Select, etc.) — all are legitimate RCs, just different brands',
+          'If a player went undrafted or was drafted late, their first RC may be a year or two after their debut — waited for a full rookie season before inclusion in a flagship set',
+        ],
+      },
+      {
+        heading: 'Hockey: the Young Guns system',
+        body: 'Hockey is the cleanest. Upper Deck holds the NHL exclusive license, and the Young Guns rookie subset (cards #201–250 and #451–500 of the flagship Upper Deck Series 1/Series 2 sets) is the universally recognized rookie format. If a player has a Young Guns card, that is their RC. Period.',
+        bullets: [
+          'Wayne Gretzky\'s RC: 1979–80 O-Pee-Chee #18 (pre-Young Guns, from the golden age)',
+          'Crosby, Ovechkin, McDavid, Matthews all have Young Guns RCs and those are THE rookies of record',
+          'Young Guns are short-printed at roughly 1:4 packs (slightly more common in early-decade products, scarcer today)',
+          'Pre-2001 hockey rookies (before Young Guns): use the flagship O-Pee-Chee or Topps RC of the player\'s debut season',
+          'Other Upper Deck inserts (SP Authentic RC Auto, The Cup RC Patch Auto) are also legitimate premium rookies — not substitutes for Young Guns, but parallel prestige',
+        ],
+      },
+      {
+        heading: 'Pre-2006: the consensus rookie',
+        body: 'Before the RC logo standardization, the market decided which card was considered a player\'s rookie. For most players, this was the flagship Topps or Donruss card of their debut season. But some famous cases have multiple "rookie" cards across brands (like Ken Griffey Jr., who has four 1989 rookies — Upper Deck, Topps Traded, Bowman, Fleer, plus the Donruss MVP card).',
+        bullets: [
+          'Griffey\'s four 1989 RCs: Upper Deck #1 (most valuable, limited production), Topps Traded, Bowman, Fleer',
+          'Jordan\'s 1986–87 Fleer: the consensus Jordan RC (there are earlier Star Basketball cards from 1984 but those are considered "pre-rookie" or "XRC")',
+          'XRC (eXtended Rookie Card): sets issued late in a player\'s debut year that technically show them in MLB uniforms — common 1980s designation',
+          'Consensus means PSA, BGS, and auction houses treat a specific card as the primary rookie, even without an official logo',
+        ],
+      },
+      {
+        heading: 'Red flags: what sellers call "rookies" that are not',
+        body: 'A lot of cards get marketed as "rookies" when they are not. Knowing these patterns saves you money.',
+        bullets: [
+          '"1st Bowman" on a modern (post-2006) baseball card — NOT his rookie. The true RC is in Topps flagship.',
+          'Pre-MLB prospect cards of all kinds — NOT rookies. Prospects, yes. Rookies, no.',
+          'Cards labeled "Rookie Phenoms," "Rookie Futures," "Rookie Debut" inserts — NOT the official RC. Subset/parallel inserts that reference a rookie season but are not the base rookie card.',
+          'Post-rookie-year update sets featuring the player — if the RC logo is missing, it is not a rookie card',
+          'Cards from minor-league team sets (e.g., Fresno Grizzlies, Tulsa Drillers) — these are prospect/minor-league cards, not RCs',
+          'Older cards that predate a player\'s MLB debut (amateur/Olympic cards) — not rookies, though they can be collectible in their own right',
+        ],
+        callout: 'Quick test: does the card have the "RC" logo (for post-2006 cards) or is it in the player\'s recognized debut-year flagship set (pre-2006)? If neither, it is not the rookie card.',
+        calloutType: 'tip',
+      },
+      {
+        heading: 'Autograph rookies vs base rookies',
+        body: 'A card can be both a rookie card AND an autograph — this is the most valuable format in the modern hobby. A 2000 Playoff Contenders Tom Brady Rookie Ticket Auto is a rookie card + an on-card autograph, which is why it sells for 10–100× his base rookies.',
+        bullets: [
+          'Panini Contenders Rookie Ticket Auto: the flagship NFL rookie auto format',
+          'Panini National Treasures RPA (Rookie Patch Auto): premium RC + on-card auto + game-worn patch — the grail format',
+          'Topps Chrome Refractor RC Auto: baseball equivalent, for players who make it to a licensed auto product',
+          'Sticker autos vs on-card: on-card autos are always preferred; sticker autos sell for 30–60% less',
+          'Not every player gets a rookie auto — only the top draft picks and top prospects make it into auto subsets',
+        ],
+      },
+      {
+        heading: 'Summary: how to identify a real rookie card in 10 seconds',
+        body: 'A checklist for the buyer. When a seller calls something a "rookie," run through these questions.',
+        bullets: [
+          'Is it post-2006? Look for the RC logo in the lower corners. No logo = not an RC.',
+          'Is it pre-2006? Check the player\'s debut year against the card\'s year. Flagship brand (Topps, Donruss, Fleer, Upper Deck) = consensus RC.',
+          'Is it a baseball prospect card (Bowman Chrome 1st, Pre-Draft)? That is a prospect card, NOT an RC.',
+          'Is it from an update/traded/high-number set in the debut year? Often YES, these count (Topps Traded, Topps Update).',
+          'Is it an insert subset labeled "Rookie ____"? Probably NOT an RC — it is a themed insert.',
+          'When in doubt: check PSA\'s population report. PSA categorizes all graded cards by whether they are the "RC."',
+        ],
+      },
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string): Guide | undefined {

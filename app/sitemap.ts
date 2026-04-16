@@ -58,6 +58,7 @@ const standaloneGuides = [
   'psa-vs-bgs-vs-cgc', 'tcgplayer-vs-ebay', 'how-to-sell-cards', 'best-rookie-cards-2026',
   'psa-grading-scale', 'card-storage-guide', 'card-collecting-glossary', 'budget-collecting',
   'start-collecting-baseball', 'start-collecting-basketball', 'start-collecting-football', 'start-collecting-hockey',
+  'rookie-card-explained',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -477,6 +478,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/true-cost`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/card-pairs`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/famous-error-cards`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/vault/ship-it`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
   ];
 
   // Dynamic guide pages from guides-data.ts
