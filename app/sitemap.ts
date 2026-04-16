@@ -474,6 +474,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/card-hall-of-fame`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/parallel-rainbow`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/estate-sale`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/card-show-booth`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/vault/loan-office`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/opening-bell`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/auction-paddle`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
