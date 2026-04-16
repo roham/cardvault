@@ -163,7 +163,7 @@ const _teamRosters: Record<string, string[]> = {
   'pittsburgh-pirates': ['Honus Wagner', 'Roberto Clemente', 'Willie Stargell', 'Ralph Kiner', 'Bill Mazeroski', 'Paul Skenes', 'Oneil Cruz', 'Bryan Reynolds', 'Pie Traynor'],
   'cincinnati-reds': ['Pete Rose', 'Johnny Bench', 'Barry Larkin', 'Elly De La Cruz', 'Frank Robinson', 'Joe Morgan', 'Noelvi Marte', 'Hunter Greene', 'Matt McLain'],
   'cleveland-guardians': ['Bob Feller', 'Jose Ramirez', 'Larry Doby', 'Andres Gimenez', 'Emmanuel Clase', 'Lane Thomas', 'Albert Belle'],
-  'milwaukee-brewers': ['Robin Yount', 'Christian Yelich', 'Paul Molitor', 'Willy Adames', 'Jackson Chourio', 'Sal Frazier'],
+  'milwaukee-brewers': ['Robin Yount', 'Christian Yelich', 'Paul Molitor', 'Willy Adames', 'Jackson Chourio', 'Sal Frazier', 'Freddy Peralta'],
   'minnesota-twins': ['Harmon Killebrew', 'Kirby Puckett', 'Rod Carew', 'Joe Mauer', 'Carlos Correa', 'Byron Buxton', 'Royce Lewis', 'Edouard Julien'],
   'texas-rangers': ['Adrian Beltre', 'Ivan Rodriguez', 'Corey Seager', 'Marcus Semien', 'Evan Carter', 'Wyatt Langford'],
   'seattle-mariners': ['Ken Griffey Jr.', 'Ichiro Suzuki', 'Edgar Martinez', 'Felix Hernandez', 'Julio Rodriguez', 'George Kirby', 'Logan Gilbert', 'Bryce Miller', 'Randy Johnson'],
@@ -176,14 +176,14 @@ const _teamRosters: Record<string, string[]> = {
   'toronto-blue-jays': ['Vladimir Guerrero Jr', 'Vladimir Guerrero Jr.', 'Bo Bichette', 'Roy Halladay', 'Joe Carter'],
   'arizona-diamondbacks': ['Corbin Carroll', 'Randy Johnson', 'Christian Walker', 'Brandon Pfaadt'],
   'colorado-rockies': ['Todd Helton', 'Nolan Arenado', 'Larry Walker', 'Ezequiel Tovar'],
-  'washington-nationals': ['Juan Soto', 'Stephen Strasburg', 'Ryan Zimmerman', 'James Wood', 'CJ Abrams', 'Dylan Crews'],
+  'washington-nationals': ['Juan Soto', 'Stephen Strasburg', 'Ryan Zimmerman', 'James Wood', 'CJ Abrams', 'Dylan Crews', 'MacKenzie Gore'],
   'miami-marlins': ['Eury Perez', 'Jazz Chisholm', 'Jazz Chisholm Jr.', 'Junior Caminero'],
   'oakland-athletics': ['Rickey Henderson', 'Dennis Eckersley', 'Reggie Jackson', 'Jose Canseco', 'Lawrence Butler', 'Catfish Hunter', 'Rollie Fingers', 'Mason Miller'],
   // ── NBA ───────────────────────────────────────────────────
   'los-angeles-lakers': ['LeBron James', 'Kobe Bryant', 'Magic Johnson', 'Kareem Abdul-Jabbar', 'Shaquille O\'Neal', 'Anthony Davis', 'Jerry West', 'Wilt Chamberlain', 'Elgin Baylor', 'James Worthy', 'Pau Gasol', 'Austin Reaves', 'Bronny James', 'George Mikan'],
   'boston-celtics': ['Larry Bird', 'Bill Russell', 'Bob Cousy', 'Jayson Tatum', 'Jaylen Brown', 'Kristaps Porzingis', 'Payton Pritchard', 'John Havlicek', 'Bill Walton', 'Kevin McHale', 'Paul Pierce', 'Derrick White', 'Bill Sharman', 'Sam Jones', 'Tom Heinsohn', 'Jrue Holiday', 'Al Horford'],
   'chicago-bulls': ['Michael Jordan', 'Scottie Pippen', 'Dennis Rodman', 'Derrick Rose', 'Toni Kukoc', 'Coby White', 'Zach LaVine', 'Artis Gilmore', 'Horace Grant', 'Joakim Noah'],
-  'golden-state-warriors': ['Stephen Curry', 'Klay Thompson', 'Draymond Green', 'Chris Mullin', 'Andre Iguodala', 'Andrew Wiggins', 'Jonathan Kuminga', 'Rick Barry'],
+  'golden-state-warriors': ['Stephen Curry', 'Klay Thompson', 'Draymond Green', 'Chris Mullin', 'Andre Iguodala', 'Andrew Wiggins', 'Jonathan Kuminga', 'Rick Barry', 'Brandin Podziemski'],
   'miami-heat': ['Dwyane Wade', 'Alonzo Mourning', 'Tyler Herro', 'Bam Adebayo', 'Jimmy Butler', 'Tim Hardaway'],
   'philadelphia-76ers': ['Allen Iverson', 'Joel Embiid', 'Julius Erving', 'Charles Barkley', 'Tyrese Maxey', 'Wilt Chamberlain', 'Moses Malone', 'Hal Greer', 'Bobby Jones', 'Dolph Schayes'],
   'brooklyn-nets': ['Kevin Durant', 'Kyrie Irving', 'Ben Simmons', 'Jason Kidd', 'Cam Thomas', 'Julius Erving'],
@@ -215,13 +215,13 @@ const _teamRosters: Record<string, string[]> = {
   'new-england-patriots': ['Tom Brady', 'Rob Gronkowski', 'Andre Tippett', 'Drake Maye', 'Mac Jones', 'Ty Law', 'Richard Seymour', 'Adam Vinatieri'],
   'green-bay-packers': ['Aaron Rodgers', 'Brett Favre', 'Bart Starr', 'Jordan Love', 'Christian Watson', 'Jayden Reed', 'Don Hutson', 'Paul Hornung', 'Forrest Gregg', 'Ray Nitschke'],
   'san-francisco-49ers': ['Joe Montana', 'Jerry Rice', 'Steve Young', 'Brock Purdy', 'Deebo Samuel', 'Nick Bosa', 'Christian McCaffrey', 'George Kittle', 'Fred Warner', 'Ronnie Lott', 'Patrick Willis'],
-  'pittsburgh-steelers': ['Terry Bradshaw', 'Mean Joe Greene', 'Troy Polamalu', 'Ben Roethlisberger', 'T.J. Watt', 'Franco Harris', 'Jack Lambert', 'Jack Ham', 'John Stallworth', 'Mel Blount', 'George Pickens', 'Najee Harris'],
+  'pittsburgh-steelers': ['Terry Bradshaw', 'Mean Joe Greene', 'Troy Polamalu', 'Ben Roethlisberger', 'T.J. Watt', 'Franco Harris', 'Jack Lambert', 'Jack Ham', 'John Stallworth', 'Mel Blount', 'George Pickens', 'Najee Harris', 'Darnell Washington'],
   'kansas-city-chiefs': ['Patrick Mahomes', 'Travis Kelce', 'Len Dawson', 'Tyreek Hill', 'Derrick Thomas', 'Isiah Pacheco', 'Hollywood Brown', 'Chris Jones'],
   'philadelphia-eagles': ['Jalen Hurts', 'Saquon Barkley', 'A.J. Brown', 'AJ Brown', 'DeVonta Smith', 'Chuck Bednarik', 'Reggie White', 'Brian Dawkins', 'Randall Cunningham', 'Donovan McNabb', 'Jason Kelce', 'Cooper DeJean'],
   'chicago-bears': ['Walter Payton', 'Dick Butkus', 'Mike Singletary', 'Caleb Williams', 'Rome Odunze', 'Mike Ditka', 'Gale Sayers', 'Red Grange', 'Sid Luckman', 'Dan Hampton', 'Brian Urlacher'],
   'denver-broncos': ['John Elway', 'Terrell Davis', 'Peyton Manning', 'Von Miller', 'Bo Nix', 'Floyd Little', 'Shannon Sharpe'],
   'baltimore-ravens': ['Lamar Jackson', 'Ray Lewis', 'Ed Reed', 'Derrick Henry', 'Mark Andrews', 'Patrick Queen', 'Roquan Smith', 'Zay Flowers', 'Rashod Bateman'],
-  'miami-dolphins': ['Dan Marino', 'Tua Tagovailoa', 'Tyreek Hill', 'Jaylen Waddle', 'Larry Csonka', 'Devon Achane', 'Jason Taylor'],
+  'miami-dolphins': ['Dan Marino', 'Tua Tagovailoa', 'Tyreek Hill', 'Jaylen Waddle', 'Larry Csonka', 'Devon Achane', 'Jason Taylor', 'Chop Robinson'],
   'new-york-giants': ['Lawrence Taylor', 'Eli Manning', 'Y.A. Tittle', 'Michael Strahan', 'Saquon Barkley', 'Frank Gifford', 'Malik Nabers', 'Daniel Jones', 'Dexter Lawrence'],
   'seattle-seahawks': ['Russell Wilson', 'Steve Largent', 'Cortez Kennedy', 'DK Metcalf', 'Devon Witherspoon', 'Jaxon Smith-Njigba', 'Tyler Lockett', 'Kenneth Walker III'],
   'los-angeles-rams': ['Kurt Warner', 'Aaron Donald', 'Marshall Faulk', 'Eric Dickerson', 'Cooper Kupp', 'Puka Nacua', 'Deacon Jones', 'Night Train Lane', 'Jack Youngblood', 'Elroy Hirsch', 'Kyren Williams', 'Matt Stafford'],
@@ -236,7 +236,7 @@ const _teamRosters: Record<string, string[]> = {
   'arizona-cardinals': ['Larry Fitzgerald', 'Kyler Murray', 'Anquan Boldin', 'Charley Taylor', 'Marvin Harrison Jr', 'Marvin Harrison Jr.'],
   'tennessee-titans': ['Derrick Henry', 'Steve McNair', 'Eddie George', 'Earl Campbell', 'DeAndre Hopkins', 'Ryan Tannehill'],
   'jacksonville-jaguars': ['Trevor Lawrence', 'Brian Thomas Jr', 'Brian Thomas Jr.', 'Travis Etienne', 'Evan Engram'],
-  'atlanta-falcons': ['Michael Vick', 'Deion Sanders', 'Julio Jones', 'Calvin Ridley', 'Drake London', 'Kyle Pitts'],
+  'atlanta-falcons': ['Michael Vick', 'Deion Sanders', 'Julio Jones', 'Calvin Ridley', 'Drake London', 'Kyle Pitts', 'Tyler Allgeier'],
   'carolina-panthers': ['Cam Newton', 'Bryce Young', 'Steve Smith Sr.', 'Luke Kuechly', 'Julius Peppers'],
   'cincinnati-bengals': ['Joe Burrow', 'Ja\'Marr Chase', 'Anthony Munoz', 'Tee Higgins', 'Chad Johnson', 'Ken Anderson'],
   'new-orleans-saints': ['Drew Brees', 'Marques Colston', 'Marshon Lattimore', 'Demario Davis', 'Alvin Kamara'],
@@ -248,7 +248,7 @@ const _teamRosters: Record<string, string[]> = {
   'toronto-maple-leafs': ['Auston Matthews', 'Mitch Marner', 'Darryl Sittler', 'Borje Salming', 'Syl Apps', 'Ted Kennedy', 'Turk Broda', 'Hap Day', 'King Clancy', 'Max Bentley', 'Johnny Bower', 'Dave Keon', 'William Nylander', 'Matthew Knies'],
   'boston-bruins': ['Bobby Orr', 'Ray Bourque', 'Patrice Bergeron', 'David Pastrnak', 'Cam Neely', 'Phil Esposito', 'Dit Clapper', 'Eddie Shore', 'Johnny Bucyk', 'Milt Schmidt', 'Brad Marchand', 'Charlie McAvoy', 'Jeremy Swayman', 'Jake DeBrusk'],
   'new-york-rangers': ['Mark Messier', 'Rod Gilbert', 'Brian Leetch', 'Henrik Lundqvist', 'Artemi Panarin', 'Adam Fox', 'Chris Kreider', 'Alexis Lafreniere', 'Mika Zibanejad', 'Igor Shesterkin', 'Matt Rempe'],
-  'detroit-red-wings': ['Gordie Howe', 'Steve Yzerman', 'Nicklas Lidstrom', 'Pavel Datsyuk', 'Sergei Fedorov', 'Ted Lindsay', 'Alex Delvecchio', 'Terry Sawchuk', 'Lucas Raymond', 'Moritz Seider', 'Patrick Kane', 'Dylan Larkin'],
+  'detroit-red-wings': ['Gordie Howe', 'Steve Yzerman', 'Nicklas Lidstrom', 'Pavel Datsyuk', 'Sergei Fedorov', 'Ted Lindsay', 'Alex Delvecchio', 'Terry Sawchuk', 'Lucas Raymond', 'Moritz Seider', 'Patrick Kane', 'Dylan Larkin', 'Marco Kasper'],
   'chicago-blackhawks': ['Bobby Hull', 'Stan Mikita', 'Patrick Kane', 'Jonathan Toews', 'Denis Savard', 'Glenn Hall', 'Tony Esposito', 'Eddie Olczyk', 'Artem Levshunov', 'Connor Bedard'],
   'pittsburgh-penguins': ['Sidney Crosby', 'Mario Lemieux', 'Evgeni Malkin', 'Jaromir Jagr', 'Kris Letang', 'Marc-Andre Fleury'],
   'edmonton-oilers': ['Wayne Gretzky', 'Connor McDavid', 'Leon Draisaitl', 'Mark Messier', 'Grant Fuhr', 'Jari Kurri', 'Glenn Anderson', 'Paul Coffey', 'Ryan Nugent-Hopkins', 'Evan Bouchard', 'Ryan Smyth'],
@@ -927,6 +927,24 @@ const _wave43: Record<string, string[]> = {
   'dallas-stars': ['Denis Gurianov'],
 };
 for (const [teamSlug, players] of Object.entries(_wave43)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
+
+// Wave 44: v4.47 — 10 new players
+const _wave44: Record<string, string[]> = {
+  'new-york-mets': ['David Peterson'],
+  'kansas-city-royals': ['Freddy Fermin'],
+  'chicago-white-sox': ['Yoan Moncada'],
+  'las-vegas-raiders': ['Jakobi Meyers'],
+  'new-york-giants': ['Azeez Ojulari'],
+  'sacramento-kings': ['Kessler Edwards'],
+  'phoenix-suns': ['Alex Len'],
+  'san-jose-sharks': ['Kevin Labanc'],
+  'ottawa-senators': ['Adam Gaudette'],
+  'florida-panthers': ['Noel Acciari'],
+};
+for (const [teamSlug, players] of Object.entries(_wave44)) {
   if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
   _teamRosters[teamSlug].push(...players);
 }
