@@ -83,6 +83,7 @@ export default function ToolsPage() {
           { href: '/tools/inheritance-guide', label: 'Inheritance Guide', icon: '📜' },
           { href: '/tools/numbered-premium', label: 'Numbered Card Premium', icon: '🔢' },
           { href: '/tools/rainbow-tracker', label: 'Rainbow Chase Tracker', icon: '🌈' },
+          { href: '/tools/buying-guide', label: 'Card Buying Guide', icon: '🛒' },
           { href: '/tools/tax-calc', label: 'Card Tax Calculator', icon: '🧾' },
           { href: '/tools/budget-planner', label: 'Hobby Budget Planner', icon: '💰' },
           { href: '/tools/budget-optimizer', label: 'Budget Optimizer', icon: '🎯' },
