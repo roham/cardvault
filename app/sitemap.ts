@@ -516,6 +516,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vault/shipping-claim`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/rank-or-tank`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/rip-wire`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/card-briefcase`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts

@@ -73,6 +73,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
     color: 'from-emerald-900/40 to-emerald-800/20 border-emerald-700/30',
     games: [
       { href: '/card-price-is-right', name: 'Price is Right', desc: 'Guess the exact card value' },
+      { href: '/card-briefcase', name: 'Card Briefcase', desc: 'Deal or no deal — pick one of 16 briefcases, eliminate the rest, take the Banker\u2019s offer or play on.', daily: true },
       { href: '/price-is-right', name: 'Classic Price Game', desc: 'How well do you know card values?' },
       { href: '/card-value-snap', name: 'Value Snap', desc: 'Tap the more valuable card — fast!' },
       { href: '/card-ladder', name: 'Card Ladder', desc: 'Higher or lower card value game' },
