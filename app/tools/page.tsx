@@ -44,6 +44,7 @@ export default function ToolsPage() {
           { href: '/tools/compare', label: 'Compare Cards', icon: '⚖️' },
           { href: '/tools/grading-roi', label: 'Grading ROI Calculator', icon: '💰' },
           { href: '/tools/sealed-ev', label: 'Sealed Product EV', icon: '📦' },
+          { href: '/tools/monte-carlo', label: 'Monte Carlo Simulator', icon: '📊' },
           { href: '/tools/quiz', label: 'What Should I Collect?', icon: '🎯' },
           { href: '/tools/trade', label: 'Trade Evaluator', icon: '🔄' },
           { href: '/tools/identify', label: 'Card Identifier', icon: '🔎' },
