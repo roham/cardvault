@@ -186,6 +186,7 @@ export default function ToolsPage() {
           { href: '/tools/hold-optimizer', label: 'Hold Optimizer', icon: '⏳' },
           { href: '/tools/yield-comparator', label: 'Yield Comparator', icon: '🥇' },
           { href: '/tools/import-calculator', label: 'Import Calculator', icon: '🌍' },
+          { href: '/tools/export-calculator', label: 'Export Calculator', icon: '📦' },
           { href: '/tools/counterfeit-scanner', label: 'Counterfeit Risk Scanner', icon: '🛡️' },
           { href: '/tools/provenance', label: 'Provenance Tracker', icon: '📜' },
           { href: '/tools/grail-timeline', label: 'Grail Timeline', icon: '🏆' },
