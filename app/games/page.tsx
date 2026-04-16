@@ -63,6 +63,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-typing', name: 'Card Typing', desc: 'Speed typing game with player names' },
       { href: '/card-wordle', name: 'Card Wordle', desc: 'Guess mystery player in 6 tries with clues' },
       { href: '/card-lingo', name: 'Card Lingo Quiz', desc: 'Test your hobby vocabulary — 60+ terms' },
+      { href: '/card-plinko', name: 'Card Plinko', desc: 'Drop cards through pegs — hit the 5x jackpot' },
     ],
   },
   {
