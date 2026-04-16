@@ -61,6 +61,7 @@ export default function ToolsPage() {
           { href: '/tools/centering-calc', label: 'Centering Calculator', icon: '📐' },
           { href: '/tools/insurance-calc', label: 'Insurance Calculator', icon: '🛡️' },
           { href: '/tools/flip-calc', label: 'Flip Profit Calculator', icon: '💸' },
+          { href: '/flip-journal', label: 'Flip Journal', icon: '📓' },
           { href: '/tools/grading-tracker', label: 'Grading Tracker', icon: '📋' },
           { href: '/tools/set-checklist', label: 'Set Checklist', icon: '✅' },
           { href: '/tools/set-completion', label: 'Set Completion v2', icon: '🏆' },
