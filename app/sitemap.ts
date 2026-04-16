@@ -329,6 +329,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/pull-probability`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/thesis-generator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/break-spot`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/tools/card-age`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/tools/break-roi`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.4 },
     { url: `${BASE_URL}/mcp`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/sports/sport/baseball`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },

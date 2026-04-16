@@ -151,6 +151,8 @@ export default function ToolsPage() {
           { href: '/tools/pull-probability', label: 'Pull Probability Calculator', icon: '🎲' },
           { href: '/tools/thesis-generator', label: 'Investment Thesis Generator', icon: '📝' },
           { href: '/tools/break-spot', label: 'Break Spot Picker', icon: '🎯' },
+          { href: '/tools/card-age', label: 'Card Age Calculator', icon: '📅' },
+          { href: '/tools/break-roi', label: 'Break ROI Tracker', icon: '📊' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
