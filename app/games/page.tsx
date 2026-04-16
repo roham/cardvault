@@ -137,6 +137,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/memory-match', name: 'Memory Match', desc: 'Match 8 pairs on a 4x4 grid' },
       { href: '/card-grid', name: 'Card Grid', desc: 'Immaculate Grid — match row + column criteria', daily: true },
       { href: '/card-treasure-map', name: 'Card Treasure Map', desc: 'Find the hidden treasure card on a 7x7 grid', daily: true },
+      { href: '/card-dig', name: 'Card Dig', desc: 'Excavate 6 buried cards from dirt, clay, and rock', daily: true },
     ],
   },
   {
