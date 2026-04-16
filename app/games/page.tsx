@@ -122,6 +122,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-roulette', name: 'Card Roulette', desc: 'Quick-fire buy or pass game' },
       { href: '/card-yahtzee', name: 'Card Yahtzee', desc: 'Roll 5 cards, score the best hand' },
       { href: '/card-snake', name: 'Card Snake', desc: 'Collect cards to grow your snake' },
+      { href: '/break-bingo', name: 'Break Bingo', desc: 'Bingo meets card breaks — watch pulls, call BINGO!' },
     ],
   },
   {
