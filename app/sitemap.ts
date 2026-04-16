@@ -338,6 +338,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/split-calc`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/payment-plan`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/vault/submission-planner`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/vault/auction-sniper`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/collecting-roadmap`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/wax-watch`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/flip-journal`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
