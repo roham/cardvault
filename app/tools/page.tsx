@@ -143,6 +143,7 @@ export default function ToolsPage() {
           { href: '/tools/combo-analyzer', label: 'Combo Analyzer', icon: '🃏' },
           { href: '/tools/smart-buy-list', label: 'Smart Buy List', icon: '🛒' },
           { href: '/tools/flip-scorer', label: 'Quick-Flip Scorer', icon: '⚡' },
+          { href: '/tools/nostalgia', label: 'Nostalgia Machine', icon: '⏰' },
           { href: '/tools/card-matchmaker', label: 'Card Matchmaker', icon: '💕' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
