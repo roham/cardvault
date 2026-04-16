@@ -80,6 +80,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/price-blitz', name: 'Price Blitz', desc: '20 cards in 60 seconds — over or under?' },
       { href: '/card-war', name: 'Card War', desc: 'Two cards drawn, pick the more valuable one' },
       { href: '/card-stack', name: 'Card Stack', desc: 'Build a 5-card stack that totals exactly $500' },
+      { href: '/card-gauntlet', name: 'Card Gauntlet', desc: 'Endless survival — pick the pricier card, 3 lives' },
     ],
   },
   {
