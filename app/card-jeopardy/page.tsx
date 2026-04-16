@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
-  { label: 'Games', href: '/' },
+  { label: 'Games', href: '/games' },
   { label: 'Card Jeopardy' },
 ];
 
