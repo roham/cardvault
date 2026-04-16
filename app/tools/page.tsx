@@ -180,6 +180,7 @@ export default function ToolsPage() {
           { href: '/tools/split-calc', label: 'Card Split Calculator', icon: '✂️' },
           { href: '/tools/payment-plan', label: 'Payment Plan Calculator', icon: '💳' },
           { href: '/tools/comp-calculator', label: 'Comp Calculator', icon: '🔎' },
+          { href: '/tools/collection-narrative', label: 'Collection Narrative', icon: '📖' },
           { href: '/state-of-the-hobby', label: 'State of the Hobby', icon: '📊' },
           { href: '/games', label: 'All 50+ Games', icon: '🎮' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
