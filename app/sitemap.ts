@@ -194,6 +194,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/card-slots`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/card-snake`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/drop-alerts`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/rookie-rankings`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.9 },
     { url: `${BASE_URL}/price-prediction`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/grade-predictor`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/collection-heatmap`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
