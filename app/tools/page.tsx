@@ -123,6 +123,7 @@ export default function ToolsPage() {
           { href: '/tools/sealed-yield', label: 'Sealed Product Yield', icon: '📈' },
           { href: '/tools/sealed-portfolio', label: 'Sealed Portfolio Tracker', icon: '📦' },
           { href: '/tools/hobby-cost', label: 'Hobby Cost Calculator', icon: '💸' },
+          { href: '/tools/true-cost', label: 'True-Cost Calculator', icon: '💰' },
           { href: '/tools/value-projector', label: 'Card Value Projector', icon: '🔮' },
           { href: '/tools/market-timer', label: 'Card Market Timer', icon: '📆' },
           { href: '/tools/error-spotter', label: 'Error & Variation Spotter', icon: '🔍' },
