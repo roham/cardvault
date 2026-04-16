@@ -128,6 +128,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/fanatics-era`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/vault/return-request`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/buy-or-pass`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/listing-wire`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/tools/cert-check`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/turnaround-estimator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/diversification`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
