@@ -150,6 +150,7 @@ export default function ToolsPage() {
           { href: '/tools/regrade-calc', label: 'Regrade Calculator', icon: '🔄' },
           { href: '/tools/pull-probability', label: 'Pull Probability Calculator', icon: '🎲' },
           { href: '/tools/thesis-generator', label: 'Investment Thesis Generator', icon: '📝' },
+          { href: '/tools/break-spot', label: 'Break Spot Picker', icon: '🎯' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
