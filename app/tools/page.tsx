@@ -125,6 +125,7 @@ export default function ToolsPage() {
           { href: '/tools/hobby-cost', label: 'Hobby Cost Calculator', icon: '💸' },
           { href: '/tools/value-projector', label: 'Card Value Projector', icon: '🔮' },
           { href: '/tools/market-timer', label: 'Card Market Timer', icon: '📆' },
+          { href: '/tools/error-spotter', label: 'Error & Variation Spotter', icon: '🔍' },
           { href: '/tools/collection-timeline', label: 'Collection Timeline', icon: '📅' },
           { href: '/tools/price-alert', label: 'Price Alert Generator', icon: '🔔' },
           { href: '/tools/set-break', label: 'Set Break Calculator', icon: '📦' },
