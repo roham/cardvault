@@ -52,6 +52,7 @@ export default function ToolsPage() {
           { href: '/tools/pack-sim', label: 'Pack Simulator', icon: '🎰' },
           { href: '/tools/daily-pack', label: 'Daily Free Pack', icon: '🎁' },
           { href: '/tools/portfolio', label: 'Fantasy Portfolio', icon: '📈' },
+          { href: '/tools/collection-health', label: 'Collection Health Score', icon: '🩺' },
           { href: '/tools/collection-value', label: 'Collection Value', icon: '💎' },
           { href: '/tools/box-break', label: 'Box Break Calculator', icon: '📦' },
           { href: '/tools/watchlist', label: 'Price Watchlist', icon: '👀' },
