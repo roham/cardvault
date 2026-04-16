@@ -130,6 +130,7 @@ export default function ToolsPage() {
           { href: '/tools/tier-list', label: 'Product Tier List', icon: '🏆' },
           { href: '/tools/price-confidence', label: 'Price Confidence Score', icon: '🎯' },
           { href: '/tools/grade-probability', label: 'Grade Probability Calculator', icon: '🎲' },
+          { href: '/tools/want-list', label: 'Want List Builder', icon: '📋' },
           { href: '/tools/collection-timeline', label: 'Collection Timeline', icon: '📅' },
           { href: '/tools/price-alert', label: 'Price Alert Generator', icon: '🔔' },
           { href: '/tools/set-break', label: 'Set Break Calculator', icon: '📦' },
