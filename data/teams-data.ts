@@ -826,6 +826,41 @@ for (const [teamSlug, players] of Object.entries(_wave18)) {
   _teamRosters[teamSlug].push(...players);
 }
 
+// Wave 19: v4.26 — 10 new players
+const _wave19: Record<string, string[]> = {
+  'new-york-giants': ['Sterling Shepard', 'Jabrill Peppers'],
+  'las-vegas-raiders': ['Darren Waller'],
+  'washington-commanders': ['Taylor Heinicke'],
+  'los-angeles-lakers': ['Jalen Hood-Schifino'],
+  'philadelphia-phillies': ['Matt Strahm'],
+  'los-angeles-angels': ['Patrick Sandoval'],
+  'arizona-cardinals': ['D.J. Humphries'],
+  'seattle-kraken': ['Vince Dunn'],
+  'washington-capitals': ['John Carlson'],
+};
+for (const [teamSlug, players] of Object.entries(_wave19)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
+
+// Wave 20: v4.26 — 10 new players
+const _wave20: Record<string, string[]> = {
+  'minnesota-twins': ['Joe Ryan'],
+  'kansas-city-royals': ['Brady Singer'],
+  'minnesota-vikings': ['J.J. McCarthy'],
+  'new-york-giants': ['Tyrone Tracy Jr.'],
+  'tennessee-titans': ['Tyjae Spears'],
+  'charlotte-hornets': ['Larry Johnson'],
+  'sacramento-kings': ['Jason Williams'],
+  'houston-rockets': ['Steve Francis'],
+  'miami-heat': ['Glen Rice'],
+  'calgary-flames': ['Samuel Honzek'],
+};
+for (const [teamSlug, players] of Object.entries(_wave20)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
+
 // Unmappable players (Pokemon, pre-team-era, draft prospects without teams)
 // Charizard, Pikachu, Mewtwo, Rayquaza etc. — Pokemon cards in the sports DB
 // 2025 NFL/NBA/NHL draft prospects — will be mapped after drafts
