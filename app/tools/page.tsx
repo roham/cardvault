@@ -148,6 +148,7 @@ export default function ToolsPage() {
           { href: '/tools/dca-calculator', label: 'DCA Calculator', icon: '📈' },
           { href: '/tools/regrade-calc', label: 'Regrade Calculator', icon: '🔄' },
           { href: '/tools/pull-probability', label: 'Pull Probability Calculator', icon: '🎲' },
+          { href: '/tools/thesis-generator', label: 'Investment Thesis Generator', icon: '📝' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
