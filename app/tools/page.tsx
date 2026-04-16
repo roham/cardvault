@@ -80,6 +80,7 @@ export default function ToolsPage() {
           { href: '/tools/show-finder', label: 'Card Show Finder', icon: '📍' },
           { href: '/show-companion', label: 'Show Companion', icon: '🎪' },
           { href: '/tools/vintage-evaluator', label: 'Vintage Card Evaluator', icon: '🏛️' },
+          { href: '/tools/inheritance-guide', label: 'Inheritance Guide', icon: '📜' },
           { href: '/tools/tax-calc', label: 'Card Tax Calculator', icon: '🧾' },
           { href: '/tools/budget-planner', label: 'Hobby Budget Planner', icon: '💰' },
           { href: '/tools/budget-optimizer', label: 'Budget Optimizer', icon: '🎯' },
