@@ -468,12 +468,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/card-thrift`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/tools/comp-calculator`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/card-hall-of-fame`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/parallel-rainbow`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/vault/loan-office`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/opening-bell`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/auction-paddle`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/tools/collection-narrative`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/tools/true-cost`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/card-pairs`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/famous-error-cards`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
