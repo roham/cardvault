@@ -310,6 +310,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/investing-playbook`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/cheat-sheets`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-hangman`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/card-price-is-right`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/tools/nostalgia`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-tycoon`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/card-set-rush`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
