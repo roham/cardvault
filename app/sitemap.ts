@@ -487,6 +487,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/closing-bell`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/breakers-lounge`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/card-darts`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/card-zodiac`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/hold-optimizer`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   ];
 
