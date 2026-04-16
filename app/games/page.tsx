@@ -97,6 +97,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-auction', name: 'Card Auction', desc: 'Bid on cards against 3 AI collectors' },
       { href: '/card-catalysts', name: 'Price Catalysts', desc: 'Track events that move card values' },
       { href: '/card-thrift', name: 'Card Thrift Store', desc: 'Dig a bargain bin — pick 10 of 20 cards blind' },
+      { href: '/card-pairs', name: 'Card Pair Trader', desc: 'Pick 2 of 4 cards closest to a target value' },
     ],
   },
   {
