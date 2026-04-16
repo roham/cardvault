@@ -188,6 +188,7 @@ export default function ToolsPage() {
           { href: '/tools/import-calculator', label: 'Import Calculator', icon: '🌍' },
           { href: '/tools/export-calculator', label: 'Export Calculator', icon: '📦' },
           { href: '/tools/counterfeit-scanner', label: 'Counterfeit Risk Scanner', icon: '🛡️' },
+          { href: '/tools/shill-detector', label: 'Shill Bid Detector', icon: '🎯' },
           { href: '/tools/provenance', label: 'Provenance Tracker', icon: '📜' },
           { href: '/tools/grail-timeline', label: 'Grail Timeline', icon: '🏆' },
           { href: '/tools/best-offer', label: 'Best Offer Calculator', icon: '💬' },
