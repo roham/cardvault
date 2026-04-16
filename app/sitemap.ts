@@ -314,6 +314,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/cheat-sheets`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-hangman`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/card-wordle`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
+    { url: `${BASE_URL}/tools/listing-helper`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/card-price-is-right`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/tools/collection-health`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-power-rankings`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
