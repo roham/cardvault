@@ -861,6 +861,22 @@ for (const [teamSlug, players] of Object.entries(_wave20)) {
   _teamRosters[teamSlug].push(...players);
 }
 
+// Wave 21: v4.27 — 10 new players
+const _wave21: Record<string, string[]> = {
+  'chicago-cubs': ['Javier Assad', 'Ben Brown'],
+  'kansas-city-chiefs': ['Kadarius Toney', 'Skyy Moore'],
+  'phoenix-suns': ['Tom Chambers'],
+  'golden-state-warriors': ['Jason Richardson'],
+  'seattle-supersonics': ['Dale Ellis'],
+  'new-york-islanders': ['Anders Lee'],
+  'carolina-hurricanes': ['Jeff Skinner'],
+  'tampa-bay-lightning': ['Ondrej Palat'],
+};
+for (const [teamSlug, players] of Object.entries(_wave21)) {
+  if (!_teamRosters[teamSlug]) _teamRosters[teamSlug] = [];
+  _teamRosters[teamSlug].push(...players);
+}
+
 // Unmappable players (Pokemon, pre-team-era, draft prospects without teams)
 // Charizard, Pikachu, Mewtwo, Rayquaza etc. — Pokemon cards in the sports DB
 // 2025 NFL/NBA/NHL draft prospects — will be mapped after drafts

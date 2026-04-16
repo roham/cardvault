@@ -77,6 +77,7 @@ export default function ToolsPage() {
           { href: '/tools/show-finder', label: 'Card Show Finder', icon: '📍' },
           { href: '/tools/tax-calc', label: 'Card Tax Calculator', icon: '🧾' },
           { href: '/tools/budget-planner', label: 'Hobby Budget Planner', icon: '💰' },
+          { href: '/tools/budget-optimizer', label: 'Budget Optimizer', icon: '🎯' },
           { href: '/tools/lot-analyzer', label: 'Bulk Lot Analyzer', icon: '📦' },
           { href: '/tools/cross-grade', label: 'Cross-Grade Converter', icon: '🔄' },
           { href: '/tools/rarity-score', label: 'Rarity Score Calculator', icon: '💎' },
@@ -141,6 +142,7 @@ export default function ToolsPage() {
           { href: '/trade-in', label: 'Trade-In Estimator', icon: '🔄' },
           { href: '/tools/combo-analyzer', label: 'Combo Analyzer', icon: '🃏' },
           { href: '/tools/smart-buy-list', label: 'Smart Buy List', icon: '🛒' },
+          { href: '/tools/flip-scorer', label: 'Quick-Flip Scorer', icon: '⚡' },
           { href: '/tools/card-matchmaker', label: 'Card Matchmaker', icon: '💕' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
