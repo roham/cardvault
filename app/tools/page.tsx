@@ -145,6 +145,7 @@ export default function ToolsPage() {
           { href: '/tools/flip-scorer', label: 'Quick-Flip Scorer', icon: '⚡' },
           { href: '/tools/nostalgia', label: 'Nostalgia Machine', icon: '⏰' },
           { href: '/tools/card-matchmaker', label: 'Card Matchmaker', icon: '💕' },
+          { href: '/tools/dca-calculator', label: 'DCA Calculator', icon: '📈' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
         ].map(t => (
           <a
