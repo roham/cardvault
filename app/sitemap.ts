@@ -516,6 +516,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/post-mortems/2001-etopps-digital-experiment`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/vault/cash-offer`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/vault/shipping-claim`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/vault/trade-contract`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/rank-or-tank`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/rip-wire`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/card-briefcase`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
@@ -524,6 +525,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/pop-watch`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/product-rankings`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/auction-archive`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/vault/consignment-agreement`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
