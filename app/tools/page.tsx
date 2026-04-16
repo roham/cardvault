@@ -185,6 +185,8 @@ export default function ToolsPage() {
           { href: '/tools/collection-narrative', label: 'Collection Narrative', icon: '📖' },
           { href: '/tools/hold-optimizer', label: 'Hold Optimizer', icon: '⏳' },
           { href: '/tools/yield-comparator', label: 'Yield Comparator', icon: '🥇' },
+          { href: '/tools/import-calculator', label: 'Import Calculator', icon: '🌍' },
+          { href: '/tools/best-offer', label: 'Best Offer Calculator', icon: '💬' },
           { href: '/state-of-the-hobby', label: 'State of the Hobby', icon: '📊' },
           { href: '/games', label: 'All 50+ Games', icon: '🎮' },
           { href: '#ebay-search', label: 'eBay Sold Search', icon: '🔍' },
