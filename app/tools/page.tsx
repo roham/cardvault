@@ -132,6 +132,7 @@ export default function ToolsPage() {
           { href: '/tools/grade-probability', label: 'Grade Probability Calculator', icon: '🎲' },
           { href: '/tools/want-list', label: 'Want List Builder', icon: '📋' },
           { href: '/tools/purchase-log', label: 'Purchase Log', icon: '🧾' },
+          { href: '/tools/trade-block', label: 'Trade Block Builder', icon: '🔄' },
           { href: '/tools/collection-timeline', label: 'Collection Timeline', icon: '📅' },
           { href: '/tools/price-alert', label: 'Price Alert Generator', icon: '🔔' },
           { href: '/tools/set-break', label: 'Set Break Calculator', icon: '📦' },

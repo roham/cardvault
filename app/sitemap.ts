@@ -158,6 +158,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/grade-probability`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/want-list`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/purchase-log`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/tools/trade-block`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/collection-timeline`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/price-alert`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/set-break`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
@@ -435,6 +436,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/card-double-or-nothing`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/card-grid`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/card-show-guide`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/card-flipping-guide`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
