@@ -124,6 +124,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-blackjack', name: 'Card Blackjack', desc: 'Hit 21 using real sports card values' },
       { href: '/card-roulette', name: 'Card Roulette', desc: 'Quick-fire buy or pass game' },
       { href: '/card-yahtzee', name: 'Card Yahtzee', desc: 'Roll 5 cards, score the best hand' },
+      { href: '/card-poker', name: 'Card Poker', desc: 'Deal 7, keep 5, form the best poker hand — chase the Royal Flush' },
       { href: '/card-snake', name: 'Card Snake', desc: 'Collect cards to grow your snake' },
       { href: '/break-bingo', name: 'Break Bingo', desc: 'Bingo meets card breaks — watch pulls, call BINGO!' },
     ],

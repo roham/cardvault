@@ -496,6 +496,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/hold-optimizer`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/mailday`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/tools/yield-comparator`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/card-poker`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
   ];
 
   // Dynamic guide pages from guides-data.ts
