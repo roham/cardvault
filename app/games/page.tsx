@@ -131,6 +131,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-minesweeper', name: 'Card Minesweeper', desc: 'Find hit cards without clicking duds' },
       { href: '/card-memory', name: 'Card Memory', desc: 'Flip and match card pairs' },
       { href: '/memory-match', name: 'Memory Match', desc: 'Match 8 pairs on a 4x4 grid' },
+      { href: '/card-grid', name: 'Card Grid', desc: 'Immaculate Grid — match row + column criteria', daily: true },
     ],
   },
   {
