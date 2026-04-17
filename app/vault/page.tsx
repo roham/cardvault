@@ -187,6 +187,13 @@ export default function VaultPage() {
             <div className="text-gray-500 text-xs">Two-party swap agreement</div>
           </div>
         </Link>
+        <Link href="/vault/trade-up-ladder" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 border border-gray-800 hover:border-gray-600 rounded-xl transition-colors">
+          <span className="text-xl">🪜</span>
+          <div>
+            <div className="text-white text-sm font-medium">Trade-Up Ladder</div>
+            <div className="text-gray-500 text-xs">Plan a multi-step trade route</div>
+          </div>
+        </Link>
         <Link href="/vault/break-agreement" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 border border-gray-800 hover:border-gray-600 rounded-xl transition-colors">
           <span className="text-xl">🎲</span>
           <div>
