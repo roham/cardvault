@@ -156,6 +156,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-keno', name: 'Card Keno', desc: 'Pick up to 8 cards from a 40-card grid \u2014 ten are drawn \u2014 match to win dust. Classic keno, hobby-flavored.', daily: true },
       { href: '/card-race', name: 'Card Race', desc: 'Five cards, twelve furlongs \u2014 pick Win / Place / Show and watch them run. Hit the trifecta for the bonus.', daily: true },
       { href: '/card-echo', name: 'Card Echo', desc: 'Watch the cards flash in order \u2014 tap them back in the same order. Each round adds one. Three speed tiers.', daily: true },
+      { href: '/card-beat', name: 'Card Beat', desc: 'Tap cards in time with the beat. Four lanes, three BPM tiers, PERFECT/GREAT/GOOD timing windows with combo multipliers.', daily: true },
     ],
   },
   {
