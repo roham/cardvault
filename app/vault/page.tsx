@@ -222,6 +222,13 @@ export default function VaultPage() {
             <div className="text-gray-500 text-xs">Delegate card-handling authority</div>
           </div>
         </Link>
+        <Link href="/vault/donation-receipt" className="flex items-center gap-3 px-4 py-3 bg-gray-900/60 border border-gray-800 hover:border-gray-600 rounded-xl transition-colors">
+          <span className="text-xl">🏛️</span>
+          <div>
+            <div className="text-white text-sm font-medium">Donation Acknowledgment</div>
+            <div className="text-gray-500 text-xs">IRC §170 charity receipt with Form 8283 triggers</div>
+          </div>
+        </Link>
       </div>
 
       {/* FAQ section */}
