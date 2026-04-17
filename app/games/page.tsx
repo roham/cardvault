@@ -158,6 +158,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-echo', name: 'Card Echo', desc: 'Watch the cards flash in order \u2014 tap them back in the same order. Each round adds one. Three speed tiers.', daily: true },
       { href: '/card-beat', name: 'Card Beat', desc: 'Tap cards in time with the beat. Four lanes, three BPM tiers, PERFECT/GREAT/GOOD timing windows with combo multipliers.', daily: true },
       { href: '/card-path', name: 'Card Path', desc: 'Five rounds, two cards each — your picks bias the next pair. Commit to a theme for a coherence bonus.', daily: true },
+      { href: '/card-shuffle', name: 'Card Shuffle', desc: 'Shell-game spatial tracking. Memorize the target position, watch 3–10 pair-swaps, pick where it landed. Three difficulty tiers.', daily: true },
     ],
   },
   {
