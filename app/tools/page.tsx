@@ -158,6 +158,8 @@ export default function ToolsPage() {
           { href: '/tools/show-prep', label: 'Card Show Prep Tool', icon: '🎯' },
           { href: '/tools/card-ladder', label: 'Card Ladder Builder', icon: '🪜' },
           { href: '/tools/auction-bid', label: 'Auction Bid Calculator', icon: '🔨' },
+          { href: '/tools/proxy-bid', label: 'Proxy Bid Optimizer', icon: '🎯' },
+          { href: '/tools/sell-by', label: 'Sell-By Date Tracker', icon: '⏰' },
           { href: '/tools/grade-spread', label: 'Grade Price Spread', icon: '📊' },
           { href: '/tools/starter-kit', label: 'Starter Kit Builder', icon: '🎒' },
           { href: '/tools/gift-guide', label: 'Card Gift Guide', icon: '🎁' },
