@@ -190,6 +190,7 @@ export default function ToolsPage() {
           { href: '/tools/counterfeit-scanner', label: 'Counterfeit Risk Scanner', icon: '🛡️' },
           { href: '/tools/shill-detector', label: 'Shill Bid Detector', icon: '🎯' },
           { href: '/tools/chargeback-scanner', label: 'Chargeback Risk Scanner', icon: '🚫' },
+          { href: '/tools/donation-value', label: 'Donation Value Calculator', icon: '🎗️' },
           { href: '/tools/provenance', label: 'Provenance Tracker', icon: '📜' },
           { href: '/tools/grail-timeline', label: 'Grail Timeline', icon: '🏆' },
           { href: '/tools/psa-tier-picker', label: 'PSA Tier Picker', icon: '🎖️' },

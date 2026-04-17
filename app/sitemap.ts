@@ -504,6 +504,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/counterfeit-scanner`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/tools/shill-detector`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/tools/chargeback-scanner`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/tools/donation-value`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/tools/provenance`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/tools/psa-tier-picker`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/tools/grail-timeline`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
@@ -540,6 +541,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/year-in-cards`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-nim`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/grail-watch`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.8 },
+    { url: `${BASE_URL}/steal-watch`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.8 },
     { url: `${BASE_URL}/card-companies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ];
 
