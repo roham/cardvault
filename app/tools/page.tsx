@@ -194,6 +194,7 @@ export default function ToolsPage() {
           { href: '/tools/provenance', label: 'Provenance Tracker', icon: '📜' },
           { href: '/tools/grail-timeline', label: 'Grail Timeline', icon: '🏆' },
           { href: '/tools/psa-tier-picker', label: 'PSA Tier Picker', icon: '🎖️' },
+          { href: '/tools/rookie-eligibility', label: 'Rookie Eligibility', icon: '🆕' },
           { href: '/tools/best-offer', label: 'Best Offer Calculator', icon: '💬' },
           { href: '/state-of-the-hobby', label: 'State of the Hobby', icon: '📊' },
           { href: '/games', label: 'All 50+ Games', icon: '🎮' },
