@@ -523,6 +523,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vault/trade-contract`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/vault/break-agreement`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/vault/escrow-letter`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/vault/power-of-attorney`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/vault/fee-comparator`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/rank-or-tank`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/rip-wire`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
@@ -544,6 +545,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/grail-watch`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.8 },
     { url: `${BASE_URL}/steal-watch`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.8 },
     { url: `${BASE_URL}/card-companies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/almanac`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
