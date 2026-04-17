@@ -153,6 +153,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-tower-climb', name: 'Card Tower Climb', desc: 'Climb 10 floors of a card tower \u2014 one safe tile per floor, multipliers compound, cash out before you fall', daily: true },
       { href: '/card-nim', name: 'Card Nim', desc: 'The classic 21-game. Take 1, 2, or 3 cards \u2014 whoever takes the last one loses. Pure game theory.' },
       { href: '/card-keno', name: 'Card Keno', desc: 'Pick up to 8 cards from a 40-card grid \u2014 ten are drawn \u2014 match to win dust. Classic keno, hobby-flavored.', daily: true },
+      { href: '/card-race', name: 'Card Race', desc: 'Five cards, twelve furlongs \u2014 pick Win / Place / Show and watch them run. Hit the trifecta for the bonus.', daily: true },
     ],
   },
   {
