@@ -192,6 +192,7 @@ export default function ToolsPage() {
           { href: '/tools/chargeback-scanner', label: 'Chargeback Risk Scanner', icon: '🚫' },
           { href: '/tools/provenance', label: 'Provenance Tracker', icon: '📜' },
           { href: '/tools/grail-timeline', label: 'Grail Timeline', icon: '🏆' },
+          { href: '/tools/psa-tier-picker', label: 'PSA Tier Picker', icon: '🎖️' },
           { href: '/tools/best-offer', label: 'Best Offer Calculator', icon: '💬' },
           { href: '/state-of-the-hobby', label: 'State of the Hobby', icon: '📊' },
           { href: '/games', label: 'All 50+ Games', icon: '🎮' },
