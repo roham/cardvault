@@ -157,6 +157,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-race', name: 'Card Race', desc: 'Five cards, twelve furlongs \u2014 pick Win / Place / Show and watch them run. Hit the trifecta for the bonus.', daily: true },
       { href: '/card-echo', name: 'Card Echo', desc: 'Watch the cards flash in order \u2014 tap them back in the same order. Each round adds one. Three speed tiers.', daily: true },
       { href: '/card-beat', name: 'Card Beat', desc: 'Tap cards in time with the beat. Four lanes, three BPM tiers, PERFECT/GREAT/GOOD timing windows with combo multipliers.', daily: true },
+      { href: '/card-path', name: 'Card Path', desc: 'Five rounds, two cards each — your picks bias the next pair. Commit to a theme for a coherence bonus.', daily: true },
     ],
   },
   {
