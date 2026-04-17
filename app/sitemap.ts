@@ -552,6 +552,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/consignment-drop`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.8 },
     { url: `${BASE_URL}/first-hit`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.8 },
     { url: `${BASE_URL}/card-companies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/rookie-classes`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/almanac`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/celebrity-collectors`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-oddball`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
@@ -559,6 +560,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vintage-wire`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.8 },
     { url: `${BASE_URL}/vault/gift-deed`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-exile`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE_URL}/card-echo`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
