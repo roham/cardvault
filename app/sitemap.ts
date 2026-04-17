@@ -527,6 +527,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/regrade-reel`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/product-rankings`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/auction-archive`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/draft-rewind`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/vault/consignment-agreement`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-tower-climb`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
   ];
