@@ -574,6 +574,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/tools/estate-tax`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/error-wire`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.8 },
     { url: `${BASE_URL}/vault/trade-equalizer`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/card-reflex`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
