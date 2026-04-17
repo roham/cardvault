@@ -195,6 +195,7 @@ export default function ToolsPage() {
           { href: '/tools/chargeback-scanner', label: 'Chargeback Risk Scanner', icon: '🚫' },
           { href: '/tools/donation-value', label: 'Donation Value Calculator', icon: '🎗️' },
           { href: '/tools/estate-tax', label: 'Estate Tax & Step-Up Basis', icon: '⚖️' },
+          { href: '/tools/buyers-premium', label: "Buyer's Premium Calculator", icon: '🔨' },
           { href: '/tools/provenance', label: 'Provenance Tracker', icon: '📜' },
           { href: '/tools/grail-timeline', label: 'Grail Timeline', icon: '🏆' },
           { href: '/tools/psa-tier-picker', label: 'PSA Tier Picker', icon: '🎖️' },
