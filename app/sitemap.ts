@@ -536,6 +536,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/year-in-cards`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/card-nim`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/grail-watch`, lastModified: new Date(), changeFrequency: 'hourly', priority: 0.8 },
+    { url: `${BASE_URL}/card-companies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ];
 
   // Dynamic guide pages from guides-data.ts
