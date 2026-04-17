@@ -151,6 +151,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-dozen', name: 'Card Dozen', desc: 'Twelve cards, thirty seconds \u2014 pick the three worth the most money', daily: true },
       { href: '/card-pincer', name: 'Card Pincer', desc: 'Ten rounds, sixty seconds \u2014 pinch the two cards that share the rule', daily: true },
       { href: '/card-tower-climb', name: 'Card Tower Climb', desc: 'Climb 10 floors of a card tower \u2014 one safe tile per floor, multipliers compound, cash out before you fall', daily: true },
+      { href: '/card-nim', name: 'Card Nim', desc: 'The classic 21-game. Take 1, 2, or 3 cards \u2014 whoever takes the last one loses. Pure game theory.' },
     ],
   },
   {
