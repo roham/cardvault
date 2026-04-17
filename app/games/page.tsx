@@ -59,6 +59,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/guess-the-card', name: 'Guess the Card', desc: 'Wordle-style daily card puzzle — 6 tries' },
       { href: '/card-detective', name: 'Card Detective', desc: 'Identify mystery cards from progressive clues' },
       { href: '/card-connections', name: 'Card Connections', desc: 'Link two players through shared attributes' },
+      { href: '/card-oddball', name: 'Card Oddball', desc: 'Four cards, three share a trait \u2014 spot the outlier. 5 daily puzzles.', daily: true },
       { href: '/card-timeline', name: 'Card Timeline', desc: 'Sort 7 cards in chronological order' },
       { href: '/card-typing', name: 'Card Typing', desc: 'Speed typing game with player names' },
       { href: '/card-wordle', name: 'Card Wordle', desc: 'Guess mystery player in 6 tries with clues' },
