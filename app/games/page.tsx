@@ -149,6 +149,7 @@ const categories: { title: string; icon: string; color: string; games: GameLink[
       { href: '/card-dig', name: 'Card Dig', desc: 'Excavate 6 buried cards from dirt, clay, and rock', daily: true },
       { href: '/card-mastermind', name: 'Card Mastermind', desc: 'Deduce a mystery card\u2019s decade, sport, rookie status, and value tier in 10 guesses', daily: true },
       { href: '/card-dozen', name: 'Card Dozen', desc: 'Twelve cards, thirty seconds \u2014 pick the three worth the most money', daily: true },
+      { href: '/card-tower-climb', name: 'Card Tower Climb', desc: 'Climb 10 floors of a card tower \u2014 one safe tile per floor, multipliers compound, cash out before you fall', daily: true },
     ],
   },
   {
